@@ -57,6 +57,7 @@ def increment_counter():
 
 
 def reset_counter():
+    global counter
     counter = 0
     counter_strvar.set(str(counter))
 
