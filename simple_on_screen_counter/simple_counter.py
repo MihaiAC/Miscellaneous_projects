@@ -1,4 +1,6 @@
 import time
+import keyboard
+import sys
 from tkinter import *
 from tkinter import messagebox
  
@@ -33,7 +35,7 @@ global counter
 global MAX_COUNTER_VAL
 
 counter = 0
-MAX_COUNTER_VAL = 3
+MAX_COUNTER_VAL = 99
 
 # User input - not needed for now.  
 # secondEntry= Entry(root, width=3, font=("Arial",18,""),
@@ -49,10 +51,8 @@ def increment_counter():
         # Update GUI window.
         root.update()
   
-        # when temp value = 0; then a messagebox pop's up
-        # with a message:"Time's up"
     else:
-        messagebox.showinfo("Simple counter notification", "Max counter value reached, resetting to 0.")
+        messagebox.showinfo("Max value reached", "Max counter value reached, resetting to 0.")
         
         counter = 0
         counter_strvar.set(str(counter))
@@ -61,19 +61,18 @@ def increment_counter():
 
 
 def reset_counter():
-    messagebox.showinfo("Simple counter notification", "Resetting counter.")
-    time.sleep(1)
-
     counter = 0
     counter_strvar.set(str(counter))
 
     root.update()
 
-# button widget
-increment_btn = Button(root, text='Increment counter', bd='5', command=increment_counter)
-increment_btn.place(x=70, y=120)
+def close_counter():
+    global root
+    root.quit()
+    sys.exit()
 
-reset_btn = Button(root, text="Reset counter", bd='5', command=reset_counter)
-reset_btn.place(x=70, y=150)
+keyboard.add_hotkey('`', increment_counter)
+keyboard.add_hotkey('ctrl+`', reset_counter)
+keyboard.add_hotkey('alt+`', close_counter)
 
 root.mainloop()
