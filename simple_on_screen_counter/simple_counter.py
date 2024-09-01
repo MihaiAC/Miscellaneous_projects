@@ -4,8 +4,21 @@ from tkinter import messagebox
  
  
 root = Tk()
+# Make background transparent.
+root.configure(bg="")
+
+# Places the window on the screen.
+root.geometry("+250+250")
+
+# Brings window on top of all other windows.
+root.wm_attributes("-topmost", True)
+root.wm_attributes("-transparentcolor", "white")
+
 root.geometry("300x250")
 root.title("Simple Counter")
+
+# Make window not resizable.
+root.resizable(width=False, height=False)
   
 # Declaration of variables
 counter_strvar = StringVar()
