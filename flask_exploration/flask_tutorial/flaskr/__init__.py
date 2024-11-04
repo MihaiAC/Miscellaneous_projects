@@ -21,11 +21,17 @@ def create_app(test_config=None):
     
     # Is this import good practice?
     from . import db
+    
     # Initialise the database.
     db.init_app(app)
 
-    @app.route('/hello/')
-    def hello():
-        return 'Hello, World!'
+    # Register the authentication BP.
+    from . import auth
+    app.register_blueprint(auth.bp) 
+
+    # Register the blog bluepprint.
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
     
     return app
