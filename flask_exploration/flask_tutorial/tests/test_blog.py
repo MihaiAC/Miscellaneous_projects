@@ -15,6 +15,29 @@ def test_index(client, auth):
     assert b'test\nbody' in response.data
     assert b'href="/1/update"' in response.data
 
+def test_view_existing_single_post(client, auth):
+    response = client.get('/1/view')
+    assert b"Log In" in response.data
+    assert b"Register" in response.data
+    assert b'by test on 2018-01-01' in response.data
+    assert b'test title' in response.data
+    assert b'test\nbody' in response.data
+    assert b'Return to main page.' in response.data
+
+    auth.login()
+    response = client.get('/1/view')
+    assert b'by test on 2018-01-01' in response.data
+    assert b'test title' in response.data
+    assert b'test\nbody' in response.data
+    assert b'Return to main page.' in response.data
+    assert b'href="/1/update"' in response.data
+
+def test_view_inexistent_single_post(client):
+    assert client.get('/10/view').status_code == 404
+    response = client.get('/10/view')
+    assert b'Post not found' in response.data
+    assert b'Return to main page.' in response.data
+
 @pytest.mark.parametrize('path', (
     '/create',
     '/1/update',

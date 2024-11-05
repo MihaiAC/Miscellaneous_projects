@@ -95,3 +95,24 @@ def delete(id):
     db.execute('DELETE FROM post WHERE id = ?', (post_id,))
     db.commit()
     return redirect(url_for('blog.index'))
+
+# Viewing a single post.
+@bp.route('/<int:id>/view', methods=("GET",))
+def view_post(id):
+    db = get_db()
+    post = db.execute(        
+        'SELECT p.id, title, body, created, author_id, username'
+        ' FROM post p JOIN user u ON p.author_id = u.id'
+        ' WHERE p.id = ?'
+        ' ORDER BY created DESC', (id,)
+        ).fetchone()
+    
+    if post is None:
+        abort(404)
+    
+    return render_template('blog/single_post.html', post=post)
+
+# Return 404 if post is not found.
+@bp.errorhandler(404)
+def post_not_found(error):
+    return render_template('blog/404.html'), 404

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %} Post not found {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h1>
+    <a href="{{ url_for('blog.index') }}">Return to main page.
+    </a>
+</h1>
+{% endblock %}
