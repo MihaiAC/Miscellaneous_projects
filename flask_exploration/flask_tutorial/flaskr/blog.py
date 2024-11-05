@@ -17,7 +17,16 @@ def index():
         ' ORDER BY created DESC'
     ).fetchall()
     
-    return render_template('blog/index.html', posts=posts)
+    user_likes = [False]*len(posts)
+    if g.user is not None:
+        for post_idx, post in enumerate(posts):
+            liked = db.execute('SELECT * FROM likes WHERE user_id=? AND post_id=?', (g.user['id'], post['id'])).fetchone()
+            if liked is not None:
+                user_likes[post_idx] = True
+            else:
+                user_likes[post_idx] = False
+
+    return render_template('blog/index.html', posts=posts, user_likes=user_likes)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
@@ -93,6 +102,10 @@ def delete(id):
     get_post(post_id)
     db = get_db()
     db.execute('DELETE FROM post WHERE id = ?', (post_id,))
+    db.execute(
+        'DELETE FROM likes WHERE post_id = ?',
+        (post_id,)
+    )
     db.commit()
     return redirect(url_for('blog.index'))
 
@@ -116,3 +129,27 @@ def view_post(id):
 @bp.errorhandler(404)
 def post_not_found(error):
     return render_template('blog/404.html'), 404
+
+# Add like/dislike functionality.
+@bp.route('/<int:id>/like', methods=("GET",))
+@login_required
+def like_post(id):
+    db = get_db()
+    db.execute(
+        'INSERT INTO likes (user_id, post_id) '
+        ' VALUES (?, ?)',
+        (g.user['id'], id)
+    )
+    db.commit()
+    return redirect(request.referrer)
+
+@bp.route('/<int:id>/unlike', methods=("GET",))
+@login_required
+def unlike_post(id):
+    db = get_db()
+    db.execute(
+        'DELETE FROM likes WHERE user_id = ? AND post_id = ?',
+        (g.user['id'], id)
+    )
+    db.commit()
+    return redirect(request.referrer)

@@ -32,6 +32,27 @@ def test_view_existing_single_post(client, auth):
     assert b'Return to main page.' in response.data
     assert b'href="/1/update"' in response.data
 
+def test_like_functionality(app, client, auth):
+    auth.login()
+    client.get('/1/like')
+    response = client.get('/')
+    assert b'You liked this post' in response.data
+    
+    with app.app_context():
+        db = get_db()
+        like_exists = db.execute('SELECT * FROM likes WHERE user_id=1 AND post_id=1').fetchone()
+        assert like_exists is not None
+
+    client.get('/1/unlike')
+    response = client.get('/')
+    assert b'You liked this post' not in response.data
+    assert b'Like post' in response.data
+    
+    with app.app_context():
+        db = get_db()
+        like_exists = db.execute('SELECT * FROM likes WHERE user_id=1 AND post_id=1').fetchone()
+        assert like_exists is None
+
 def test_view_inexistent_single_post(client):
     assert client.get('/10/view').status_code == 404
     response = client.get('/10/view')

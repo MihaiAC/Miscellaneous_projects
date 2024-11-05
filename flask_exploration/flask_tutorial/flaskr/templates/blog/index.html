@@ -18,6 +18,12 @@
         {% if g.user['id'] == post['author_id'] %}
         <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
         {% endif %}
+        {% if g.user and user_likes[loop.index0] %}
+        You liked this post
+        <a href="{{ url_for('blog.unlike_post', id=post['id']) }}"> Revert like </a>
+        {% else %}
+        <a href="{{ url_for('blog.like_post', id=post['id']) }}"> Like post </a>
+        {% endif %}
     </header>
     <p class="body">{{ post['body'] }}</p>
 </article>
