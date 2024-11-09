@@ -26,6 +26,7 @@ packaging=24.1=pyhd8ed1ab_0
 pip=24.3.1=pyh145f28c_0
 pluggy=1.5.0=pyhd8ed1ab_0
 pytest=8.3.3=pyhd8ed1ab_0
+pytest-timeout=2.3.1=pyhd8ed1ab_1
 python=3.13.0=hf5aa216_100_cp313
 python_abi=3.13=5_cp313
 redis-py=4.3.4=py313haa95532_0
