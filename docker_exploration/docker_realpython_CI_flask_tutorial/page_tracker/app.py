@@ -6,6 +6,7 @@ from redis import Redis, RedisError
 
 app = Flask(__name__)
 
+
 @app.get("/")
 def index():
     try:
@@ -16,6 +17,9 @@ def index():
     else:
         return f"This page has been seen {page_views} times."
 
+
 @cache
 def redis():
-    return Redis.from_url(os.getenv("REDIS_URL", default="redis://localhost:6379"))
+    return Redis.from_url(
+        os.getenv("REDIS_URL", default="redis://localhost:6379")
+        )
