@@ -36,10 +36,3 @@ RUN python -m pytest test/unit/
 #    python -m bandit -r page_tracker/ --quiet
 #   python -m pylint page_tracker/ --disable=C0114,C0116,R1705
 
-EXPOSE 5000
-
-# Run the flask app.
-ENTRYPOINT ["conda", "run", "-n", "flask", \
-    "flask", "--app", "page_tracker.app", "run", \
-    "--host", "0.0.0.0", "--port", "5000"]
-

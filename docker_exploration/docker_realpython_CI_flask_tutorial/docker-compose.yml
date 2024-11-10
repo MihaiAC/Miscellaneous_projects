@@ -1,6 +1,8 @@
 services:
   redis_service:
     image: "redis:7.0.10-bullseye"
+    ports:
+      - "6379:6379"
     networks:
       - backend_network
     volumes:
@@ -15,8 +17,20 @@ services:
       - backend_network
     depends_on:
       - redis_service
-    command: "gunicorn page_tracker.app:app --bind 0.0.0.0:8000"
-
+    command: "conda run -n flask gunicorn page_tracker.app:app --bind 0.0.0.0:8000"
+  test_service:
+    profiles:
+      - testing
+    build: ./web
+    environment:
+      - REDIS_URL=redis://redis_service:6379
+      - FLASK_URL=http://web_service:8000
+    networks:
+      - backend_network
+    depends_on:
+      - redis_service
+      - web_service
+    command: sh -c 'conda run -n flask python -m pytest test/e2e/ -v --redis-url $$REDIS_URL --flask-url $$FLASK_URL'
 networks:
   backend_network:
 
