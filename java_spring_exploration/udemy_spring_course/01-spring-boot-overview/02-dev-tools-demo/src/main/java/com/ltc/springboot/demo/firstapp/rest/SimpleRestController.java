@@ -9,4 +9,10 @@ public class SimpleRestController {
     public String sayHello() {
         return "Hello world!";
     }
+
+    //Test devtools.
+    @GetMapping("/devtools")
+    public String simpleDevtoolsTest() {
+        return "It works!";
+    }
 }
