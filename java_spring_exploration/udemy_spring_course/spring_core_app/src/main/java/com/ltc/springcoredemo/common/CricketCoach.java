@@ -13,20 +13,21 @@ public class CricketCoach implements Coach {
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
 
-    // Define init method.
-    @PostConstruct
-    public void initializeBean() {
-        System.out.println("Initialized bean: " + getClass().getSimpleName());
-    }
-
-    // Define destroy method.
-    @PreDestroy
-    public void cleanupBean() {
-        System.out.println("Called pre-destroy bean: " + getClass().getSimpleName());
-    }
-
     @Override
     public String getDailyWorkout() {
         return "Do some cricket training.";
     }
+//    // Define init method.
+//    @PostConstruct
+//    public void initializeBean() {
+//        System.out.println("Initialized bean: " + getClass().getSimpleName());
+//    }
+//
+//    // Define destroy method.
+//    @PreDestroy
+//    public void cleanupBean() {
+//        System.out.println("Called pre-destroy bean: " + getClass().getSimpleName());
+//    }
+
+
 }
