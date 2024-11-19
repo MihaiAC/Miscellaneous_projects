@@ -1,4 +1,4 @@
-package com.ltc.springcoredemo.common;
+package com.ltc.util;
 
 import org.springframework.stereotype.Component;
 
