@@ -10,9 +10,8 @@ public class DemoController {
     // Private field for the dependency.
     private Coach myCoach;
 
-    // Setter injection.
     @Autowired
-    public void setCoach(Coach theCoach) {
+    public DemoController(Coach theCoach) {
         myCoach = theCoach;
     }
 
