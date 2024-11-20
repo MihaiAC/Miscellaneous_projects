@@ -4,8 +4,10 @@ services:
         container_name: mysql-container
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+        command: --init-file /data/application/init.sql
         volumes:
             - mysql-volume:/var/lib/mysql
+            - ./init.sql:/data/application/init.sql
         ports:
             - "3306:3306"
 
