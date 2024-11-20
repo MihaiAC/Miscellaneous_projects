@@ -7,10 +7,16 @@ import java.util.List;
 public interface StudentDAO {
     // C
     void save(Student theStudent);
+
     // R
     Student findById(Integer id);
 
     List<Student> findAll();
 
     List<Student> findByLastName(String theLastName);
+
+    // U
+    void update(Student theStudent);
+
+    
 }
