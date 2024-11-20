@@ -18,8 +18,22 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		// Create a new student object
+		Student tempStudent = new Student("firstname", "lastname", "firstname.lastname@ltc.com");
+
+		// Save the object.
+		studentDAO.save(tempStudent);
+
+		// Read the object from the db.
+		Student readStudent = studentDAO.findById(tempStudent.getId());
+
+		// Print the object you just read.
+		System.out.println("Read the following object from the db: " + readStudent);
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
@@ -46,5 +60,7 @@ public class CruddemoApplication {
 		studentDAO.save(tempStudent2);
 		studentDAO.save(tempStudent3);
 	}
+
+
 
 }
