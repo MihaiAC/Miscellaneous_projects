@@ -3,12 +3,14 @@ package com.ltc.springboot.thymeleafdemo.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BasicFormController {
-    @RequestMapping("/showForm")
+    @GetMapping("/showForm")
     public String showForm() {
         return "basicform";
     }
@@ -33,7 +35,7 @@ public class BasicFormController {
         return "basicformresponse";
     }
 
-    @RequestMapping("/processFormVersionThree")
+    @PostMapping("/processFormVersionThree")
     public String processFormVersionThree(@RequestParam("studentName") String name, Model model) {
         // Capitalise user input.
         String capitalised_name = name.toUpperCase() + "three";
