@@ -9,6 +9,10 @@
 <h3>Student Registration Form</h3>
 
 Received student: <span th:text="${student.firstName} + ' ' + ${student.lastName} + ' ' + ${student.country} + ' ' + ${student.programmingLanguage}"></span>
-
+<br>
+Favorite Operating Systems:
+<ul>
+  <li th:each="tempSystem: ${student.favoriteSystems}" th:text="${tempSystem}"></li>
+</ul>
 </body>
 </html>
