@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BasicFormController {
@@ -25,6 +26,17 @@ public class BasicFormController {
 
         // Capitalise user input.
         String capitalised_name = name.toUpperCase();
+
+        // Create a model variable containing the transformed input.
+        model.addAttribute("message", capitalised_name);
+
+        return "basicformresponse";
+    }
+
+    @RequestMapping("/processFormVersionThree")
+    public String processFormVersionThree(@RequestParam("studentName") String name, Model model) {
+        // Capitalise user input.
+        String capitalised_name = name.toUpperCase() + "three";
 
         // Create a model variable containing the transformed input.
         model.addAttribute("message", capitalised_name);
