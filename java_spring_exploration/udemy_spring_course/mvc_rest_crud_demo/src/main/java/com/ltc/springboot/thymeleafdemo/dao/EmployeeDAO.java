@@ -1,10 +1,10 @@
-package com.ltc.springboot.cruddemo.service;
+package com.ltc.springboot.thymeleafdemo.dao;
 
-import com.ltc.springboot.cruddemo.entity.Employee;
+import com.ltc.springboot.thymeleafdemo.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeService {
+public interface EmployeeDAO {
     List<Employee> findAll();
     Employee findById(int employeeId);
     Employee save(Employee employee);

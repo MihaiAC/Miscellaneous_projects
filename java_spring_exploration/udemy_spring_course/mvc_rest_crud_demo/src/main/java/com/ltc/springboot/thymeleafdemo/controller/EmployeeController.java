@@ -1,7 +1,7 @@
-package com.ltc.springboot.cruddemo.controller;
+package com.ltc.springboot.thymeleafdemo.controller;
 
-import com.ltc.springboot.cruddemo.entity.Employee;
-import com.ltc.springboot.cruddemo.service.EmployeeService;
+import com.ltc.springboot.thymeleafdemo.entity.Employee;
+import com.ltc.springboot.thymeleafdemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

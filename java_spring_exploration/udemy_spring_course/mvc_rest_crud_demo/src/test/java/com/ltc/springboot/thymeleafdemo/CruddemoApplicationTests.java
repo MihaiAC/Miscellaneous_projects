@@ -1,4 +1,4 @@
-package com.ltc.springboot.cruddemo;
+package com.ltc.springboot.thymeleafdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
