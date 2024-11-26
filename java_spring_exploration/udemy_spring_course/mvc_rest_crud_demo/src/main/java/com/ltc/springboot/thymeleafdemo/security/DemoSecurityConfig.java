@@ -15,7 +15,15 @@ public class DemoSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
                 configurer ->
-                configurer.anyRequest().authenticated())
+                configurer
+                        .requestMatchers("/").hasAnyRole("EMPLOYEE", "MANAGER", "ADMIN")
+                        .requestMatchers("/employees/list").hasAnyRole("MANAGER", "ADMIN")
+                        .requestMatchers("/employees/showFormForAdd").hasRole("ADMIN")
+                        .requestMatchers("/employees/showFormForUpdate").hasRole("ADMIN")
+                        .requestMatchers("/employees/save").hasRole("ADMIN")
+                        .requestMatchers("/employees/delete").hasRole("ADMIN")
+
+                        .anyRequest().authenticated())
                 .formLogin(form ->
                         form.loginPage("/showMyLoginPage").loginProcessingUrl("/authenticateTheUser").permitAll()
         )

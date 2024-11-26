@@ -19,6 +19,9 @@
         Role(s): <span sec:authentication="principal.authorities"></span>
     </p>
     <hr>
+    <p>
+        <a th:href="@{/employees/list}">Go to employees list</a>
+    </p>
     <form action="#" th:action="@{/logout}" method="POST">
         <input type="submit" value="Logout">
     </form>
