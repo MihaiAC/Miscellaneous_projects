@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title> Employee Directory </title>
@@ -32,15 +33,17 @@
             <td th:text="${tempEmployee.lastName}"></td>
             <td th:text="${tempEmployee.email}"></td>
             <td>
-                <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
-                class="btn btn-info btn-sm">
-                    Update
-                </a>
-                <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
-                class="btn btn-danger btn-sm"
-                onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
-                Delete
-                </a>
+                <div sec:authorize="hasRole('ADMIN')">
+                    <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
+                    class="btn btn-info btn-sm">
+                        Update
+                    </a>
+                    <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
+                    class="btn btn-danger btn-sm"
+                    onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                    Delete
+                    </a>
+                </div>
             </td>
         </tr>
         </tbody>
