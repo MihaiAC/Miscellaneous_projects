@@ -18,13 +18,28 @@ public class MappingdemoApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			findInstructor(appDAO);
+			// findInstructor(appDAO);
 			// createInstructor(appDAO);
+			//deleteInstructor(appDAO);
+			findInstructorDetails(appDAO);
 		};
 	}
 
-	private void findInstructor(AppDAO appDAO) {
+	private void findInstructorDetails(AppDAO appDAO) {
 		int id = 1;
+		InstructorDetail instructorDetail = appDAO.findInstructorDetailById(id);
+		System.out.println(instructorDetail);
+		System.out.println(instructorDetail.getInstructor());
+	}
+
+	private void deleteInstructor(AppDAO appDAO) {
+		int id = 1;
+		System.out.println("Deleting instructor with id: " + id);
+		appDAO.deleteInstructorById(id);
+	}
+
+	private void findInstructor(AppDAO appDAO) {
+		int id = 3;
 		System.out.println("Finding instructor with id: " + id);
 		Instructor instructor = appDAO.findInstructorById(id);
 		System.out.println(instructor);
