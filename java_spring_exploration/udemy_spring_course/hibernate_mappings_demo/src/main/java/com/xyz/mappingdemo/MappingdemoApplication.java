@@ -1,5 +1,8 @@
 package com.xyz.mappingdemo;
 
+import com.xyz.mappingdemo.dao.AppDAO;
+import com.xyz.mappingdemo.entity.Instructor;
+import com.xyz.mappingdemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +16,19 @@ public class MappingdemoApplication {
 	}
 
     @Bean
-	public CommandLineRunner commandLineRunner(String[] args) {
+	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			System.out.println("placeholder");
+			createInstructor(appDAO);
 		};
+	}
+
+	private void createInstructor(AppDAO appDAO) {
+		Instructor instructor = new Instructor("X", "YZ", "xyz@xyz.com");
+		InstructorDetail instructorDetail = new InstructorDetail("youtubexyz", "stargazing");
+		instructor.setInstructorDetail(instructorDetail);
+
+		System.out.println("Saving instructor: " + instructor);
+		appDAO.save(instructor);
 	}
 
 }
