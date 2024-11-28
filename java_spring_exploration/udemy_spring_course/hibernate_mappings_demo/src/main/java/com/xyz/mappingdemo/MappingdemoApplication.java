@@ -19,10 +19,10 @@ public class MappingdemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
 			// findInstructor(appDAO);
-			// createInstructor(appDAO);
-			//deleteInstructor(appDAO);
+			createInstructor(appDAO);
+			// deleteInstructor(appDAO);
 			// findInstructorDetails(appDAO);
-			deleteInstructorDetail(appDAO);
+			// deleteInstructorDetail(appDAO);
 		};
 	}
 
