@@ -22,8 +22,16 @@ public class MappingdemoApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			createCourseAndReviews(appDAO);
+			// createCourseAndReviews(appDAO);
+			retrieveCourseAndReviews(appDAO);
 		};
+	}
+
+	private void retrieveCourseAndReviews(AppDAO appDAO) {
+		int courseId = 10;
+		Course course = appDAO.findCourseAndReviewsByCourseId(courseId);
+		System.out.println(course);
+		System.out.println(course.getReviews());
 	}
 
 	private void createCourseAndReviews(AppDAO appDAO) {
