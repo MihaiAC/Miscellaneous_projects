@@ -1,6 +1,7 @@
 package com.xyz.mappingdemo;
 
 import com.xyz.mappingdemo.dao.AppDAO;
+import com.xyz.mappingdemo.entity.Course;
 import com.xyz.mappingdemo.entity.Instructor;
 import com.xyz.mappingdemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -19,11 +20,26 @@ public class MappingdemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
 			// findInstructor(appDAO);
-			createInstructor(appDAO);
+			// createInstructor(appDAO);
 			// deleteInstructor(appDAO);
 			// findInstructorDetails(appDAO);
 			// deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		Instructor instructor = new Instructor("X", "YZ", "xyz@xyz.com");
+		InstructorDetail instructorDetail = new InstructorDetail("youtubexyz", "stargazing");
+		instructor.setInstructorDetail(instructorDetail);
+
+		Course course1 = new Course("Course1");
+		Course course2 = new Course("Course2");
+
+		instructor.add(course1);
+		instructor.add(course2);
+
+		appDAO.save(instructor);
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
