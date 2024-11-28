@@ -30,8 +30,18 @@ public class MappingdemoApplication {
 			// findInstructorWithCourses(appDAO);
 			// findCoursesForInstructor(appDAO);
 			// findInstructorWithCoursesJoinFetch(appDAO);
-			updateInstructor(appDAO);
+			// updateInstructor(appDAO);
+			updateCourse(appDAO);
 		};
+	}
+
+	private void updateCourse(AppDAO appDAO) {
+		int courseId = 10;
+		Course course = appDAO.findCourseById(courseId);
+		System.out.println("Found course: " + course);
+		course.setTitle("New test title");
+		appDAO.update(course);
+		System.out.println("Updated course: " + appDAO.findCourseById(courseId));
 	}
 
 	private void updateInstructor(AppDAO appDAO) {
