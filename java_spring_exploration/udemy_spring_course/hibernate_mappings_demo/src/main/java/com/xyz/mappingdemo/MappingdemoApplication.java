@@ -21,17 +21,6 @@ public class MappingdemoApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			// findInstructor(appDAO);
-			// createInstructor(appDAO);
-			// deleteInstructor(appDAO);
-			// findInstructorDetails(appDAO);
-			// deleteInstructorDetail(appDAO);
-			// createInstructorWithCourses(appDAO);
-			// findInstructorWithCourses(appDAO);
-			// findCoursesForInstructor(appDAO);
-			// findInstructorWithCoursesJoinFetch(appDAO);
-			// updateInstructor(appDAO);
-			// updateCourse(appDAO);
 			deleteCourse(appDAO);
 		};
 	}
