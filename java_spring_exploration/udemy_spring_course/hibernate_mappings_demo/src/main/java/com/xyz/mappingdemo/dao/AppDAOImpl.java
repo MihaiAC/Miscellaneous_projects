@@ -101,4 +101,11 @@ public class AppDAOImpl implements AppDAO {
         Course course = entityManager.find(Course.class, courseId);
         entityManager.remove(course);
     }
+
+    @Override
+    @Transactional
+    public void save(Course course) {
+        // Will also save associated reviews.
+        entityManager.persist(course);
+    }
 }

@@ -4,6 +4,7 @@ import com.xyz.mappingdemo.dao.AppDAO;
 import com.xyz.mappingdemo.entity.Course;
 import com.xyz.mappingdemo.entity.Instructor;
 import com.xyz.mappingdemo.entity.InstructorDetail;
+import com.xyz.mappingdemo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +22,19 @@ public class MappingdemoApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			deleteCourse(appDAO);
+			createCourseAndReviews(appDAO);
 		};
+	}
+
+	private void createCourseAndReviews(AppDAO appDAO) {
+		Course course = new Course("Some course");
+		course.addReview(new Review("Great course!"));
+		course.addReview(new Review("Nice buddy ch"));
+		course.addReview(new Review("Mean review"));
+
+		appDAO.save(course);
+
+		System.out.println(appDAO.findCourseById(1));
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
