@@ -1,10 +1,7 @@
 package com.xyz.mappingdemo;
 
 import com.xyz.mappingdemo.dao.AppDAO;
-import com.xyz.mappingdemo.entity.Course;
-import com.xyz.mappingdemo.entity.Instructor;
-import com.xyz.mappingdemo.entity.InstructorDetail;
-import com.xyz.mappingdemo.entity.Review;
+import com.xyz.mappingdemo.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,8 +19,26 @@ public class MappingdemoApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			retrieveCourseAndReviews(appDAO);
+			findCourseAndStudents(appDAO);
 		};
+	}
+
+	private void findCourseAndStudents(AppDAO appDAO) {
+		int courseId = 10;
+		Course course = appDAO.findCourseAndStudentsByCourseId(courseId);
+		System.out.println(course);
+		System.out.println(course.getStudents());
+	}
+
+	private void createCourseAndStudents(AppDAO appDAO) {
+		Course course = new Course("Course1");
+		Student student1 = new Student("fA", "lA", "fAlA@xyz.com");
+		Student student2 = new Student("fB", "lB", "fBlB@xyz.com");
+
+		course.addStudent(student1);
+		course.addStudent(student2);
+
+		appDAO.save(course);
 	}
 
 	private void retrieveCourseAndReviews(AppDAO appDAO) {
