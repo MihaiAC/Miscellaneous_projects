@@ -4,10 +4,10 @@ services:
         container_name: mysql-mappings
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-        command: --init-file /data/application/one-to-one-uni-init.sql
+        command: --init-file /data/application/${INIT_SQL}
         volumes:
             - mysql-volume:/var/lib/mysql
-            - ./one-to-one-uni-init.sql:/data/application/one-to-one-uni-init.sql
+            - ./${INIT_SQL}:/data/application/${INIT_SQL}
         ports:
             - "3306:3306"
 
