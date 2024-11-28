@@ -19,7 +19,7 @@ public class MappingdemoApplication {
     @Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			addMoreCoursesForStudent(appDAO);
+			deleteCourse(appDAO);
 		};
 	}
 
