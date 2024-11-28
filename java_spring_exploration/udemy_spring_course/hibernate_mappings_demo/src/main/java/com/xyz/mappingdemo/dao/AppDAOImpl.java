@@ -3,6 +3,7 @@ package com.xyz.mappingdemo.dao;
 import com.xyz.mappingdemo.entity.Course;
 import com.xyz.mappingdemo.entity.Instructor;
 import com.xyz.mappingdemo.entity.InstructorDetail;
+import com.xyz.mappingdemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
@@ -125,6 +126,15 @@ public class AppDAOImpl implements AppDAO {
                 "select c from Course c JOIN FETCH c.students where c.id=:data", Course.class
         );
         query.setParameter("data", courseId);
+        return query.getSingleResult();
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int studentId) {
+        TypedQuery<Student> query = entityManager.createQuery(
+                "select s from Student s JOIN FETCH s.courses where s.id=:data", Student.class
+        );
+        query.setParameter("data", studentId);
         return query.getSingleResult();
     }
 }
