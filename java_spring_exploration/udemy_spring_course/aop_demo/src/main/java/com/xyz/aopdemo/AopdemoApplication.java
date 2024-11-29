@@ -19,7 +19,8 @@ public class AopdemoApplication {
 
 	private void demoBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
 		membershipDAO.addAccount();
-		accountDAO.addAccount();
+		Account account = new Account("FN", "LN");
+		accountDAO.addAccount(account);
 	}
 
 	public static void main(String[] args) {
