@@ -19,6 +19,11 @@ public class DemoLoggingAspect {
 
     @Before("pointcutDaoPackage()")
     public void beforeAddAccountAdvice() {
-        System.out.println("Executing @Before advice on addAccount");
+        System.out.println("Logging placeholder");
+    }
+
+    @Before("pointcutDaoPackage()")
+    public void beforeSecurityAdvice() {
+        System.out.println("Security placeholder");
     }
 }
