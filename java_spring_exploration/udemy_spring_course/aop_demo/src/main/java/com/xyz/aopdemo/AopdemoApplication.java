@@ -1,6 +1,7 @@
 package com.xyz.aopdemo;
 
 import com.xyz.aopdemo.dao.AccountDAO;
+import com.xyz.aopdemo.dao.MembershipDAO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,13 +11,14 @@ import org.springframework.context.annotation.Bean;
 public class AopdemoApplication {
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO accountDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO accountDAO, MembershipDAO membershipDAO) {
 		return runner -> {
-			demoBeforeAdvice(accountDAO);
+			demoBeforeAdvice(accountDAO, membershipDAO);
 		};
 	}
 
-	private void demoBeforeAdvice(AccountDAO accountDAO) {
+	private void demoBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
+		membershipDAO.addAccount();
 		accountDAO.addAccount();
 	}
 
