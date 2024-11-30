@@ -53,6 +53,15 @@ public class BaseExpressions {
         String method = joinPoint.getSignature().toShortString();
         System.out.println("Executing after returning from: " + method);
         System.out.println("Result is: " + result);
+
+        convertAccountNamesToUpperCase(result);
+    }
+
+    private void convertAccountNamesToUpperCase(List<Account> result) {
+        for (Account account : result) {
+            String upperName = account.getName().toUpperCase();
+            account.setName(upperName);
+        }
     }
 
 }
