@@ -1,5 +1,6 @@
 package com.xyz.aopdemo.aspect;
 
+import com.xyz.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -26,9 +27,19 @@ public class BaseExpressions {
     public void forDaoPackageNoGetterSetter() {}
 
     @Before("forDaoPackageNoGetterSetter()")
-    public void beforeSignatureAndParamsAdvice(JoinPoint jointPoint) {
-        MethodSignature methodSignature = (MethodSignature) jointPoint.getSignature();
+    public void beforeSignatureAndParamsAdvice(JoinPoint joinPoint) {
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         System.out.println("Method: " + methodSignature);
+
+        Object[] args = joinPoint.getArgs();
+        for (Object tmpArg: args) {
+            System.out.println(tmpArg);
+            if (tmpArg instanceof Account) {
+                Account account = (Account) tmpArg;
+                System.out.println(account.getName());
+                System.out.println(account.getLevel());
+            }
+        }
     }
 
 }
