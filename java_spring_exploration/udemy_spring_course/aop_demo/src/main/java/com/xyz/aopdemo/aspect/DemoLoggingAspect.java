@@ -17,13 +17,25 @@ public class DemoLoggingAspect {
     @Pointcut("execution(* com.xyz.aopdemo.dao.*.*(..))")
     private void pointcutDaoPackage() { }
 
-    @Before("pointcutDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice() {
         System.out.println("Logging placeholder");
     }
 
-    @Before("pointcutDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeSecurityAdvice() {
         System.out.println("Security placeholder");
     }
+
+    // Create a pointcut for getter methods.
+    @Pointcut("execution(* com.xyz.aopdemo.dao.*.get*(..))")
+    private void getter() {}
+
+    // Create a pointcut for setter methods.
+    @Pointcut("execution(* com.xyz.aopdemo.dao.*.set*(..))")
+    private void setter() {}
+
+    // Create a pointcut for the package, but exclude the getters and setters.
+    @Pointcut("pointcutDaoPackage() && !(getter() || setter())")
+    private void forDaoPackageNoGetterSetter() {}
 }

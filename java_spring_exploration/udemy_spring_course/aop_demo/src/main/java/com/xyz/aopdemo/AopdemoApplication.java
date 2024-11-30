@@ -21,6 +21,13 @@ public class AopdemoApplication {
 		membershipDAO.addAccount();
 		Account account = new Account("FN", "LN");
 		accountDAO.addAccount(account);
+
+		accountDAO.setName("foobar");
+		accountDAO.setServiceCode("silver");
+
+		String name = accountDAO.getName();
+		String serviceCode = accountDAO.getServiceCode();
+
 	}
 
 	public static void main(String[] args) {
