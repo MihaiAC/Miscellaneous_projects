@@ -1,0 +1,1 @@
+Django "apps" are re-usable submodules/packages.
