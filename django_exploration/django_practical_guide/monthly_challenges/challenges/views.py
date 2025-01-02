@@ -3,13 +3,23 @@ from django.shortcuts import render
 from django.utils.dates import MONTHS
 from django.urls import reverse
 
-def monthly_challenge_by_number(request: HttpRequest, month: int):
-    if 1 <= month <= 12:
-        redirect_path = reverse("monthly-challenge", args=[MONTHS[month]]) # Builds the prefix to the path
-        return HttpResponseRedirect(redirect_path)
-    return HttpResponseNotFound("Invalid month.")
+def index(request: HttpRequest) -> HttpResponse:
+    response_data = ['<ul>']
+    for month in MONTHS.values():
+        month_path = reverse("monthly-challenge", args=[month])
+        response_data.append(f'\n<li><a href="{month_path}">{month}</a></li>')
+    response_data.append('</ul>')
 
-def monthly_challenge(request: HttpRequest, month: str):
+    return HttpResponse("".join(response_data))
+
+def monthly_challenge_by_number(request: HttpRequest, month_nr: int) -> HttpResponse:
+    if 1 <= month_nr <= 12:
+        redirect_path = reverse("monthly-challenge", args=[MONTHS[month_nr]]) # Builds the prefix to the path
+        return HttpResponseRedirect(redirect_path)
+    return HttpResponseNotFound("<h1>Invalid month.</h1>")
+
+def monthly_challenge(request: HttpRequest, month: str) -> HttpResponse:
     if month in MONTHS.values():
-        return HttpResponse(f"Placeholder challenge for {month}")
-    return HttpResponseNotFound("Invalid month.")
+        response_data = f"<h1>Placeholder challenge for {month}</h1>"
+        return HttpResponse(response_data)
+    return HttpResponseNotFound("<h1>Invalid month.</h1>")
