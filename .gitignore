@@ -1,3 +1,4 @@
+*.pyc
+.obsidian/
 docker_exploration/docker_workshop/getting-started-app/
 java_spring_exploration/udemy_spring_course/mvc_rest_crud_demo/src/main/resources/application.properties
-.obsidian/

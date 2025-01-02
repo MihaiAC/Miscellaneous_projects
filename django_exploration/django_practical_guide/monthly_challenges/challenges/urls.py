@@ -3,5 +3,6 @@ from . import views
 
 # path(path, view function)
 urlpatterns = [
-    path("january", views.index)
+    path("january", views.january),
+    path("february", views.february)
 ]
