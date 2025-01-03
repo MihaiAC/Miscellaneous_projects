@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    This Post Title
+    {{ post.title }}
 {% endblock %}
 
 {% block css_files %}
@@ -13,15 +13,15 @@
 
 {% block content %}
 <section id="summary">
-    <h2> Post Title </h2>
+    <h2> {{ post.title }} </h2>
     <article>
-        <img src="" alt="Post Title"/>
-        <address> By Maxo Blog the Bouncy </address>
-        <div> Last updated on <time>December 33rd<time>
+        <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}"/>
+        <address> By {{ post.author }} </address>
+        <div> Last updated on <time>{{ post.date|date:"d M Y" }} <time>
         </div>
     </article>
 </section>
 <main>
-    {% lorem 3 p random %}
+    {{ post.content|linebreaks }}
 </main>
 {% endblock %}
