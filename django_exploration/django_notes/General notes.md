@@ -18,3 +18,6 @@ path(path, view function)
 - HTML templates: `django.shortcuts.render(request, path_to_template, **kwargs)` + modify `TEMPLATES[DIRS]` in `settings.py` OR after initialising an app + adding templates for it, add it in `settings.py INSTALLED_APPS` variable. 
 - Template filters = for small aesthetic transformations on variables we display.
 - Django DTL and tags: url (for redirections, can use the identifiers in urls.py), for, if.
+
+- Loading static files: `{% load static %}` -> `{% static "path_to_css"%}`
+- Global css: add `STATICFILES_DIRS` to settings.
