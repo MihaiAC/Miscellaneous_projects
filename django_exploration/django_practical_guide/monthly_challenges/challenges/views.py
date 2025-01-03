@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound, HttpRequest, HttpResponseRedirect
+from django.http import HttpResponse, Http404, HttpResponseNotFound, HttpRequest, HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.dates import MONTHS
 from django.urls import reverse
@@ -20,7 +20,7 @@ def monthly_challenge_by_number(request: HttpRequest, month_nr: int) -> HttpResp
     if 1 <= month_nr <= 12:
         redirect_path = reverse("monthly-challenge", args=[MONTHS[month_nr]]) # Builds the prefix to the path
         return HttpResponseRedirect(redirect_path)
-    return HttpResponseNotFound("<h1>Invalid month.</h1>")
+    raise Http404()
 
 def monthly_challenge(request: HttpRequest, month: str) -> HttpResponse:
     if month in MONTH_LOWERCASE_NAMES:
@@ -31,4 +31,4 @@ def monthly_challenge(request: HttpRequest, month: str) -> HttpResponse:
             "text": challenge_text,
             "month": month
         })
-    return HttpResponseNotFound("<h1>Invalid month.</h1>")
+    return Http404()
