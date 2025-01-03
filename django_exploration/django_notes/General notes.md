@@ -21,3 +21,4 @@ path(path, view function)
 
 - Loading static files: `{% load static %}` -> `{% static "path_to_css"%}`
 - Global css: add `STATICFILES_DIRS` to settings.
+- Slugs: `<slug:slug_name>` makes sure that the path-is-in-this-format.
