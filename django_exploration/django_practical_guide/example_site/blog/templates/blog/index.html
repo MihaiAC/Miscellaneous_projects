@@ -1,20 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
-    Blog.
+    Blog's blog.
 {% endblock %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %} 
+
+
+
 {% block content %}
-<header id="main-navigation">
-    <h1><a href="">Blog</a></h1>
-    <nav>
-        <a href="">All posts</a>
-    </nav>
-</header>
+
 Welcome to yet another blog app.
 <section id="welcome">
     <header>
-        <img src="" alt="Author of this blog." />
+        <img src="{% static "blog/images/maxo.jpg" %}" alt="Author of this blog." />
         <h2> Blog's blog </j2>
     </header>
     <p>Hi, my name is Blog and this is my blog.</p>
@@ -23,18 +26,17 @@ Welcome to yet another blog app.
 <section id="latest-posts">
     <h2>Latest posts</h2>
     <ul>
-        <li>
-            <article class="post">
-                <a href="">
-                    <img src="" alt="Mountain viking"/>
-                    <div class = "post__content">
-                        <h3>Mountain viking</h3>
-                        <p>I thought we were going hiking 
-                            but I'm dyslexic.</p>
-                    </div>
-                </a>
-            </article>
-        </li>
+        {% include "blog/includes/post.html" %}
+        <br>
+        {% include "blog/includes/post.html" %}
+        <br>
+        {% include "blog/includes/post.html" %}
+        <br>
+        {% include "blog/includes/post.html" %}
+        <br>
+        {% include "blog/includes/post.html" %}
+        <br>
+        {% include "blog/includes/post.html" %}
     </ul>
 </section>
 <section id="about">
