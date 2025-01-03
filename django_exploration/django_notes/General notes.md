@@ -16,3 +16,4 @@ path(path, view function)
 - HttpResponseRedirect
 - There doesn't seem to be a direct equivalent to Spring's DI, which seems a bit inconvenient.
 - HTML templates: `django.shortcuts.render(request, path_to_template, **kwargs)` + modify `TEMPLATES[DIRS]` in `settings.py` OR after initialising an app + adding templates for it, add it in `settings.py INSTALLED_APPS` variable. 
+- Template filters = for small aesthetic transformations on variables we display.

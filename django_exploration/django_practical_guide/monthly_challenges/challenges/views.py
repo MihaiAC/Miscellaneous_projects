@@ -27,6 +27,6 @@ def monthly_challenge(request: HttpRequest, month: str) -> HttpResponse:
         # HTML template.
         return render(request, "challenges/challenge.html", {
             "text": challenge_text,
-            "month": month.capitalize()
+            "month": month
         })
     return HttpResponseNotFound("<h1>Invalid month.</h1>")
