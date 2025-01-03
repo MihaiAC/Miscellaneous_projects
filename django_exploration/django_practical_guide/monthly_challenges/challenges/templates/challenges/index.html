@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All challenges</title>
+</head>
+<body>
+  <ul>
+    {% for month in months %}
+    <li><a href="{% url 'monthly-challenge' month %}">{{ month }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
