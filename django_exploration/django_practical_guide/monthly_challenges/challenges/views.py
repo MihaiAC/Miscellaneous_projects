@@ -2,6 +2,9 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpRequest, HttpRes
 from django.shortcuts import render
 from django.utils.dates import MONTHS
 from django.urls import reverse
+from django.template.loader import render_to_string
+
+MONTH_LOWERCASE_NAMES = [x.lower() for x in MONTHS.values()]
 
 def index(request: HttpRequest) -> HttpResponse:
     response_data = ['<ul>']
@@ -19,7 +22,9 @@ def monthly_challenge_by_number(request: HttpRequest, month_nr: int) -> HttpResp
     return HttpResponseNotFound("<h1>Invalid month.</h1>")
 
 def monthly_challenge(request: HttpRequest, month: str) -> HttpResponse:
-    if month in MONTHS.values():
-        response_data = f"<h1>Placeholder challenge for {month}</h1>"
+    if month in MONTH_LOWERCASE_NAMES:
+        # response_data = f"<h1>Placeholder challenge for {month}</h1>"
+        # HTML template.
+        response_data = render_to_string("challenges/challenge.html")
         return HttpResponse(response_data)
     return HttpResponseNotFound("<h1>Invalid month.</h1>")
