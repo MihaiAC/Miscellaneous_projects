@@ -5,4 +5,7 @@ Run project: `python manage.py runserver`
 Create migration: `python manage.py makemigrations`
 Run migration: `python manage.py migrate`
 
+Interactive shell: `python manage.py shell` - so far used to populate a dummy table.
+
+
 

@@ -35,3 +35,21 @@ SQL vs noSQL - table vs document based;
 Setting primary key: `city_id = models.AutoField(primary_key=True)`
 Otherwise, it's automatically created and named "id".
 After creating or updating a model class, you have to create + run the migrations.
+
+Can create object based on the declared "fields" (init automatically created).
+Save it with `object.save()`, retrieve it with `ClassName.objects.all()`, delete it with `object.delete()`, .. `ClassName.objects.create`
+
+Querying data with e.g: `ClassName.objects.get(id=3)` get matches only one value, errors if multiple matches.
+`ClassName.objects.filter(filter_stmt)` -> for multiple matches.
+Example filter stmt: `rating__lt=3`
+
+More complex queries: 
+`from django.db.models import Q
+`ClassName.objects.filter(Q(rating__lt=3)|Q(is_bestselling=True))`
+
+Cached queries?
+
+Use django.core.validators to .. validate the data.
+
+(blank=True) != (null=True)
+If blank = True, must provide a default value for non-string fields. For string fields, blank is naturally an empty string.
