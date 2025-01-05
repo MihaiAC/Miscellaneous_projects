@@ -22,3 +22,16 @@ path(path, view function)
 - Loading static files: `{% load static %}` -> `{% static "path_to_css"%}`
 - Global css: add `STATICFILES_DIRS` to settings.
 - Slugs: `<slug:slug_name>` makes sure that the path-is-in-this-format.
+
+# Data #
+
+Good to think of it as having three types:
+- Temporary data: used immediately, don't care about it later, stored in memory; e.g: user input
+- Semi-persistent data: stored for a longer time, can be lost and re-created when needed; stored in browser or temp files; e.g: user authentication status;
+- Persistent data: stored "forever", must not be lost, stored in a DB; e.g: blog posts, orders, payment methods etc;
+
+SQL vs noSQL - table vs document based;
+
+Setting primary key: `city_id = models.AutoField(primary_key=True)`
+Otherwise, it's automatically created and named "id".
+After creating or updating a model class, you have to create + run the migrations.
