@@ -22,6 +22,7 @@ path(path, view function)
 - Loading static files: `{% load static %}` -> `{% static "path_to_css"%}`
 - Global css: add `STATICFILES_DIRS` to settings.
 - Slugs: `<slug:slug_name>` makes sure that the path-is-in-this-format.
+- Reverse to construct app URLs.
 
 # Data #
 
@@ -47,9 +48,14 @@ More complex queries:
 `from django.db.models import Q
 `ClassName.objects.filter(Q(rating__lt=3)|Q(is_bestselling=True))`
 
+"id: may not exist, but "pk" always does.
+
 Cached queries?
 
 Use django.core.validators to .. validate the data.
 
 (blank=True) != (null=True)
 If blank = True, must provide a default value for non-string fields. For string fields, blank is naturally an empty string.
+
+`get_absolute_url` override on model object
+
