@@ -18,6 +18,7 @@ def posts(request: HttpRequest) -> HttpResponse:
 def single_post(request: HttpRequest, slug: str) -> HttpResponse:
     identified_post = Post.objects.get(slug=slug)
     return render(request, "blog/post-detail.html", {
-        "post": identified_post
+        "post": identified_post,
+        "tags": identified_post.tag.all()
     })
 
