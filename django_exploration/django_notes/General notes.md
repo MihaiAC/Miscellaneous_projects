@@ -59,5 +59,9 @@ If blank = True, must provide a default value for non-string fields. For string 
 
 `get_absolute_url` override on model object
 
-`models.ForeignKey(className, on_delete=models.CASCADE|PROTECT|SET_NULL)` 
+`models.ForeignKey(className, on_delete=models.CASCADE|PROTECT|SET_NULL, related_name="books")` 
+Related name allows you to e.g: get all the "books belonging to an author".
+
+Chaining filters: `Book.objects.filter(author__last_name__contains="wling")`
+
 
