@@ -20,7 +20,7 @@ class Post(models.Model):
     image_name = models.CharField(max_length=255)
     date = models.DateField()
     excerpt = models.TextField(default="", null=False, blank=True)
-    slug = models.SlugField(default="", null=False, blank=True)
+    slug = models.SlugField(default="", null=False, blank=True, unique=True)
     content = models.TextField(default="", null=False, blank=True)
     
     # 1-to-many
