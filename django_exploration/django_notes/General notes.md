@@ -59,8 +59,11 @@ If blank = True, must provide a default value for non-string fields. For string 
 
 `get_absolute_url` override on model object
 
+### Relations ###
 ForeignKey is used for one to many relations.
-OneToOneField,...
+OneToOneField...
+ManyToManyModel - creates a mapping table automatically
+Other types of relations: circular, self, other apps' models.
 
 `models.ForeignKey(className, on_delete=models.CASCADE|PROTECT|SET_NULL, related_name="books")` 
 Related name allows you to e.g: get all the "books belonging to an author".
