@@ -73,4 +73,8 @@ Chaining filters: `Book.objects.filter(author__last_name__contains="wling")`
 Meta class inside a Model class to control how it is displayed?
 
 
+# Security #
+CSRF tokens on POST requests
+CSP app against XSS
+
 
