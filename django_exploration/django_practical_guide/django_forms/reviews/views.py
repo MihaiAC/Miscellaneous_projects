@@ -16,10 +16,8 @@ def review(request: HttpRequest) -> HttpResponse:
         return render(request, "reviews/review.html", {
             "has_error": True
         })
-        
-
-    # GET?
-    form = ReviewForm()
+    else:
+        form = ReviewForm()
     return render(request, "reviews/review.html", {
         "form": form
     })
