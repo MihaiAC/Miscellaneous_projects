@@ -8,3 +8,6 @@ Run migration: `python manage.py migrate`
 Interactive shell: `python manage.py shell` - so far used to populate a dummy table.
 
 Superuser: `python manage.py createsuperuser`
+
+WIndows shell shrink curr dir path: `prompt = $G`
+
