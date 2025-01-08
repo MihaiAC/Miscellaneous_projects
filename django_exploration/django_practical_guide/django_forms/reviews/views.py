@@ -3,30 +3,21 @@ from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormView
 
 from .forms import ReviewForm
 from .models import Review
 # Create your views here.
 
 # Class-based view.
-class ReviewView(View):
-    def get(self, request: HttpRequest) -> HttpResponse:
-        form = ReviewForm()
-    
-        return render(request, "reviews/review.html", {
-            "form": form
-        })
-    
-    def post(self, request: HttpRequest) -> HttpResponse:
-        form = ReviewForm(request.POST)
+class ReviewView(FormView):
+    form_class = ReviewForm
+    template_name = "reviews/review.html"
+    success_url = "/thank-you"
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/thank-you")
-
-        return render(request, "reviews/review.html", {
-            "form": form
-        })
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 class ThankYouView(TemplateView):
     template_name = "reviews/thank_you.html"
