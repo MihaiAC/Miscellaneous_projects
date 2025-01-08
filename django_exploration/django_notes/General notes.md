@@ -60,6 +60,8 @@ If blank = True, must provide a default value for non-string fields. For string 
 
 `get_absolute_url` override on model object
 
+`MEDIA_ROOT = BASE_DIR / "uploads"` setting in settings.py to modify where files are saved
+
 ### Relations ###
 ForeignKey is used for one to many relations.
 OneToOneField...
