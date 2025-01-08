@@ -60,7 +60,13 @@ If blank = True, must provide a default value for non-string fields. For string 
 
 `get_absolute_url` override on model object
 
+### Serving uploaded files ###
 `MEDIA_ROOT = BASE_DIR / "uploads"` setting in settings.py to modify where files are saved
+`MEDIA_URL = "/user-media/"` = creating pre-amble for exposing files
+Add `+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)` at the end of main project urls file. 
+Imports: ```
+from django.conf.urls.static import static
+from django.conf import settings```
 
 ### Relations ###
 ForeignKey is used for one to many relations.
