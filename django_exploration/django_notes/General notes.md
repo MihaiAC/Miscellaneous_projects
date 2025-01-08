@@ -23,7 +23,7 @@ path(path, view function)
 - Global css: add `STATICFILES_DIRS` to settings.
 - Slugs: `<slug:slug_name>` makes sure that the path-is-in-this-format.
 - Reverse to construct app URLs.
-- TemplateView, ListView, DetailView, FormView
+- TemplateView, ListView, DetailView, FormView, CreateView
 
 # Data #
 
