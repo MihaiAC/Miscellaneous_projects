@@ -67,6 +67,7 @@ Add `+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)` at the end
 Imports: ```
 from django.conf.urls.static import static
 from django.conf import settings```
+Importing the image: `<img src="{{ post.image.url }}/>"`
 
 ### Relations ###
 ForeignKey is used for one to many relations.
