@@ -8,7 +8,6 @@ from django.views import View
 from django.urls import reverse
 
 class StartingPageView(ListView):
-    print("ASDOJAPSDKOASD")
     template_name = "blog/index.html"
     model = Post
     ordering = ["-date"]

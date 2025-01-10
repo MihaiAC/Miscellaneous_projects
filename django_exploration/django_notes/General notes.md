@@ -82,10 +82,20 @@ Chaining filters: `Book.objects.filter(author__last_name__contains="wling")`
 
 Meta class inside a Model class to control how it is displayed?
 
-
-
 # Security #
 CSRF tokens on POST requests
 CSP app against XSS
 
+# Deployment #
+Need a WSGI or ASGI server.
+`runserver` is for debug purposes only.
+Serving static files:
+- Can configure Django to serve them (via urls.py) - ok for small sites, slow, not preferred.
+- Configure web server to serve static files alongside the Django app - same server and device but separate processes
+- Use dedicates service/server for static and uploaded files - more complex initial setup but offers best performance.
+
+STATIC_URL (things written by you) should be kept different from MEDIA_URL (user-uploaded files) - security consideration so files uploaded by you can't be overwritten by malicious users.
+
+`STATIC_ROOT = BASE_DIR / "staticfiles"`
+`python manage.py collectstatic`
 
