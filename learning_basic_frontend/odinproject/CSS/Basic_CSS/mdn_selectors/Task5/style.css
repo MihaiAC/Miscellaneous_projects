@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+
+li {
+    margin: 1rem;
+}
+
+a {
+    border: 5px solid grey;
+}
+
+a[title] {
+    border-color: pink;
+}
+
+a[href*=contact] {
+    border-color: orange;
+}
+
+a[href^=https] {
+    border-color: green;
+}

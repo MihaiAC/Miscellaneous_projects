@@ -1,0 +1,1 @@
+Exercises taken from [here](https://github.com/TheOdinProject/javascript-exercises).

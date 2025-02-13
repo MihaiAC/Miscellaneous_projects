@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Transform & Transition</title>
+</head>
+
+<body class="bg-gray-500">
+  <!-- No Transition -->
+  <button class="px-8 py-2 m-24 text-white bg-blue-500 rounded hover:bg-blue-700">
+    Click me
+  </button>
+
+  <!-- Transition -->
+  <button
+    class="duration-1000 hover:opacity-20 transition px-8 py-2 m-24 text-white bg-blue-500 rounded hover:bg-blue-700">
+    Click me
+  </button>
+
+  <!-- Transition & Transform -->
+  <button
+    class="duration-500 transition-transform hover:rotate-12 px-8 py-2 m-24 text-white bg-blue-500 rounded hover:bg-blue-700">
+    Click me
+  </button>
+
+  <!-- Transform & Transition -->
+  <button class="skew-y-6 px-8 py-2 m-24 text-white bg-blue-500 rounded hover:bg-blue-700">
+    Click me
+  </button>
+</body>
+
+</html>

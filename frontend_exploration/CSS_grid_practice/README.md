@@ -1,1 +1,0 @@
-Exercises taken from [MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grid_skills).
