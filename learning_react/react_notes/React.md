@@ -5,14 +5,19 @@ React components
 Component:
 - must be a JS function;
 - its name must start with an uppercase character;
-- returns "renderable" content - most cases JSX, but can also return number, string, boolean, null or an array of those;
+- returns "render-able" content - most cases JSX, but can also return number, string, boolean, null or an array of those;
 
 Can use component like a normal HTML element.
-Entrypoint: `ReactDOM.createRoot(entryPoint).render(<App />);`
+Entry point: `ReactDOM.createRoot(entryPoint).render(<App />);`
 
 ### Props ###
 == passing data to components.
 e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
+
+Different ways to pass props to components.
+`Component({arg1, arg2=defaultVal})`
+`Component({...obj})`
+
 
 
 
