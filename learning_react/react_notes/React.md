@@ -58,6 +58,9 @@ Concepts to keep in mind:
 Ternary expressions to choose what is displayed {booly value ? iftrue : iffalse}
 OR `{booly value && ifftrue}`
 
+### Displaying a list of items ###
+`{CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem} />))}`
+Converts a list of objects (CORE_CONCEPTS) to a list of components.
 
 
 
