@@ -13,6 +13,8 @@ Import an image with a relative path -> must do for deployment.
 
 Use 'className' instead of 'class' for CSS classes.
 
+By default, React components get executed only once, when the app gets loaded.
+
 ### Props ###
 == passing data to components.
 e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
