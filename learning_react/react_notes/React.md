@@ -11,8 +11,6 @@ Can use component like a normal HTML element.
 Entry point: `ReactDOM.createRoot(entryPoint).render(<App />);`
 Import an image with a relative path -> must do for deployment.
 
-Use 'className' instead of 'class' for CSS classes.
-
 ### Props ###
 == passing data to components.
 e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
@@ -25,8 +23,10 @@ Different ways to pass props to components.
 props.children = refers to the content between the component tags;
 Useful when passing JSX code as a value to another component.
 
-### Splitting CSS files ###
+### CSS  ###
 The styles for a component are not scoped by default only to that component.
+
+Use 'className' instead of 'class' for CSS classes.
 
 ### React(-ing )to events ###
 Normal JS = imperative = focuses on how + what should be done;
@@ -54,6 +54,9 @@ So, useState tells React that it should reload the component when the value of t
 Concepts to keep in mind:
 - Derived state = state that can be computed from other state values; avoiding it => avoiding redundancy + consistency issues (updating one but not the other).
 - Computed value = value that is calculated directly from the existing state whenever it's needed;
+
+Ternary expressions to choose what is displayed {booly value ? iftrue : iffalse}
+OR `{booly value && ifftrue}`
 
 
 
