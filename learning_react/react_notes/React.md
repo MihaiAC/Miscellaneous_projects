@@ -10,6 +10,10 @@ Component:
 Can use component like a normal HTML element.
 Entrypoint: `ReactDOM.createRoot(entryPoint).render(<App />);`
 
+### Props ###
+== passing data to components.
+e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
+
 
 
 
