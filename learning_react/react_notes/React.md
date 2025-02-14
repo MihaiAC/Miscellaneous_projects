@@ -19,8 +19,14 @@ Different ways to pass props to components.
 `Component({arg1, arg2=defaultVal})`
 `Component({...obj})`
 
+#### Children prop ####
+props.children = refers to the content between the component tags;
+Useful when passing JSX code as a value to another component.
+
 ### Splitting CSS files ###
 The styles for a component are not scoped by default only to that component.
+
+
 
 
 
