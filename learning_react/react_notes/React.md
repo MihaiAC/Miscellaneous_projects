@@ -19,6 +19,9 @@ Different ways to pass props to components.
 `Component({arg1, arg2=defaultVal})`
 `Component({...obj})`
 
+### Splitting CSS files ###
+The styles for a component are not scoped by default only to that component.
+
 
 
 
