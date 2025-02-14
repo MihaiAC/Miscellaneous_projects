@@ -11,6 +11,8 @@ Can use component like a normal HTML element.
 Entry point: `ReactDOM.createRoot(entryPoint).render(<App />);`
 Import an image with a relative path -> must do for deployment.
 
+Use 'className' instead of 'class' for CSS classes.
+
 ### Props ###
 == passing data to components.
 e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
@@ -26,6 +28,12 @@ Useful when passing JSX code as a value to another component.
 ### Splitting CSS files ###
 The styles for a component are not scoped by default only to that component.
 
+### React(-ing )to events ###
+Normal JS = imperative = focuses on how + what should be done;
+React JS = declarative = what should be done;
+Aka, React will handle DOM updates under the hood.
+
+Can pass a function as a component argument and call it on event trigger (e.g: onClick).
 
 
 
