@@ -9,6 +9,7 @@ Component:
 
 Can use component like a normal HTML element.
 Entry point: `ReactDOM.createRoot(entryPoint).render(<App />);`
+Import an image with a relative path -> must do for deployment.
 
 ### Props ###
 == passing data to components.
