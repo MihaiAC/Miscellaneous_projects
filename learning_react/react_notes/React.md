@@ -13,8 +13,6 @@ Import an image with a relative path -> must do for deployment.
 
 Use 'className' instead of 'class' for CSS classes.
 
-By default, React components get executed only once, when the app gets loaded.
-
 ### Props ###
 == passing data to components.
 e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
@@ -36,6 +34,27 @@ React JS = declarative = what should be done;
 Aka, React will handle DOM updates under the hood.
 
 Can pass a function as a component argument and call it on event trigger (e.g: onClick).
+
+### React Hooks ###
+By default, React components get executed only once, when the app gets loaded.
+Starts with "use".
+Only call Hooks inside of Component functions, on the top level (e.g: not inside a function that's inside a component).
+
+`const [selectedTopic, setSelectedTopic] = useState(initial_value)` 
+
+First return value (`selectedTopic`) = current state value, provided by React; - may change if the component function is executed again;
+Second return value (`setSelectedTopic`) = updates the stored value and tells React to re-execute the component function in which useState() was called;
+`initial_value` = initial value of `selectedTopic`;
+`selectedTopic` is a state variable;
+
+useState tells React when to re-execute a component
+
+So, useState tells React that it should reload the component when the value of the variable changes.
+
+Concepts to keep in mind:
+- Derived state = state that can be computed from other state values; avoiding it => avoiding redundancy + consistency issues (updating one but not the other).
+- Computed value = value that is calculated directly from the existing state whenever it's needed;
+
 
 
 
