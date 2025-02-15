@@ -5,7 +5,7 @@ VS Code extensions for new env:
 - Prettier
 - Auto Rename Tag
 
-`container mx-auto`
+`container mx-auto` - works for images too
 
 Spacings e.g: `ml-24` margin left 24/4=6rem
 
@@ -16,3 +16,5 @@ Spacings e.g: `ml-24` margin left 24/4=6rem
 `z-x` = Things on top of each other
 
 `min-h-screen` = element will take 100vh
+
+
