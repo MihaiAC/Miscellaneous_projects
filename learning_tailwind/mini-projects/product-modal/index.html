@@ -54,15 +54,21 @@
                     </button>
                 </div>
 
-                <p>50+ pcs. in stock.</p>
-                <div class="flex flex-col md:flex-row w-full pb-4 md:gap-4">
+                <!-- Stock -->
+                <div class="flex items-center space-x-3 group">
+                    <div class="w-3 h-3 bg-green-400 rounded-full group-hover:animate-ping"></div>
+                    <div class="text-sm">50+ pcs. in stock</div>
+                </div>
+
+                <!-- Buttom buttons container -->
+                <div class="flex flex-col md:flex-row w-full gap-4">
                     <button
-                        class="md:flex-grow basis-3/7 py-2 border-gray-300 border-2 inline-flex my-2 items-center justify-center space-x-2 rounded-md">
+                        class="md:flex-grow basis-3/7 py-2 border-gray-300 border-2 inline-flex items-center justify-center space-x-2 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150">
                         <img class="h-8 w-8" src="assets/weight.png" alt="">
                         <span>Add to cart</span>
                     </button>
                     <span
-                        class="md:flex-grow basis-4/7 py-2 border-gray-300 border-2 inline-flex my-2 items-center justify-center space-x-2 rounded-md">
+                        class="md:flex-grow basis-4/7 py-2 border-gray-300 border-2 inline-flex items-center justify-center space-x-2 rounded-lg shadow-sm hover:bg-opacity-30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-150">
                         <img class="h-8 w-8" src="assets/heart.png" alt="">
                         <span>Add to wishlist</span>
                     </span>
