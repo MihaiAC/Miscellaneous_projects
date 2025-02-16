@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!--Container div-->
+    <div class="min-h-screen bg-cyan-100 flex items-center justify-center">
+        <!--Gallery-->
+        <div class="bg-white rounded-xl shadow-md p-6 m-3 md:p-40 flex flex-col space-y-10">
+            <!--Menu-->
+            <div class="flex space-x-2 justify-end">
+                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white" href="#">Vector</a>
+                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white"
+                    href="#">Illustrations</a>
+                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white" href="#">Images</a>
+                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white" href="#">Icons</a>
+            </div>
+
+
+            <!--Search and upload-->
+            <div class="flex justify-between space-x-5">
+                <form class="flex border-b-2 border-gray-200" action="#">
+                    <input class="max-w-[7rem]" type="text" name="search" placeholder="Search">
+                    <div>🔍</div>
+                </form>
+
+                <button
+                    class="bg-black py-1 px-10 text-white rounded-lg hover:bg-white hover:text-black border-2 border-black duration-300">Upload</button>
+            </div>
+
+            <!--Images container-->
+            <div class="md:grid md:grid-cols-3 flex flex-col items-center">
+                <div class="h-48 w-48 bg-[#A7C7E7] group flex flex-col justify-end">
+                    <!--Image description-->
+                    <div
+                        class="p-1 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        <div class="flex flex-col">
+                            <p class="text-white text-md">Abstract Painting</p>
+                            <p class="text-white text-sm">245 likes | 35 shares</p>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <img class="h-8 w-8" src="assets/bookmark.svg" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
