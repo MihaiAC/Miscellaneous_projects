@@ -12,42 +12,124 @@
     <!--Container div-->
     <div class="min-h-screen bg-cyan-100 flex items-center justify-center">
         <!--Gallery-->
-        <div class="bg-white rounded-xl shadow-md p-6 m-3 md:p-40 flex flex-col space-y-10">
+        <div class="bg-white rounded-3xl shadow-2xl p-6 m-3 md:p-40 flex flex-col space-y-10">
             <!--Menu-->
-            <div class="flex space-x-2 justify-end">
-                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white" href="#">Vector</a>
-                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white"
+            <div
+                class="group flex flex-col items-center justify-center space-y-3 md:flex-row md:space-y-0 md:space-x-8 md:mb-24 md:justify-end">
+                <a class="duration-200 group-hover:border-b-2 hover:border-black border-b-2 border-white"
+                    href="#">Vector</a>
+                <a class="duration-200 group-hover:border-b-2 hover:border-black border-b-2 border-white"
                     href="#">Illustrations</a>
-                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white" href="#">Images</a>
-                <a class="duration-200 hover:border-b-2 hover:border-black border-b-2 border-white" href="#">Icons</a>
+                <a class="duration-200 group-hover:border-b-2 hover:border-black border-b-2 border-white"
+                    href="#">Images</a>
+                <a class="duration-200 group-hover:border-b-2 hover:border-black border-b-2 border-white"
+                    href="#">Icons</a>
             </div>
 
 
             <!--Search and upload-->
-            <div class="flex justify-between space-x-5">
-                <form class="flex border-b-2 border-gray-200" action="#">
-                    <input class="max-w-[7rem]" type="text" name="search" placeholder="Search">
-                    <div>🔍</div>
-                </form>
+            <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 justify-between">
+                <div class="flex justify between border-b">
+                    <input type="text" class="ml-6 border-none md:w-80 placeholder:font-thin focus:outline-none"
+                        placeholder="Search">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-gray-300 duration-200 hover:scale-110"
+                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                    </button>
+                </div>
 
+                <!--Upload button -->
                 <button
-                    class="bg-black py-1 px-10 text-white rounded-lg hover:bg-white hover:text-black border-2 border-black duration-300">Upload</button>
+                    class="bg-black py-1 px-10 text-white text-lg font-normal shadow-2xl rounded-lg hover:bg-white hover:text-black border-2 border-black duration-300">Upload</button>
             </div>
 
             <!--Images container-->
-            <div class="md:grid md:grid-cols-3 flex flex-col items-center">
-                <div class="h-48 w-48 bg-[#A7C7E7] group flex flex-col justify-end">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Could have also wrapped the div below inside a div with relative and position hidden div with absolute-->
+                <div class="h-72 w-72 bg-[#A7C7E7] group flex flex-col justify-end">
                     <!--Image description-->
                     <div
-                        class="p-1 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        class="w-full py-2 px-4 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
                         <div class="flex flex-col">
-                            <p class="text-white text-md">Abstract Painting</p>
-                            <p class="text-white text-sm">245 likes | 35 shares</p>
+                            <p class="text-white text-sm">Pastel blue</p>
+                            <p class="text-white text-xs">245 likes | 35 shares</p>
                         </div>
-                        <div class="flex justify-center items-center">
-                            <img class="h-8 w-8" src="assets/bookmark.svg" alt="">
+                        <div class="flex items-center">
+                            <img src="assets/bookmark.svg" alt="">
                         </div>
+                    </div>
+                </div>
 
+                <div class="h-72 w-72 bg-[#C1E1C1] group flex flex-col justify-end">
+                    <!--Image description-->
+                    <div
+                        class="w-full py-2 px-4 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        <div class="flex flex-col">
+                            <p class="text-white text-sm">Pastel green</p>
+                            <p class="text-white text-xs">245 likes | 35 shares</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="assets/bookmark.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-72 w-72 bg-[#FAE3B4] group flex flex-col justify-end">
+                    <!--Image description-->
+                    <div
+                        class="w-full py-2 px-4 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        <div class="flex flex-col">
+                            <p class="text-white text-sm">Pastel yellow</p>
+                            <p class="text-white text-xs">245 likes | 35 shares</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="assets/bookmark.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-72 w-72 bg-[#D8BFD8] group flex flex-col justify-end">
+                    <!--Image description-->
+                    <div
+                        class="w-full py-2 px-4 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        <div class="flex flex-col">
+                            <p class="text-white text-sm">Pastel purple</p>
+                            <p class="text-white text-xs">245 likes | 35 shares</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="assets/bookmark.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-72 w-72 bg-[#F8C8DC] group flex flex-col justify-end">
+                    <!--Image description-->
+                    <div
+                        class="w-full py-2 px-4 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        <div class="flex flex-col">
+                            <p class="text-white text-sm">Pastel pink</p>
+                            <p class="text-white text-xs">245 likes | 35 shares</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="assets/bookmark.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-72 w-72 bg-[#FBCDA6] group flex flex-col justify-end">
+                    <!--Image description-->
+                    <div
+                        class="w-full py-2 px-4 flex justify-between bg-black bg-opacity-30 opacity-0 invisible transition-opacity duration-400 ease-in-out group-hover:opacity-100 group-hover:visible">
+                        <div class="flex flex-col">
+                            <p class="text-white text-sm">Pastel orange</p>
+                            <p class="text-white text-xs">245 likes | 35 shares</p>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="assets/bookmark.svg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
