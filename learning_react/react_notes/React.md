@@ -67,7 +67,14 @@ Converts a list of objects (CORE_CONCEPTS) to a list of components.
 Alternative to wrapping the return statement in an unnecessary div.
 Alternatively to fragment, `<> return JSX code </>`
 
+### Forwarding props ###
+```javascript
+<Section className="x", id="y">
 
+function Section({children, ...props}) {
+return (<div {...props}> </div>);
+}
+```
 
 
 
