@@ -62,6 +62,10 @@ OR `{booly value && ifftrue}`
 `{CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem} />))}`
 Converts a list of objects (CORE_CONCEPTS) to a list of components.
 
+### Fragment###
+Alternative to wrapping the return statement in an unnecessary div.
+Alternatively to fragment, `<> return JSX code </>`
+
 
 
 
