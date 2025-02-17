@@ -22,6 +22,7 @@ Different ways to pass props to components.
 #### Children prop ####
 props.children = refers to the content between the component tags;
 Useful when passing JSX code as a value to another component.
+Special prop, always forwarded to the component.
 
 ### CSS  ###
 The styles for a component are not scoped by default only to that component.
