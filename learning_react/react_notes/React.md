@@ -76,6 +76,19 @@ return (<div {...props}> </div>);
 }
 ```
 
-
-
-
+### Setting components dynamically ###
+JSX components must be wrapped in {}
+Normal HTML elements should be passed as strings.
+```
+export default function Tabs({ children, buttons, buttonsContainer }) {
+const ButtonsContainer = buttonsContainer;
+return (
+<>
+<ButtonsContainer>{buttons}</ButtonsContainer>
+{children}
+</>
+);
+}
+```
+buttonsContainer can be something like "div" or {CustomComponent}
+Or pass it as a "ButtonsContainer" from the get go.
