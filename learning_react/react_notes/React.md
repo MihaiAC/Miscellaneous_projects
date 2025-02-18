@@ -92,3 +92,10 @@ return (
 ```
 buttonsContainer can be something like "div" or {CustomComponent}
 Or pass it as a "ButtonsContainer" from the get go.
+
+### Public vs assets ###
+Files in /public/ will be available to the public by the build process + server.
+Files in src, like /src/assets/ are not available to the visitors, but they can be used in the code. The build process will put them automatically in public, with some optimizations.
+
+Files put directly in public = things you don't want handled by the build process (e.g: images used directly in index.html or favicons)
+Files used by components = put them in src
