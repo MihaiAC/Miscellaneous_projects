@@ -59,9 +59,23 @@ Concepts to keep in mind:
 Ternary expressions to choose what is displayed {booly value ? iftrue : iffalse}
 OR `{booly value && ifftrue}`
 
-When updating a state value based on a previous state value, do not do `setX(!X)`, but pass a function instead: `setX((X) => (!X))`. 
+#### Updating state 
+When updating a state value based on a previous state value, do not do `setX(!X)`, but pass a function instead: `setX((X) => (!X))`.  The argument to this function will automatically be the last avail. X.
 **Why? `!X` is not executed immediately, but scheduled to be executed. In the meantime, X could be changed by something else, so you also need to keep this in mind.**
 Passing a function guarantees that the latest available state value of X will be used.
+
+Recommended: update state object immutably. If it's an object, make a deep copy then modify this copy.
+
+**State should be treated as immutable.** -> why not make it immutable by default then?
+
+If you mutate state directly, some changes might not be detected.
+
+State updates are batched, which might explain why we're doing things like this  = modifying X twice in the same batch.
+
+For simple state, shallow copies should be enough.
+
+This reminds me a bit of making something thread-safe.
+Isn't this going to make things really slow though?
 
 ### Displaying a list of items ###
 `{CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem} />))}`
