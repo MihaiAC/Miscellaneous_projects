@@ -77,6 +77,9 @@ For simple state, shallow copies should be enough.
 This reminds me a bit of making something thread-safe.
 Isn't this going to make things really slow though?
 
+#### Lifting the state up
+= to the closest ancestor component that has access to all the components that need to work with the state in question.
+
 ### Displaying a list of items ###
 `{CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem} />))}`
 Converts a list of objects (CORE_CONCEPTS) to a list of components.
