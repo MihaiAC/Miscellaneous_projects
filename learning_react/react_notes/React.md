@@ -59,6 +59,10 @@ Concepts to keep in mind:
 Ternary expressions to choose what is displayed {booly value ? iftrue : iffalse}
 OR `{booly value && ifftrue}`
 
+When updating a state value based on a previous state value, do not do `setX(!X)`, but pass a function instead: `setX((X) => (!X))`. 
+**Why? `!X` is not executed immediately, but scheduled to be executed. In the meantime, X could be changed by something else, so you also need to keep this in mind.**
+Passing a function guarantees that the latest available state value of X will be used.
+
 ### Displaying a list of items ###
 `{CORE_CONCEPTS.map((conceptItem) => (<CoreConcept key={conceptItem.title} {...conceptItem} />))}`
 Converts a list of objects (CORE_CONCEPTS) to a list of components.
