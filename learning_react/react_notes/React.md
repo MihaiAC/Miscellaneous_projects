@@ -103,3 +103,13 @@ Files in src, like /src/assets/ are not available to the visitors, but they can 
 
 Files put directly in public = things you don't want handled by the build process (e.g: images used directly in index.html or favicons)
 Files used by components = put them in src
+
+### Practical usage of Map ###
+```javascript
+const nums = [10, 20, 30];
+
+nums.map((num, idx) => console.log(`Value: ${num}, Index: ${idx}`));
+```
+arr.map(single_elem => etc)
+arr.map((single_elem, elemIdx) => etc)
+arr.map((single_elem, elemIdx, array) => etc)
