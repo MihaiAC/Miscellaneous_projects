@@ -5,6 +5,11 @@ import GameOver from "./components/GameOver";
 import { useState } from "react";
 import { WINNING_COMBINATIONS } from "./winning-combinations";
 
+const PLAYERS = {
+  X: "Player 1",
+  O: "Player 2",
+};
+
 const initialGameBoard = [
   [null, null, null],
   [null, null, null],
@@ -19,26 +24,7 @@ function deriveCurrentPlayer(turns) {
   return currentPlayer;
 }
 
-function App() {
-  const [players, setPlayers] = useState({
-    X: "Player 1",
-    O: "Player 2",
-  });
-  const [gameTurns, setGameTurns] = useState([]);
-  const currentPlayer = deriveCurrentPlayer(gameTurns);
-
-  // Deep copy the initial board so we can reset the game.
-  let gameBoard = [...initialGameBoard.map((array) => [...array])];
-
-  // Update the gameboard with the current state.
-  for (const turn of gameTurns) {
-    const { square, player } = turn;
-    const { row, col } = square;
-
-    gameBoard[row][col] = player;
-  }
-
-  // Decide if we have a winner.
+function deriveWinner(gameBoard, players) {
   let winner = null;
   for (const combination of WINNING_COMBINATIONS) {
     const firstSquareSymbol = gameBoard[combination[0].row][combination[0].col];
@@ -54,6 +40,33 @@ function App() {
       winner = players[firstSquareSymbol];
     }
   }
+
+  return winner;
+}
+
+function deriveGameBoard(gameTurns) {
+  // Deep copy the initial board so we can reset the game.
+  let gameBoard = [...initialGameBoard.map((array) => [...array])];
+
+  for (const turn of gameTurns) {
+    const { square, player } = turn;
+    const { row, col } = square;
+
+    gameBoard[row][col] = player;
+  }
+  return gameBoard;
+}
+
+function App() {
+  const [players, setPlayers] = useState(PLAYERS);
+  const [gameTurns, setGameTurns] = useState([]);
+  const currentPlayer = deriveCurrentPlayer(gameTurns);
+
+  // Update the gameboard with the current state.
+  const gameBoard = deriveGameBoard(gameTurns);
+
+  // Decide if we have a winner.
+  const winner = deriveWinner(gameBoard, players);
 
   // Decide if there is a draw.
   const hasDraw = !winner && gameTurns.length === 9;
@@ -89,13 +102,13 @@ function App() {
       <div id="game-container">
         <ol id="players" className="highlight-player">
           <Player
-            initialName="Player 1"
+            initialName={PLAYERS.X}
             symbol="X"
             isActive={currentPlayer === "X"}
             onChangeName={handlePlayerNameChange}
           ></Player>
           <Player
-            initialName="Player 2"
+            initialName={PLAYERS.O}
             symbol="O"
             isActive={currentPlayer === "O"}
             onChangeName={handlePlayerNameChange}
