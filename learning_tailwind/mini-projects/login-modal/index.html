@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Modal - WIP</title>
+
+    <!--Importing fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!--Tailwind import-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--Adding fonts to Tailwind-->
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Mulish', 'sans-serif'],
+                    mono: ['Rokkitt', 'monospace'],
+                },
+            },
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <!--Container div-->
+    <div class="bg-red-100 min-h-screen font-sans">
+        <!--Login modal-->
+        <div class="bg-white flex flex-col space-y-4 relative">
+
+            <!--Close modal button-->
+            <button
+                class="absolute top-0 right-0 bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-300 transition">X
+            </button>
+
+            <!--Modal header-->
+            <div>
+                <h1 class="font-mono">Log in</h1>
+                <p>Log in to your account to upload or download pictures, video or music</p>
+                <input type="text" value="Enter your email address">
+            </div>
+
+
+            <!--Buttons-->
+            <div>
+                <a href="#">Forgot password</a>
+                <button> Next<span><img src="assets/arrow_forward.svg" alt=""></span> </button>
+            </div>
+
+            <!--Log in with Facebook/Google-->
+            <div>
+                <p>or log in with</p>
+                <button><span><img src="assets/facebook.png" alt=""></span>Facebook</button>
+                <button><span><img src="assets/google.png" alt=""></span>Google</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
