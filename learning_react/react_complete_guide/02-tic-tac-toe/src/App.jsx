@@ -23,7 +23,8 @@ function App() {
   const [gameTurns, setGameTurns] = useState([]);
   const currentPlayer = deriveCurrentPlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  // Deep copy the initial board so we can reset the game.
+  let gameBoard = [...initialGameBoard.map((array) => [...array])];
 
   // Update the gameboard with the current state.
   for (const turn of gameTurns) {
@@ -65,6 +66,11 @@ function App() {
     });
   }
 
+  // Code for triggering a rematch.
+  function handleRestart() {
+    setGameTurns([]);
+  }
+
   return (
     <main>
       <div id="game-container">
@@ -80,7 +86,9 @@ function App() {
             isActive={currentPlayer === "O"}
           ></Player>
         </ol>
-        {(winner || hasDraw) && <GameOver winner={winner} />}
+        {(winner || hasDraw) && (
+          <GameOver winner={winner} onRestart={handleRestart} />
+        )}
         <GameBoard
           onSelectSquare={handleSelectSquare}
           board={gameBoard}
