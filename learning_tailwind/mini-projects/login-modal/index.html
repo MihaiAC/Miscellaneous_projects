@@ -61,14 +61,18 @@
                 </div>
 
                 <!--Log in with Facebook/Google-->
-                <div>
-                    <p>or log in with</p>
-                    <button><span><img src="assets/facebook.png" alt=""></span>Facebook</button>
-                    <button><span><img src="assets/google.png" alt=""></span>Google</button>
+                <div class="border-t-2 pt-8 border-gray-200 flex flex-col items-stretch space-y-4">
+                    <p class="font-extralight flex justify-center align-center text-sm">or log in with</p>
+                    <button
+                        class="flex justify-center items-center gap-2 border-2 p-2 rounded-md transition-transform duration-400 hover:-translate-y-1 hover:shadow-lg"><span><img
+                                class="h-10 w-10" src="assets/facebook.png" alt=""></span>Facebook</button>
+                    <button
+                        class="flex justify-center items-center gap-2 border-2 p-2 rounded-md transition-transform duration-400 hover:-translate-y-1 hover:shadow-lg"><span><img
+                                class="h-10 w-10" src="assets/google.png" alt=""></span>Google</button>
                 </div>
             </div>
             <!--Image (only displayed on large screens)-->
-            <div class="hidden md:block bg-[url('/assets/image.jpg')] bg-center md:min-w-96">
+            <div class="hidden md:block bg-[url('/assets/image.jpg')] bg-center md:min-w-96 md:rounded-r-xl">
 
             </div>
 
