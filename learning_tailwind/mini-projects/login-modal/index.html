@@ -32,14 +32,14 @@
 
 <body>
     <!--Container div-->
-    <div class="bg-red-100 min-h-screen font-sans flex justify-center items-start">
+    <div class="bg-red-100 min-h-screen font-sans flex justify-center items-center">
         <!--Login modal-->
-        <div class="bg-white flex flex-col relative max-w-lg h-auto m-48 rounded-xl shadow-xl md:flex-row md:max-w-2xl">
+        <div class="bg-white flex flex-col relative h-auto mt-48 rounded-xl shadow-xl md:flex-row">
             <!--Functional part-->
-            <div class="flex flex-col space-y-8 p-4 md:flex-1">
+            <div class="flex flex-col space-y-8 p-4 max-w-sm md:max-w-md">
                 <!--Close modal button-->
                 <button
-                    class="absolute top-4 right-4 bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-300 transition">X
+                    class="absolute top-4 right-4 bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-300 transition-transform duration-400 hover:-translate-y-1 hover:shadow-lg">X
                 </button>
 
                 <!--Modal header-->
@@ -51,10 +51,13 @@
                 </div>
 
 
-                <!--Buttons-->
-                <div>
-                    <a href="#">Forgot password</a>
-                    <button> Next<span><img src="assets/arrow_forward.svg" alt=""></span> </button>
+                <!--Classic login controls-->
+                <div class="flex flex-col justify-center md:flex-row space-y-8 md:space-y-0 md:justify-between">
+                    <button class="text-cyan-700 md:flex-1">Forgot password</button>
+                    <button
+                        class="md:flex-1 bg-cyan-700 hover:bg-cyan-600 text-white flex flex-row justify-center items-center p-4 shadow-md rounded-md transition-transform duration-400 hover:-translate-y-1 hover:shadow-lg">
+                        Next<span><img src="assets/arrow_forward.svg" alt=""></span>
+                    </button>
                 </div>
 
                 <!--Log in with Facebook/Google-->
@@ -65,8 +68,8 @@
                 </div>
             </div>
             <!--Image (only displayed on large screens)-->
-            <div class="hidden md:block bg-[url('/assets/image.jpg')] bg-center md:flex-1">
-                T
+            <div class="hidden md:block bg-[url('/assets/image.jpg')] bg-center md:min-w-96">
+
             </div>
 
         </div>
