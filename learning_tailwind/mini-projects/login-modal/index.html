@@ -33,35 +33,42 @@
 
 <body>
     <!--Container div-->
-    <div class="bg-red-100 min-h-screen font-sans">
+    <div class="bg-red-100 min-h-screen font-sans flex justify-center items-start">
         <!--Login modal-->
-        <div class="bg-white flex flex-col space-y-4 relative">
+        <div class="bg-white flex flex-col relative max-w-lg h-auto m-48 rounded-xl shadow-xl md:flex-row md:max-w-2xl">
+            <!--Functional part-->
+            <div class="flex flex-col space-y-8 p-4 md:flex-1">
+                <!--Close modal button-->
+                <button
+                    class="absolute top-4 right-4 bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-300 transition">X
+                </button>
 
-            <!--Close modal button-->
-            <button
-                class="absolute top-0 right-0 bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-300 transition">X
-            </button>
+                <!--Modal header-->
+                <div>
+                    <h1 class="font-mono">Log in</h1>
+                    <p>Log in to your account to upload or download pictures, video or music</p>
+                    <input type="text" value="Enter your email address">
+                </div>
 
-            <!--Modal header-->
-            <div>
-                <h1 class="font-mono">Log in</h1>
-                <p>Log in to your account to upload or download pictures, video or music</p>
-                <input type="text" value="Enter your email address">
+
+                <!--Buttons-->
+                <div>
+                    <a href="#">Forgot password</a>
+                    <button> Next<span><img src="assets/arrow_forward.svg" alt=""></span> </button>
+                </div>
+
+                <!--Log in with Facebook/Google-->
+                <div>
+                    <p>or log in with</p>
+                    <button><span><img src="assets/facebook.png" alt=""></span>Facebook</button>
+                    <button><span><img src="assets/google.png" alt=""></span>Google</button>
+                </div>
+            </div>
+            <!--Image (only displayed on large screens)-->
+            <div class="hidden md:block bg-[url('/assets/image.jpg')] bg-center md:flex-1">
+                T
             </div>
 
-
-            <!--Buttons-->
-            <div>
-                <a href="#">Forgot password</a>
-                <button> Next<span><img src="assets/arrow_forward.svg" alt=""></span> </button>
-            </div>
-
-            <!--Log in with Facebook/Google-->
-            <div>
-                <p>or log in with</p>
-                <button><span><img src="assets/facebook.png" alt=""></span>Facebook</button>
-                <button><span><img src="assets/google.png" alt=""></span>Google</button>
-            </div>
         </div>
     </div>
 </body>
