@@ -135,3 +135,17 @@ nums.map((num, idx) => console.log(`Value: ${num}, Index: ${idx}`));
 arr.map(single_elem => etc)
 arr.map((single_elem, elemIdx) => etc)
 arr.map((single_elem, elemIdx, array) => etc)
+
+### Dynamically updating a value in a dictionary
+Standard JS, but useful to know
+```javascript
+function handlePlayerNameChange(symbol, newName) {
+	setPlayers((prevPlayers) => {
+	return {
+		...prevPlayers,
+		[symbol]: newName,
+	};
+	});
+}
+```
+Useful bit: `[keyToUpdate]: newValue`.
