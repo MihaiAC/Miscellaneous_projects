@@ -1,6 +1,7 @@
 import Player from "./components/Player";
 import GameBoard from "./components/GameBoard";
 import Log from "./components/Log";
+import GameOver from "./components/GameOver";
 import { useState } from "react";
 import { WINNING_COMBINATIONS } from "./winning-combinations";
 
@@ -49,6 +50,9 @@ function App() {
     }
   }
 
+  // Decide if there is a draw.
+  const hasDraw = !winner && gameTurns.length === 9;
+
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurns((prevTurns) => {
       const currentPlayer = deriveCurrentPlayer(prevTurns);
@@ -76,7 +80,7 @@ function App() {
             isActive={currentPlayer === "O"}
           ></Player>
         </ol>
-        {winner && <p>You win, {winner}!</p>}
+        {(winner || hasDraw) && <GameOver winner={winner} />}
         <GameBoard
           onSelectSquare={handleSelectSquare}
           board={gameBoard}
