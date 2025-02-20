@@ -14,11 +14,11 @@ export default function InputField({
     const newInputValue = event.target.value;
     const [validatedValue, errorMsg] = validateFunction(newInputValue);
 
+    setInputState({ value: newInputValue, error: errorMsg });
+
     if (errorMsg === "") {
       onValidInput(id, validatedValue);
     }
-
-    setInputState({ value: newInputValue, error: errorMsg });
   }
 
   return (

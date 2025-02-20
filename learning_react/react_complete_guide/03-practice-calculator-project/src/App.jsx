@@ -1,16 +1,21 @@
-import { calculateInvestmentResults, formatter } from "./util/investment";
 import Input from "./components/Input";
 import Header from "./components/Header";
+import Result from "./components/Result";
+import { useState } from "react";
+import InputData from "./util/InputData";
 
 function App() {
-  function handleInput(currentVals) {
-    console.log(currentVals);
+  const [data, setData] = useState(new InputData());
+
+  function handleInput(inputData) {
+    setData(inputData);
   }
 
   return (
     <>
       <Header />
-      <Input onValidAction={handleInput}></Input>
+      <Input onValidAction={handleInput} />
+      <Result data={data} />
     </>
   );
 }

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import InputData from "../util/InputData";
 import {
   validateDecimalOrInt,
   validateNonNegativeInt,
@@ -7,12 +8,7 @@ import {
 import InputField from "./InputField";
 
 export default function Input({ onValidAction }) {
-  let currentVals = {
-    initialInvestment: "",
-    annualInvestment: "",
-    expectedReturn: "",
-    duration: "",
-  };
+  let currentVals = new InputData();
 
   function handleValidInput(variable_id, value) {
     currentVals[variable_id] = value;
@@ -26,6 +22,7 @@ export default function Input({ onValidAction }) {
     );
 
     if (validInput) {
+      console.log(currentVals);
       onValidAction(currentVals);
     }
   }
