@@ -149,3 +149,21 @@ function handlePlayerNameChange(symbol, newName) {
 }
 ```
 Useful bit: `[keyToUpdate]: newValue`.
+
+### ESLint
+If I delete a function, VSCode does not point out errors where I still use the function.
+Objective: fix this issue, ESLint seems the solution
+
+Add to VS code settings.json
+```
+"eslint.enable": true,
+"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+```
+
+`npm prune` - to remove unneeded packages.
+
+`npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier`
+
+Run `npx eslint --init` to customize eslint, will install some react extension.
+
+Disables the import React warning (since it is not needed for versions >=17): `pluginReact.configs.flat["jsx-runtime"]`
