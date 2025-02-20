@@ -14,7 +14,7 @@ export function validateNonNegativeInt(value) {
 export function validatePositiveInt(value) {
   let [retValue, errorMsg] = validateNonNegativeInt(value);
 
-  if (!errorMsg && retValue == 0) {
+  if (!errorMsg && retValue === 0) {
     errorMsg = "Must be a positive integer.";
     retValue = "";
   }
