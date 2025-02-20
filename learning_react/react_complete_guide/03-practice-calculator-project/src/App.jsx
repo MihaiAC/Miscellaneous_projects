@@ -13,12 +13,12 @@ function App() {
             <label htmlFor="initialInvestment">INITIAL INVESTMENT</label>
             <input type="text" id="initialInvestment" />
 
-            <label htmlFor="annualInvestment">ANNUAL INVESTMENT</label>
-            <input type="text" id="annualInvestment" />
-          </div>
-          <div>
             <label htmlFor="expectedReturn">EXPECTED RETURN</label>
             <input type="text" id="expectedReturn" />
+          </div>
+          <div>
+            <label htmlFor="annualInvestment">ANNUAL INVESTMENT</label>
+            <input type="text" id="annualInvestment" />
 
             <label htmlFor="duration">DURATION</label>
             <input type="number" id="duration" />
