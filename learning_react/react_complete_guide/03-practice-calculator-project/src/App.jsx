@@ -1,4 +1,8 @@
 import { calculateInvestmentResults, formatter } from "./util/investment";
+import {
+  validateDecimalOrInt,
+  validateNonNegativeInt,
+} from "./util/inputValidators";
 
 function App() {
   return (
