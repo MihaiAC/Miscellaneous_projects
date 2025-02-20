@@ -1,38 +1,37 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 export default function Input({
   inputLabel,
-  inputId,
-  inputType,
   validateFunction,
   onValidInput,
+  id,
+  ...props
 }) {
-  const [formValue, setFormValue] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [inputState, setInputState] = useState({ value: "", error: "" });
 
   function handleInput(event) {
-    const newFormValue = event.target.value;
-    const error = validateFunction(newFormValue);
+    const newInputValue = event.target.value;
+    const [validatedValue, errorMsg] = validateFunction(newInputValue);
 
-    if (error != "") {
-      setErrorMessage(error);
-    } else {
-      onValidInput(inputId, newFormValue);
+    if (errorMsg === "") {
+      onValidInput(id, validatedValue);
     }
-    setFormValue(newFormValue);
+
+    setInputState({ value: newInputValue, error: errorMsg });
   }
 
   return (
     <>
-      <label htmlFor={inputId}>{inputLabel}</label>
+      <label htmlFor={id}>{inputLabel}</label>
       <input
-        type={inputType}
-        id={inputId}
-        value={formValue}
+        value={inputState["value"]}
         onChange={handleInput}
+        id={id}
+        {...props}
       />
-      <span className={errorMessage == "" ? "hidden" : "visible"}>
-        {errorMessage}
+      <span className={inputState["error"] == "" ? "hidden" : "visible"}>
+        {inputState["error"]}
       </span>
     </>
   );

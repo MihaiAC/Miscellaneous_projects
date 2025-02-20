@@ -44,16 +44,28 @@ body {
   gap: 1.5rem;
 }
 
+.input-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 span.hidden {
-  visibility: hidden;
+  opacity: 0;
+  background-color: red;
   height: 1rem;
 }
 
 span.visible {
+  opacity: 1;
   visibility: visible;
   height: 1rem;
-  background-color: red;
+  background-color: rgb(255, 85, 85);
   color: white;
+  border-radius: 5px;
+  padding: 1px;
+  font-size: small;
+  text-align: center;
 }
 
 #user-input label {

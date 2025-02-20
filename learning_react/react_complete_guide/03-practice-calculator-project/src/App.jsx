@@ -1,10 +1,37 @@
 import { calculateInvestmentResults, formatter } from "./util/investment";
+import Input from "./components/Input";
 import {
   validateDecimalOrInt,
   validateNonNegativeInt,
+  validatePositiveInt,
 } from "./util/inputValidators";
 
 function App() {
+  let currentVals = {
+    initialInvestment: "",
+    annualInvestment: "",
+    expectedReturn: "",
+    duration: "",
+  };
+
+  function handleValidInput(variable_id, value) {
+    currentVals[variable_id] = value;
+    handleOutput();
+  }
+
+  function handleOutput() {
+    // If all the values are set, emit the output.
+    const validInput = Object.values(currentVals).every(
+      (value) => value !== ""
+    );
+
+    console.log(Object.values(currentVals));
+
+    if (validInput) {
+      return console.log("We have some valid input here!");
+    }
+  }
+
   return (
     <>
       <div id="header">
@@ -12,20 +39,40 @@ function App() {
         <h1>Investment Calculator</h1>
       </div>
       <div id="user-input">
-        <div class="input-group">
-          <div>
-            <label htmlFor="initialInvestment">INITIAL INVESTMENT</label>
-            <input type="text" id="initialInvestment" />
+        <div className="input-group">
+          <div className="input-col">
+            <Input
+              inputLabel="INITIAL INVESTMENT"
+              id="initialInvestment"
+              type="text"
+              validateFunction={validateNonNegativeInt}
+              onValidInput={handleValidInput}
+            ></Input>
 
-            <label htmlFor="expectedReturn">EXPECTED RETURN</label>
-            <input type="text" id="expectedReturn" />
+            <Input
+              inputLabel="EXPECTED RETURN"
+              id="expectedReturn"
+              type="text"
+              validateFunction={validateDecimalOrInt}
+              onValidInput={handleValidInput}
+            ></Input>
           </div>
-          <div>
-            <label htmlFor="annualInvestment">ANNUAL INVESTMENT</label>
-            <input type="text" id="annualInvestment" />
+          <div className="input-col">
+            <Input
+              inputLabel="ANNUAL INVESTMENT"
+              id="annualInvestment"
+              type="text"
+              validateFunction={validateNonNegativeInt}
+              onValidInput={handleValidInput}
+            ></Input>
 
-            <label htmlFor="duration">DURATION</label>
-            <input type="number" id="duration" />
+            <Input
+              inputLabel="DURATION"
+              id="duration"
+              type="number"
+              validateFunction={validatePositiveInt}
+              onValidInput={handleValidInput}
+            ></Input>
           </div>
         </div>
       </div>
