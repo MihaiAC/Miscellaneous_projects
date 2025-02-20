@@ -10,15 +10,16 @@ export default function InputField({
 }) {
   const [inputState, setInputState] = useState({ value: "", error: "" });
 
+  console.log(inputState);
+
+  if (inputState.errorMsg === "") {
+    onValidInput(id, inputState.value);
+  }
+
   function handleInput(event) {
     const newInputValue = event.target.value;
     const [validatedValue, errorMsg] = validateFunction(newInputValue);
-
-    setInputState({ value: newInputValue, error: errorMsg });
-
-    if (errorMsg === "") {
-      onValidInput(id, validatedValue);
-    }
+    setInputState({ value: validatedValue, error: errorMsg });
   }
 
   return (

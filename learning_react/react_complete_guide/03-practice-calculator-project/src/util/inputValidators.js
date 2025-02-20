@@ -1,22 +1,15 @@
-export function validateNonNegativeInt(value) {
+export function validatePositiveInt(value) {
   let [retValue, errorMsg] = ["", ""];
   if (value !== "") {
     if (!/^\d+$/.test(value)) {
       errorMsg = "Must be a positive integer.";
     } else {
       retValue = parseInt(value);
+      if (retValue === 0) {
+        errorMsg = "Must be a positive integer.";
+        retValue = "";
+      }
     }
-  }
-
-  return [retValue, errorMsg];
-}
-
-export function validatePositiveInt(value) {
-  let [retValue, errorMsg] = validateNonNegativeInt(value);
-
-  if (!errorMsg && retValue === 0) {
-    errorMsg = "Must be a positive integer.";
-    retValue = "";
   }
 
   return [retValue, errorMsg];

@@ -19,4 +19,13 @@ export default class InputData {
       inputData.duration
     );
   }
+
+  isValid() {
+    return (
+      this.initialInvestment &&
+      this.annualInvestment &&
+      this.expectedReturn &&
+      this.duration
+    );
+  }
 }

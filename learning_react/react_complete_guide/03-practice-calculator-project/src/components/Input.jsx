@@ -2,7 +2,6 @@
 import InputData from "../util/InputData";
 import {
   validateDecimalOrInt,
-  validateNonNegativeInt,
   validatePositiveInt,
 } from "../util/inputValidators";
 import InputField from "./InputField";
@@ -12,31 +11,22 @@ export default function Input({ onValidAction }) {
 
   function handleValidInput(variable_id, value) {
     currentVals[variable_id] = value;
-    handleInput(currentVals);
-  }
 
-  function handleInput(currentVals) {
-    // If all the values are set, emit the output.
-    const validInput = Object.values(currentVals).every(
-      (value) => value !== ""
-    );
-
-    if (validInput) {
-      console.log(currentVals);
+    if (currentVals.isValid()) {
       onValidAction(currentVals);
     }
   }
 
   return (
     <>
-      <div id="user-input">
+      <section id="user-input">
         <div className="input-group">
           <div className="input-col">
             <InputField
               inputLabel="INITIAL INVESTMENT"
               id="initialInvestment"
               type="text"
-              validateFunction={validateNonNegativeInt}
+              validateFunction={validatePositiveInt}
               onValidInput={handleValidInput}
             />
 
@@ -53,7 +43,7 @@ export default function Input({ onValidAction }) {
               inputLabel="ANNUAL INVESTMENT"
               id="annualInvestment"
               type="text"
-              validateFunction={validateNonNegativeInt}
+              validateFunction={validatePositiveInt}
               onValidInput={handleValidInput}
             />
 
@@ -66,7 +56,7 @@ export default function Input({ onValidAction }) {
             />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
