@@ -1,5 +1,6 @@
 import { calculateInvestmentResults, formatter } from "./util/investment";
 import Input from "./components/Input";
+import Header from "./components/Header";
 
 function App() {
   function handleInput(currentVals) {
@@ -8,10 +9,7 @@ function App() {
 
   return (
     <>
-      <div id="header">
-        <img src="/investment-calculator-logo.png" alt="" />
-        <h1>Investment Calculator</h1>
-      </div>
+      <Header />
       <Input onValidAction={handleInput}></Input>
     </>
   );
