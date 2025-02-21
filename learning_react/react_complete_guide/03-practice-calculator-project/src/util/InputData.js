@@ -22,10 +22,14 @@ export default class InputData {
 
   isValid() {
     return (
-      this.initialInvestment &&
-      this.annualInvestment &&
-      this.expectedReturn &&
-      this.duration
+      this.initialInvestment !== "" &&
+      this.annualInvestment !== "" &&
+      this.expectedReturn !== "" &&
+      this.duration !== ""
     );
+  }
+
+  toString() {
+    return `initialInvestment=${this.initialInvestment}, annualInvestment=${this.annualInvestment} expectedReturn=${this.expectedReturn} duration=${this.duration}`;
   }
 }
