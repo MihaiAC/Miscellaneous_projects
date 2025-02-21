@@ -203,5 +203,6 @@ Then again, it would be good for importing already-styled components from somewh
 **Tailwind** 
 Remember to run npx tailwind init -p + add index.html and js, ts, jsx file extensions to the config.
 
+Same drawback as styled components in that plenty of wrapper functions will be necessary to avoid code duplication.
 
 
