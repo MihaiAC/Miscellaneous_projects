@@ -23,7 +23,7 @@ export function calculateInvestmentResults(inputData) {
 
     const totalInterest =
       investmentValue - annualInvestmentValue - initialInvestment;
-    const totalAmountInvested = investmentValue - totalInterest;
+    const totalAmountInvested = investmentValue + annualInvestmentValue;
 
     annualData.push({
       year: i + 1,
