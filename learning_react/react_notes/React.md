@@ -169,3 +169,14 @@ Run `npx eslint --init` to customize eslint, will install some react extension.
 Disables the import React warning (since it is not needed for versions >=17): `pluginReact.configs.flat["jsx-runtime"]`
 
 ### Styling components
+Vanilla CSS:
+- "CSS code decoupled from JSX code" - that is not entirely true is it? if you use a specific className for a specific component?
+- Could be written by someone who does not need to mess with the JSX code.
+-  Is not scoped to components.
+
+Inline styles (probably a precursor to Tailwind(?))
+- Syntax: `<p style={{color: 'red', textAlign: 'left',...}}>` - dynamic value with an object declared on the fly, hence the double {{}}.
+- Applied directly in the JSX component.
+- Only affect the element to which they are added => need to style each element individually.
+- No separation between CSS and JSX.
+- Makes conditional (dynamic) styling easy.
