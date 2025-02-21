@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import { calculateInvestmentResults, formatter } from "../util/investment";
+import { formatter } from "../util/investment";
 
 export default function Result({ data }) {
-  data.duration + "FROM RESULT";
   return (
     <>
-      {data.isValid() && (
+      {data && (
         <table id="result">
           <thead>
             <tr>
@@ -17,7 +16,7 @@ export default function Result({ data }) {
             </tr>
           </thead>
           <tbody>
-            {calculateInvestmentResults(data).map((yearData) => (
+            {data.map((yearData) => (
               <tr key={yearData.year}>
                 <td>{yearData.year}</td>
                 <td>{formatter.format(yearData.valueEndOfYear)}</td>

@@ -1,20 +1,16 @@
 /* eslint-disable react/prop-types */
-import InputData from "../util/InputData";
 import {
   validateDecimalOrInt,
   validatePositiveInt,
 } from "../util/inputValidators";
 import InputField from "./InputField";
 
-export default function Input({ onValidAction }) {
-  let currentVals = new InputData();
+export default function Input({ onInputChange, data }) {
+  let currentVals = data;
 
   function handleValidInput(variable_id, value) {
     currentVals[variable_id] = value;
-
-    if (currentVals.isValid()) {
-      onValidAction(currentVals);
-    }
+    onInputChange(currentVals);
   }
 
   return (
