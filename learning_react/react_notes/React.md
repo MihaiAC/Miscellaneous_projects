@@ -167,3 +167,5 @@ Add to VS code settings.json
 Run `npx eslint --init` to customize eslint, will install some react extension.
 
 Disables the import React warning (since it is not needed for versions >=17): `pluginReact.configs.flat["jsx-runtime"]`
+
+### Styling components
