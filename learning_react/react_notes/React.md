@@ -190,3 +190,7 @@ Header.css -> Header.module.css (in Vite) then you have to import an object from
 Usage: `[name_of_imported_object].[original_name_of_CSS_class]`
 Example generated unique class name: `_paragraph_ewpvr_34` (from a class named `paragraph`).
 
+**Styled components** (third-party app)
+`npm install styled-components`
+`import { styled } from "styled-components";` usage = Google it
+Will create a new Component + forwards the rest of the props to where it would go if we hadn't used the app.
