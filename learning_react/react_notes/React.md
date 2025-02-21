@@ -169,15 +169,24 @@ Run `npx eslint --init` to customize eslint, will install some react extension.
 Disables the import React warning (since it is not needed for versions >=17): `pluginReact.configs.flat["jsx-runtime"]`
 
 ### Styling components
-Vanilla CSS:
+**Vanilla CSS:**
 - "CSS code decoupled from JSX code" - that is not entirely true is it? if you use a specific className for a specific component?
 - Could be written by someone who does not need to mess with the JSX code.
 -  Is not scoped to components.
 
-Inline styles (probably a precursor to Tailwind(?))
+**Inline styles** (probably a precursor to Tailwind(?))
 - Syntax: `<p style={{color: 'red', textAlign: 'left',...}}>` - dynamic value with an object declared on the fly, hence the double {{}}.
 - Applied directly in the JSX component.
 - Only affect the element to which they are added => need to style each element individually.
 - No separation between CSS and JSX.
 - Makes conditional (dynamic) styling easy.
 For inline styles, set className with ternary expressions - return undefined or '' if empty.
+
+**CSS Modules**: build tools option to have CSS file scoped only to a single file.
+- "CSS code decoupled from JSX code "(literally contradicted in the example given)
+- No CSS name clashes.
+- CSS spread across multiple files.
+Header.css -> Header.module.css (in Vite) then you have to import an object from it that maps the CSS classnames declared in Header.css to unique classNames across the whole project.
+Usage: `[name_of_imported_object].[original_name_of_CSS_class]`
+Example generated unique class name: `_paragraph_ewpvr_34` (from a class named `paragraph`).
+
