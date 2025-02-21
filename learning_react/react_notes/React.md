@@ -200,4 +200,8 @@ Need to know: how to create a styled component, how to pass conditional values t
 It does seem powerful, but I don't like wrapping every element I want to style into yet another component. Maybe the appeal would be stronger with more experience, but right now it seems confusing. 
 Then again, it would be good for importing already-styled components from somewhere else and re-using it across the app. Good for stuff like headers and footers that are on every page.
 
+**Tailwind** 
+Remember to run npx tailwind init -p + add index.html and js, ts, jsx file extensions to the config.
+
+
 
