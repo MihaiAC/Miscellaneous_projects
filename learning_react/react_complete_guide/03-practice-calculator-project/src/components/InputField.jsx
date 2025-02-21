@@ -13,10 +13,12 @@ export default function InputField({
   function handleInput(event) {
     const newInputValue = event.target.value;
     const [validatedValue, errorMsg] = validateFunction(newInputValue);
-    setInputState({ value: validatedValue, error: errorMsg });
 
     if (errorMsg === "") {
+      setInputState({ value: validatedValue, error: errorMsg });
       onValidInput(id, validatedValue);
+    } else {
+      setInputState({ value: newInputValue, error: errorMsg });
     }
   }
 
