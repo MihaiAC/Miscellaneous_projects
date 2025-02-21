@@ -180,3 +180,4 @@ Inline styles (probably a precursor to Tailwind(?))
 - Only affect the element to which they are added => need to style each element individually.
 - No separation between CSS and JSX.
 - Makes conditional (dynamic) styling easy.
+For inline styles, set className with ternary expressions - return undefined or '' if empty.
