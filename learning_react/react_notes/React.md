@@ -205,4 +205,7 @@ Remember to run npx tailwind init -p + add index.html and js, ts, jsx file exten
 
 Same drawback as styled components in that plenty of wrapper functions will be necessary to avoid code duplication.
 
+### Debugging React
+
+
 
