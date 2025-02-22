@@ -12,6 +12,10 @@ body {
   h3 {
     @apply mb-8 text-4xl font-bold text-darkGrayBlue md:text-5xl;
   }
+
+  h4 {
+    @apply text-2xl font-bold text-darkGrayBlue mb-2;
+  }
 }
 
 @media (max-width: 576px) {
@@ -25,5 +29,13 @@ body {
 }
 
 .section-container {
-  @apply max-w-6xl text-center mx-auto;
+  @apply max-w-6xl text-center mx-auto px-10;
+}
+
+.flex-col-center {
+  @apply flex flex-col items-center md:text-left;
+}
+
+.text-md-xl {
+  @apply max-w-md text-xl text-grayBlue;
 }
