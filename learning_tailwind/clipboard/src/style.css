@@ -25,7 +25,7 @@ body {
 }
 
 .button-container {
-  @apply flex flex-col justify-center w-full space-y-6 text-xl text-white md:flex-row md:space-y-0 md:space-x-4;
+  @apply flex flex-col items-center md:justify-center w-full space-y-6 text-xl text-white md:flex-row md:space-y-0 md:space-x-4;
 }
 
 .section-container {
