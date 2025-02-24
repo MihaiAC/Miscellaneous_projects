@@ -210,4 +210,11 @@ Same drawback as styled components in that plenty of wrapper functions will be n
 - StrictMode - executes every component, effect, ref callbacks an extra time + checks usage of deprecated APIs.
 - React dev tools - can monitor the state and hooks for each component.
 
+### Refs
+x = useRef()
+Add ref={x} on the element you want.
+x.current.property = access property of the actual HTML element;
+
+{x ?? false_value} = set to x if x truthy, else to false_value;
+
 
