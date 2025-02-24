@@ -242,3 +242,6 @@ useImperativeHandle(ref, () => {
 ```
 This way, we can call ref.current.open() from outside the component.
 
+### Portals
+Used to render a component someplace else in the DOM.
+
