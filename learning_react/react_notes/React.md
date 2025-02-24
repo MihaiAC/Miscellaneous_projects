@@ -217,4 +217,15 @@ x.current.property = access property of the actual HTML element;
 
 {x ?? false_value} = set to x if x truthy, else to false_value;
 
+State:
+- Causes component re-execution when changed.
+- Should be used for values that are directly reflected in the UI.
+- Should not be used for behind-the-scenes values with no direct UI impact.
+
+Refs:
+- Do not cause component re-execution when changed.
+- Can be used to gain direct DOM elem access (reading values, browser APIs, etc.).
+
+Can also use Refs to retain values across component re-executions (similar to state variables).
+
 
