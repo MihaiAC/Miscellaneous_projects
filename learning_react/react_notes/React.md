@@ -228,4 +228,17 @@ Refs:
 
 Can also use Refs to retain values across component re-executions (similar to state variables).
 
+Forwarding refs to component:
+- React 19: ref is a special variable when passing args to a component.
+- < React 19: Wrapping the target component in a forwardRef function - necessary for old React versions.
+
+UseImperativeHandle = exposing callable functions to outside of the component; Used as a layer of indirection; if I call dialog.current.showModal(), the current component has to know that the component it calls has a `<dialog>` element (tight coupling).
+```javascript
+useImperativeHandle(ref, () => {
+	return {open() {
+		dialog.current.showModal();
+	},};
+});
+```
+This way, we can call ref.current.open() from outside the component.
 
