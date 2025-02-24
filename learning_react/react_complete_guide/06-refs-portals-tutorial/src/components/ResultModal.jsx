@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-export default function ResultModal({ result, targetTime }) {
+export default function ResultModal({ ref, result, targetTime }) {
   return (
-    <dialog>
+    <dialog className="result-modal" ref={ref}>
       <h2>You {result}</h2>
       <p>
         The target time was <strong>{targetTime} seconds.</strong>
