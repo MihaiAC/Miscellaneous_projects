@@ -21,7 +21,7 @@ export default function ResultModal({
   });
 
   return (
-    <dialog className="result-modal" ref={dialog}>
+    <dialog className="result-modal" ref={dialog} onClose={onReset}>
       {userLost && <h2>You lost</h2>}
       {!userLost && <h2>Your score: {score} </h2>}
       <p>
