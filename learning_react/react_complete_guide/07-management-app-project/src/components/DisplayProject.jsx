@@ -11,9 +11,7 @@ export default function DisplayProject({
 }) {
   const [taskName, setTaskName] = useState("");
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
+  function handleSubmit() {
     if (!taskName.trim()) {
       return;
     }
@@ -24,24 +22,41 @@ export default function DisplayProject({
   }
 
   return (
-    <div>
-      <h1>{project.name}</h1>
-      <p>{project.date}</p>
+    <div className="mt-32 px-8 flex flex-col space-y-4 w-full max-w-lg">
+      <div className="flex justify-between">
+        <h1 className="text-3xl font-bold text-stone-700">{project.name}</h1>
+        <button type="button" onClick={() => onDelete(project.id)}>
+          Delete
+        </button>
+      </div>
+
+      <p className="text-lg text-stone-500">{project.date}</p>
       <p>{project.description}</p>
-      <button onClick={() => onDelete(project.id)}>Delete</button>
-      <form onSubmit={handleSubmit}>
+
+      <hr className="w-full border-t border-gray-300" />
+
+      <h1 className="text-3xl font-bold text-stone-700">Tasks</h1>
+      <div className="flex space-x-8">
+        {" "}
         <input
           type="text"
           value={taskName}
           onChange={(e) => setTaskName(e.target.value)}
+          className="bg-stone-400 rounded-md p-2"
         />
-        <button type="submit">Add Task</button>
-      </form>
+        <button type="button" onClick={handleSubmit}>
+          Add Task
+        </button>
+      </div>
+
       <ul>
-        {project.tasks.map((task) => (
-          <li key={task.id}>
+        {project.tasks.forEach((task, taskId) => (
+          <li key={taskId} className="flex space-between bg-stone-300 p-4">
             {task.name}{" "}
-            <button onClick={() => onDeleteTask(project.id, task)}>
+            <button
+              type="button"
+              onClick={() => onDeleteTask(project.id, task)}
+            >
               Clear
             </button>
           </li>

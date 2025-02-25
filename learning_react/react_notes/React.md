@@ -251,3 +251,7 @@ Used to render a component someplace else in the DOM.
 React batches updates that occur within the same event cycle (e.g., inside a click handler).
 Prevents unnecessary re-renders.
 
+### Things that are not React, but can cause bugs
+Buttons = always specify the type. Submit for forms, button for everything else. Could trigger page reloads if it's submit and you don't preventDefault().
+
+`<a>` elements: onClick => prevent event default, can trigger a page reload (-3 hours 🙃 ).

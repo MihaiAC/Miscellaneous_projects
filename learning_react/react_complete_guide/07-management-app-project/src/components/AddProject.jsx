@@ -1,20 +1,21 @@
 import { useState } from "react";
+import StyledInput from "./StyledInput";
 import PropTypes from "prop-types";
 
-export default function AddProject({ onSubmit, onCancel }) {
+export default function AddProject({ onProjectAdd, onCancel }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit() {
+    // event.preventDefault();
 
     if (!title.trim()) {
       alert("Title cannot be empty!");
       return;
     }
 
-    onSubmit({ title, description, date });
+    onProjectAdd({ title, description, date });
 
     setTitle("");
     setDescription("");
@@ -31,40 +32,57 @@ export default function AddProject({ onSubmit, onCancel }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="add-project-form-title">Title:</label>
-        <input
+    <div className="mt-36 w-full">
+      <div className="flex flex-col max-w-lg space-y-4 mt-16 mx-auto">
+        <div className="flex justify-between mb-16">
+          <h1 className="text-4xl font-bold">Add project</h1>
+          <div className="flex space-x-4">
+            <button
+              type="button"
+              onClick={handleSubmit}
+              className="hover:bg-black hover:text-white rounded-md p-2 border-black border-2"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="hover:bg-black hover:text-white rounded-md p-2 border-black border-2"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+
+        <StyledInput
           id="add-project-form-title"
+          label="Title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          required
         />
-      </div>
-      <div>
-        <label htmlFor="add-project-form-descr">Description:</label>
-        <textarea id="add-project-form-descr" value={description}>
-          {" "}
+
+        <StyledInput
+          id="add-project-form-descr"
+          label="Description"
+          type="textarea"
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
-        </textarea>
-      </div>
-      <div>
-        <label htmlFor="add-project-form-date">Due date:</label>
-        <input
+        />
+
+        <StyledInput
           id="add-project-form-date"
+          label="Due date"
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
       </div>
-      <button type="submit">Submit</button>
-      <button onClick={handleCancel}>Cancel</button>
-    </form>
+    </div>
   );
 }
 
 AddProject.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onProjectAdd: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
 };

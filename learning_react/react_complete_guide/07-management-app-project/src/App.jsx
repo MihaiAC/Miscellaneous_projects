@@ -5,9 +5,6 @@ import { useRef, useState } from "react";
 import Project from "./util/Project";
 import DisplayProject from "./components/DisplayProject";
 
-const proj_1 = new Project("Project 1", "A dummy project", "25/02/2025");
-const proj_2 = new Project("Project 2", "A second dummy project", "25/02/2025");
-
 const DisplayMode = {
   DEFAULT: "default",
   ADD: "add",
@@ -15,10 +12,7 @@ const DisplayMode = {
 };
 
 function App() {
-  const [projects, setProjects] = useState({
-    [proj_1.id]: proj_1,
-    [proj_2.id]: proj_2,
-  });
+  const [projects, setProjects] = useState({});
 
   // States: default, add, display.
   const [displayMode, setDisplayMode] = useState(DisplayMode.DEFAULT);
@@ -50,6 +44,7 @@ function App() {
 
   function handleDeleteProject(projectId) {
     setProjects((prevProjects) => {
+      // eslint-disable-next-line no-unused-vars
       const { [projectId]: _, ...restOfProjects } = prevProjects;
       return restOfProjects;
     });
@@ -79,32 +74,30 @@ function App() {
   }
 
   return (
-    <div id="container">
+    <div id="container" className="flex h-screen">
       <Sidebar
         projects={projects}
         onClickAddProject={handleClickAddProject}
         onClickProject={handleDisplayProject}
       />
 
-      <div id="display">
-        {displayMode === DisplayMode.DEFAULT ? (
-          <DefaultDisplay onClickAddProject={handleClickAddProject} />
-        ) : null}
-        {displayMode === DisplayMode.ADD ? (
-          <AddProject
-            onSubmit={handleAddProject}
-            onCancel={handleCancelAddProject}
-          />
-        ) : undefined}
-        {displayMode === DisplayMode.DISPLAY ? (
-          <DisplayProject
-            project={projects[displayProjectId.current]}
-            onDelete={handleDeleteProject}
-            onAddTask={handleAddTask}
-            onDeleteTask={handleDeleteTask}
-          />
-        ) : undefined}
-      </div>
+      {displayMode === DisplayMode.DEFAULT ? (
+        <DefaultDisplay onClickAddProject={handleClickAddProject} />
+      ) : null}
+      {displayMode === DisplayMode.ADD ? (
+        <AddProject
+          onProjectAdd={handleAddProject}
+          onCancel={handleCancelAddProject}
+        />
+      ) : undefined}
+      {displayMode === DisplayMode.DISPLAY ? (
+        <DisplayProject
+          project={projects[displayProjectId.current]}
+          onDelete={handleDeleteProject}
+          onAddTask={handleAddTask}
+          onDeleteTask={handleDeleteTask}
+        />
+      ) : undefined}
     </div>
   );
 }
