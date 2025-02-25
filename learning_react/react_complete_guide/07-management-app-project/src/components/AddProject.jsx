@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function AddProject({ onSubmit, onCancel }) {
   const [title, setTitle] = useState("");
@@ -53,3 +54,8 @@ export default function AddProject({ onSubmit, onCancel }) {
     </form>
   );
 }
+
+AddProject.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+};
