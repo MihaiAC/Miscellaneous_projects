@@ -1,5 +1,6 @@
 import Sidebar from "./components/Sidebar";
 import DefaultDisplay from "./components/DefaultDisplay";
+import AddProject from "./components/AddProject";
 import { useRef, useState } from "react";
 import Project from "./util/Project";
 
@@ -22,6 +23,10 @@ function App() {
 
   function handleDisplayProject(projectId) {}
 
+  function onCancelAddProject() {}
+
+  function onAddProject({ title, description, date }) {}
+
   return (
     <div id="container">
       <Sidebar
@@ -34,7 +39,9 @@ function App() {
         {displayMode === "default" ? (
           <DefaultDisplay onClickAddProject={handleClickAddProject} />
         ) : null}
-        {displayMode === "add" ? undefined : undefined}
+        {displayMode === "add" ? (
+          <AddProject onSubmit={onAddProject} onCancel={onCancelAddProject} />
+        ) : undefined}
         {displayMode === "display" ? undefined : undefined}
       </div>
     </div>
