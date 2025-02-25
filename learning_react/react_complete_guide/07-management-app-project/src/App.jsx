@@ -8,6 +8,12 @@ import DisplayProject from "./components/DisplayProject";
 const proj_1 = new Project("Project 1", "A dummy project", "25/02/2025");
 const proj_2 = new Project("Project 2", "A second dummy project", "25/02/2025");
 
+const DisplayMode = {
+  DEFAULT: "default",
+  ADD: "add",
+  DISPLAY: "display",
+};
+
 function App() {
   const [projects, setProjects] = useState({
     [proj_1.id]: proj_1,
@@ -15,12 +21,14 @@ function App() {
   });
 
   // States: default, add, display.
-  const [displayMode, setDisplayMode] = useState("default");
+  const [displayMode, setDisplayMode] = useState(DisplayMode.DEFAULT);
 
   // Ref: ID of a project to display.
   const displayProjectId = useRef(undefined);
 
-  function handleClickAddProject() {}
+  function handleClickAddProject() {
+    setDisplayMode(DisplayMode.ADD);
+  }
 
   function handleDisplayProject(projectId) {}
 
@@ -41,16 +49,16 @@ function App() {
       />
 
       <div id="display">
-        {displayMode === "default" ? (
+        {displayMode === DisplayMode.DEFAULT ? (
           <DefaultDisplay onClickAddProject={handleClickAddProject} />
         ) : null}
-        {displayMode === "add" ? (
+        {displayMode === DisplayMode.ADD ? (
           <AddProject
             onSubmit={handleAddProject}
             onCancel={handleCancelAddProject}
           />
         ) : undefined}
-        {displayMode === "display" ? (
+        {displayMode === DisplayMode.DISPLAY ? (
           <DisplayProject
             project={projects[displayProjectId]}
             onDelete={handleDeleteProject}
