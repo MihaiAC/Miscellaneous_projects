@@ -27,6 +27,10 @@ function App() {
 
   function onAddProject({ title, description, date }) {}
 
+  function onDeleteProject(projectId) {}
+
+  function onAddTask(projectId, newTask) {}
+
   return (
     <div id="container">
       <Sidebar
