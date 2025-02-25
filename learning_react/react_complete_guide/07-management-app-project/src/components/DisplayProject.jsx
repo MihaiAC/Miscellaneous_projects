@@ -3,7 +3,12 @@ import Project from "../util/Project";
 import { useState } from "react";
 import Task from "../util/Task";
 
-export default function DisplayProject({ project, onDelete, onAddTask }) {
+export default function DisplayProject({
+  project,
+  onDelete,
+  onAddTask,
+  onDeleteTask,
+}) {
   const [taskName, setTaskName] = useState("");
 
   function handleSubmit(event) {
@@ -34,7 +39,12 @@ export default function DisplayProject({ project, onDelete, onAddTask }) {
       </form>
       <ul>
         {project.tasks.map((task) => (
-          <li key={task.id}>{task.name}</li>
+          <li key={task.id}>
+            {task.name}{" "}
+            <button onClick={() => onDeleteTask(project.id, task)}>
+              Clear
+            </button>
+          </li>
         ))}
       </ul>
     </div>
@@ -45,4 +55,5 @@ DisplayProject.propTypes = {
   project: Project,
   onDelete: PropTypes.func.isRequired,
   onAddTask: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
 };
