@@ -21,6 +21,15 @@ export default function AddProject({ onSubmit, onCancel }) {
     setDate("");
   }
 
+  function handleCancel() {
+    // Not sure if this is necessary.
+    setTitle("");
+    setDescription("");
+    setDate("");
+
+    onCancel();
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -50,7 +59,7 @@ export default function AddProject({ onSubmit, onCancel }) {
         />
       </div>
       <button type="submit">Submit</button>
-      <button onClick={onCancel}>Cancel</button>
+      <button onClick={handleCancel}>Cancel</button>
     </form>
   );
 }
