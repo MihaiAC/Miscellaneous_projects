@@ -30,15 +30,53 @@ function App() {
     setDisplayMode(DisplayMode.ADD);
   }
 
-  function handleDisplayProject(projectId) {}
+  function handleDisplayProject(projectId) {
+    displayProjectId.current = projectId;
+    setDisplayMode(DisplayMode.DISPLAY);
+  }
 
-  function handleCancelAddProject() {}
+  function handleCancelAddProject() {
+    setDisplayMode(DisplayMode.DEFAULT);
+  }
 
-  function handleAddProject({ title, description, date }) {}
+  function handleAddProject({ title, description, date }) {
+    const newProject = new Project(title, description, date);
+    setProjects((prevProjects) => ({
+      ...prevProjects,
+      [newProject.id]: newProject,
+    }));
+    setDisplayMode(DisplayMode.DEFAULT);
+  }
 
-  function handleDeleteProject(projectId) {}
+  function handleDeleteProject(projectId) {
+    setProjects((prevProjects) => {
+      const { [projectId]: _, ...restOfProjects } = prevProjects;
+      return restOfProjects;
+    });
+    setDisplayMode(DisplayMode.DEFAULT);
+  }
 
-  function handleAddTask(projectId, newTask) {}
+  function handleAddTask(projectId, newTask) {
+    setProjects((prevProjects) => {
+      const project = prevProjects[projectId];
+      project.addTask(newTask);
+      return {
+        ...prevProjects,
+        [projectId]: project,
+      };
+    });
+  }
+
+  function handleDeleteTask(projectId, task) {
+    setProjects((prevProjects) => {
+      const project = prevProjects[projectId];
+      project.removeTask(task.id);
+      return {
+        ...prevProjects,
+        [projectId]: project,
+      };
+    });
+  }
 
   return (
     <div id="container">
@@ -60,9 +98,10 @@ function App() {
         ) : undefined}
         {displayMode === DisplayMode.DISPLAY ? (
           <DisplayProject
-            project={projects[displayProjectId]}
+            project={projects[displayProjectId.current]}
             onDelete={handleDeleteProject}
             onAddTask={handleAddTask}
+            onDeleteTask={handleDeleteTask}
           />
         ) : undefined}
       </div>
