@@ -226,7 +226,8 @@ Refs:
 - Do not cause component re-execution when changed.
 - Can be used to gain direct DOM elem access (reading values, browser APIs, etc.).
 
-Can also use Refs to retain values across component re-executions (similar to state variables).
+Refs are used to retain values across component re-executions (similar to state variables).
+Do not read/write a ref's current value during rendering.
 
 Forwarding refs to component:
 - React 19: ref is a special variable when passing args to a component.
@@ -244,4 +245,9 @@ This way, we can call ref.current.open() from outside the component.
 
 ### Portals
 Used to render a component someplace else in the DOM.
+
+### Batching
+(Just the general idea)
+React batches updates that occur within the same event cycle (e.g., inside a click handler).
+Prevents unnecessary re-renders.
 
