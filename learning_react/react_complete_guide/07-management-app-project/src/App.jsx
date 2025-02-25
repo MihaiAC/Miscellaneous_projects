@@ -3,6 +3,7 @@ import DefaultDisplay from "./components/DefaultDisplay";
 import AddProject from "./components/AddProject";
 import { useRef, useState } from "react";
 import Project from "./util/Project";
+import DisplayProject from "./components/DisplayProject";
 
 const proj_1 = new Project("Project 1", "A dummy project", "25/02/2025");
 const proj_2 = new Project("Project 2", "A second dummy project", "25/02/2025");
@@ -23,13 +24,13 @@ function App() {
 
   function handleDisplayProject(projectId) {}
 
-  function onCancelAddProject() {}
+  function handleCancelAddProject() {}
 
-  function onAddProject({ title, description, date }) {}
+  function handleAddProject({ title, description, date }) {}
 
-  function onDeleteProject(projectId) {}
+  function handleDeleteProject(projectId) {}
 
-  function onAddTask(projectId, newTask) {}
+  function handleAddTask(projectId, newTask) {}
 
   return (
     <div id="container">
@@ -44,9 +45,18 @@ function App() {
           <DefaultDisplay onClickAddProject={handleClickAddProject} />
         ) : null}
         {displayMode === "add" ? (
-          <AddProject onSubmit={onAddProject} onCancel={onCancelAddProject} />
+          <AddProject
+            onSubmit={handleAddProject}
+            onCancel={handleCancelAddProject}
+          />
         ) : undefined}
-        {displayMode === "display" ? undefined : undefined}
+        {displayMode === "display" ? (
+          <DisplayProject
+            project={projects[displayProjectId]}
+            onDelete={handleDeleteProject}
+            onAddTask={handleAddTask}
+          />
+        ) : undefined}
       </div>
     </div>
   );
