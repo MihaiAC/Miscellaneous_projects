@@ -50,9 +50,9 @@ export default function DisplayProject({
       </div>
 
       <ul>
-        {project.tasks.forEach((task, taskId) => (
-          <li key={taskId} className="flex space-between bg-stone-300 p-4">
-            {task.name}{" "}
+        {Array.from(project.tasks).map(([taskId, task]) => (
+          <li key={taskId} className="flex justify-between bg-stone-300 p-4">
+            <p>{task.name}</p>{" "}
             <button
               type="button"
               onClick={() => onDeleteTask(project.id, task)}
