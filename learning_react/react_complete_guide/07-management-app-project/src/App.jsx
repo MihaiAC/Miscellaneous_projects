@@ -1,4 +1,5 @@
 import Sidebar from "./components/Sidebar";
+import DefaultDisplay from "./components/DefaultDisplay";
 import { useRef, useState } from "react";
 import Project from "./util/Project";
 
@@ -11,22 +12,30 @@ function App() {
     [proj_2.id]: proj_2,
   });
 
+  // States: default, add, display.
   const [displayMode, setDisplayMode] = useState("default");
 
-  function handleSidebarAddProject() {}
+  // Ref: ID of a project to display.
+  const displayProjectId = useRef(undefined);
 
-  function handleSidebarProjectClick(projectId) {}
+  function handleClickAddProject() {}
+
+  function handleDisplayProject(projectId) {}
 
   return (
     <div id="container">
       <Sidebar
         projects={projects}
-        onClickAddProject={handleSidebarAddProject}
-        onClickProject={handleSidebarProjectClick}
+        onClickAddProject={handleClickAddProject}
+        onClickProject={handleDisplayProject}
       />
 
       <div id="display">
-        <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
+        {displayMode === "default" ? (
+          <DefaultDisplay onClickAddProject={handleClickAddProject} />
+        ) : null}
+        {displayMode === "add" ? undefined : undefined}
+        {displayMode === "display" ? undefined : undefined}
       </div>
     </div>
   );
