@@ -293,7 +293,10 @@ Side effect = Anything that affects something outside the component's rendering 
 E.g: fetching data from an API, updating DOM manually, subscribing to events, setting timeouts or intervals or updating local storage.
 
 useEffect -> will be executed only after the component has been rendered.
-Dependencies specified: effect will only run if those dependencies changed.
-Empty dependencies ([ ])  -> effect only runs once.
-No dependencies -> effect runs after each time app is rendered (can lead to infinite loop).
-What can a dependency be? Anything that triggers a re-render when it changes.
+- Dependencies specified: effect will only run if those dependencies changed. What can a dependency be? Anything that triggers a re-render when it changes (or is it anything that is changed on a re-render?). Using a prop/function as a dependency?
+  
+  Functions get re-created when the component they are in is executed again. So technically, they change - functions are objects in JS. Usage can lead to infinite loops.
+  
+- Clean-up function: is run on component unmount and when the effect runs again.
+- Empty dependencies ([ ])  -> effect only runs once, on component mounting. 
+- No dependencies -> effect runs after each time app is rendered (can lead to infinite loop).
