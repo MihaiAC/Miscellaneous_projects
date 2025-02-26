@@ -255,3 +255,14 @@ Prevents unnecessary re-renders.
 Buttons = always specify the type. Submit for forms, button for everything else. Could trigger page reloads if it's submit and you don't preventDefault().
 
 `<a>` elements: onClick => prevent event default, can trigger a page reload (-3 hours 🙃 ).
+
+### Advanced state management
+Prop drilling = passing props from root app to children, which are then passed to other children and so on.
+
+Why prop drilling is bad:
+- Harder to maintain code: every intermediate component must pass down the prop even if it doesn't directly use it => changing the prop required updating multiple components.
+- Makes debugging more difficult.
+- Unnecessary re-renders: every component in the chain re-renders when the prop changes even if they don't use it.
+
+#### Alternatives to prop drilling
+**A) Component composition**
