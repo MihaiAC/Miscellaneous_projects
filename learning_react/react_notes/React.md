@@ -278,3 +278,11 @@ How to use?
 - useContext/use inside the component you need to consume the context. useContext cannot be used inside an if block (why?). use doesn't exist in React <19. use seems to be used to fetch async data, works with promises. Re-renders when it fetches new data, while useContext re-renders whenever Context changes.
 - Can also consume context with contextName.Consumer, as a wrapper.
 - Can add state variables, handlers to context.
+
+**C) ContextAPI + useReducer**
+Reducer = similar to reduce() - reduces a complex lists of values to a single one. Reducer is the analogue for state management.
+
+`const [state, dispatch] = useReducer(reducer, initial_state)`
+A reducer receives the state + action and returns the modified state.
+
+useReducer is used to manage more complex state than with useState;
