@@ -56,8 +56,10 @@ export default function AddProject({ onProjectAdd, onCancel }) {
   return (
     <>
       <Modal ref={modal}>
-        <h2>Invalid input</h2>
-        <p>Please make sure that no input fields are empty.</p>
+        <h2 className="text-xl font-bold text-stone-700 my-4">Invalid input</h2>
+        <p className="text-stone-600 mb-4">
+          Please make sure that no input fields are empty.
+        </p>
       </Modal>
       <div className="mt-36 w-full">
         <div className="flex flex-col max-w-lg space-y-4 mt-16 mx-auto">
