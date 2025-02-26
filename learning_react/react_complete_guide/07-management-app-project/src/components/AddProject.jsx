@@ -1,33 +1,39 @@
-import { useState } from "react";
+import { useRef } from "react";
 import StyledInput from "./StyledInput";
 import PropTypes from "prop-types";
 
 export default function AddProject({ onProjectAdd, onCancel }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+  const title = useRef();
+  const description = useRef();
+  const date = useRef();
+
+  function flushInputs() {
+    title.current.value = "";
+    description.current.value = "";
+    date.current.value = "";
+  }
+
+  flushInputs();
 
   function handleSubmit() {
-    // event.preventDefault();
+    const enteredTitle = title.current.value;
+    const enteredDescription = description.current.value;
+    const enteredDate = date.current.value;
 
-    if (!title.trim()) {
+    // Validation.
+    if (!title.current.value.trim()) {
       alert("Title cannot be empty!");
       return;
     }
 
-    onProjectAdd({ title, description, date });
-
-    setTitle("");
-    setDescription("");
-    setDate("");
+    onProjectAdd({
+      title: enteredTitle,
+      description: enteredDescription,
+      date: enteredDate,
+    });
   }
 
   function handleCancel() {
-    // Not sure if this is necessary.
-    setTitle("");
-    setDescription("");
-    setDate("");
-
     onCancel();
   }
 
@@ -58,24 +64,25 @@ export default function AddProject({ onProjectAdd, onCancel }) {
           id="add-project-form-title"
           label="Title"
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          //value={title.current}
+          ref={title}
         />
 
         <StyledInput
           id="add-project-form-descr"
           label="Description"
           type="textarea"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          //value={description}
+          ref={description}
         />
 
         <StyledInput
           id="add-project-form-date"
           label="Due date"
           type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
+          //value={date}
+          ref={date}
+          //onChange={(e) => setDate(e.target.value)}
         />
       </div>
     </div>
