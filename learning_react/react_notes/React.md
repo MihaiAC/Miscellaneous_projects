@@ -286,3 +286,14 @@ Reducer = similar to reduce() - reduces a complex lists of values to a single on
 A reducer receives the state + action and returns the modified state.
 
 useReducer is used to manage more complex state than with useState;
+
+### Side effects
+Side effect = Anything that affects something outside the component's rendering process.
+
+E.g: fetching data from an API, updating DOM manually, subscribing to events, setting timeouts or intervals or updating local storage.
+
+useEffect -> will be executed only after the component has been rendered.
+Dependencies specified: effect will only run if those dependencies changed.
+Empty dependencies ([ ])  -> effect only runs once.
+No dependencies -> effect runs after each time app is rendered (can lead to infinite loop).
+
