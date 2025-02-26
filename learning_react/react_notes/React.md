@@ -276,4 +276,5 @@ How to use?
 - Declare a context component in /src/store folder.
 - Import + wrap the components needing this context in either contextName or contextName.Provider (React <19). Must provide a default value prop.
 - useContext/use inside the component you need to consume the context. useContext cannot be used inside an if block (why?). use doesn't exist in React <19. use seems to be used to fetch async data, works with promises. Re-renders when it fetches new data, while useContext re-renders whenever Context changes.
+- Can also consume context with contextName.Consumer, as a wrapper.
 - Can add state variables, handlers to context.
