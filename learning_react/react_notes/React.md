@@ -295,7 +295,7 @@ E.g: fetching data from an API, updating DOM manually, subscribing to events, se
 useEffect -> will be executed only after the component has been rendered.
 - Dependencies specified: effect will only run if those dependencies changed. What can a dependency be? Anything that triggers a re-render when it changes (or is it anything that is changed on a re-render?). Using a prop/function as a dependency?
   
-  Functions get re-created when the component they are in is executed again. So technically, they change - functions are objects in JS. Usage can lead to infinite loops.
+  Functions get re-created when the component they are in is executed again. So technically, they change - functions are objects in JS. Usage can lead to infinite loops. When passing functions as dependencies to useEffect, wrap them in useCallback to prevent re-creating them on component re-render. useCallback also has dependencies on which the function is re-created.
   
 - Clean-up function: is run on component unmount and when the effect runs again.
 - Empty dependencies ([ ])  -> effect only runs once, on component mounting. 
