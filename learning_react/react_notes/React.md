@@ -296,4 +296,4 @@ useEffect -> will be executed only after the component has been rendered.
 Dependencies specified: effect will only run if those dependencies changed.
 Empty dependencies ([ ])  -> effect only runs once.
 No dependencies -> effect runs after each time app is rendered (can lead to infinite loop).
-
+What can a dependency be? Anything that triggers a re-render when it changes.
