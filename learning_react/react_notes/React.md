@@ -266,3 +266,14 @@ Why prop drilling is bad:
 
 #### Alternatives to prop drilling
 **A) Component composition**
+Basically remove functionality from children and handle it in the root App component => large App component and wrapper descendant components.
+
+**B) Context API**
+You wrap multiple components in a Context.
+Components in the context can directly access and modify state (specific to that context?).
+
+How to use?
+- Declare a context component in /src/store folder.
+- Import + wrap the components needing this context in either contextName or contextName.Provider (React <19). Must provide a default value prop.
+- useContext/use inside the component you need to consume the context. useContext cannot be used inside an if block (why?). use doesn't exist in React <19. use seems to be used to fetch async data, works with promises. Re-renders when it fetches new data, while useContext re-renders whenever Context changes.
+- Can add state variables, handlers to context.
