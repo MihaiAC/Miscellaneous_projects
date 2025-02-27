@@ -304,3 +304,16 @@ useEffect -> will be executed only after the component has been rendered.
 ### Key prop
 When it changes, it unmounts and re-mounts target component.
 The key is passed as a prop.
+
+### Behind the scenes
+Knowledge consolidation.
+React builds a component tree.
+Flamegraph (react dev toold) - to see which component rendered
+Record why components were rendered
+
+#### Memo
+memo - use to prevent component re-render.
+Shallowly compares props, if the same => component not re-rendered.
+Normally if parent changes, component gets re-rendered.
+When to use? most useful on components near the root of the tree.
+Checking props with memo is expensive => don't use it when props change frequently.
