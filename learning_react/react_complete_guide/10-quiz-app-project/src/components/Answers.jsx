@@ -30,7 +30,11 @@ export default function Answers({ answers, quizState, onSelect }) {
             <button
               type="button"
               onClick={() =>
-                quizState.name === "asking" ? onSelect(answer) : {}
+                quizState.name === "asking"
+                  ? onSelect(
+                      onSelect({ type: "startWaiting", payload: answer })
+                    )
+                  : {}
               }
               className={className}
             >
