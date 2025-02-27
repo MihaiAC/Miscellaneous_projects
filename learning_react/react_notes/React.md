@@ -316,6 +316,8 @@ React has a virtual DOM to figure out what it actually needs to change in the re
 React tracks state by component type & its position in the tree.
 This is why the key is important when rendering lists - and why using the index may be a bad idea. You should have a unique id of some sorts when using key.
 
+MillionJS -> package to suggest performance improvements.
+
 #### Memo
 memo - use to prevent component re-render.
 Shallowly compares props, if the same => component not re-rendered.

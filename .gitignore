@@ -143,3 +143,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+learning_react/react_complete_guide/11-react-behind-the-scenes/.million/store.json

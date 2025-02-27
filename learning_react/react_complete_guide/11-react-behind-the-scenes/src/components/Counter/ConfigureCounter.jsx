@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { log } from "../../log";
+import React from "react";
 
 export default function ConfigureCounter({ onSet }) {
   log("<ConfigureCounter />", 1);

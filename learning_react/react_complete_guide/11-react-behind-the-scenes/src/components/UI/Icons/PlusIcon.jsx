@@ -1,7 +1,9 @@
-import { log } from '../../../log.js';
+import { log } from "../../../log.js";
+import React from "react";
 
+// million-ignore
 export default function PlusIcon(props) {
-  log('<PlusIcon /> rendered', 3);
+  log("<PlusIcon /> rendered", 3);
 
   return (
     <svg
