@@ -311,6 +311,11 @@ React builds a component tree.
 Flamegraph (react dev toold) - to see which component rendered
 Record why components were rendered
 
+React has a virtual DOM to figure out what it actually needs to change in the real DOM (by comparing snapshots of the virtual one).
+
+React tracks state by component type & its position in the tree.
+This is why the key is important when rendering lists - and why using the index may be a bad idea. You should have a unique id of some sorts when using key.
+
 #### Memo
 memo - use to prevent component re-render.
 Shallowly compares props, if the same => component not re-rendered.
