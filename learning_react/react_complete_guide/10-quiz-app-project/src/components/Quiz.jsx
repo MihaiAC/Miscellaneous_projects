@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import QUESTIONS from "../questions.js";
-import quizCompleteImg from "../assets/quiz-complete.png";
 import Question from "./Question.jsx";
 import { QuizContext } from "./QuizContext.jsx";
+import Summary from "./Summary.jsx";
 
 export default function Quiz() {
   const { quizState, dispatch } = useContext(QuizContext);
@@ -10,12 +10,7 @@ export default function Quiz() {
   const isQuizFinished = activeQuestionIdx === QUESTIONS.length;
 
   if (isQuizFinished) {
-    return (
-      <div id="summary">
-        <img src={quizCompleteImg} alt="Trophy icon" />
-        <h2>Quiz finished!</h2>
-      </div>
-    );
+    return <Summary />;
   }
 
   return (
