@@ -1,7 +1,8 @@
-import { useRef, useCallback, useReducer } from "react";
+import { useCallback, useReducer } from "react";
 import QUESTIONS from "../questions.js";
 import quizCompleteImg from "../assets/quiz-complete.png";
 import QuestionTimer from "./QuestionTimer.jsx";
+import Answers from "./Answers.jsx";
 
 const initialState = {
   name: "asking",
@@ -36,6 +37,7 @@ function quizReducer(state, action) {
   }
 }
 
+// Should replace state names and action types with Enums.
 export default function Quiz() {
   // STATE: Asking: generate shuffledAnswers, memo them with useRef,
   // set current answer. TIMER=10s Go to waiting.
@@ -48,7 +50,6 @@ export default function Quiz() {
   // Complex state object => useReducer(?)
 
   const [quizState, dispatch] = useReducer(quizReducer, initialState);
-  const shuffledAnswers = useRef();
   const activeQuestionIdx = quizState.userAnswers.length;
   const isQuizFinished = activeQuestionIdx === QUESTIONS.length;
 
@@ -76,11 +77,6 @@ export default function Quiz() {
     );
   }
 
-  if (quizState.name === "asking") {
-    shuffledAnswers.current = [...QUESTIONS[activeQuestionIdx].answers];
-    shuffledAnswers.current.sort(() => Math.random() - 0.5);
-  }
-
   return (
     <div id="quiz">
       <div
@@ -99,41 +95,11 @@ export default function Quiz() {
           }
         />
         <h2>{QUESTIONS[activeQuestionIdx].text}</h2>
-        <ul id="answers">
-          {shuffledAnswers.current.map((answer, idx) => {
-            let className = undefined;
-            if (
-              answer === quizState.selectedAnswer &&
-              quizState.name !== "asking"
-            ) {
-              if (quizState.name === "waiting") {
-                className = "selected";
-              } else if (
-                QUESTIONS[activeQuestionIdx].answers[0] ===
-                quizState.selectedAnswer
-              ) {
-                className = "correct";
-              } else {
-                className = "wrong";
-              }
-            }
-            return (
-              <li key={idx} className="answer">
-                <button
-                  type="button"
-                  onClick={() =>
-                    quizState.name === "asking"
-                      ? handleSelectAnswer(answer)
-                      : {}
-                  }
-                  className={className}
-                >
-                  {answer}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+        <Answers
+          answers={QUESTIONS[activeQuestionIdx].answers}
+          quizState={quizState}
+          onSelect={handleSelectAnswer}
+        />
       </div>
     </div>
   );
