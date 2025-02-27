@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
-export default function QuestionTimer({ timeLimit, onTimeout }) {
+export default function QuestionTimer({ timeLimit, onTimeout, mode }) {
   const [remainingTime, setRemainingTime] = useState(timeLimit);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ export default function QuestionTimer({ timeLimit, onTimeout }) {
       id="question-time"
       value={remainingTime}
       max={timeLimit}
+      className={mode}
     ></progress>
   );
 }

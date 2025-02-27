@@ -303,4 +303,4 @@ useEffect -> will be executed only after the component has been rendered.
 
 ### Key prop
 When it changes, it unmounts and re-mounts target component.
-The key is NOT passed as a prop.
+The key is passed as a prop.

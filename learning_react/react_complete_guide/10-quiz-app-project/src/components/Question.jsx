@@ -9,10 +9,7 @@ export default function Question({
   quizState,
 }) {
   return (
-    <div
-      id="question"
-      className={quizState.name === "waiting" ? "answered" : undefined}
-    >
+    <div id="question">
       <QuestionTimer
         key={quizState.name}
         timeLimit={quizState.timer}
@@ -23,6 +20,7 @@ export default function Question({
               ? () => onSelectAnswer({ type: "showValidity" })
               : () => onSelectAnswer({ type: "startAsking" })
         }
+        mode={quizState.name === "waiting" ? "answered" : undefined}
       />
       <h2>{questionText}</h2>
       <Answers
