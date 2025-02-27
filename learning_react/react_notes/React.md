@@ -300,3 +300,6 @@ useEffect -> will be executed only after the component has been rendered.
 - Clean-up function: is run on component unmount and when the effect runs again.
 - Empty dependencies ([ ])  -> effect only runs once, on component mounting. 
 - No dependencies -> effect runs after each time app is rendered (can lead to infinite loop).
+
+### Key prop
+When it changes, it unmounts and re-mounts target component.
