@@ -317,3 +317,5 @@ Shallowly compares props, if the same => component not re-rendered.
 Normally if parent changes, component gets re-rendered.
 When to use? most useful on components near the root of the tree.
 Checking props with memo is expensive => don't use it when props change frequently.
+
+useMemo - use to prevent expensive normal function re-execution.
