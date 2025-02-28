@@ -162,11 +162,23 @@ Add to VS code settings.json
 
 `npm prune` - to remove unneeded packages.
 
-`npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier`
+`npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react-hooks`
 
 Run `npx eslint --init` to customize eslint, will install some react extension.
 
 Disables the import React warning (since it is not needed for versions >=17): `pluginReact.configs.flat["jsx-runtime"]`
+
+Add to eslint.config.js:
+```
+{
+	plugins: {
+		"react-hooks": reactHooks,
+	},
+	rules: {
+		...reactHooks.configs.recommended.rules,
+	},
+},
+```
 
 ### Styling components
 **Vanilla CSS:**
@@ -369,5 +381,17 @@ Rules of hooks:
 1. Only call Hooks inside of Component functions (or other Hook Functions?? - I thought you should not do that?. Although we already did set state inside useEffect).
 2. Only call Hooks on the top level - not inside nested code statements.
 
+Why create custom Hooks? -> mostly to reuse logic across multiple components. Main reasons:
+1. Abstracting complex state logic.
+2. Encapsulating side effects (e.g: fetching data).
+3. Handling event listeners (window resize, scroll, etc.)
+4. Memoizing expensive computations.
+5. Managing authentication and user state.
+
+Implementing hooks:
+- Should be a function that starts with "use".
+- Can return variables representing its own internal state.
+- Internally, all the examples I've seen use `useEffect`.
+- If state changes inside of the hook, it (can?) trigger a re-render in all the components using the hook's state.
 
 
