@@ -394,4 +394,6 @@ Implementing hooks:
 - Internally, all the examples I've seen use `useEffect`.
 - If state changes inside of the hook, it (can?) trigger a re-render in all the components using the hook's state.
 
+Thing to remember: turning a non-async thing with Promise
+
 
