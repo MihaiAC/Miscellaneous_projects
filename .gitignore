@@ -144,3 +144,5 @@ dist
 .pnp.*
 
 learning_react/react_complete_guide/11-react-behind-the-scenes/.million/store.json
+*.jpg
+*.png

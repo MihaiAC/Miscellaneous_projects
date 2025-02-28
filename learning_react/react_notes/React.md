@@ -349,3 +349,5 @@ You wrap around components in which you want to catch errors.
 It's like a decorator for catching errors.
 Otherwise, it is a normal component: you can have state + handle it, etc.
 
+### DB ops
+Standard mode of operation: React interacts with a backend server (so frontend and backend are separated stacks).
