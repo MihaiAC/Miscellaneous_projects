@@ -8,6 +8,7 @@ import AvailablePlaces from "./components/AvailablePlaces.jsx";
 import { fetchUserPlaces, updateUserPlaces } from "./http.js";
 import Error from "./components/Error.jsx";
 import { useFetch } from "./hooks/useFetch.js";
+import { useUpdate } from "./hooks/useUpdate.js";
 
 function App() {
   const selectedPlace = useRef();
@@ -19,7 +20,12 @@ function App() {
     isFetching,
   } = useFetch(fetchUserPlaces, []);
 
-  const [errorUpdatingPlaces, setErrorUpdatingPlaces] = useState();
+  const {
+    updateData,
+    errorUpdating: errorUpdatingPlaces,
+    setErrorUpdating: setErrorUpdatingPlaces,
+  } = useUpdate();
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function handleStartRemovePlace(place) {
@@ -44,14 +50,12 @@ function App() {
       return [selectedPlace, ...prevPickedPlaces];
     });
 
-    try {
-      await updateUserPlaces([selectedPlace, ...userPlaces]);
-    } catch (error) {
-      setUserPlaces(userPlaces);
-      setErrorUpdatingPlaces({
-        message: error.message || "Failed to update places.",
-      });
-    }
+    await updateData(
+      [selectedPlace, ...userPlaces],
+      updateUserPlaces,
+      userPlaces,
+      setUserPlaces
+    );
   }
 
   const handleRemovePlace = useCallback(
@@ -62,20 +66,16 @@ function App() {
         )
       );
 
-      try {
-        await updateUserPlaces(
-          userPlaces.filter((place) => place.id !== selectedPlace.current.id)
-        );
-      } catch (error) {
-        setUserPlaces(userPlaces);
-        setErrorUpdatingPlaces({
-          message: error.message || "Failed to delete place.",
-        });
-      }
+      await updateData(
+        userPlaces.filter((place) => place.id !== selectedPlace.current.id),
+        updateUserPlaces,
+        userPlaces,
+        setUserPlaces
+      );
 
       setModalIsOpen(false);
     },
-    [userPlaces, setUserPlaces]
+    [userPlaces, setUserPlaces, updateData]
   );
 
   function handleError() {
