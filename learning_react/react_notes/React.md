@@ -355,6 +355,11 @@ Standard mode of operation: React interacts with a backend server (so frontend a
 Just like in JS, fetch() - to use and send data -> returns a Promise (wrapper around an eventually received Response object).
 
 Cannot use async/await in a React component declaration.
+But, can declare an async function inside a hook like useEffect. Does it work inside a component?
 
+3 common states in components fetching data:
+- Data state -> represents the data being fetched.
+- Fetching states -> represents whether the data is being fetched or has been fetched.
+- Error state -> did an error occur when fetching data?
 
 
