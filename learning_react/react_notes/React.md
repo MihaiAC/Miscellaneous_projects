@@ -351,3 +351,10 @@ Otherwise, it is a normal component: you can have state + handle it, etc.
 
 ### DB ops
 Standard mode of operation: React interacts with a backend server (so frontend and backend are separated stacks).
+
+Just like in JS, fetch() - to use and send data -> returns a Promise (wrapper around an eventually received Response object).
+
+Cannot use async/await in a React component declaration.
+
+
+
