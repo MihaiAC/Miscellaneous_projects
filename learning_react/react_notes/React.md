@@ -362,4 +362,6 @@ But, can declare an async function inside a hook like useEffect. Does it work in
 - Fetching states -> represents whether the data is being fetched or has been fetched.
 - Error state -> did an error occur when fetching data?
 
+Optimistic updating -> send request after displaying result. Handle error by reverting the change.
+
 
