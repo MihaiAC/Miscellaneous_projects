@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h5 {
+    @apply absolute bottom-4 md:bottom-8 text-white text-center px-6 hover:scale-110 duration-200 group-hover:text-black;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border-2 py-2 px-10 border-black my-0 font-bold hover:text-white hover:bg-black font-alata tracking-widest;
+  }
+}
+
+.item-container {
+  @apply flex flex-col p-4 md:p-12 w-full space-y-6 text-2xl text-white uppercase md:flex-row md:space-y-0 md:space-x-8;
+}
+
+.item {
+  @apply relative overflow-hidden md:w-1/4;
+}
+
+.item-gradient {
+  @apply absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-b from-transparent to-gray-900 group-hover:from-gray-50 group-hover:to-white group-hover:opacity-70;
+}
+
 #hero {
   background-image: url("../images/desktop/image-hero.jpg");
   background-repeat: no-repeat;
