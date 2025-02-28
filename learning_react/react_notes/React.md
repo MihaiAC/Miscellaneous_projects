@@ -364,4 +364,10 @@ But, can declare an async function inside a hook like useEffect. Does it work in
 
 Optimistic updating -> send request after displaying result. Handle error by reverting the change.
 
+### Custom Hooks
+Rules of hooks:
+1. Only call Hooks inside of Component functions (or other Hook Functions?? - I thought you should not do that?. Although we already did set state inside useEffect).
+2. Only call Hooks on the top level - not inside nested code statements.
+
+
 
