@@ -326,3 +326,26 @@ When to use? most useful on components near the root of the tree.
 Checking props with memo is expensive => don't use it when props change frequently.
 
 useMemo - use to prevent expensive normal function re-execution.
+
+### Class-based components
+Deprecated (?)
+Cannot use hooks.
+Has a render() method, must extend Component.
+State is always an object. State is always named "state" (accessed with this.state). Set the state with "setState". Specifying only one field in setState will keep the others the same.
+".bind(this)" = bind the current context to the function that's being executed (?).
+
+Alternative to hooks: component lifecycle.
+- componentDidMount() -> useEffect with empty dependency;
+- componentDidUpdate() -> useEffect with a specific dependency; however you do need to check if the dependency you're interested in was the one changed;
+- componentWillUnmount() -> clean-up function for useEffect;
+
+Can use context, but only once.
+
+### Error boundaries
+Cannot try-catch in JSX code.
+An error boundary is a class-based component that implements the `componentDidCatch()` method.
+The method triggers whenever a child throws an error.
+You wrap around components in which you want to catch errors.
+It's like a decorator for catching errors.
+Otherwise, it is a normal component: you can have state + handle it, etc.
+
