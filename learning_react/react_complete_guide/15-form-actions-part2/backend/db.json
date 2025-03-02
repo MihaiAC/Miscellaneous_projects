@@ -2,7 +2,7 @@
   "opinions": [
     {
       "id": 1740945849790,
-      "votes": 0,
+      "votes": 3,
       "userName": "Max",
       "title": "Schwarz",
       "body": "Some text here"
@@ -19,7 +19,7 @@
       "userName": "Maximilian Schwarzmüller",
       "title": "React has more depth than you might first think!",
       "body": "React is a great library to learn, but it's not just about the basics. Dive deeper!\nFor example with this course!",
-      "votes": 0
+      "votes": -1
     }
   ]
 }
