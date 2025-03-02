@@ -65,20 +65,22 @@
     <!--Shorten links-->
     <section id="section-shorten" class="bg-gray-200">
         <!--Shortener + examples-->
-        <div class="w-full bg-gray-200">
+        <div class="w-full">
             <!--Shortener-->
             <!--Half-white, half-gray container-->
             <div class="w-full bg-[linear-gradient(to_bottom,white_50%,#e5e7eb_50%)]">
                 <!--Patterned bg container.-->
-                <div
-                    class="flex flex-col lg:flex-row mx-auto max-w-lg lg:max-w-4xl items-center rounded-2xl p-8 lg:p-12 space-y-8 lg:space-y-0 lg:space-x-8 bg-[url('/images/bg-shorten-mobile.svg')] lg:bg-[url('/images/bg-boost-desktop.svg')] bg-veryDarkViolet bg-contain bg-right-top lg:bg-center lg:bg-cover bg-no-repeat">
-                    <input class="p-4 border-2 border-white rounded-md w-full lg:w-4/5 text-lg" type="text"
-                        placeholder="Shorten a link here..." />
-                    <button
+                <form
+                    class="relative flex flex-col lg:flex-row mx-auto max-w-lg lg:max-w-4xl items-center rounded-2xl p-8 lg:p-12 space-y-8 lg:space-y-0 lg:space-x-8 bg-[url('/images/bg-shorten-mobile.svg')] lg:bg-[url('/images/bg-boost-desktop.svg')] bg-veryDarkViolet bg-contain bg-right-top lg:bg-center lg:bg-cover bg-no-repeat">
+                    <input
+                        class="focus:outline-none placeholder-yellow-500 p-4 border-2 border-white rounded-md w-full lg:flex-1 text-lg"
+                        type="text" id="link-input" placeholder="Shorten a link here..." />
+                    <button id="form-submit-btn"
                         class="p-4 border-2 border-cyan hover:border-cyanLight rounded-md w-full lg:w-1/5 bg-cyan hover:bg-cyanLight text-white font-bold text-xl"
                         type="button">Shorten
                         it!</button>
-                </div>
+                    <div id="err-msg" class="absolute left-7 bottom-3 text-red text-sm"></div>
+                </form>
             </div>
             <!--Shortened links container-->
             <div class="hidden lg:flex lg:flex-col max-w-4xl mx-auto space-y-4 my-8">
