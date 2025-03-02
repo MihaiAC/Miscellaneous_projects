@@ -405,3 +405,13 @@ Input validation types:
 
 By default, pressing the button submits the form (refreshes the page).
 Either add type="button" (it's "submit" by default) or event.preventDefault() (with onClick on the button or onSubmit on the form html) or with "Form Actions".
+
+useRef should not be used to modify the DOM (resetting the form).
+
+FormData -> fields must have the name attribute set. Loses multivalue things (forms with the same name e.g: multiple checkboxes)
+```javascript
+const fd = new FormData(event.target);
+const data = Object.fromEntries(fd.entries());
+const acquisitionChannel = fd.getAll("acquisition"); // Getting multiple inputs with the same name, as a list.
+console.log(data);
+```
