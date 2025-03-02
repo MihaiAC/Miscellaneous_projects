@@ -7,66 +7,68 @@ import {
 
 import { useActionState } from "react";
 
-export default function Signup() {
-  function signupAction(prevFormState, formData) {
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const confirmPassword = formData.get("confirm-password");
-    const firstName = formData.get("first-name");
-    const lastName = formData.get("last-name");
-    const role = formData.get("role");
-    const terms = formData.get("terms");
-    const acquisitions = formData.getAll("acquisition");
+// No props or state => we can move it out of the component
+// so it won't get re-created.
+function signupAction(prevFormState, formData) {
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const confirmPassword = formData.get("confirm-password");
+  const firstName = formData.get("first-name");
+  const lastName = formData.get("last-name");
+  const role = formData.get("role");
+  const terms = formData.get("terms");
+  const acquisitions = formData.getAll("acquisition");
 
-    let errors = [];
+  let errors = [];
 
-    if (!isEmail(email)) {
-      errors.push("Invalid email address");
-    }
-
-    if (isEmpty(password) || !hasMinLength(password, 6)) {
-      errors.push("Password must have >= 6 chars.");
-    }
-
-    if (!isEqualToOtherValue(password, confirmPassword)) {
-      errors.push("Input passwords do not match.");
-    }
-
-    if (isEmpty(firstName) || isEmpty(lastName)) {
-      errors.push("First name and last name fields cannot be empty.");
-    }
-
-    if (isEmpty(role)) {
-      errors.push("Please select a role.");
-    }
-
-    if (!terms) {
-      errors.push("You must agree to the terms and conditions.");
-    }
-
-    if (acquisitions.length === 0) {
-      errors.push("You must select at least one acquisition channel.");
-    }
-
-    if (errors.length === 0) {
-      errors = null;
-    }
-
-    return {
-      errors: errors,
-      enteredValues: {
-        email,
-        password,
-        confirmPassword,
-        firstName,
-        lastName,
-        role,
-        acquisitions,
-        terms,
-      },
-    };
+  if (!isEmail(email)) {
+    errors.push("Invalid email address");
   }
 
+  if (isEmpty(password) || !hasMinLength(password, 6)) {
+    errors.push("Password must have >= 6 chars.");
+  }
+
+  if (!isEqualToOtherValue(password, confirmPassword)) {
+    errors.push("Input passwords do not match.");
+  }
+
+  if (isEmpty(firstName) || isEmpty(lastName)) {
+    errors.push("First name and last name fields cannot be empty.");
+  }
+
+  if (isEmpty(role)) {
+    errors.push("Please select a role.");
+  }
+
+  if (!terms) {
+    errors.push("You must agree to the terms and conditions.");
+  }
+
+  if (acquisitions.length === 0) {
+    errors.push("You must select at least one acquisition channel.");
+  }
+
+  if (errors.length === 0) {
+    errors = null;
+  }
+
+  return {
+    errors: errors,
+    enteredValues: {
+      email,
+      password,
+      confirmPassword,
+      firstName,
+      lastName,
+      role,
+      acquisitions,
+      terms,
+    },
+  };
+}
+
+export default function Signup() {
   const [formState, formAction] = useActionState(signupAction, {
     errors: null,
   });
