@@ -428,3 +428,4 @@ useActionState hook
 pending
 useFormStatus
 Can set a different formAction for each button inside of a form (?).
+useOptimistic - meant to be used inside a form action, while the form is being submitted. Display result immediately, keep it if the form update was successful, revert otherwise. So, visual feedback for the user.
