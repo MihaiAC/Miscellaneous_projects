@@ -420,3 +420,7 @@ Resetting the data: `event.target.reset()`
 `onBlur()` - whenever an input loses focus
 
 Custom React forms: React Hook FOrms + Formik.
+
+#### Form Actions
+action instead of submit
+formData instead of event
