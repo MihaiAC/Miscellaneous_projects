@@ -8,6 +8,9 @@ export default function Signup() {
     const acquisitionChannel = fd.getAll("acquisition");
     data.acquisition = acquisitionChannel;
     console.log(data);
+
+    // Imperative (?)
+    // event.target.reset();
   }
 
   return (

@@ -415,3 +415,4 @@ const data = Object.fromEntries(fd.entries());
 const acquisitionChannel = fd.getAll("acquisition"); // Getting multiple inputs with the same name, as a list.
 console.log(data);
 ```
+Resetting the data: `event.target.reset()`
