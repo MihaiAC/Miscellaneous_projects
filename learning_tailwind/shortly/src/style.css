@@ -7,3 +7,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.ficon:hover {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(43%) saturate(503%)
+    hue-rotate(162deg) brightness(98%) contrast(90%);
+}
