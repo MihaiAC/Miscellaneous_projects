@@ -397,3 +397,11 @@ Implementing hooks:
 Thing to remember: turning a non-async thing with Promise
 
 
+### Forms :(
+Input validation types:
+- On keystroke -> shows errors too early
+- On lost focus -> shows errors too long(?)
+- On form submission -> shows errors too late. Especially heinous if getting a field wrong resets the whole field.
+
+By default, pressing the button submits the form (refreshes the page).
+Either add type="button" (it's "submit" by default) or event.preventDefault() (with onClick on the button or onSubmit on the form html) or with "Form Actions".
