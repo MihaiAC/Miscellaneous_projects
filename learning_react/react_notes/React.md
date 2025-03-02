@@ -416,3 +416,5 @@ const acquisitionChannel = fd.getAll("acquisition"); // Getting multiple inputs 
 console.log(data);
 ```
 Resetting the data: `event.target.reset()`
+
+`onBlur()` - whenever an input loses focus
