@@ -44,15 +44,21 @@ function cartReducer(state, action) {
   return state;
 }
 
-const initialState = {
+const initialContext = {
   products: new Map(),
   totalPrice: 0,
+  addProduct: () => {},
+  increment: () => {},
+  decrement: () => {},
 };
 
-export const CartContext = createContext(initialState);
+export const CartContext = createContext(initialContext);
 
 export function CartContextProvider({ children }) {
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [state, dispatch] = useReducer(cartReducer, {
+    products: new Map(),
+    totalPrice: 0,
+  });
 
   const addProduct = useCallback(function addProduct({ id, name, price }) {
     const newAction = {
