@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import Button from "./UI/Button";
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 
 export default function Product({ productData }) {
-  // TODO: Fetch the image on product load.
+  const { addProduct } = useContext(CartContext);
   return (
     <li className="meal-item">
       <article>
@@ -15,7 +17,17 @@ export default function Product({ productData }) {
           <h3>{productData.name}</h3>
           <p className="meal-item-price">${productData.price}</p>
           <div className="meal-item-description">{productData.description}</div>
-          <Button type="button" className="meal-item-actions button">
+          <Button
+            type="button"
+            className="meal-item-actions button"
+            onClick={() =>
+              addProduct({
+                id: productData.id,
+                name: productData.name,
+                price: productData.name,
+              })
+            }
+          >
             Add to Cart
           </Button>
         </div>
