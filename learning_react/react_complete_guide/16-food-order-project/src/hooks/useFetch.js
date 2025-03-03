@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 
-export default function useFetch(url) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+export default function useFetch(url, initialState) {
+  const [data, setData] = useState(initialState.data);
+  const [loading, setLoading] = useState(initialState.loading);
+  const [error, setError] = useState(initialState.error);
 
   const sendRequest = useCallback(
     async function fetchData(config = null) {

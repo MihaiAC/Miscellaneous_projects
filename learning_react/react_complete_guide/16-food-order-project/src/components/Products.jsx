@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import Product from "./Product";
 
+const initialFetchState = { data: null, error: null, loading: true };
+
 export default function Products() {
   const {
     data: products,
     loading: productsLoading,
     error: productsError,
     sendRequest,
-  } = useFetch("http://localhost:3000/meals");
+  } = useFetch("http://localhost:3000/meals", initialFetchState);
 
   useEffect(() => {
     async function fetchData() {
