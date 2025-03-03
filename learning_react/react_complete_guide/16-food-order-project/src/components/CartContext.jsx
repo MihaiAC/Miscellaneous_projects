@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useCallback } from "react";
 
 function cartReducer(state, action) {
   const updatedProducts = new Map(state.products);
@@ -54,22 +54,22 @@ export const CartContext = createContext(initialState);
 export function CartContextProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  function addItem({ id, name, price }) {
+  const addItem = useCallback(function addItem({ id, name, price }) {
     const newAction = {
       name: "add_item",
       payload: { name: name, id: id, price: price, quantity: 1 },
     };
     dispatch(newAction);
-  }
+  }, []);
 
-  function incrementQuantity(id) {
+  const incrementQuantity = useCallback(function incrementQuantity(id) {
     dispatch({ name: "increment", payload: { id: id } });
-  }
+  }, []);
 
   // If quantity reaches 0, remove the item.
-  function decrementQuantity(id) {
+  const decrementQuantity = useCallback(function decrementQuantity(id) {
     dispatch({ name: "decrement", payload: { id: id } });
-  }
+  }, []);
 
   return (
     <CartContext.Provider
