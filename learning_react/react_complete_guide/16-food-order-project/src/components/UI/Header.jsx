@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export default function Header() {
   return (
     <header id="main-header">
@@ -5,7 +7,7 @@ export default function Header() {
         <img src="/logo.jpg" alt="Reactfood logo" />
         <h1>Reactfood</h1>
       </div>
-      <button>Cart (0)</button>
+      <Button className="text-button">Cart (0)</Button>
     </header>
   );
 }

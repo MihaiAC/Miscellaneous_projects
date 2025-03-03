@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Button from "./UI/Button";
 
 export default function Product({ productData }) {
   // TODO: Fetch the image on product load.
@@ -14,9 +15,9 @@ export default function Product({ productData }) {
           <h3>{productData.name}</h3>
           <p className="meal-item-price">${productData.price}</p>
           <div className="meal-item-description">{productData.description}</div>
-          <button type="button" className="meal-item-actions button">
+          <Button type="button" className="meal-item-actions button">
             Add to Cart
-          </button>
+          </Button>
         </div>
       </article>
     </li>
