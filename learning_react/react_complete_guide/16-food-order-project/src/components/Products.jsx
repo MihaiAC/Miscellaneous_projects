@@ -1,4 +1,5 @@
 import useFetch from "../hooks/useFetch";
+import Product from "./Product";
 
 export default function Products() {
   const {
@@ -7,7 +8,19 @@ export default function Products() {
     error: productsError,
   } = useFetch("http://localhost:3000/meals");
 
-  if (!productsLoading && !productsError) {
-    console.log(products);
-  }
+  return (
+    <>
+      {productsLoading && <p>Loading our products...</p>}
+      {productsError && (
+        <p>There has been an error retrieving our products: {productsError}</p>
+      )}
+      {!productsLoading && !productsError && (
+        <ul id="meals">
+          {products.map((productData) => (
+            <Product key={productData.id} productData={productData} />
+          ))}
+        </ul>
+      )}
+    </>
+  );
 }
