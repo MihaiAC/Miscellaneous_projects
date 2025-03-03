@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import Product from "./Product";
 
@@ -6,7 +7,15 @@ export default function Products() {
     data: products,
     loading: productsLoading,
     error: productsError,
+    sendRequest,
   } = useFetch("http://localhost:3000/meals");
+
+  useEffect(() => {
+    async function fetchData() {
+      await sendRequest();
+    }
+    fetchData();
+  }, [sendRequest]);
 
   return (
     <>
