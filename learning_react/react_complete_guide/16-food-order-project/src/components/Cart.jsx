@@ -1,4 +1,5 @@
 import { CartContext } from "./CartContext";
+import { ModalContext, ModalNames } from "./ModalContext";
 import { useContext } from "react";
 import Modal from "./UI/Modal";
 import Button from "./UI/Button";
@@ -7,9 +8,11 @@ export default function Cart() {
   const { products, totalPrice, increment, decrement } =
     useContext(CartContext);
 
+  const { activeModal, openModal, closeModal } = useContext(ModalContext);
+
   // TODO: Add your cart is empty message if it is empty.
   return (
-    <Modal>
+    <Modal open={activeModal === ModalNames.CART}>
       <div id="cart">
         <h2>Your Cart</h2>
         <ul>
@@ -38,8 +41,15 @@ export default function Cart() {
         </ul>
         <p className="cart-total">${totalPrice}</p>
         <div className="modal-actions">
-          <Button className="text-button">Close</Button>
-          <Button className="button">Go to Checkout</Button>
+          <Button className="text-button" onClick={closeModal}>
+            Close
+          </Button>
+          <Button
+            className="button"
+            onClick={() => openModal(ModalNames.CHECKOUT)}
+          >
+            Go to Checkout
+          </Button>
         </div>
       </div>
     </Modal>
