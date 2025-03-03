@@ -44,12 +44,14 @@ export default function Cart() {
           <Button className="text-button" onClick={closeModal}>
             Close
           </Button>
-          <Button
-            className="button"
-            onClick={() => openModal(ModalNames.CHECKOUT)}
-          >
-            Go to Checkout
-          </Button>
+          {products.size > 0 && (
+            <Button
+              className="button"
+              onClick={() => openModal(ModalNames.CHECKOUT)}
+            >
+              Go to Checkout
+            </Button>
+          )}
         </div>
       </div>
     </Modal>
