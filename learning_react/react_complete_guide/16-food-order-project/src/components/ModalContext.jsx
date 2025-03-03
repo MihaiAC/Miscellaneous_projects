@@ -1,6 +1,12 @@
 /* eslint-disable react/prop-types */
 import { createContext, useCallback, useState } from "react";
 
+export const ModalNames = Object.freeze({
+  CHECKOUT: "checkout",
+  CART: "cart",
+  NONE: "",
+});
+
 const initialState = {
   activeModal: "", // Values: "" / "cart" / "checkout"
   openModal: () => {},
