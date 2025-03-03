@@ -4,7 +4,7 @@ import { createContext, useReducer, useCallback } from "react";
 function cartReducer(state, action) {
   const updatedProducts = new Map(state.products);
 
-  if (action.name === "add_item") {
+  if (action.name === "add_product") {
     if (state.products.has(action.payload.id)) {
       action.name === "increment";
     } else {
@@ -54,9 +54,9 @@ export const CartContext = createContext(initialState);
 export function CartContextProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  const addItem = useCallback(function addItem({ id, name, price }) {
+  const addProduct = useCallback(function addProduct({ id, name, price }) {
     const newAction = {
-      name: "add_item",
+      name: "add_product",
       payload: { name: name, id: id, price: price, quantity: 1 },
     };
     dispatch(newAction);
@@ -73,7 +73,13 @@ export function CartContextProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={(state, addItem, incrementQuantity, decrementQuantity)}
+      value={{
+        products: state.products,
+        totalPrice: state.totalPrice,
+        addProduct: addProduct,
+        increment: incrementQuantity,
+        decrement: decrementQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>
