@@ -6,6 +6,8 @@ import Button from "./UI/Button";
 import Input from "./UI/Input";
 import Modal from "./UI/Modal";
 
+const initialFetchState = { data: null, error: null, loading: false };
+
 export default function Checkout() {
   const { products, totalPrice } = useContext(CartContext);
   const { activeModal, closeModal } = useContext(ModalContext);
@@ -13,7 +15,8 @@ export default function Checkout() {
     loading: fetchSending,
     error: fetchError,
     sendRequest,
-  } = useFetch("http://localhost:3000/orders");
+    data,
+  } = useFetch("http://localhost:3000/orders", initialFetchState);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -23,16 +26,21 @@ export default function Checkout() {
 
     console.log(customerData);
 
-    const config = JSON.stringify({
-      order: {
-        customer: customerData,
-        items: Array.from(products, ([key, value]) => ({
-          id: key,
-          ...value,
-        })),
+    sendRequest({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Set content type as JSON
       },
+      body: JSON.stringify({
+        order: {
+          customer: customerData,
+          items: Array.from(products, ([key, value]) => ({
+            id: key,
+            ...value,
+          })),
+        },
+      }),
     });
-    sendRequest(config);
 
     //TODO: empty form
     //TODO: empty Cart (need new function...)
@@ -57,6 +65,22 @@ export default function Checkout() {
     );
   }
 
+  if (data && !fetchError) {
+    return (
+      <Modal open={activeModal === ModalNames.CHECKOUT}>
+        <h2>Success!</h2>
+        <p>Your order was submitted successfully.</p>
+        <p>
+          We will get back to you with more details via email within the next
+          few minutes.
+        </p>
+        <p className="modal-actions">
+          <Button onClick={closeModal}>Okay</Button>
+        </p>
+      </Modal>
+    );
+  }
+
   return (
     <Modal open={activeModal === ModalNames.CHECKOUT}>
       <form onSubmit={handleSubmit}>
@@ -70,7 +94,7 @@ export default function Checkout() {
           <Input label="City" type="text" id="city" />
         </div>
 
-        {fetchError && <p>Encountered an error: {fetchError.message}</p>}
+        {fetchError && <p>Encountered an error: {fetchError}</p>}
         <div className="modal-actions">{actions}</div>
       </form>
     </Modal>
