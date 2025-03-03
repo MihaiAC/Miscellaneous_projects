@@ -6,7 +6,7 @@ function cartReducer(state, action) {
 
   if (action.name === "add_product") {
     if (state.products.has(action.payload.id)) {
-      action.name === "increment";
+      action.name = "increment";
     } else {
       const newProduct = action.payload;
       updatedProducts.set(newProduct.id, {
@@ -33,6 +33,8 @@ function cartReducer(state, action) {
     const product = updatedProducts.get(productId);
     if (product.quantity === 1) {
       updatedProducts.delete(productId);
+    } else {
+      product.quantity -= 1;
     }
     return {
       products: updatedProducts,
@@ -63,8 +65,9 @@ export function CartContextProvider({ children }) {
   const addProduct = useCallback(function addProduct({ id, name, price }) {
     const newAction = {
       name: "add_product",
-      payload: { name: name, id: id, price: price, quantity: 1 },
+      payload: { name: name, id: id, price: Number(price), quantity: 1 },
     };
+    console.log(newAction.payload);
     dispatch(newAction);
   }, []);
 
