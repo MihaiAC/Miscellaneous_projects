@@ -22,6 +22,7 @@ export default function useFetch(url, initialState) {
 
         const result = await response.json();
         setData(result);
+        setError(null);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,5 +32,12 @@ export default function useFetch(url, initialState) {
     [url]
   );
 
-  return { data, loading, error, sendRequest };
+  const resetState = useCallback(() => {
+    console.log("RESET STATE CALLED");
+    setError(null);
+    setData(null);
+    setLoading(false);
+  }, []);
+
+  return { data, loading, error, sendRequest, resetState };
 }

@@ -9,13 +9,14 @@ import Modal from "./UI/Modal";
 const initialFetchState = { data: null, error: null, loading: false };
 
 export default function Checkout() {
-  const { products, totalPrice } = useContext(CartContext);
+  const { products, totalPrice, clearCart } = useContext(CartContext);
   const { activeModal, closeModal } = useContext(ModalContext);
   const {
     loading: fetchSending,
     error: fetchError,
     sendRequest,
     data,
+    resetState,
   } = useFetch("http://localhost:3000/orders", initialFetchState);
 
   async function handleSubmit(event) {
@@ -42,8 +43,11 @@ export default function Checkout() {
       }),
     });
 
-    //TODO: empty form
-    //TODO: empty Cart (need new function...)
+    if (data && !fetchError) {
+      // Non-React way, form should be handled in a state.
+      clearCart();
+      event.target.reset();
+    }
   }
 
   let actions;
@@ -67,7 +71,13 @@ export default function Checkout() {
 
   if (data && !fetchError) {
     return (
-      <Modal open={activeModal === ModalNames.CHECKOUT}>
+      <Modal
+        open={activeModal === ModalNames.CHECKOUT}
+        onClose={() => {
+          clearCart();
+          resetState();
+        }}
+      >
         <h2>Success!</h2>
         <p>Your order was submitted successfully.</p>
         <p>
@@ -75,7 +85,16 @@ export default function Checkout() {
           few minutes.
         </p>
         <p className="modal-actions">
-          <Button onClick={closeModal}>Okay</Button>
+          <Button
+            className="button"
+            onClick={() => {
+              clearCart();
+              resetState();
+              closeModal();
+            }}
+          >
+            Okay
+          </Button>
         </p>
       </Modal>
     );

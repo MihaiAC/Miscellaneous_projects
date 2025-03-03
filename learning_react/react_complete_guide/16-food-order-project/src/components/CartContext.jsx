@@ -43,6 +43,13 @@ function cartReducer(state, action) {
     };
   }
 
+  if (action.name === "clear_cart") {
+    return {
+      products: new Map(),
+      totalPrice: 0,
+    };
+  }
+
   // Failsafe.
   return state;
 }
@@ -53,6 +60,7 @@ const initialContext = {
   addProduct: () => {},
   increment: () => {},
   decrement: () => {},
+  clearCart: () => {},
 };
 
 export const CartContext = createContext(initialContext);
@@ -81,6 +89,8 @@ export function CartContextProvider({ children }) {
     dispatch({ name: "decrement", payload: { id: id } });
   }, []);
 
+  const clearCart = useCallback(() => dispatch({ name: "clear_cart" }), []);
+
   return (
     <CartContext.Provider
       value={{
@@ -89,6 +99,7 @@ export function CartContextProvider({ children }) {
         addProduct: addProduct,
         increment: incrementQuantity,
         decrement: decrementQuantity,
+        clearCart,
       }}
     >
       {children}
