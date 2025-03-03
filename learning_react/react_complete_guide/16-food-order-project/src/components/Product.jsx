@@ -24,7 +24,7 @@ export default function Product({ productData }) {
               addProduct({
                 id: productData.id,
                 name: productData.name,
-                price: productData.name,
+                price: productData.price,
               })
             }
           >
