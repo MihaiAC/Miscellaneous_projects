@@ -17,5 +17,8 @@ export default [
     rules: {
       ...reactHooks.configs.recommended.rules,
     },
+    globals: {
+      Intl: "readonly",
+    },
   },
 ];

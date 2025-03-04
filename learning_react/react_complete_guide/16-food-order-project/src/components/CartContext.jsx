@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useReducer, useCallback } from "react";
 
-// TODO: fix rounding errors when adding/subtracting prices
 function cartReducer(state, action) {
   const updatedProducts = new Map(state.products);
 

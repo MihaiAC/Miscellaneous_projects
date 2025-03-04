@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Button from "./UI/Button";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
+import { currencyFormatter } from "../util/priceFormatting";
 
 export default function Product({ productData }) {
   const { addProduct } = useContext(CartContext);
@@ -15,7 +16,9 @@ export default function Product({ productData }) {
         <div>
           {" "}
           <h3>{productData.name}</h3>
-          <p className="meal-item-price">${productData.price}</p>
+          <p className="meal-item-price">
+            {currencyFormatter.format(productData.price)}
+          </p>
           <div className="meal-item-description">{productData.description}</div>
           <Button
             type="button"

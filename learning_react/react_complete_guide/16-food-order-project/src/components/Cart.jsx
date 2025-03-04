@@ -3,6 +3,7 @@ import { ModalContext, ModalNames } from "./ModalContext";
 import { useContext } from "react";
 import Modal from "./UI/Modal";
 import Button from "./UI/Button";
+import { currencyFormatter } from "../util/priceFormatting";
 
 export default function Cart() {
   const { products, totalPrice, increment, decrement } =
@@ -19,7 +20,8 @@ export default function Cart() {
           {[...products.entries()].map(([productId, product]) => (
             <li key={productId} className="cart-item">
               <p>
-                {product.name} - {product.quantity} x ${product.price}
+                {product.name} - {product.quantity} x{" "}
+                {currencyFormatter.format(product.price)}
               </p>
               <div className="cart-item-actions">
                 <Button
@@ -39,7 +41,7 @@ export default function Cart() {
             </li>
           ))}
         </ul>
-        <p className="cart-total">${totalPrice}</p>
+        <p className="cart-total">{currencyFormatter.format(totalPrice)}</p>
         <div className="modal-actions">
           <Button className="text-button" onClick={closeModal}>
             Close

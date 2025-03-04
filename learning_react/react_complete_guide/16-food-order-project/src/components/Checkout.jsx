@@ -5,6 +5,7 @@ import useFetch from "../hooks/useFetch.js";
 import Button from "./UI/Button";
 import Input from "./UI/Input";
 import Modal from "./UI/Modal";
+import { currencyFormatter } from "../util/priceFormatting.js";
 
 const initialFetchState = { data: null, error: null, loading: false };
 
@@ -103,7 +104,7 @@ export default function Checkout() {
     <Modal open={activeModal === ModalNames.CHECKOUT} onClose={closeModal}>
       <form onSubmit={handleSubmit}>
         <h2>Checkout</h2>
-        <p>Total amount: ${totalPrice}</p>
+        <p>Total amount: {currencyFormatter.format(totalPrice)}</p>
         <Input label="Full Name" type="text" id="name" />
         <Input label="Email" type="text" id="email" />
         <Input label="Street" type="text" id="street" />
