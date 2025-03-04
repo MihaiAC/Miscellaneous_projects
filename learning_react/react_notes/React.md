@@ -455,3 +455,14 @@ Redux:
 useSelector, useDispatch
 
 So far, Redux seems like a global useReducer, with some caveats.
+
+Reducers do not replace missing values in state. It replaces the old state with the new state dumbly. Aka, create a new state, explicitly set all the values you need. Do not mutate the old state.
+
+#### Redux Toolkit
+`npm install @reduxjs/toolkit`
+createSlice
+Can alter old state, internally RTK uses immer to translate into immutable code.
+configureStore replaces createStore, makes it easier to combine reducers.
+slice.actions -> calling them with dispatch wraps arguments automatically in an action object, with a type and a payload.
+
+
