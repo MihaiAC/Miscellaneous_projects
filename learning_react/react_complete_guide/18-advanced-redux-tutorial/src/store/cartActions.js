@@ -17,7 +17,10 @@ export const fetchCartData = () => {
     };
 
     try {
-      const cartData = await fetchData();
+      let cartData = await fetchData();
+      if (cartData === null) {
+        cartData = {};
+      }
       dispatch(replaceCart(cartData));
     } catch (error) {
       dispatch(
