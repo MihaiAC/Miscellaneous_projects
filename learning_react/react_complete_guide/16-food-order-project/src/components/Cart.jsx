@@ -12,7 +12,7 @@ export default function Cart() {
 
   // TODO: Add your cart is empty message if it is empty.
   return (
-    <Modal open={activeModal === ModalNames.CART}>
+    <Modal open={activeModal === ModalNames.CART} onClose={closeModal}>
       <div id="cart">
         <h2>Your Cart</h2>
         <ul>

@@ -100,7 +100,7 @@ export default function Checkout() {
 
   // Display the form by default.
   return (
-    <Modal open={activeModal === ModalNames.CHECKOUT}>
+    <Modal open={activeModal === ModalNames.CHECKOUT} onClose={closeModal}>
       <form onSubmit={handleSubmit}>
         <h2>Checkout</h2>
         <p>Total amount: ${totalPrice}</p>
