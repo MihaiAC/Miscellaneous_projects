@@ -489,5 +489,7 @@ export const sendCartData = (cart) => {
 An action creator normally returns a plain action object (e.g: {type: x, payload: y})
 A thunk returns a function that takes dispatch as an argument. This means that you can dispatch actions after performing async logic.
 
+NEVER HAVE A SLICE AND ONE OF ITS STATES HAVE THE SAME NAME!! 
+
 
 

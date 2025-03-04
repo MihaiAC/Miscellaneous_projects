@@ -1,12 +1,33 @@
 import { showNotification } from "./displaySlice";
+import { replaceCart } from "./cartSlice";
 
-const dbUrl = process.env.FIREBASE_DB_URL;
+const dbUrl = process.env.REACT_APP_FIREBASE_DB_URL + "db.json";
 
 export const fetchCartData = () => {
-  return (dispatch) => {
+  return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch();
+      const response = await fetch(dbUrl);
+
+      if (!response.ok) {
+        throw new Error("Could not fetch cart data!");
+      }
+
+      const data = await response.json();
+      return data;
     };
+
+    try {
+      const cartData = await fetchData();
+      dispatch(replaceCart(cartData));
+    } catch (error) {
+      dispatch(
+        showNotification({
+          status: "error",
+          title: "Error",
+          message: "Fetching cart data failed with error: " + error.message,
+        })
+      );
+    }
   };
 };
 
@@ -30,6 +51,7 @@ export const sendCartData = (cart) => {
         throw new Error("Sending cart data failed.");
       }
     };
+
     try {
       await sendRequest();
       dispatch(
