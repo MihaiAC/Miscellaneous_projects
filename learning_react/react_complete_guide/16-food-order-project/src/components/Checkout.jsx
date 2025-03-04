@@ -30,7 +30,7 @@ export default function Checkout() {
     sendRequest({
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Set content type as JSON
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         order: {
@@ -43,11 +43,8 @@ export default function Checkout() {
       }),
     });
 
-    if (data && !fetchError) {
-      // Non-React way, form should be handled in a state.
-      clearCart();
-      event.target.reset();
-    }
+    // The form should ideally be handled with state.
+    event.target.reset();
   }
 
   let actions;
@@ -69,6 +66,7 @@ export default function Checkout() {
     );
   }
 
+  // Display success if order was accepted by the backend.
   if (data && !fetchError) {
     return (
       <Modal
@@ -100,6 +98,7 @@ export default function Checkout() {
     );
   }
 
+  // Display the form by default.
   return (
     <Modal open={activeModal === ModalNames.CHECKOUT}>
       <form onSubmit={handleSubmit}>
