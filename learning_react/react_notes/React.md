@@ -467,8 +467,27 @@ Can alter old state, internally RTK uses immer to translate into immutable code.
 configureStore replaces createStore, makes it easier to combine reducers.
 slice.actions -> calling them with dispatch wraps arguments automatically in an action object, with a type and a payload.
 
-Reducers must be pure, side-effect free. How to update components and run async tasks?
+Reducers must be pure, side-effect free (+ no async code). How to update components and run async tasks?
 - Inside the components with useEffect.
 - Inside "action creators".
+
+Synchronous, side-effect free code -> reducers == avoid action creators or components.
+Async code, code with side effects -> action creators / components.
+
+#### Thunks
+What is a **Thunk?**
+An function that delays an action until later.
+Does not return the action itself, but another function which eventually returns the action.
+
+```javascript
+export const sendCartData = (cart) => {
+  return async (dispatch) => {
+    // Async code goes here
+  };
+};
+```
+An action creator normally returns a plain action object (e.g: {type: x, payload: y})
+A thunk returns a function that takes dispatch as an argument. This means that you can dispatch actions after performing async logic.
+
 
 
