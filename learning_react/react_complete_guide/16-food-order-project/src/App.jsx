@@ -4,7 +4,6 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 
 function App() {
-  //TODO: add onClose to modals.
   return (
     <>
       <Header />

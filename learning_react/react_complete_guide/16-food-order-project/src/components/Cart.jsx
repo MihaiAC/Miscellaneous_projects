@@ -10,11 +10,11 @@ export default function Cart() {
 
   const { activeModal, openModal, closeModal } = useContext(ModalContext);
 
-  // TODO: Add your cart is empty message if it is empty.
   return (
     <Modal open={activeModal === ModalNames.CART} onClose={closeModal}>
       <div id="cart">
         <h2>Your Cart</h2>
+        {products.size === 0 && <p>Your cart is empty.</p>}
         <ul>
           {[...products.entries()].map(([productId, product]) => (
             <li key={productId} className="cart-item">
