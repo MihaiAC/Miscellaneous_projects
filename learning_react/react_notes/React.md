@@ -429,3 +429,26 @@ pending
 useFormStatus
 Can set a different formAction for each button inside of a form (?).
 useOptimistic - meant to be used inside a form action, while the form is being submitted. Display result immediately, keep it if the form update was successful, revert otherwise. So, visual feedback for the user.
+
+### Redux
+Cross-component/app-wide state management.
+Types of state:
+- Local state = single component, useState/useReducer; e.g: listening to user input or toggling something.
+- Cross-component state = state affecting multiple components; e.g: open/closed state of modals; prop drilling or useContext;
+- App-wide state = state affecting the entire app like authentication or theme; requires prop drilling or useContext;
+
+React Context potential disadvantages:
+- Complex setup & management - applicable for larger projects. Stacked context providers.
+- Performance - for states that change frequently (? - how frequently?).
+
+Redux:
+- Central data Store for state.
+- Components subscribe to the store.
+- Components never directly manipulate the store data. 
+- Reducer functions do that instead.
+- Components dispatch Actions, which describe the operations the Reducer must do.
+- Reducers should be pure functions (same input leads to same output, no side effects).
+- Subscriber = executes the code in it when the state changes.
+- Dispatch = Triggers a Reducer.
+
+`npm install redux react-redux`
