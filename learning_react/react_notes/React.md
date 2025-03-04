@@ -431,6 +431,8 @@ Can set a different formAction for each button inside of a form (?).
 useOptimistic - meant to be used inside a form action, while the form is being submitted. Display result immediately, keep it if the form update was successful, revert otherwise. So, visual feedback for the user.
 
 ### Redux
+Alternative: Zustand
+Handling immutable states: Immer
 Cross-component/app-wide state management.
 Types of state:
 - Local state = single component, useState/useReducer; e.g: listening to user input or toggling something.
@@ -464,5 +466,9 @@ createSlice
 Can alter old state, internally RTK uses immer to translate into immutable code.
 configureStore replaces createStore, makes it easier to combine reducers.
 slice.actions -> calling them with dispatch wraps arguments automatically in an action object, with a type and a payload.
+
+Reducers must be pure, side-effect free. How to update components and run async tasks?
+- Inside the components with useEffect.
+- Inside "action creators".
 
 
