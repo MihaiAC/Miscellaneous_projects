@@ -1,8 +1,9 @@
 import classes from "./CartButton.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleCart } from "../../store/displaySlice";
 
 const CartButton = (props) => {
+  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
   function handlePress() {
@@ -12,7 +13,7 @@ const CartButton = (props) => {
   return (
     <button className={classes.button} onClick={handlePress}>
       <span>My Cart</span>
-      <span className={classes.badge}>1</span>
+      <span className={classes.badge}>{Object.keys(cart).length}</span>
     </button>
   );
 };
