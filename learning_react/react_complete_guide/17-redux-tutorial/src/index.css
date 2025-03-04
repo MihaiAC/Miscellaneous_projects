@@ -24,3 +24,7 @@ button:active {
   background-color: #5b14ac;
   border-color: #5b14ac;
 }
+
+button {
+  margin: 1rem;
+}

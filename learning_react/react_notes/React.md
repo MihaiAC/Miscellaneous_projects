@@ -452,3 +452,6 @@ Redux:
 - Dispatch = Triggers a Reducer.
 
 `npm install redux react-redux`
+useSelector, useDispatch
+
+So far, Redux seems like a global useReducer, with some caveats.
