@@ -551,3 +551,18 @@ Index route vs "/".
 `loader:` inside of a router, executes before page is rendered + makes content available;
 `useLoaderData` = using the data returned by the CLOSEST loader;
 Automatically unwraps the Promise too.
+
+**What type of code goes into the loader?**
+Code that executes in the browser. Aka: no hooks, but can use browser functions.
+
+Error in the loader => closest errorElement will be displayed.
+
+Can throw an object, an Error or a Response
+
+**useRouteError** -> get error data
+
+#### useNavigation
+`navigation.state === idle|loading|submitting`
+You want to go from page A to page B.
+Clicking on the link to page B triggers some loader.
+Loading message can be displayed on page A when you click on the link to B, not on B. On B, the loader has already finished.
