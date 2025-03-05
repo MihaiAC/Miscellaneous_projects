@@ -506,4 +506,36 @@ errorElement on root (where errors due to URLs not existing end up going - ?)
 NavLink instead of Link to show active button. It injects an isActive argument in ITS OWN className `className={({isActive}) => (isActive ? ...)}`
 to ... end in NavLink if the link has further descendants and you want to target only the current link (?)
 
+`useNavigate` = go to a link programmatically
 
+Dynamic routing
+You add a slug like `:productId` then what should be rendered.
+Inside the component, you can get the current productId with useParams + {params.productId}.
+
+Dynamic routing.
+App.js router: `{ path: "products/:productId", element: <Product /> },`
+Products routing: 
+```javascript
+{PRODUCTS.map((prod) => (
+<li key={prod.id}>
+<Link to={`/products/${prod.id}`}>{prod.title}</Link>
+</li>
+))} 
+```
+Receiving the slugs in Product:
+```javascript
+const params = useParams();
+return (
+	<>
+		<h1>Some Product</h1>
+		<p>{params.productId}</p>
+	</>
+);
+```
+How to pass parameters through link to Product?
+Add state argument, like this:
+```javascript
+<Link to={{ 
+pathname: `/products/${prod.id}`, 
+state: { title: prod.title, description: prod.description } }} />
+```
