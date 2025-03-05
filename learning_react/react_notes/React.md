@@ -546,3 +546,8 @@ Relative vs absolute in the path object (appends vs whole route specified).
 `<Link to=".." relative="absolute">` = goes to root (`/..` specifically).
 
 Index route vs "/".
+
+#### Loaders
+`loader:` inside of a router, executes before page is rendered + makes content available;
+`useLoaderData` = using the data returned by the CLOSEST loader;
+Automatically unwraps the Promise too.
