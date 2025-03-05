@@ -498,7 +498,12 @@ SPAs = gives illusion of multiple pages, when changing the link, a different com
 `npm install react-router-dom`
 Route = mapping from URL to component
 router object, RouterProvider wrapper (decorator-like)
-Link = navigate to other pages.
+Link = navigate to other pages. Under the hood, renders an `<a>` element.
 Router children field: making a component wrap its children routes. Useful for adding a navbar to each child for instance.
 `<Outlet />` = marks where the children should be rendered in the parent component.
+errorElement on root (where errors due to URLs not existing end up going - ?)
+
+NavLink instead of Link to show active button. It injects an isActive argument in ITS OWN className `className={({isActive}) => (isActive ? ...)}`
+to ... end in NavLink if the link has further descendants and you want to target only the current link (?)
+
 
