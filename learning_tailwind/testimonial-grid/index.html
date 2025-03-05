@@ -16,9 +16,9 @@
     <!--Global container-->
     <div class="container mx-auto max-w-lg md:max-w-7xl p-2 md:p-10">
         <!--Grid container-->
-        <div class="text-white grid gap-8">
+        <div class="text-white grid gap-8 md:grid-cols-4 md:grid-rows-2">
             <!--Box 1-->
-            <div class="relative p-10 rounded-xl bg-purple-700 flex flex-col space-y-6">
+            <div class="md:col-span-2 relative p-10 rounded-xl bg-purple-700 flex flex-col space-y-6">
                 <!--Quotes img-->
                 <img class="absolute top-4 right-4 scale-125 md:top-8 md:right-8 md:scale-150"
                     src="/images/bg-pattern-quotation.svg" alt="Image of two quotes">
@@ -73,7 +73,8 @@
                 <p class="text-xl"> The team was very supportive and kept me motivated</p>
 
                 <!--Full-->
-                <p class="line-clamp-5 opacity-50"> "I started as a total newbie with virtually no coding skills. I now
+                <p class="line-clamp-5 opacity-50 md:line-clamp-6"> "I started as a total newbie with virtually no
+                    coding skills. I now
                     work as a mobile engineer for a big company. This was one of the
                     best investments I've made in myself. Lorem ipsum dolor sit amet
                     consectetur adipisicing elit. Atque ipsam veritatis natus illum
@@ -85,7 +86,8 @@
             </div>
 
             <!--Box 3-->
-            <div class="row-start-6 p-10 rounded-xl bg-white text-gray-800 md:flex md:flex-col space-y-6">
+            <div
+                class="row-start-6 md:row-start-1 md:col-start-4 md:row-span-2 p-10 rounded-xl bg-white text-gray-800 md:flex md:flex-col space-y-6">
                 <!--Header-->
                 <div class="flex space-x-4">
                     <!--Portrait-->
@@ -101,7 +103,9 @@
                 <p class="text-xl"> Such a life-changing experience. Highly recommended!</p>
 
                 <!--Full-->
-                <p class="line-clamp-5 opacity-50"> "Before joining the bootcamp, I've never written a line of code. I
+                <p class="line-clamp-5 md:line-clamp-none overflow-scroll opacity-50"> "Before joining the bootcamp,
+                    I've never written
+                    a line of code. I
                     needed some structure from professionals who can help me learn
                     programming step by step. I was encouraged to enroll by a former
                     student of theirs who can only say wonderful things about the
@@ -137,7 +141,7 @@
             </div>
 
             <!--Box 5-->
-            <div class="p-10 rounded-xl bg-gray-900 md:flex md:flex-col space-y-6">
+            <div class="md:col-span-2 p-10 rounded-xl bg-gray-900 md:flex md:flex-col space-y-6">
                 <!--Header-->
                 <div class="flex space-x-4">
                     <!--Portrait-->
