@@ -499,4 +499,6 @@ SPAs = gives illusion of multiple pages, when changing the link, a different com
 Route = mapping from URL to component
 router object, RouterProvider wrapper (decorator-like)
 Link = navigate to other pages.
+Router children field: making a component wrap its children routes. Useful for adding a navbar to each child for instance.
+`<Outlet />` = marks where the children should be rendered in the parent component.
 
