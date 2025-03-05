@@ -549,6 +549,11 @@ Index route vs "/".
 
 #### Loaders
 `loader:` inside of a router, executes before page is rendered + makes content available;
+Loader gets two params "injected" by React: `loader({request, params})`:
+- request = the request being made in the browser;
+- params = object containing the dynamic segments of the route;
+- context (optional) = optional context passed down from parent route loaders - useful in nested routes to pass data;
+- location (optional) = information about the current location e.g: pathname, search, hash of the URL;
 `useLoaderData` = using the data returned by the CLOSEST loader;
 Automatically unwraps the Promise too.
 

@@ -1,13 +1,30 @@
 import classes from "./EventDetailPage.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, useLoaderData } from "react-router-dom";
+import EventItem from "./EventItem";
 
 export default function EventDetailPage() {
-  const params = useParams();
+  const data = useLoaderData();
 
   return (
     <>
-      <h1>EventsDetail Page!</h1>
-      <p>Slug is: {params.eventId}</p>
+      <EventItem event={data.event} />
     </>
   );
+}
+
+export async function loader({ request, params }) {
+  const eventId = params.eventId;
+
+  const response = await fetch("http://localhost:8080/events/" + eventId);
+
+  if (!response.ok) {
+    throw new Response(
+      JSON.stringify({ message: "Could not details for selected event." }),
+      {
+        status: 500,
+      }
+    );
+  } else {
+    return response;
+  }
 }
