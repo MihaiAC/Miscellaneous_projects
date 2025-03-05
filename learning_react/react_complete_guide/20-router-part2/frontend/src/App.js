@@ -1,11 +1,4 @@
 // Challenge / Exercise
-
-// 1. Add five new (dummy) page components (content can be simple <h1> elements)
-//    - HomePage
-//    - EventsPage
-//    - EventDetailPage
-//    - NewEventPage
-//    - EditEventPage
 // 2. Add routing & route definitions for these five pages
 //    - / => HomePage
 //    - /events => EventsPage
