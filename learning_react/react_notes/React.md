@@ -539,3 +539,10 @@ Add state argument, like this:
 pathname: `/products/${prod.id}`, 
 state: { title: prod.title, description: prod.description } }} />
 ```
+Relative vs absolute in the path object (appends vs whole route specified).
+
+**Going back one vs going back to root.**
+`<Link to=".." relative="path">` = goes back one (relative)
+`<Link to=".." relative="absolute">` = goes to root (`/..` specifically).
+
+Index route vs "/".
