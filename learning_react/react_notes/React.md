@@ -498,4 +498,5 @@ SPAs = gives illusion of multiple pages, when changing the link, a different com
 `npm install react-router-dom`
 Route = mapping from URL to component
 router object, RouterProvider wrapper (decorator-like)
+Link = navigate to other pages.
 
