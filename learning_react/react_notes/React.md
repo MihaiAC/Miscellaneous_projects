@@ -491,5 +491,11 @@ A thunk returns a function that takes dispatch as an argument. This means that y
 
 NEVER HAVE A SLICE AND ONE OF ITS STATES HAVE THE SAME NAME!! 
 
+Redux dev tools.
 
+### React Router - multi-page apps
+SPAs = gives illusion of multiple pages, when changing the link, a different component is loaded.
+`npm install react-router-dom`
+Route = mapping from URL to component
+router object, RouterProvider wrapper (decorator-like)
 
