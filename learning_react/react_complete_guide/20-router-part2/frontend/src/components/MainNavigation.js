@@ -1,6 +1,5 @@
 import classes from "./MainNavigation.module.css";
 import { NavLink } from "react-router-dom";
-import { Outlet } from "react-router-dom";
 
 function MainNavigation() {
   return (
@@ -28,7 +27,6 @@ function MainNavigation() {
           </ul>
         </nav>
       </header>
-      <Outlet />
     </>
   );
 }
