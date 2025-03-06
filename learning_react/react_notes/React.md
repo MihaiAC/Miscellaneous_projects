@@ -575,6 +575,13 @@ Loaders get data, actions to send data.
 #### Form
 react-router-dom.Form -> will send the Form to the action that is attached to the form component's route.
 
+#### Submit
+Triggering an action:
+```javascript
+if (proceed) { 
+	submit(null, { method: "post", action:`/events/${event.id}/delete` }); }
+```
+
 #### Redirect
 Standard stuff
 
