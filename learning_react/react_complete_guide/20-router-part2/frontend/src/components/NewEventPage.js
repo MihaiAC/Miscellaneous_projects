@@ -22,6 +22,11 @@ export async function action({ request, params }) {
     body: JSON.stringify(eventData),
   });
 
+  // Handle validation errors.
+  if (response.status === 422) {
+    return response;
+  }
+
   if (!response.ok) {
     const errorData = await response.json();
     throw new Response(

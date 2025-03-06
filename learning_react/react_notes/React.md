@@ -587,6 +587,10 @@ https://reactrouter.com/6.30.0/hooks/use-navigation
 Provides navigation data to build pending indicators + optimistic UI.
 e.g: navigation.state, navigation.formData
 
+#### useActionData
+Can be used for validation errors.
+E.g: my action that's supposed to send data to the backend encounters an error and returns the backend Response object. I then want to use this Response to display the errors.
+
 #### Redirect
 Standard stuff
 
