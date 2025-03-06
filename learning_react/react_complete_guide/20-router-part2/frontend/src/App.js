@@ -11,6 +11,9 @@ import RootLayout from "./components/Root";
 import EventsRootLayout from "./components/EventsRoot";
 import ErrorPage from "./components/Error";
 import { action as eventAction } from "./components/EventForm";
+import NewsletterPage, {
+  action as newsletterAction,
+} from "./components/Newsletter";
 
 const router = createBrowserRouter([
   {
