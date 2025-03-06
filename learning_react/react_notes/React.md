@@ -615,6 +615,9 @@ Used to handle form submission / item deletions / fetching additional data / opt
 fetcher.Form, fetcher.formData (form data before submission), fetcher.data (response data, after submission D'OH) fetcher.submit, ... 
 https://reactrouter.com/6.30.0/hooks/use-fetcher#usefetcher
 
+#### useSearchParams
+Get access to the URL search parameters. (?x=...)
+
 #### defer + Await + Suspense
 Defer not needed in RouterV7+
 ```
