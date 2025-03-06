@@ -479,7 +479,7 @@ What is a **Thunk?**
 An function that delays an action until later.
 Does not return the action itself, but another function which eventually returns the action.
 
-```javascript
+```jsx
 export const sendCartData = (cart) => {
   return async (dispatch) => {
     // Async code goes here
@@ -515,7 +515,7 @@ Inside the component, you can get the current productId with useParams + {params
 Dynamic routing.
 App.js router: `{ path: "products/:productId", element: <Product /> },`
 Products routing: 
-```javascript
+```jsx
 {PRODUCTS.map((prod) => (
 <li key={prod.id}>
 <Link to={`/products/${prod.id}`}>{prod.title}</Link>
@@ -523,7 +523,7 @@ Products routing:
 ))} 
 ```
 Receiving the slugs in Product:
-```javascript
+```jsx
 const params = useParams();
 return (
 	<>
@@ -534,7 +534,7 @@ return (
 ```
 How to pass parameters through link to Product?
 Add state argument, like this:
-```javascript
+```jsx
 <Link to={{ 
 pathname: `/products/${prod.id}`, 
 state: { title: prod.title, description: prod.description } }} />
@@ -586,7 +586,7 @@ react-router-dom.Form -> will send the Form to the action that is attached to th
 
 #### Submit
 Triggering an action:
-```javascript
+```jsx
 if (proceed) { 
 	submit(null, { method: "post", action:`/events/${event.id}/delete` }); }
 ```
@@ -608,3 +608,29 @@ Standard stuff
 You want to go from page A to page B.
 Clicking on the link to page B triggers some loader.
 Loading message can be displayed on page A when you click on the link to B, not on B. On B, the loader has already finished.
+
+#### useFetcher
+Submit forms + load data **without navigating!**
+Used to handle form submission / item deletions / fetching additional data / optimistically update the UI without changing the URL. (side effects).
+fetcher.Form, fetcher.formData (form data before submission), fetcher.data (response data, after submission D'OH) fetcher.submit, ... 
+https://reactrouter.com/6.30.0/hooks/use-fetcher#usefetcher
+
+#### defer + Await + Suspense
+Defer not needed in RouterV7+
+```
+export function loader() {
+	return {
+		events: loadEvents(),
+	};
+}
+```
+loadEvents = fetches events async
+
+Then, in the component before which loader gets executed:
+```jsx
+<Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+	<Await resolve={events}>
+		{(loadedEvents) => <EventsList events={loadedEvents} />}
+	</Await>
+</Suspense>
+```
