@@ -569,6 +569,15 @@ Can throw an object, an Error or a Response
 **A child route doesn't automatically inherit the parent's loader.** 
 Either add the loader explicitly to the child too OR useRouteLoaderData
 
+#### Actions
+Loaders get data, actions to send data.
+
+#### Form
+react-router-dom.Form -> will send the Form to the action that is attached to the form component's route.
+
+#### Redirect
+Standard stuff
+
 #### useNavigation
 `navigation.state === idle|loading|submitting`
 You want to go from page A to page B.
