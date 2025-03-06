@@ -640,4 +640,12 @@ Then, in the component before which loader gets executed:
 
 ## Authentication
 Server-side session vs auth tokens
-Servcer-side sessions imply tight coupling with the backend. Aka doesn't mesh well with React.
+Server-side sessions imply tight coupling with the backend. Aka doesn't mesh well with React.
+
+Can store tokens in localStorage.
+Include the token in the request headers.
+Not sure how to handle refresh tokens with JWT yet, there is something called Axios for easier request handling (?).
+
+Logout action.
+
+Root loader for auth => whenever the user navigates, token gets re-evaluated.
