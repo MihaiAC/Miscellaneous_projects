@@ -634,3 +634,7 @@ Then, in the component before which loader gets executed:
 	</Await>
 </Suspense>
 ```
+
+## Authentication
+Server-side session vs auth tokens
+Servcer-side sessions imply tight coupling with the backend. Aka doesn't mesh well with React.
