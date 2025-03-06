@@ -1,10 +1,4 @@
-import classes from "./EventDetailPage.module.css";
-import {
-  Await,
-  redirect,
-  useLoaderData,
-  useRouteLoaderData,
-} from "react-router-dom";
+import { Await, redirect, useRouteLoaderData } from "react-router-dom";
 import EventItem from "./EventItem";
 import EventsList from "./EventsList";
 import { Suspense } from "react";

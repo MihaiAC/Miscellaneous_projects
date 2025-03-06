@@ -1,4 +1,3 @@
-import classes from "./EditEventPage.module.css";
 import { useRouteLoaderData } from "react-router-dom";
 import EventForm from "./EventForm";
 
