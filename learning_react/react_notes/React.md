@@ -582,6 +582,11 @@ if (proceed) {
 	submit(null, { method: "post", action:`/events/${event.id}/delete` }); }
 ```
 
+#### useNavigation
+https://reactrouter.com/6.30.0/hooks/use-navigation
+Provides navigation data to build pending indicators + optimistic UI.
+e.g: navigation.state, navigation.formData
+
 #### Redirect
 Standard stuff
 
