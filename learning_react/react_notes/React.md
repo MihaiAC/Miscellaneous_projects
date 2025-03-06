@@ -571,6 +571,15 @@ Either add the loader explicitly to the child too OR useRouteLoaderData
 
 #### Actions
 Loaders get data, actions to send data.
+action({request, params}) ->
+Request fields:
+- method = post, put, etc.
+- formData()
+- json()
+- url
+- headers
+
+Params = contains dynamic parameters from the route definition.
 
 #### Form
 react-router-dom.Form -> will send the Form to the action that is attached to the form component's route.
