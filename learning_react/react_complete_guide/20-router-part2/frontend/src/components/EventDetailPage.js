@@ -1,9 +1,9 @@
 import classes from "./EventDetailPage.module.css";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useLoaderData, useRouteLoaderData } from "react-router-dom";
 import EventItem from "./EventItem";
 
 export default function EventDetailPage() {
-  const data = useLoaderData();
+  const data = useRouteLoaderData("event-detail");
 
   return (
     <>

@@ -566,6 +566,9 @@ Can throw an object, an Error or a Response
 
 **useRouteError** -> get error data
 
+**A child route doesn't automatically inherit the parent's loader.** 
+Either add the loader explicitly to the child too OR useRouteLoaderData
+
 #### useNavigation
 `navigation.state === idle|loading|submitting`
 You want to go from page A to page B.
