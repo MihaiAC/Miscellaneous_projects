@@ -649,3 +649,31 @@ Not sure how to handle refresh tokens with JWT yet, there is something called Ax
 Logout action.
 
 Root loader for auth => whenever the user navigates, token gets re-evaluated.
+
+### Deploying a React App
+Code optimizers? -> build
+Lazy loading = load components only when needed
+
+Non-lazy loading:
+`import BlogPage, {loader as postsLoader} from ...`
+
+Lazy loading component:
+`const BlogPage=lazy(() => import('./pages/Blog')` + wrap previous BlogPage usage with Suspense + fallback.
+
+Lazy loading function:
+`loader -> (meta) => import('./pages/Blog').then(module => module.loader(meta))` -> can't this be done automatically? + it's "then" due to the fact that import result is async.
+
+Basically, the idea is to split your App into groups of components that work together (e.g: split by route, lazy load main component that pulls in all other relevant components with it).
+
+Putting components in separate Suspense boundaries => loaded sequentially (lose async advantage).
+
+Lazy loading should be used sparingly, where the impact is the greatest as it entails another HTTP request.
+
+A React SPA is a Static Website -> only HTML, CSS and JS.
+
+Rather than only using lazy loading, lazy loading + preloading seems to be a better idea? What hidden considerations are there - best practices?
+
+Firebase seems good for fast hosting.
+
+Server-side vs client-side routing -> server should always return the same "index.html" -> configure as an SPA 
+
