@@ -15,8 +15,93 @@
     <script type="module" src="/src/main.js" defer></script>
 </head>
 
-<body class="flex justify-center items-center h-screen bg-gray-800">
-    <h1 class="text-3xl font-bold text-blue-600">Are the styles working? :S</h1>
+<body class="bg-gray-800">
+    <!--Page container-->
+    <section class="container mx-auto flex flex-col space-y-16">
+        <!--Header-->
+        <div class="flex flex-col md:flex-row justify-center md:justify-between p-4 space-y-8 md:space-y-0 mt-8">
+            <div class="flex justify-center md:justify-start">
+                <img src="images/logo-dark-mode.svg" alt="">
+            </div>
+            <div class="flex flex-col md:flex-row space-y-9 md:space-y-0 md:space-x-8 text-white items-center">
+                <button>Features</button>
+                <button>Testimonials</button>
+                <button class="border-2 p-1 rounded-lg border-gray-500">
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!--Hero Section-->
+        <div class="flex flex-col space-y-8 items-center">
+            <div>
+                <img src="images/illustration-intro.png" alt="">
+            </div>
+
+            <h1 class="text-4xl font-bold text-white text-center max-w-2xl">All your files in one secure location,
+                accessible
+                anywhere.</h1>
+
+            <p class="text-lg text-center max-w-xl text-white">Fylo stores all your most important files in one secure
+                location.
+                Access
+                them wherever
+                you need, share
+                and collaborate with friends, family, and co-workers.</p>
+            <button class="bg-cyan-400 text-white py-2 px-8 rounded-3xl">Get started</button>
+        </div>
+
+        <!--Features section-->
+        <section class="flex flex-col space-y-16 text-white w-full max-w-5xl mx-auto">
+            <div class="flex flex-col space-y-16 md:space-y-0 md:flex-row items-center md:space-around md:space-x-8">
+                <div class="flex flex-col w-1/2 items-center space-y-4">
+                    <img src="images/icon-access-anywhere.svg" alt="">
+                    <h2 class="text-xl font-bold text-center">Access your files, anywhere</h2>
+                    <p class="text-center md:max-w-sm">The ability to use a smartphone, tablet, or computer to access
+                        your account
+                        means your files
+                        follow you everywhere.</p>
+                </div>
+                <div class="flex flex-col w-1/2 items-center space-y-4">
+                    <img src="images/icon-security.svg" alt="">
+                    <h2 class="text-xl font-bold text-center">Security you can trust</h2>
+                    <p class="text-center md:max-w-sm">2-factor authentication and user-controller encryption are just a
+                        couple of
+                        the security features we allow to help secure your files</p>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-16 md:space-y-0 md:flex-row items-center md:space-around md:space-x-8">
+                <div class="flex flex-col w-1/2 items-center space-y-4">
+                    <img src="images/icon-collaboration.svg" alt="">
+                    <h2 class="text-xl font-bold text-center">Real-time collaboration</h2>
+                    <p class="text-center md:max-w-sm">Securely share files and folders with friends, family and
+                        colleagues for live collaboration. No email attachments required.</p>
+                </div>
+                <div class="flex flex-col w-1/2 items-center space-y-4">
+                    <img src="images/icon-any-file.svg" alt="">
+                    <h2 class="text-xl font-bold text-center">Store any type of file</h2>
+                    <p class="text-center md:max-w-sm">Whether you're sharing holidays photos or work documents, Fylo
+                        has you covered allowing for all file types to be securely stored and shared.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--CTA one-->
+
+
+    </section>
+
 </body>
 
 </html>
