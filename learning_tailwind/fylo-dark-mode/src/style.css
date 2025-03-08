@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.section-styles {
+  @apply flex flex-col md:flex-row space-y-8 text-white max-w-6xl mx-auto w-full p-8;
+}
+
+.icon-styles {
+  @apply text-white p-1 h-8 w-auto;
+}
+
+.footer-text-links {
+  @apply flex flex-col space-y-4 md:w-1/6 text-center;
+}
+
+.footer-social-icon {
+  @apply icon-styles border-2 rounded-full border-white;
+}
+
+.h1-text {
+  @apply text-4xl font-bold text-center;
+}

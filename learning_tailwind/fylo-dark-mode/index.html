@@ -20,11 +20,11 @@
     <div class="container mx-auto flex flex-col space-y-16">
 
         <!--Header-->
-        <section class="flex flex-col md:flex-row justify-center md:justify-between p-4 space-y-8 md:space-y-0 mt-8">
+        <section class="section-styles justify-center md:justify-between md:space-y-0 mt-8">
             <div class="flex justify-center md:justify-start">
                 <img src="images/logo-dark-mode.svg" alt="">
             </div>
-            <div class="flex flex-col md:flex-row space-y-9 md:space-y-0 md:space-x-8 text-white items-center">
+            <div class="flex flex-col md:flex-row space-y-9 md:space-y-0 md:space-x-8  items-center">
                 <button>Features</button>
                 <button>Testimonials</button>
                 <button class="border-2 p-1 rounded-lg border-gray-500">
@@ -47,16 +47,16 @@
 
 
         <!--Hero Section-->
-        <section class="flex flex-col space-y-8 items-center">
+        <section class="section-styles md:flex-col items-center">
             <div>
                 <img src="images/illustration-intro.png" alt="">
             </div>
 
-            <h1 class="text-4xl font-bold text-white text-center max-w-2xl">All your files in one secure location,
+            <h1 class="h1-text text-center max-w-2xl">All your files in one secure location,
                 accessible
                 anywhere.</h1>
 
-            <p class="text-lg text-center max-w-xl text-white">Fylo stores all your most important files in one secure
+            <p class="text-lg text-center max-w-xl">Fylo stores all your most important files in one secure
                 location.
                 Access
                 them wherever
@@ -66,7 +66,7 @@
         </section>
 
         <!--Features section-->
-        <section class="flex flex-col space-y-16 text-white w-full max-w-5xl mx-auto">
+        <section class="section-styles md:flex-col space-y-16">
             <div class="flex flex-col space-y-16 md:space-y-0 md:flex-row items-center md:space-around md:space-x-8">
                 <div class="flex flex-col w-1/2 items-center space-y-4">
                     <img src="images/icon-access-anywhere.svg" alt="">
@@ -101,10 +101,10 @@
         </section>
 
         <!--CTA One-->
-        <section class="flex flex-col md:flex-row items-center space-y-16 md:space-y-0 md:space-x-8 p-8 w-full mx-auto">
+        <section class="section-styles items-center md:space-y-0 md:space-x-8 p-8">
             <img class="mx-auto" src="images/illustration-stay-productive.png" alt="">
-            <div class="text-white text-center md:text-left flex flex-col space-y-4">
-                <h1 class="text-5xl font-bold text-white md:max-w-md">Stay productive, wherever you are
+            <div class=" text-center md:text-left flex flex-col space-y-4">
+                <h1 class="h1-text md:max-w-md">Stay productive, wherever you are
                 </h1>
                 <p>Never let location be an issue when accessing your files.
                     Fylo has you covered for
@@ -121,7 +121,7 @@
         </section>
 
         <!--Reviews-->
-        <section class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 text-white">
+        <section class="section-styles items-center md:space-y-0 md:space-x-8">
             <!--Review-->
             <div class="flex flex-col space-y-8 max-w-md md:w-1/3">
                 <p>Fylo has improved our team productivity by an order of magnitude. Since making the switch our team
@@ -167,8 +167,8 @@
         </section>
 
         <!--CTA Two-->
-        <section class="flex flex-col space-y-8 text-white items-center">
-            <h1 class="text-4xl font-bold">Get early access today</h1>
+        <section class="section-styles md:flex-col items-center">
+            <h1 class="h1-text">Get early access today</h1>
             <p class="text-center max-w-xl">It only takes a minute to sign up and our free starter tier is extremely
                 generous. If you have any
                 questions, our support team would be happy to help you.</p>
@@ -179,43 +179,57 @@
         </section>
 
         <!--Footer-->
-        <footer class="flex flex-col space-y-8 items-start text-white">
-            <div><img src="images/logo-dark-mode.svg" alt=""></div>
-            <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+        <footer class="section-styles space-y-8 md:flex-col items-center md:items-center">
+            <div>
+                <img src="images/logo-dark-mode.svg" alt="">
+            </div>
+            <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 items-center md:items-start">
                 <div class="flex space-x-2 md:w-2/6">
-                    <img src="images/icon-location.svg" alt="">
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi officiis ab, tempora saepe
+                    <img class="icon-styles" src="images/icon-location.svg" alt="">
+                    <div class="max-w-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Eligendi
+                        officiis ab,
+                        tempora saepe
                         perspiciatis rem reprehenderit aliquid non aut esse?</div>
                 </div>
-                <div class="flex flex-col space-y-4 md:w-1/6">
+                <div class="flex flex-col items-center md:items-start space-y-4 md:w-1/6">
                     <div class="flex space-x-2">
-                        <img src="images/icon-phone.svg" alt="">
+                        <img class="icon-styles" src="images/icon-phone.svg" alt="">
                         <div>+1-543-123-4567</div>
                     </div>
                     <div class="flex space-x-2">
-                        <img src="images/icon-email.svg" alt="">
+                        <img class="h-8 w-10 p-1" src="images/icon-email.svg" alt="">
                         <div>example@fylo.com</div>
                     </div>
                 </div>
-                <div class="flex flex-col space-y-4 md:w-1/6">
-                    <div>About Us</div>
-                    <div>Jobs</div>
-                    <div>Press</div>
-                    <div>Blog</div>
+                <div
+                    class="flex flex-col items-center space-y-4 md:space-y-0 md:w-3/6 md:justify-end md:space-x-8 md:px-8">
+                    <div class="footer-text-links">
+                        <button>About Us</button>
+                        <button>Jobs</button>
+                        <button>Press</button>
+                        <button>Blog</button>
+                    </div>
+                    <div class="footer-text-links">
+                        <button>Contact Us</button>
+                        <button>Terms</button>
+                        <button>Privacy</button>
+                    </div>
+                    <div class="flex space-x-2 md:w-1/6">
+                        <button>
+                            <img class="footer-social-icon" src="images/facebook.svg" alt="">
+                        </button>
+
+                        <button>
+                            <img class="footer-social-icon" src="images/twitter.svg" alt="">
+                        </button>
+
+                        <button>
+                            <img class="footer-social-icon" src="images/instagram.svg" alt="">
+                        </button>
+                    </div>
                 </div>
-                <div class="flex flex-col space-y-4 md:w-1/6">
-                    <div>Contact Us</div>
-                    <div>Terms</div>
-                    <div>Privacy</div>
-                </div>
-                <div class="flex space-x-2 md:w-1/6">
-                    <img class="text-white p-1 h-8 w-8 border-2 rounded-full border-white" src="images/facebook.svg"
-                        alt="">
-                    <img class="text-white p-1 h-8 w-8 border-2 rounded-full border-white" src="images/twitter.svg"
-                        alt="">
-                    <img class="text-white p-1 h-8 w-8 border-2 rounded-full border-white" src="images/instagram.svg"
-                        alt="">
-                </div>
+
             </div>
         </footer>
 
