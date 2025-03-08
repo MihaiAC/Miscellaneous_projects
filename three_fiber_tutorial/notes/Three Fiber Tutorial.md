@@ -41,3 +41,9 @@ receiveShadow and castShadow properties
 shadow-camera-left, right, top, bottom = defines shadow frustum size
 Orthographic camera projects shadows in a rectangular box-shaped area.
 The properties above control this box' size.
+
+### Animating the cars
+Can't re-render every time something moves (React way) -> want to update positions directly.
+React to set up the scene + objects, Three to do the animations.
+React Three Fiber = thin layer on top of Three
+
