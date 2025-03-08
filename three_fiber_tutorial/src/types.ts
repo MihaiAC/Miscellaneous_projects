@@ -23,5 +23,5 @@ export type Row =
       vehicles: {
         initialTileIndex: number;
         color: ColorRepresentation;
-      };
+      }[];
     };
