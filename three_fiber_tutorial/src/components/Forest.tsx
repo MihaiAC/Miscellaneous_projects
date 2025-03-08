@@ -7,7 +7,6 @@ type Props = {
   rowData: Extract<Row, { type: "forest" }>;
 };
 
-// TODO: This rowIndex is passed around a bit much - context manager?
 export default function Forest({ rowIndex, rowData }: Props) {
   return (
     <>
