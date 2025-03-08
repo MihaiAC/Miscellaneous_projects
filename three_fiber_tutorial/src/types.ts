@@ -25,3 +25,5 @@ export type Row =
         color: ColorRepresentation;
       }[];
     };
+
+export type MoveDirection = "forward" | "backward" | "left" | "right";
