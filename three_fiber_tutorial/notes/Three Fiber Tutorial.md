@@ -26,3 +26,11 @@ Resizes view based on children size. Used for keeping objects (player in this ca
 - clip = objects outside the bounds are not visible
 - observe = enable automatic adjustments if object's size or position changes (aka when the player box moves in this case)
 - margin = adds margin around the bounded object (similar to classic CSS margin)
+
+### Other
+```ts 
+Extract<Row, {type: 'forest'}>
+``` 
+= extracts a subtype from a union type;
+
+"lifted by half of its height" so it is above ground I assume?
