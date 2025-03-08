@@ -16,11 +16,11 @@ const trunkHeight = 20;
 export default function Tree({ tileIndex, canopyHeight }: Props) {
   return (
     <group position-x={tileIndex * tileSize}>
-      <mesh position-z={10}>
+      <mesh position-z={10} castShadow receiveShadow>
         <boxGeometry args={[trunkWidth, trunkDepth, trunkHeight]} />
         <meshLambertMaterial color={0x6b492b} flatShading />
       </mesh>
-      <mesh position-z={canopyHeight / 2 + 20}>
+      <mesh position-z={canopyHeight / 2 + 20} castShadow receiveShadow>
         <boxGeometry args={[canopyWidth, canopyDepth, canopyHeight]} />
         <meshLambertMaterial color={0x7aa21d} flatShading />
       </mesh>

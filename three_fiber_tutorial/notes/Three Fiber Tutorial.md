@@ -34,3 +34,10 @@ Extract<Row, {type: 'forest'}>
 = extracts a subtype from a union type;
 
 "lifted by half of its height" so it is above ground I assume?
+
+### Shadows
+receiveShadow and castShadow properties
+
+shadow-camera-left, right, top, bottom = defines shadow frustum size
+Orthographic camera projects shadows in a rectangular box-shaped area.
+The properties above control this box' size.
