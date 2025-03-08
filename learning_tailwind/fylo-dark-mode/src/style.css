@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .section-styles {
-  @apply flex flex-col md:flex-row space-y-8 text-white max-w-6xl mx-auto w-full p-8;
+  @apply flex flex-col md:flex-row space-y-8 dark:text-white text-stone-800 max-w-6xl mx-auto w-full p-8;
 }
 
 .icon-styles {
-  @apply text-white p-1 h-8 w-auto;
+  @apply dark:text-white text-black p-1 h-8 w-auto;
 }
 
 .footer-text-links {
@@ -20,4 +20,8 @@
 
 .h1-text {
   @apply text-4xl font-bold text-center;
+}
+
+.fylo-logo {
+  @apply bg-logo-light-mode dark:bg-logo-dark-mode object-contain bg-no-repeat w-48 h-16;
 }
