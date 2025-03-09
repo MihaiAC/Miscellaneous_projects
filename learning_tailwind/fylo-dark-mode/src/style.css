@@ -35,8 +35,8 @@
 }
 
 .bg-color-transition {
-  @apply dark:bg-[linear-gradient(to_bottom,_theme('colors.backgroundBlue')_50%,_theme('colors.backgroundDarkBlue')_50%)]
-  bg-[linear-gradient(to_bottom,_theme('colors.backgroundGray')_50%,_theme('colors.backgroundDarkGray')_50%)];
+  @apply dark:bg-[linear-gradient(to_bottom,_theme('colors.backgroundBlue')_60%,_theme('colors.backgroundDarkBlue')_40%)]
+  bg-[linear-gradient(to_bottom,_theme('colors.backgroundGray')_60%,_theme('colors.backgroundDarkGray')_40%)];
 }
 
 .review-card {
