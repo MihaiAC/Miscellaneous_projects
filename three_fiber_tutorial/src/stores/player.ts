@@ -1,6 +1,7 @@
 import type { MoveDirection } from "../types";
 import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
 import useMapStore from "./map";
+import useGameStore from "./game";
 
 export const state: {
   currentRow: number;
@@ -48,7 +49,12 @@ export function stepCompleted() {
     state.currentRow -= 1;
   }
 
+  // Add new rows if player is running out of them.
+  // TODO: How to clean up rows that are way behind?
   if (state.currentRow === useMapStore.getState().rows.length - 10) {
     useMapStore.getState().addRows();
   }
+
+  // Update score.
+  useGameStore.getState().updateScore(state.currentRow);
 }
