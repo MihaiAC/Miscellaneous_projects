@@ -4,6 +4,8 @@ import Wheel from "./Wheel";
 import { useRef } from "react";
 import useVehicleAnimation from "../hooks/useVehicleAnimation";
 
+export const carTileLength = 3;
+
 type Props = {
   rowIndex: number;
   initialTileIndex: number;
