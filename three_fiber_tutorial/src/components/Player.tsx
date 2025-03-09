@@ -3,19 +3,23 @@ import { useRef, useEffect } from "react";
 import usePlayerAnimation from "../hooks/usePlayerAnimation";
 import { Group } from "three";
 import { useThree } from "@react-three/fiber";
+import DirectionalLight from "./DirectionalLight";
+import { DirectionalLight as ThreeDirectionalLight } from "three";
 
 export function Player() {
   const player = useRef<Group>(null);
   const camera = useThree((state) => state.camera);
+  const lightRef = useRef<ThreeDirectionalLight>(null);
 
   usePlayerAnimation(player);
 
   useEffect(() => {
-    if (!player.current) {
+    if (!player.current || !lightRef.current) {
       return;
     }
 
     player.current.add(camera);
+    lightRef.current.target = player.current;
   });
 
   // Second mesh is the player cap.
@@ -33,6 +37,7 @@ export function Player() {
             <meshLambertMaterial color={0xf0619a} flatShading />
           </mesh>
         </group>
+        <DirectionalLight ref={lightRef} />
       </group>
     </Bounds>
   );

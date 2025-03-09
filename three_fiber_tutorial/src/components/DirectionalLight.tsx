@@ -1,6 +1,13 @@
-export default function DirectionalLight() {
+import { DirectionalLight as ThreeDirectionalLight } from "three";
+
+type Props = {
+  ref: React.RefObject<ThreeDirectionalLight | null>;
+};
+
+export default function DirectionalLight({ ref }: Props) {
   return (
     <directionalLight
+      ref={ref}
       position={[-100, -100, 200]}
       up={[0, 0, 1]}
       shadow-mapSize={[2048, 2048]}
