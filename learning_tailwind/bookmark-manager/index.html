@@ -13,8 +13,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap" rel="stylesheet">
 </head>
 
-<body class="flex justify-center items-center h-screen bg-gray-700">
-    <h1 class="text-3xl font-bold text-blue-600">Are the styles working? :S</h1>
+<body class="overflow-x-hidden bg-slate-600">
+    <!--Navbar-->
+    <nav class="container relative mx-auto p-6">
+        <!--Flex for navbar items-->
+        <div class="flex items-center justify-between space-x-20 my-6">
+            <!--Logo-->
+            <!--z-30 so it will be above hamburger menu-->
+            <div class="z-30">
+                <img src="images/logo-bookmark.svg" alt="">
+            </div>
+            <!--Menu items-->
+            <div class="hidden md:flex items-center space-x-10 uppercase text-grayBlue">
+                <a href="#" class="tracking-wider hover:text-softRed">Features</a>
+                <a href="#" class="tracking-wider hover:text-softRed">Download</a>
+                <a href="#" class="tracking-wider hover:text-softRed">FAQ</a>
+                <a href="#"
+                    class="tracking-wider py-2 px-8 border-2 rounded-xl border-softRed bg-softRed hover:bg-white text-white hover:text-softRed">Login</a>
+            </div>
+        </div>
+    </nav>
 </body>
 
 </html>
