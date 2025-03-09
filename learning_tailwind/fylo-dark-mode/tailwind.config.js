@@ -11,6 +11,12 @@ module.exports = {
         "curvy-dark-mode": "url('../images/bg-curvy-dark-mode.svg')",
         "curvy-light-mode": "url('../images/bg-curvy-light-mode.svg')",
       }),
+      colors: {
+        backgroundBlue: "#181F2B",
+        backgroundDarkBlue: "#0c1524",
+        backgroundGray: "#f9fafb",
+        backgroundDarkGray: "#d2d2d2",
+      },
     },
   },
   fontFamily: {
