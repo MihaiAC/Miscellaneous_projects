@@ -38,3 +38,7 @@
   @apply dark:bg-[linear-gradient(to_bottom,_theme('colors.backgroundBlue')_50%,_theme('colors.backgroundDarkBlue')_50%)]
   bg-[linear-gradient(to_bottom,_theme('colors.backgroundGray')_50%,_theme('colors.backgroundDarkGray')_50%)];
 }
+
+.review-card {
+  @apply flex flex-col space-y-8 max-w-md md:w-1/3 bg-stone-200 dark:bg-slate-700 p-4 rounded-md;
+}
