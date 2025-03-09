@@ -1,10 +1,13 @@
 import { create } from "zustand";
+import useMapStore from "./map";
+import { reset as resetPlayerStore } from "./player";
 
 interface StoreState {
   status: "running" | "over";
   score: number;
   updateScore: (rowIndex: number) => void;
   endGame: () => void;
+  reset: () => void;
 }
 
 const useStore = create<StoreState>((set) => ({
@@ -15,6 +18,11 @@ const useStore = create<StoreState>((set) => ({
   },
   endGame: () => {
     set({ status: "over" });
+  },
+  reset: () => {
+    useMapStore.getState().reset();
+    resetPlayerStore();
+    set({ status: "running", score: 0 });
   },
 }));
 
