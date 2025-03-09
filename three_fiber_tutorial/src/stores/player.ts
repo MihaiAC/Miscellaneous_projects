@@ -1,4 +1,5 @@
 import type { MoveDirection } from "../types";
+import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
 
 export const state: {
   currentRow: number;
@@ -12,6 +13,16 @@ export const state: {
 
 // Queue player input.
 export function queueMove(direction: MoveDirection) {
+  // Check if move is valid.
+  const isValidMove = endsUpInValidPosition(
+    { rowIndex: state.currentRow, tileIndex: state.currentTile },
+    [...state.movesQueue, direction]
+  );
+
+  if (!isValidMove) {
+    return;
+  }
+
   state.movesQueue.push(direction);
 }
 
