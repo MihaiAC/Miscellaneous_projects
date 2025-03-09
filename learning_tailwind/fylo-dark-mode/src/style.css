@@ -7,7 +7,7 @@
 }
 
 .icon-styles {
-  @apply dark:text-white text-black p-1 h-8 w-auto;
+  @apply dark:text-white text-black h-7 w-7 invert dark:invert-0;
 }
 
 .footer-text-links {
@@ -15,7 +15,7 @@
 }
 
 .footer-social-icon {
-  @apply icon-styles border-2 rounded-full border-white;
+  @apply icon-styles border-2 rounded-full border-white p-1;
 }
 
 .h1-text {
@@ -24,4 +24,12 @@
 
 .fylo-logo {
   @apply bg-logo-light-mode dark:bg-logo-dark-mode object-contain bg-no-repeat w-48 h-16;
+}
+
+.icon-svg-color {
+  @apply fill-black dark:fill-white;
+}
+
+.text-button-styles {
+  @apply hover:text-cyan-400;
 }

@@ -178,16 +178,20 @@
                 generous. If you have any
                 questions, our support team would be happy to help you.</p>
             <div class="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-4 w-full md:max-w-3xl">
-                <input class="p-4 md:w-3/4 rounded-2xl" type="text" placeholder="email@example.com">
-                <button class="text-white rounded-2xl bg-cyan-400 p-4 md:w-1/4">Get Started For Free</button>
+                <input class="p-4 md:w-3/4 rounded-2xl border-2 border-black dark:border-white" type="text"
+                    placeholder="email@example.com">
+                <button class="text-white rounded-2xl bg-cyan-400 p-4 md:w-1/4 border-2 border-cyan-400">Get
+                    Started For
+                    Free</button>
             </div>
         </section>
 
         <!--Footer-->
-        <footer class="section-styles space-y-8 md:flex-col items-center md:items-center">
+        <footer class="section-styles space-y-8 md:flex-col items-center md:items-start">
             <div class="fylo-logo"></div>
-            <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 items-center md:items-start">
-                <div class="flex space-x-2 md:w-2/6">
+            <div
+                class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 items-center md:items-start md:justify-between md:w-full">
+                <div class="flex space-x-2">
                     <img class="icon-styles" src="images/icon-location.svg" alt="">
                     <div class="max-w-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Eligendi
@@ -195,31 +199,30 @@
                         tempora saepe
                         perspiciatis rem reprehenderit aliquid non aut esse?</div>
                 </div>
-                <div class="flex flex-col items-center md:items-start space-y-4 md:w-1/6">
+                <div class="flex flex-col items-center md:items-start space-y-4">
                     <div class="flex space-x-2">
                         <img class="icon-styles" src="images/icon-phone.svg" alt="">
                         <div>+1-543-123-4567</div>
                     </div>
                     <div class="flex space-x-2">
-                        <img class="h-8 w-10 p-1" src="images/icon-email.svg" alt="">
+                        <img class="w-8 h-auto invert dark:invert-0" src="images/icon-email.svg" alt="">
                         <div>example@fylo.com</div>
                     </div>
                 </div>
-                <!--TODO: Add button hovers + style + dark mode style.-->
                 <div
-                    class="flex flex-col items-center space-y-4 md:space-y-0 md:w-3/6 md:justify-end md:space-x-8 md:px-8">
+                    class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:justify-around md:space-x-8 md:w-full md:items-start">
                     <div class="footer-text-links">
-                        <button>About Us</button>
-                        <button>Jobs</button>
-                        <button>Press</button>
-                        <button>Blog</button>
+                        <button class="text-button-styles">About Us</button>
+                        <button class="text-button-styles">Jobs</button>
+                        <button class="text-button-styles">Press</button>
+                        <button class="text-button-styles">Blog</button>
                     </div>
                     <div class="footer-text-links">
-                        <button>Contact Us</button>
-                        <button>Terms</button>
-                        <button>Privacy</button>
+                        <button class="text-button-styles">Contact Us</button>
+                        <button class="text-button-styles">Terms</button>
+                        <button class="text-button-styles">Privacy</button>
                     </div>
-                    <div class="flex space-x-2 md:w-1/6">
+                    <div class="flex space-x-2">
                         <button>
                             <img class="footer-social-icon" src="images/facebook.svg" alt="">
                         </button>
