@@ -76,7 +76,9 @@ function setPosition(player: Group, progress: number) {
 
   player.position.x = MathUtils.lerp(startX, endX, progress);
   player.position.y = MathUtils.lerp(startY, endY, progress);
-  player.position.z = Math.sin(progress * Math.PI) * 8;
+
+  // Inner group only must be moved on the z-axis so camera won't.
+  player.children[0].position.z = Math.sin(progress * Math.PI) * 8;
 }
 
 // Player must turn in the direction of the move command.
@@ -100,5 +102,10 @@ function setRotation(player: Group, progress: number) {
       return;
   }
 
-  player.rotation.z = MathUtils.lerp(player.rotation.z, endRotation, progress);
+  // Camera shouldn't rotate so we rotate only the inner group.
+  player.children[0].rotation.z = MathUtils.lerp(
+    player.children[0].rotation.z,
+    endRotation,
+    progress
+  );
 }
