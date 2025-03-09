@@ -1,11 +1,17 @@
 import { Grass } from "./Grass";
 import { Road } from "./Road";
-import { rows } from "../metadata";
 import Row from "./Row";
+import useStore from "../stores/map";
 
 export function Map() {
+  const rows = useStore((state) => state.rows);
+
   return (
     <>
+      <Grass rowIndex={-10} />
+      <Grass rowIndex={-9} />
+      <Grass rowIndex={-8} />
+      <Grass rowIndex={-7} />
       <Grass rowIndex={-6} />
       <Grass rowIndex={-5} />
       <Grass rowIndex={-4} />

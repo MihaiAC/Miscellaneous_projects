@@ -121,5 +121,5 @@ function generateTruckLaneMetadata(): Row {
     vehicles.push({ initialTileIndex: centerTileIndex, color });
   }
 
-  return { type: "car", direction, speed, vehicles };
+  return { type: "truck", direction, speed, vehicles };
 }

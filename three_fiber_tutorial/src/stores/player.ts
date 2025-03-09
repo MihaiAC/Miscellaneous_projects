@@ -1,5 +1,6 @@
 import type { MoveDirection } from "../types";
 import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
+import useMapStore from "./map";
 
 export const state: {
   currentRow: number;
@@ -45,5 +46,9 @@ export function stepCompleted() {
   // TODO: is player supposed to be able to go backward?
   if (direction === "backward") {
     state.currentRow -= 1;
+  }
+
+  if (state.currentRow === useMapStore.getState().rows.length - 10) {
+    useMapStore.getState().addRows();
   }
 }
