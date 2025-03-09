@@ -3,6 +3,7 @@ import { tileSize } from "../constants";
 import Wheel from "./Wheel";
 import { useRef } from "react";
 import useVehicleAnimation from "../hooks/useVehicleAnimation";
+import useHitDetection from "../hooks/useHitDetection";
 
 export const carTileLength = 3;
 
@@ -24,6 +25,7 @@ export default function Car({
 }: Props) {
   const car = useRef<Group>(null);
   useVehicleAnimation(car, direction, speed);
+  useHitDetection(car, rowIndex);
 
   return (
     <group

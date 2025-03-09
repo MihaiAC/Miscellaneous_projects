@@ -5,6 +5,7 @@ import { Group } from "three";
 import { useThree } from "@react-three/fiber";
 import DirectionalLight from "./DirectionalLight";
 import { DirectionalLight as ThreeDirectionalLight } from "three";
+import { setRef } from "../stores/player";
 
 export function Player() {
   const player = useRef<Group>(null);
@@ -20,6 +21,10 @@ export function Player() {
 
     player.current.add(camera);
     lightRef.current.target = player.current;
+
+    // Set player reference in the store
+    // (for collision detection with vehicles).
+    setRef(player.current);
   });
 
   // Second mesh is the player cap.

@@ -2,16 +2,23 @@ import type { MoveDirection } from "../types";
 import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
 import useMapStore from "./map";
 import useGameStore from "./game";
+import { Object3D } from "three";
 
 export const state: {
   currentRow: number;
   currentTile: number;
   movesQueue: MoveDirection[];
+  ref: Object3D | null;
 } = {
   currentRow: 0,
   currentTile: 0,
   movesQueue: [],
+  ref: null,
 };
+
+export function setRef(ref: Object3D) {
+  state.ref = ref;
+}
 
 // Queue player input.
 export function queueMove(direction: MoveDirection) {
