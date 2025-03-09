@@ -31,3 +31,20 @@ toggleButton.addEventListener("click", () => {
   // Set the new theme in localStorage.
   localStorage.setItem("theme", newTheme);
 });
+
+// Enable smooth scroll to features and testimonials sections.
+const gotoFeaturesBtn = document.getElementById("btn-goto-features");
+const gotoTestimonialsBtn = document.getElementById("btn-goto-testimonials");
+
+function scrollToSection(sectionId) {
+  document.getElementById(sectionId).scrollIntoView({
+    behavior: "smooth",
+  });
+}
+
+gotoFeaturesBtn.addEventListener("click", () =>
+  scrollToSection("features-section")
+);
+gotoTestimonialsBtn.addEventListener("click", () =>
+  scrollToSection("testimonials-section")
+);
