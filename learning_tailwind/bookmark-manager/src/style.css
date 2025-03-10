@@ -6,11 +6,22 @@
   @apply p-4 text-sm font-semibold text-white rounded-md shadow-md border-2 hover:bg-white md:text-base;
 }
 
-@media (min-width: 1020px) {
+.tabs-btn {
+  @apply bg-softBlue mx-auto px-6 py-3 rounded-md text-white border-2 border-softBlue hover:bg-white hover:text-softBlue font-bold;
+}
+
+@media screen(lg) {
   .bg-hero {
     width: 2000px;
     height: 300px;
     left: 40%;
     @apply absolute rounded-l-full top-52 bg-softBlue;
+  }
+
+  .bg-tabs {
+    width: 2000px;
+    height: 300px;
+    right: 60%;
+    @apply absolute rounded-r-full top-60 bg-softBlue;
   }
 }
