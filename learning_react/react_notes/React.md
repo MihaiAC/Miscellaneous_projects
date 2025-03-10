@@ -677,3 +677,28 @@ Firebase seems good for fast hosting.
 
 Server-side vs client-side routing -> server should always return the same "index.html" -> configure as an SPA 
 
+### Tanstack Query (React Query)
+Makes retrieving resources a lot easier:
+- Less boilerplate (isFetching, error, data state).
+- Automatic refreshes
+- Caching
+
+Does not actually send HTTP requests, but is a wrapper around something that does send them. This is why you use Query + Axios.
+
+`queryFn` = function that returns a Promise
+`queryKey` = used by Tanstack to cache things. represents the ID of a query;
+Uses a `staleTime` variable to decide if it should refetch or serve the cached query result.
+
+```jsx
+const { data, isLoading, error } = useQuery(
+	{
+		queryKey: ["events"],
+		queryFn: fetchEvents,
+	}
+);
+```
+`data` = data returned by the query function;
+`isLoading, error` = same as before
+Even more fields: `refetch, isCompleted`, and so on
+
+Need to wrap components that require the query in QueryClientProvider tags + pass a queryClient prop to it
