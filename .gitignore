@@ -146,3 +146,4 @@ dist
 learning_react/react_complete_guide/11-react-behind-the-scenes/.million/store.json
 *.jpg
 *.png
+learning_react/react_complete_guide/22-tanstack-query/backend/data/events.json

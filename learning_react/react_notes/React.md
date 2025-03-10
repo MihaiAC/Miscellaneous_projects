@@ -731,3 +731,6 @@ Doesn't send form data by default when loading the component.
 Return argument: `mutate` = function, pass form data to it
 
 `onSuccess` = function to call on mutation success;
+
+#### queryClient.invalidateQueries({queryKey: \[...\]})
+Triggers immediate re-fetch.
