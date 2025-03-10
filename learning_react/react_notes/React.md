@@ -746,6 +746,9 @@ Usage so far: cancel queries before manually setting its data
 #### queryClient.setQueryData
 Usage so far: optimistic updates. Data would normally be set by React Query.
 
+#### queryClient.fetchQuery()
+Usage so far: fetching a query in a router loader function.
+
 #### onMutate
 Function that will be called before calling mutate + passed same variables the mutation function would receive.
 Used to perform optimistic updates.
@@ -754,3 +757,6 @@ e.g: get the old data with queryClient.getQueryData, return it in onMutate, acce
 
 onSettled = will be called regardless of the onMutate success status
 can call queryClient.invalidateQueries to force the package to re-fetch query
+
+#### queryKey important!
+If I have a query that has key `['events']` and another query that has key `['events', eventId]` if I call invalidateQueries('events'), both queries will be invalidated. If I want only events, set `exact: true` when calling invalidate.
