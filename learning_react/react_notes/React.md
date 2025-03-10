@@ -738,3 +738,19 @@ Triggers immediate re-fetch.
 #### queryClient.removeQueries
 Usage so far: remove the query after deleting the object corresponding to it.
 Otherwise, it will try to refetch the deleted query.
+
+
+#### queryClient.cancelQueries
+Usage so far: cancel queries before manually setting its data
+
+#### queryClient.setQueryData
+Usage so far: optimistic updates. Data would normally be set by React Query.
+
+#### onMutate
+Function that will be called before calling mutate + passed same variables the mutation function would receive.
+Used to perform optimistic updates.
+Value returned from this function will be passed to both onError and onSettled -> useful to roll back optimistic update.
+e.g: get the old data with queryClient.getQueryData, return it in onMutate, accept it as parameter in onError, set the data to oldData in onError.
+
+onSettled = will be called regardless of the onMutate success status
+can call queryClient.invalidateQueries to force the package to re-fetch query
