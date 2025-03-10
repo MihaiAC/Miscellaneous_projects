@@ -22,12 +22,7 @@ export default function EventDetails() {
     queryFn: ({ signal }) => fetchEvent({ signal, id: eventId }),
   });
 
-  const {
-    mutate,
-    isLoading: deleteIsFetching,
-    isError: deleteIsError,
-    error: deleteError,
-  } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: () => deleteEvent({ id: eventId }),
     onSuccess: () => {
       queryClient.removeQueries({ queryKey: ["event-fetch", eventId] });
@@ -42,25 +37,6 @@ export default function EventDetails() {
     content = (
       <div id="event-details-content" className="center">
         Fetching event data...
-      </div>
-    );
-  }
-
-  if (deleteIsFetching) {
-    content = content = (
-      <div id="event-details-content" className="center">
-        Deleting event...
-      </div>
-    );
-  }
-
-  if (deleteIsError) {
-    content = (
-      <div id="event-details-content" className="center">
-        <ErrorBlock
-          title="An error occurred..."
-          message={deleteError.message && "Error message could not be deleted."}
-        />
       </div>
     );
   }
