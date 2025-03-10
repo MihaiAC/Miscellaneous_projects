@@ -685,6 +685,8 @@ Makes retrieving resources a lot easier:
 
 Does not actually send HTTP requests, but is a wrapper around something that does send them. This is why you use Query + Axios.
 
+#### useQuery
+
 `queryFn` = function that returns a Promise
 `queryKey` = used by Tanstack to cache things. represents the ID of a query;
 Uses a `staleTime` variable to decide if it should refetch or serve the cached query result - can include it as an argument to useQuery.
@@ -720,3 +722,10 @@ fetchEvents({ signal, searchTerm });
 ```
 
 `enabled` = whether the query is enabled or disabled; can be used to conditionally send queries.
+
+#### useMutation
+Doesn't send form data by default when loading the component.
+`mutationFn` = same as above
+`mutationKey` = not needed in theory, useMutation is used to mutate data in backend, not cache things in Tanstack;
+
+Return argument: `mutate` = function, pass form data to it
