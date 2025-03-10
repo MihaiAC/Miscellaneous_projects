@@ -718,3 +718,5 @@ queryFn: ({ signal }) => {
 fetchEvents({ signal, searchTerm });
 },
 ```
+
+`enabled` = whether the query is enabled or disabled; can be used to conditionally send queries.
