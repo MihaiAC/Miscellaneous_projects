@@ -1,15 +1,24 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { fetchEvent } from "../../util/http.js";
+import { useParams } from "react-router-dom";
 
-import Modal from '../UI/Modal.jsx';
-import EventForm from './EventForm.jsx';
+import Modal from "../UI/Modal.jsx";
+import EventForm from "./EventForm.jsx";
 
 export default function EditEvent() {
   const navigate = useNavigate();
+  // const { data, isPending, isError, error } = useMutation({
+  //   mutationFn: fetchEvent,
+  // });
+
+  // const params = useParams();
+  // const eventId = params.id;
 
   function handleSubmit(formData) {}
 
   function handleClose() {
-    navigate('../');
+    navigate("../");
   }
 
   return (
