@@ -6,11 +6,16 @@ import { queryClient } from "../../util/http.js";
 
 import Header from "../Header.jsx";
 import ErrorBlock from "../UI/ErrorBlock.jsx";
+import { useState } from "react";
+import Modal from "../UI/Modal.jsx";
 
 export default function EventDetails() {
   const params = useParams();
   const eventId = params.id;
+
   const navigate = useNavigate();
+
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const {
     data: fetchData,
@@ -22,7 +27,12 @@ export default function EventDetails() {
     queryFn: ({ signal }) => fetchEvent({ signal, id: eventId }),
   });
 
-  const { mutate } = useMutation({
+  const {
+    mutate,
+    isPending: deleteIsPending,
+    isError: deleteIsError,
+    error: deleteError,
+  } = useMutation({
     mutationFn: () => deleteEvent({ id: eventId }),
     onSuccess: () => {
       queryClient.removeQueries({ queryKey: ["event-fetch", eventId] });
@@ -30,6 +40,18 @@ export default function EventDetails() {
       navigate("/events");
     },
   });
+
+  function handleStartDelete() {
+    setIsDeleting(true);
+  }
+
+  function handleStopDelete() {
+    setIsDeleting(false);
+  }
+
+  function handleDelete() {
+    mutate();
+  }
 
   let content = undefined;
 
@@ -63,10 +85,39 @@ export default function EventDetails() {
 
     content = (
       <>
+        {isDeleting && (
+          <Modal onClose={handleStopDelete}>
+            <h2>Are you sure?</h2>
+            <p>
+              Do you really want to delete this event? This action cannot be
+              undone
+            </p>
+            <div className="form-actions">
+              {deleteIsPending && <p>Deleting, please wait...</p>}
+              {!deleteIsPending && (
+                <>
+                  {" "}
+                  <button onClick={handleStopDelete} className="button-text">
+                    Cancel
+                  </button>
+                  <button onClick={handleDelete} className="button">
+                    Delete
+                  </button>
+                </>
+              )}
+            </div>
+            {deleteIsError && (
+              <ErrorBlock
+                title="Failed to delete event"
+                message={deleteError.info?.message || "Error message missing"}
+              />
+            )}
+          </Modal>
+        )}
         <header>
           <h1>{fetchData.title}</h1>
           <nav>
-            <button onClick={() => mutate()}>Delete</button>
+            <button onClick={handleStartDelete}>Delete</button>
             <Link to="edit">Edit</Link>
           </nav>
         </header>

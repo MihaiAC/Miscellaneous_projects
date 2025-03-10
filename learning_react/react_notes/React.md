@@ -734,3 +734,7 @@ Return argument: `mutate` = function, pass form data to it
 
 #### queryClient.invalidateQueries({queryKey: \[...\]})
 Triggers immediate re-fetch.
+
+#### queryClient.removeQueries
+Usage so far: remove the query after deleting the object corresponding to it.
+Otherwise, it will try to refetch the deleted query.
