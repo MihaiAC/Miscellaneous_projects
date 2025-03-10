@@ -687,7 +687,13 @@ Does not actually send HTTP requests, but is a wrapper around something that doe
 
 `queryFn` = function that returns a Promise
 `queryKey` = used by Tanstack to cache things. represents the ID of a query;
-Uses a `staleTime` variable to decide if it should refetch or serve the cached query result.
+Uses a `staleTime` variable to decide if it should refetch or serve the cached query result - can include it as an argument to useQuery.
+`cacheTime` - similar = are cacheTime and gcTime the same thing?
+`gcTime` = time after which unused Query gets GC'd; doesn't affect tanstack's persistent storage (?) - https://github.com/TanStack/query/discussions/6214
+
+`staleTime` - expired => query will return the cached data immediately + trigger background refetch;
+`cacheTime - expired` => cached data is removed + query fetches the data again from the API;
+So, they differ in the user experience you can implement with them.
 
 ```jsx
 const { data, isLoading, error } = useQuery(
@@ -702,3 +708,13 @@ const { data, isLoading, error } = useQuery(
 Even more fields: `refetch, isCompleted`, and so on
 
 Need to wrap components that require the query in QueryClientProvider tags + pass a queryClient prop to it
+
+**Potential gotcha**
+Query wraps the parameters passed to fn in an object. 
+Contains signal (required for aborting the request), queryKey, etc.
+If you want to pass your own parameters, do something like this:
+```jsx
+queryFn: ({ signal }) => {
+fetchEvents({ signal, searchTerm });
+},
+```
