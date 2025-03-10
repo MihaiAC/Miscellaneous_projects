@@ -14,7 +14,8 @@ export default function NewEvent() {
   });
 
   function handleSubmit(formData) {
-    mutate({ eventData: formData });
+    // Why event: formData? because that's the format the backend wants
+    mutate({ event: formData });
   }
 
   return (
