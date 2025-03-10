@@ -35,7 +35,7 @@ export default function EventDetails() {
   } = useMutation({
     mutationFn: () => deleteEvent({ id: eventId }),
     onSuccess: () => {
-      queryClient.removeQueries({ queryKey: ["event-fetch", eventId] });
+      queryClient.removeQueries({ queryKey: ["events", eventId] });
       queryClient.invalidateQueries({ queryKey: ["events"] });
       navigate("/events");
     },
