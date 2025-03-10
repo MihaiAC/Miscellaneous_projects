@@ -729,3 +729,5 @@ Doesn't send form data by default when loading the component.
 `mutationKey` = not needed in theory, useMutation is used to mutate data in backend, not cache things in Tanstack;
 
 Return argument: `mutate` = function, pass form data to it
+
+`onSuccess` = function to call on mutation success;
