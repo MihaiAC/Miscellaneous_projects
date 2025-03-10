@@ -5,7 +5,6 @@ import { fetchEvent, deleteEvent } from "../../util/http.js";
 import { queryClient } from "../../util/http.js";
 
 import Header from "../Header.jsx";
-import LoadingIndicator from "../UI/LoadingIndicator.jsx";
 import ErrorBlock from "../UI/ErrorBlock.jsx";
 
 export default function EventDetails() {
@@ -40,33 +39,75 @@ export default function EventDetails() {
   let content = undefined;
 
   if (fetchIsLoading) {
-    content = <LoadingIndicator />;
+    content = (
+      <div id="event-details-content" className="center">
+        Fetching event data...
+      </div>
+    );
   }
 
   if (deleteIsFetching) {
-    content = <LoadingIndicator />;
+    content = content = (
+      <div id="event-details-content" className="center">
+        Deleting event...
+      </div>
+    );
   }
 
   if (deleteIsError) {
     content = (
-      <ErrorBlock
-        title="An error occurred..."
-        message={deleteError.message && "Error message could not be retrieved."}
-      />
+      <div id="event-details-content" className="center">
+        <ErrorBlock
+          title="An error occurred..."
+          message={deleteError.message && "Error message could not be deleted."}
+        />
+      </div>
     );
   }
 
   if (fetchIsError) {
     content = (
-      <ErrorBlock
-        title="An error occurred..."
-        message={fetchError.message && "Error message could not be retrieved."}
-      />
+      <div id="event-details-content" className="center">
+        <ErrorBlock
+          title="An error occurred..."
+          message={
+            fetchError.message && "Error message could not be retrieved."
+          }
+        />
+      </div>
     );
   }
 
   if (fetchData) {
-    console.log("FETCHED DATA: " + JSON.stringify(fetchData));
+    const formattedDate = new Date(fetchData.date).toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+
+    content = (
+      <>
+        <header>
+          <h1>{fetchData.title}</h1>
+          <nav>
+            <button onClick={() => mutate()}>Delete</button>
+            <Link to="edit">Edit</Link>
+          </nav>
+        </header>
+        <div id="event-details-content">
+          <img src={`http://localhost:3000/${fetchData.image}`} alt="" />
+          <div id="event-details-info">
+            <div>
+              <p id="event-details-location">{fetchData.location}</p>
+              <time dateTime={`Todo-DateT$Todo-Time`}>
+                {formattedDate} @ {fetchData.time}
+              </time>
+            </div>
+            <p id="event-details-description">{fetchData.description}</p>
+          </div>
+        </div>
+      </>
+    );
   }
 
   return (
@@ -77,31 +118,7 @@ export default function EventDetails() {
           View all Events
         </Link>
       </Header>
-      {fetchIsLoading && content}
-      {fetchIsError && content}
-      <article id="event-details">
-        {fetchData && (
-          <>
-            <header>
-              <h1>{fetchData.title}</h1>
-              <nav>
-                <button onClick={() => mutate()}>Delete</button>
-                <Link to="edit">Edit</Link>
-              </nav>
-            </header>
-            <div id="event-details-content">
-              <img src={`http://localhost:3000/${fetchData.image}`} alt="" />
-              <div id="event-details-info">
-                <div>
-                  <p id="event-details-location">{fetchData.location}</p>
-                  <time dateTime={`Todo-DateT$Todo-Time`}>DATE @ TIME</time>
-                </div>
-                <p id="event-details-description">{fetchData.description}</p>
-              </div>
-            </div>
-          </>
-        )}
-      </article>
+      <article id="event-details">{content}</article>
     </>
   );
 }
