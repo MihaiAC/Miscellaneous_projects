@@ -4,13 +4,12 @@ const TAB_ACTIVE_CLASS = "tab-active";
 const tab_divs = document.querySelectorAll(".tab");
 const content_divs = document.querySelectorAll(".panel");
 
+// Quick implementation, surely not optimal.
 function onTabClick(event) {
   const active_div = event.target;
 
   // Tag is 'panel-x'
   const tag = active_div.dataset.target;
-  console.log(tag);
-
   const active_p = document.querySelector(`p[data-target="${tag}"]`);
   const active_content_div = document.querySelector(`div.${tag}`);
 
@@ -20,9 +19,8 @@ function onTabClick(event) {
     tab_p.classList.remove(TAB_ACTIVE_CLASS);
   });
 
-  // Add hidden to all content.
+  // Add hidden to all content divs.
   content_divs.forEach((content_div) => {
-    content_div.classList.remove("flex");
     content_div.classList.add("hidden");
   });
 
@@ -31,7 +29,6 @@ function onTabClick(event) {
 
   // Display active content.
   active_content_div.classList.remove("hidden");
-  active_content_div.classList.add("flex");
 }
 
 // Add event listeners to the tabs
