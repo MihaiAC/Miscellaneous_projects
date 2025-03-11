@@ -825,3 +825,7 @@ Scroll-based animations:
 They don't cause unnecessary re-renders - Framer Motion updates those values outside React's system => everything is updated directly via the animation engine.
 
 Can add parallax effect pretty easily.
+
+
+### Compound Components
+Multiple components that don't work standalone, but only together.
