@@ -809,3 +809,8 @@ When a key gets activated, all corresponding animations trigger.
 
 Staggering displaying lists:
 `variants={{ visible: { transition: { staggerChildren: 0.05 } } }}` inside ul
+
+`useAnimate` = imperatively animate an element;
+Returns two things:
+- animate = in which you define the animation;
+- scope = reference that needs to be attached to the elements you want to animate;
