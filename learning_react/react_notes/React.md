@@ -819,3 +819,9 @@ Returns two things:
 
 `layoutId` = magic, unironically
 
+Scroll-based animations:
+- useScroll = provides a dynamic value that updates as the user scrolls;
+- useTransform = maps scroll value to another range;
+They don't cause unnecessary re-renders - Framer Motion updates those values outside React's system => everything is updated directly via the animation engine.
+
+Can add parallax effect pretty easily.
