@@ -788,3 +788,5 @@ Can only work with Promises that interact with Suspense.
 ### React animations - Framer Motion
 Custom html elements like `motion.div`.
 Animate + transition (e.g: duration, bounce, type) + component state.
+Initial, animate, exit props.
+AnimatePresence prop = when React removes an element from the DOM, it ignores the exit animation, it just removes it. This prop prevents the animation from not triggering.
