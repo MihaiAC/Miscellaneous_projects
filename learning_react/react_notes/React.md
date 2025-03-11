@@ -834,3 +834,6 @@ Basically, just group components together and use context whenever a variable lo
 
 ### Render Props
 Passing a function as a value for the children prop.
+e.g: basically dependency inversion, pass a component some data and the function needed to extract some html from that data. Component knows how to use the function (its input and output), but not its implementation.
+### Debouncing
+When a user enters a search term, you don't want to launch a search on every keystroke => send search term at deltaT after he finishes typing.
