@@ -829,3 +829,4 @@ Can add parallax effect pretty easily.
 
 ### Compound Components
 Multiple components that don't work standalone, but only together.
+Neat idea: making Context available for objects who are not wrapped in its provider.
