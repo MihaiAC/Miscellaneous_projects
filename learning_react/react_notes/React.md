@@ -792,7 +792,7 @@ Initial, animate, exit props.
 
 `AnimatePresence` component = when React removes an element from the DOM, it ignores the exit animation, it just removes it. This prop prevents the animation from not triggering.
 - `mode="wait"` vs `mode="sync"`.
-- Adding keys to different elements inside an AnimatePresence wrapper.
+-  If AnimatePresence has >= 2 children, they need to have keys.
 
 `whileHover, whileDrag` props
 Example:
