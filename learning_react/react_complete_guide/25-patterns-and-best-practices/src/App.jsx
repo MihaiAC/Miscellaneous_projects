@@ -10,13 +10,10 @@ function App() {
         <h2>Lorem ipsum dolor</h2>
         <Accordion className="accordion">
           <Accordion.Item id="experience" className="accordion-item">
-            <Accordion.Title className="accordion-item-title" id="experience">
+            <Accordion.Title className="accordion-item-title">
               Lorem ipsum dolor sit amet
             </Accordion.Title>
-            <Accordion.Content
-              id="experience"
-              className="accordion-item-content"
-            >
+            <Accordion.Content className="accordion-item-content">
               {" "}
               <article>
                 <p>You can&apos;t go wrong with us.</p>
@@ -28,14 +25,12 @@ function App() {
               </article>
             </Accordion.Content>
           </Accordion.Item>
+
           <Accordion.Item id="local-guides" className="accordion-item">
-            <Accordion.Title className="accordion-item-title" id="local-guides">
+            <Accordion.Title className="accordion-item-title">
               Another one
             </Accordion.Title>
-            <Accordion.Content
-              className="accordion-item-content"
-              id="local-guides"
-            >
+            <Accordion.Content className="accordion-item-content">
               <article>
                 <p>Another call to action</p>
                 <p>
