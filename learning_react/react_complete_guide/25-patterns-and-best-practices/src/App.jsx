@@ -1,5 +1,4 @@
 import Accordion from "./components/accordion/Accordion";
-import AccordionItem from "./components/accordion/AccordionItem";
 
 // This example seems a bit convoluted.
 // Why not control what is displayed in Accordion and pass props to AccordionItem?
@@ -10,7 +9,7 @@ function App() {
       <section>
         <h2>Lorem ipsum dolor</h2>
         <Accordion className="accordion">
-          <AccordionItem
+          <Accordion.Item
             id="experience"
             title="Lorem ipsum dolor sit amet"
             className="accordion-item"
@@ -23,8 +22,8 @@ function App() {
                 expedita maiores voluptates?
               </p>
             </article>
-          </AccordionItem>
-          <AccordionItem
+          </Accordion.Item>
+          <Accordion.Item
             id="local-guides"
             title="Another one"
             className="accordion-item"
@@ -40,7 +39,7 @@ function App() {
                 vel atque labore earum natus?
               </p>
             </article>
-          </AccordionItem>
+          </Accordion.Item>
         </Accordion>
       </section>
     </main>
