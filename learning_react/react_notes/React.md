@@ -802,3 +802,7 @@ onClick={handleStartAddNewChallenge}
 className="button"
 >
 ```
+
+`variants` = can be used to sync animations with children.
+In variants you define keys (strings) for animations. Those keys correspond to certain animations in the parent component and other animations in the children components.
+When a key gets activated, all corresponding animations trigger.
