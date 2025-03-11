@@ -769,5 +769,7 @@ Code must be split into client-side and server-side.
 RSCs run on only the server.
 Client components run only on the client, but the server can have a reference to them before they are "hydrated" (populated with content) and pass props that they can use before being rendered.
 
+By default with Next all components are server components.
+
 
 
