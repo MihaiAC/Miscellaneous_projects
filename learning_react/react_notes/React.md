@@ -791,6 +791,8 @@ Animate + transition (e.g: duration, bounce, type) + component state.
 Initial, animate, exit props.
 
 `AnimatePresence` component = when React removes an element from the DOM, it ignores the exit animation, it just removes it. This prop prevents the animation from not triggering.
+- `mode="wait"` vs `mode="sync"`.
+- Adding keys to different elements inside an AnimatePresence wrapper.
 
 `whileHover, whileDrag` props
 Example:
@@ -814,3 +816,4 @@ Staggering displaying lists:
 Returns two things:
 - animate = in which you define the animation;
 - scope = reference that needs to be attached to the elements you want to animate;
+
