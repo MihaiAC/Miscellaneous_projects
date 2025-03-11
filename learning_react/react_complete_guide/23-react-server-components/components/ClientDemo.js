@@ -1,4 +1,9 @@
+"use client";
+
+import { useState } from "react";
 export default function ClientDemo({ children }) {
+  const [count, setCount] = useState(0);
+
   console.log("ClientDemo rendered");
   return (
     <div className="client-cmp">

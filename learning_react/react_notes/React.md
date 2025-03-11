@@ -771,5 +771,13 @@ Client components run only on the client, but the server can have a reference to
 
 By default with Next all components are server components.
 
+`"use client";` = make component client-side.
+When to use a client-side component?
+- When using state.
+- When using browser functions.
+
+RSCs can include client components in them (see above), and viceversa.
+RSCs can be async.
+
 
 
