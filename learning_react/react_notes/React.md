@@ -779,5 +779,7 @@ When to use a client-side component?
 RSCs can include client components in them (see above), and viceversa.
 RSCs can be async.
 
+"use server;" = inside an async function, converting it into a server action
+
 
 
