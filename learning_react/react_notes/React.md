@@ -760,3 +760,14 @@ can call queryClient.invalidateQueries to force the package to re-fetch query
 
 #### queryKey important!
 If I have a query that has key `['events']` and another query that has key `['events', eventId]` if I call invalidateQueries('events'), both queries will be invalidated. If I want only events, set `exact: true` when calling invalidate.
+
+### React Server Components (RSC)
+Needs Next.js to function.
+Vite doesn't natively support RSC, since it relies on SSR = Server-Side Rendering.
+Code must be split into client-side and server-side.
+
+RSCs run on only the server.
+Client components run only on the client, but the server can have a reference to them before they are "hydrated" (populated with content) and pass props that they can use before being rendered.
+
+
+
