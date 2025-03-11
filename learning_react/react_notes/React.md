@@ -263,7 +263,7 @@ Used to render a component someplace else in the DOM.
 React batches updates that occur within the same event cycle (e.g., inside a click handler).
 Prevents unnecessary re-renders.
 
-### Things that are not React, but can cause bugs
+###  Buttons + Links lesson
 Buttons = always specify the type. Submit for forms, button for everything else. Could trigger page reloads if it's submit and you don't preventDefault().
 
 `<a>` elements: onClick => prevent event default, can trigger a page reload (-3 hours 🙃 ).
@@ -638,7 +638,7 @@ Then, in the component before which loader gets executed:
 </Suspense>
 ```
 
-## Authentication
+### Authentication
 Server-side session vs auth tokens
 Server-side sessions imply tight coupling with the backend. Aka doesn't mesh well with React.
 
@@ -785,3 +785,6 @@ RSCs can be async.
 Works with Suspense
 Can only work with Promises that interact with Suspense.
 
+### React animations - Framer Motion
+Custom html elements like `motion.div`.
+Animate + transition (e.g: duration, bounce, type) + component state.
