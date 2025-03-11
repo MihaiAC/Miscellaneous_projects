@@ -781,5 +781,7 @@ RSCs can be async.
 
 "use server;" = inside an async function, converting it into a server action
 
-
+`use()` = can be used to await promises in client-components without using async/await
+Works with Suspense
+Can only work with Promises that interact with Suspense.
 
