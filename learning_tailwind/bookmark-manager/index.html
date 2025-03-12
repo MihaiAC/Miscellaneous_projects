@@ -10,10 +10,12 @@
     <script type="module" src="/src/main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden font-sans">
     <!--Navbar-->
     <nav class="container relative mx-auto p-6">
         <!--Flex for navbar items-->
@@ -68,8 +70,8 @@
         <!--Features header-->
         <section id="features-section">
             <div class="container mx-auto mt-16 px-6 ">
-                <h2 class="mb-6 text-4xl font-semibold text-center">Features</h2>
-                <p class="max-w-md mx-auto text-center text-grayBlue">
+                <h2 class="section-heading">Features</h2>
+                <p class="text-under-heading">
                     Our aim is to make it quick and easy Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Asperiores ullam expedita eveniet fugiat ipsam adipisci sapiente quibusdam assumenda ex in?
                 </p>
@@ -109,7 +111,7 @@
                     </div>
                 </div>
 
-                <section id="panels-section">
+                <div id="panels-section">
                     <!--Panel 1-->
                     <div class="flex flex-col md:flex-row md:space-x-7 py-5 panel panel-1">
                         <!--Panel image-->
@@ -171,7 +173,59 @@
                             <button class="tabs-btn">More info</button>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
+
+        <!--Download Heading-->
+        <section id="download-section">
+            <div class="">
+                <h2 class="section-heading">Download the extension</h2>
+                <p class="text-under-heading">We've got more Lorems in the pipeline. Please do let us know if Ipsum's
+                    got a favorite he'd like Dolor to prioritise.</p>
+            </div>
+        </section>
+
+        <!--Download Boxes-->
+        <section id="download-boxes-section" class="py-32">
+            <!--Boxes container-->
+            <div
+                class="relative flex flex-col md:flex-row items-center max-w-5xl mx-auto space-y-16 md:space-y-0 md:space-x-7 md:px-6">
+                <!--Box 1-->
+                <div class="download-box">
+                    <img src="images/logo-chrome.svg" alt="">
+                    <h4>Add to Chrome</h4>
+                    <p>Minimum version 62</p>
+
+                    <!--Dots-->
+                    <div class="download-box-dots">
+                        <button class="download-box-button">Add & Install Extension</button>
+                    </div>
+                </div>
+
+                <!--Box 2-->
+                <div class="download-box md:translate-y-8">
+                    <img src="images/logo-firefox.svg" alt="">
+                    <h4>Add to Firefox</h4>
+                    <p>Minimum version 55</p>
+
+                    <!--Dots-->
+                    <div class="download-box-dots">
+                        <button class="download-box-button">Add & Install Extension</button>
+                    </div>
+                </div>
+
+                <!--Box 3-->
+                <div class="download-box md:translate-y-16">
+                    <img src="images/logo-opera.svg" alt="">
+                    <h4>Add to Opera</h4>
+                    <p>Minimum version 46</p>
+
+                    <!--Dots-->
+                    <div class="download-box-dots">
+                        <button class="download-box-button">Add & Install Extension</button>
+                    </div>
+                </div>
             </div>
         </section>
     </nav>
