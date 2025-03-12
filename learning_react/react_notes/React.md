@@ -837,3 +837,9 @@ Passing a function as a value for the children prop.
 e.g: basically dependency inversion, pass a component some data and the function needed to extract some html from that data. Component knows how to use the function (its input and output), but not its implementation.
 ### Debouncing
 When a user enters a search term, you don't want to launch a search on every keystroke => send search term at deltaT after he finishes typing.
+### Testing (first pass)
+Types of tests + how they relate to React:
+- Unit tests = individual building blocks e.g: functions, components
+- Integration tests = combination of components;
+- E2E = test complete scenarios / user flows -> I assume with something like Puppeteer?
+Jest + React Testing Library (for rendering components)
