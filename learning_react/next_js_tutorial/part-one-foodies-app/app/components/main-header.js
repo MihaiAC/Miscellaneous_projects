@@ -1,14 +1,15 @@
 import Link from "next/link";
 import logoImg from "@/assets/logo.png";
+import cssClasses from "./main-header.module.css";
 
 export default function MainHeader() {
   return (
-    <header>
-      <Link href="/">
+    <header className={cssClasses.header}>
+      <Link className={cssClasses.logo} href="/">
         <img src={logoImg.src} alt="A plate with food on it" />
         NextLevel Food
       </Link>
-      <nav>
+      <nav className={cssClasses.nav}>
         <ul>
           <li>
             <Link href="/meals">Browse Meals</Link>
