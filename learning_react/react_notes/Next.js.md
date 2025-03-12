@@ -18,6 +18,7 @@ Naming a folder with `[slug]` for dynamic routing. However, you don't seem to be
 #### Importing an image
 `import logoImg from "@/assets/logo.png";
 Use: logoImg.src`
+Also, use `<Image>` instead of `<img>` with next. Can lazy load images, automatically infers image dimensions + optimizes it (resize, compress, serving in webp). Also uses a CDN when deployed on Vercel (? automatically or if specified ?).
 
 
 
