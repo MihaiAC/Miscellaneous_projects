@@ -852,3 +852,6 @@ Test functions:
 Testing Suite:
 Declared with describe('category', () => {all tests})
 Group up tests logically within the same file.
+
+Does not seem you can directly mock `useEffect` or hooks in general.
+So, test it indirectly by testing the modified state of the component.
