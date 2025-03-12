@@ -857,3 +857,10 @@ Does not seem you can directly mock `useEffect` or hooks in general.
 So, test it indirectly by testing the modified state of the component.
 
 Testing data fetching (receive/send) -> either use mocks for the fetch methods OR a dummy db (like Django creating and destroying DB after each test).
+
+
+### TS + React
+Useful snippets, will become useless once I use it more.
+`useRef<HTMLInputElement>(null)`
+`FC` = functional component (no children) -> can avoid using it by explicitly declaring an input type/interface for the component arguments.
+`createContext<{all the fields/functions and their types OR a custom type}>`
