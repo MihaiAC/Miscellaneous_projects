@@ -15,6 +15,11 @@ Takes a bit of time to load the pages even for a small app.
 
 Naming a folder with `[slug]` for dynamic routing. However, you don't seem to be able to validate what type of slug it is, so you probably need to do it in the component?
 
+#### Importing an image
+`import logoImg from "@/assets/logo.png";
+Use: logoImg.src`
+
+
 
 ### [Error: ENOSPC: System limit for number of file watchers reached angular](https://stackoverflow.com/questions/65300153/error-enospc-system-limit-for-number-of-file-watchers-reached-angular)
 
