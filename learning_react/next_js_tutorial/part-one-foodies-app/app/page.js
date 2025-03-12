@@ -1,11 +1,14 @@
 import Link from "next/link";
 import cssClasses from "./page.module.css";
+import ImageSlideshow from "./components/images/image-slideshow";
 
 export default function Home() {
   return (
     <>
       <header className={cssClasses.header}>
-        <div className={cssClasses.slideshow}></div>
+        <div className={cssClasses.slideshow}>
+          <ImageSlideshow />
+        </div>
         <div>
           <div className={cssClasses.hero}>
             <h1>NextLevel Food for Lorem Ipsum</h1>

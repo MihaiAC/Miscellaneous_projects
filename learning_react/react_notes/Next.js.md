@@ -15,10 +15,18 @@ Takes a bit of time to load the pages even for a small app.
 
 Naming a folder with `[slug]` for dynamic routing. However, you don't seem to be able to validate what type of slug it is, so you probably need to do it in the component?
 
+To be fair, NextJS' error messages and error panel is on a whole different level.
+
 #### Importing an image
 `import logoImg from "@/assets/logo.png";
 Use: logoImg.src`
 Also, use `<Image>` instead of `<img>` with next. Can lazy load images, automatically infers image dimensions + optimizes it (resize, compress, serving in webp). Also uses a CDN when deployed on Vercel (? automatically or if specified ?).
+
+#### Using state
+Can only do on client components.
+Mark it as a client component with "use client".
+
+RSCs are better for SEO, less client-side JS.
 
 
 
