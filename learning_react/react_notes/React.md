@@ -855,3 +855,5 @@ Group up tests logically within the same file.
 
 Does not seem you can directly mock `useEffect` or hooks in general.
 So, test it indirectly by testing the modified state of the component.
+
+Testing data fetching (receive/send) -> either use mocks for the fetch methods OR a dummy db (like Django creating and destroying DB after each test).
