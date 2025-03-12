@@ -42,6 +42,30 @@
   @apply block w-full py-3 text-white hover:text-softBlue bg-softBlue hover:bg-white border-2 rounded-lg border-softBlue;
 }
 
+.faq-tab {
+  @apply max-w-2xl mx-auto m-9 overflow-hidden;
+}
+
+.faq-tab-container {
+  @apply flex justify-between items-center py-3 text-gray-500 transition duration-500 cursor-pointer;
+}
+
+.faq-tab-title {
+  @apply group-hover:text-red-500 transition duration-500;
+}
+
+.faq-tab-arrow {
+  @apply transition duration-500 group-focus:-rotate-180 group-focus:text-red-500;
+}
+
+.faq-tab-content {
+  @apply ease-in-out overflow-hidden transition duration-500 group-focus:max-h-screen max-h-0;
+}
+
+.faq-tab-text {
+  @apply py-2 text-justify text-gray-400 max-w-xl mx-auto;
+}
+
 @media screen(lg) {
   .bg-hero {
     width: 2000px;
