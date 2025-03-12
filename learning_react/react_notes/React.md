@@ -843,3 +843,12 @@ Types of tests + how they relate to React:
 - Integration tests = combination of components;
 - E2E = test complete scenarios / user flows -> I assume with something like Puppeteer?
 Jest + React Testing Library (for rendering components)
+
+Test functions:
+- Get = throw an error when element is not found;
+- Query = don't throw an error...
+- Find = async, returns Promise
+
+Testing Suite:
+Declared with describe('category', () => {all tests})
+Group up tests logically within the same file.
