@@ -148,3 +148,4 @@ learning_react/react_complete_guide/11-react-behind-the-scenes/.million/store.js
 *.png
 learning_react/react_complete_guide/22-tanstack-query/backend/data/events.json
 learning_react/next_js_tutorial/part-one-foodies-app/public/.DS_Store
+learning_react/next_js_tutorial/part-one-foodies-app/meals.db
