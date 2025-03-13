@@ -19,6 +19,8 @@ To be fair, NextJS' error messages and error panel is on a whole different level
 
 A folder is not treated as a route unless it contains `page.js | route.js | index.js`.
 
+Components in `error.js` must be a client component. It will be applied to descendant pages and the page in the same folder.
+
 #### Importing an image
 `import logoImg from "@/assets/logo.png";
 Use: logoImg.src`
