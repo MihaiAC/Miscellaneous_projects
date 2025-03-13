@@ -40,7 +40,7 @@ export default function ImagePicker({ label, name }) {
         </div>
         <input
           ref={inputRef}
-          class={cssClasses.input}
+          className={cssClasses.input}
           type="file"
           id={name}
           accept="image/png, image/jpeg"

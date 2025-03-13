@@ -40,8 +40,9 @@ RSCs are better for SEO, less client-side JS.
 Get current path (useful for e.g: highlighting the nav bar).
 Is a hook, so can only be used in client components.
 
-
-
+#### Uploading form data
+I see the power of Django's ORM now.
+ORMs you can use with Next: Prisma - most popular, Mongoose - if using MongoDB.
 
 
 ### [Error: ENOSPC: System limit for number of file watchers reached angular](https://stackoverflow.com/questions/65300153/error-enospc-system-limit-for-number-of-file-watchers-reached-angular)
