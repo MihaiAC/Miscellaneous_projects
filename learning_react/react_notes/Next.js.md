@@ -44,6 +44,16 @@ Is a hook, so can only be used in client components.
 I see the power of Django's ORM now.
 ORMs you can use with Next: Prisma - most popular, Mongoose - if using MongoDB.
 
+#### Validating uploaded images
+How?
+- MIME type from the file buffer
+- Magic numbers to verify file type.
+- Size limits.
+- Request limits -> timeouts.
+- Third party cloud storage -> offer built-in security checks (AWS S3 for instance).
+- Sanitizing filenames so attackers will have a harder time finding them.
+- Reject based on image dimensions (e.g: 1x1)
+- Could use `sharp` package to validate an image.
 
 ### [Error: ENOSPC: System limit for number of file watchers reached angular](https://stackoverflow.com/questions/65300153/error-enospc-system-limit-for-number-of-file-watchers-reached-angular)
 
