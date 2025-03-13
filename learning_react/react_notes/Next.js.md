@@ -28,6 +28,11 @@ Mark it as a client component with "use client".
 
 RSCs are better for SEO, less client-side JS.
 
+#### usePathname
+Get current path (useful for e.g: highlighting the nav bar).
+Is a hook, so can only be used in client components.
+
+
 
 
 ### [Error: ENOSPC: System limit for number of file watchers reached angular](https://stackoverflow.com/questions/65300153/error-enospc-system-limit-for-number-of-file-watchers-reached-angular)
