@@ -21,6 +21,8 @@ A folder is not treated as a route unless it contains `page.js | route.js | inde
 
 Components in `error.js` must be a client component. It will be applied to sibling and descendant pages.
 
+Every page component receives a params prop (useful to retrieve path).
+
 #### Importing an image
 `import logoImg from "@/assets/logo.png";
 Use: logoImg.src`
