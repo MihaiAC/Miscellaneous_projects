@@ -23,7 +23,7 @@
             <!--Logo-->
             <!--z-30 so it will be above hamburger menu-->
             <div class="z-30">
-                <img src="images/logo-bookmark.svg" alt="">
+                <img src="images/logo-bookmark.svg" alt="Site logo" id="hamburger-logo">
             </div>
             <!--Menu items-->
             <div class="hidden md:flex items-center space-x-10 uppercase text-grayBlue">
@@ -32,6 +32,30 @@
                 <a href="#" class="tracking-wider hover:text-softRed">FAQ</a>
                 <a href="#"
                     class="tracking-wider py-2 px-8 border-2 rounded-xl border-softRed bg-softRed hover:bg-white text-white hover:text-softRed">Login</a>
+            </div>
+            <!-- Hamburger btn -->
+            <button type="button" id="menu-btn" class="z-30 block md:hidden focus:outline-none hamburger">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+
+
+        </div>
+        <!-- Menu (visible until md) -->
+        <div id="menu"
+            class="fixed inset-0 z-20 hidden flex-col items-center self-end w-full h-full m-h-screen px-6 py-1 pt-24 pb-4 tracking-widest text-white uppercase divide-y divide-gray-500 opacity-90 bg-darkBlue">
+            <div class="w-full py-3 text-center">
+                <a href="#features" class="block hover:text-softRed">Features</a>
+            </div>
+            <div class="w-full py-3 text-center">
+                <a href="#features" class="block hover:text-softRed">Download</a>
+            </div>
+            <div class="w-full py-3 text-center">
+                <a href="#features" class="block hover:text-softRed">FAQ</a>
+            </div>
+            <div class="w-full py-3 text-center">
+                <a href="#features" class="block hover:text-softRed">Login</a>
             </div>
         </div>
     </nav>
@@ -61,7 +85,8 @@
                 <!--Blue visual background element-->
                 <div class="bg-hero"></div>
                 <!--z-10 -> below the navbar menu-->
-                <img class="relative z-10 overflow-x-visible" src="images/illustration-hero.svg" alt="">
+                <img class="relative z-10 overflow-x-visible" src="images/illustration-hero.svg"
+                    alt="Image of an app's dashboard">
             </div>
         </div>
     </section>
@@ -115,7 +140,7 @@
                 <div class="flex flex-col md:flex-row md:space-x-7 py-5 panel panel-1">
                     <!--Panel image-->
                     <div class="flex justify-center md:w-1/2">
-                        <img class="relative z-10" src="images/illustration-features-tab-1.svg" alt="">
+                        <img class="relative z-10" src="images/illustration-features-tab-1.svg" alt="Dummy image 1">
                     </div>
                     <!--Panel content-->
                     <div class="flex flex-col space-y-8 md:w-1/2 md:justify-center">
@@ -135,7 +160,7 @@
                 <div class="flex flex-col hidden md:flex-row md:space-x-7 py-5 panel panel-2">
                     <!--Panel image-->
                     <div class="flex justify-center md:w-1/2">
-                        <img class="relative z-10" src="images/illustration-features-tab-2.svg" alt="">
+                        <img class="relative z-10" src="images/illustration-features-tab-2.svg" alt="Dummy image 2">
                     </div>
                     <!--Panel content-->
                     <div class="flex flex-col space-y-8 md:w-1/2 md:justify-center">
@@ -156,7 +181,7 @@
                 <div class="flex flex-col hidden md:flex-row md:space-x-7 py-5 panel panel-3">
                     <!--Panel image-->
                     <div class="flex justify-center md:w-1/2">
-                        <img class="relative z-10" src="images/illustration-features-tab-3.svg" alt="">
+                        <img class="relative z-10" src="images/illustration-features-tab-3.svg" alt="Dummy image 3">
                     </div>
                     <!--Panel content-->
                     <div class="flex flex-col space-y-8 md:w-1/2 md:justify-center">
@@ -192,7 +217,7 @@
             class="relative flex flex-col md:flex-row items-center max-w-5xl mx-auto space-y-16 md:space-y-0 md:space-x-7 md:px-6">
             <!--Box 1-->
             <div class="download-box">
-                <img src="images/logo-chrome.svg" alt="">
+                <img src="images/logo-chrome.svg" alt="Chrome browser logo">
                 <h4>Add to Chrome</h4>
                 <p>Minimum version 62</p>
 
@@ -204,7 +229,7 @@
 
             <!--Box 2-->
             <div class="download-box md:translate-y-8">
-                <img src="images/logo-firefox.svg" alt="">
+                <img src="images/logo-firefox.svg" alt="Firefox browser logo">
                 <h4>Add to Firefox</h4>
                 <p>Minimum version 55</p>
 
@@ -216,7 +241,7 @@
 
             <!--Box 3-->
             <div class="download-box md:translate-y-16">
-                <img src="images/logo-opera.svg" alt="">
+                <img src="images/logo-opera.svg" alt="Opera browser logo">
                 <h4>Add to Opera</h4>
                 <p>Minimum version 46</p>
 
@@ -377,16 +402,16 @@
         <!-- Flex container -->
         <div
             class="container mx-auto flex flex-col md:flex-row space-y-16 md:space-y-0 px-6 items-center justify-between text-grayBlue">
-            <img src="images/logo-bookmark-footer.svg" alt="" class="mb-1">
+            <img src="images/logo-bookmark-footer.svg" alt="Site logo, white text" class="mb-1">
             <a href="#" class="uppercase hover:text-softRed">Features</a>
             <a href="#" class="uppercase hover:text-softRed">Download</a>
             <a href="#" class="uppercase hover:text-softRed">FAQ</a>
             <div class="flex space-x-10">
                 <a href="#">
-                    <img src="images/icon-facebook.svg" alt="" class="h-6 ficon">
+                    <img src="images/icon-facebook.svg" alt="Facebook logo" class="h-6 ficon">
                 </a>
                 <a href="#">
-                    <img src="images/icon-twitter.svg" alt="" class="h-6 ficon">
+                    <img src="images/icon-twitter.svg" alt="Twitter logo" class="h-6 ficon">
                 </a>
             </div>
         </div>
