@@ -62,6 +62,10 @@ Serving files uploaded by the user in production => use S3 or equivalent.
 npm run build = pre-renders every page + caches them;
 Never re-fetches backend data used to build the pages by default => you need to tell Next when to re-fetch data: `revalidatePath(/meals)` => refreshes cache.
 
+#### Dynamic data
+`export async function generateMetadata()`
+
+
 
 ### [Error: ENOSPC: System limit for number of file watchers reached angular](https://stackoverflow.com/questions/65300153/error-enospc-system-limit-for-number-of-file-watchers-reached-angular)
 
