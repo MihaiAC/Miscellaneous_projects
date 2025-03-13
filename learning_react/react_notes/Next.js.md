@@ -55,6 +55,14 @@ How?
 - Reject based on image dimensions (e.g: 1x1)
 - Could use `sharp` package to validate an image.
 
+Serving files uploaded by the user in production => use S3 or equivalent.
+**By default, Next only serves static assets present at build time.**
+
+#### Prod vs dev
+npm run build = pre-renders every page + caches them;
+Never re-fetches backend data used to build the pages by default => you need to tell Next when to re-fetch data: `revalidatePath(/meals)` => refreshes cache.
+
+
 ### [Error: ENOSPC: System limit for number of file watchers reached angular](https://stackoverflow.com/questions/65300153/error-enospc-system-limit-for-number-of-file-watchers-reached-angular)
 
 The ESLint extension in VSCode watches all the files in node_modules by default, hitting the limit of files you can watch on Ubuntu (65536).
