@@ -17,10 +17,14 @@ Naming a folder with `[slug]` for dynamic routing. However, you don't seem to be
 
 To be fair, NextJS' error messages and error panel is on a whole different level.
 
+A folder is not treated as a route unless it contains `page.js | route.js | index.js`.
+
 #### Importing an image
 `import logoImg from "@/assets/logo.png";
 Use: logoImg.src`
 Also, use `<Image>` instead of `<img>` with next. Can lazy load images, automatically infers image dimensions + optimizes it (resize, compress, serving in webp). Also uses a CDN when deployed on Vercel (? automatically or if specified ?).
+
+For Image, can use fill attribute if you don't know image dimensions (e.g: uploaded by user).
 
 #### Using state
 Can only do on client components.
@@ -31,6 +35,7 @@ RSCs are better for SEO, less client-side JS.
 #### usePathname
 Get current path (useful for e.g: highlighting the nav bar).
 Is a hook, so can only be used in client components.
+
 
 
 
