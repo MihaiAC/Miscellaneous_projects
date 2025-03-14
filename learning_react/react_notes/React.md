@@ -11,6 +11,17 @@ Can use component like a normal HTML element.
 Entry point: `ReactDOM.createRoot(entryPoint).render(<App />);`
 Import an image with a relative path -> must do for deployment.
 
+Additional packages:
+- Styling = CSS modules or Tailwind.
+- Axios = http requests.
+- Tanstack = wrapper around http requests (caching, loading, error status, data).
+- Debugging: React Dev Tools + Strictmode.
+- Complex local state: useReducer
+- Light global state: context.
+- Complex global state: Redux / Zustand.
+- When to create a custom hook
+- Router: loaders, actions, submitting forms, Suspense.
+
 ### Props ###
 == passing data to components.
 e.g: `function ComponentName(props)`, in HTML `<ComponentName arg1=val1 arg2=val2 etc.`
@@ -105,15 +116,15 @@ return (<div {...props}> </div>);
 ### Setting components dynamically ###
 JSX components must be wrapped in {}
 Normal HTML elements should be passed as strings.
-```
+```jsx
 export default function Tabs({ children, buttons, buttonsContainer }) {
-const ButtonsContainer = buttonsContainer;
-return (
-<>
-<ButtonsContainer>{buttons}</ButtonsContainer>
-{children}
-</>
-);
+	const ButtonsContainer = buttonsContainer;
+	return (
+		<>
+			<ButtonsContainer>{buttons}</ButtonsContainer>
+			{children}
+		</>
+	);
 }
 ```
 buttonsContainer can be something like "div" or {CustomComponent}
@@ -263,7 +274,7 @@ Used to render a component someplace else in the DOM.
 React batches updates that occur within the same event cycle (e.g., inside a click handler).
 Prevents unnecessary re-renders.
 
-###  Buttons + Links lesson
+### Buttons + Links lesson
 Buttons = always specify the type. Submit for forms, button for everything else. Could trigger page reloads if it's submit and you don't preventDefault().
 
 `<a>` elements: onClick => prevent event default, can trigger a page reload (-3 hours 🙃 ).
