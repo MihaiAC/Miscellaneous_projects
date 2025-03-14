@@ -1,24 +1,24 @@
-import { Row } from "../types";
-import { ColoredTile } from "./map/ColoredTile";
-import { TileType } from "./map/tileType";
-import Car from "./Car";
+import { Row } from "../../types";
+import { ColoredTile } from "./ColoredTile";
+import { TileType } from "./tileType";
+import { Truck } from "../physical-objects/Truck";
 
 type Props = {
   rowIndex: number;
-  rowData: Extract<Row, { type: "car" }>;
+  rowData: Extract<Row, { type: "truck" }>;
 };
 
-export default function CarLane({ rowIndex, rowData }: Props) {
+export default function TruckLane({ rowIndex, rowData }: Props) {
   return (
     <ColoredTile tileType={TileType.Road} rowIndex={rowIndex}>
       {rowData.vehicles.map((vehicle, index) => (
-        <Car
+        <Truck
           key={index}
           rowIndex={rowIndex}
+          color={vehicle.color}
           initialTileIndex={vehicle.initialTileIndex}
           direction={rowData.direction}
           speed={rowData.speed}
-          color={vehicle.color}
         />
       ))}
     </ColoredTile>

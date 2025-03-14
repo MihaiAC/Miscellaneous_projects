@@ -1,7 +1,7 @@
-import { Row } from "../types";
-import { ColoredTile } from "./map/ColoredTile";
-import { TileType } from "./map/tileType";
-import Tree from "./Tree";
+import { Row } from "../../types";
+import { ColoredTile } from "./ColoredTile";
+import { TileType } from "./tileType";
+import Tree from "../physical-objects/Tree";
 
 type Props = {
   rowIndex: number;

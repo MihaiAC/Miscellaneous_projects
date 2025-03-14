@@ -1,13 +1,12 @@
-import { Scene } from "./components/Scene";
+import { Scene } from "./components/layout/Scene";
 import { Player } from "./components/Player";
-import { Map } from "./components/Map";
-import { Controls } from "./components/Controls";
-import { Score } from "./components/Score";
-import { Result } from "./components/Result";
+import { Map } from "./components/layout/Map";
+import { Controls } from "./components/game-logic/Controls";
+import { Score } from "./components/game-logic/Score";
+import { Result } from "./components/game-logic/Result";
 import "./Game.css";
 
 // TODO: chaining input commands makes things laggy.
-// TODO: components folder structure
 // TODO: make sure if two cars on lane, same speed or handle collision
 // TODO: Replace Zustand with Redux (for practice.)
 // TODO: make out of bound tiles pretty

@@ -1,4 +1,4 @@
-import type { Row } from "../types";
+import type { Row } from "../../types";
 import Forest from "./Forest";
 import CarLane from "./CarLane";
 import TruckLane from "./TruckLane";

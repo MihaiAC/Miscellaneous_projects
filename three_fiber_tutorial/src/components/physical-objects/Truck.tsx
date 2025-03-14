@@ -1,9 +1,9 @@
 import { ColorRepresentation, Group } from "three";
-import { tileSize } from "../constants";
+import { tileSize } from "../../constants";
 import Wheel from "./Wheel";
 import { useRef } from "react";
-import useVehicleAnimation from "../hooks/useVehicleAnimation";
-import useHitDetection from "../hooks/useHitDetection";
+import useVehicleAnimation from "../../hooks/useVehicleAnimation";
+import useHitDetection from "../../hooks/useHitDetection";
 
 export const truckTileLength = 5;
 

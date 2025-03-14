@@ -1,7 +1,7 @@
-import { ColoredTile } from "./map/ColoredTile";
-import { TileType } from "./map/tileType";
+import { ColoredTile } from "./ColoredTile";
+import { TileType } from "./tileType";
 import Row from "./Row";
-import useStore from "../stores/map";
+import useStore from "../../stores/map";
 
 export function Map() {
   const rows = useStore((state) => state.rows);

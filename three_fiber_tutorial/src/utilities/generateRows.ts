@@ -1,8 +1,8 @@
 import { MathUtils, ColorRepresentation } from "three";
 import { minTileIndex, maxTileIndex, tilesPerRow } from "../constants";
 import { type Row, type RowType } from "../types";
-import { carTileLength } from "../components/Car";
-import { truckTileLength } from "../components/Truck";
+import { carTileLength } from "../components/physical-objects/Car";
+import { truckTileLength } from "../components/physical-objects/Truck";
 
 const NUM_TREES = 4;
 const NUM_CARS = 3;
