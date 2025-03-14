@@ -4,7 +4,6 @@ import { type Row, type RowType } from "../types";
 import { carTileLength } from "../components/Car";
 import { truckTileLength } from "../components/Truck";
 
-// TODO: Maybe should be defined in Rows?
 const NUM_TREES = 4;
 const NUM_CARS = 3;
 const NUM_TRUCKS = 2;
@@ -55,7 +54,6 @@ function generateForestMetadata(): Row {
   return { type: "forest", trees };
 }
 
-// TODO: Again, function duplication. Make a generateVehicleMetadata().
 function generateCarLaneMetadata(): Row {
   const direction = randomElement([true, false]);
   const speed = randomElement([125, 156, 188]);
@@ -90,7 +88,6 @@ function generateCarLaneMetadata(): Row {
   return { type: "car", direction, speed, vehicles };
 }
 
-//TODO: Things that differ: num trucks, color representation, speeds?
 function generateTruckLaneMetadata(): Row {
   const direction = randomElement([true, false]);
   const speed = randomElement([125, 156, 188]);
@@ -102,7 +99,6 @@ function generateTruckLaneMetadata(): Row {
 
   const occupiedTiles = new Set<number>();
 
-  //TODO: spawning a car on the edge tiles - should be alright?
   for (let ii = 0; ii < num_trucks; ii++) {
     let centerTileIndex;
     do {

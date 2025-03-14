@@ -1,4 +1,3 @@
-// TODO: hardcoded wdh values.
 export default function Wheel({ x }: { x: number }) {
   return (
     <mesh position={[x, 0, 6]}>

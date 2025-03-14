@@ -9,6 +9,16 @@ import "./Game.css";
 // TODO: chaining input commands makes things laggy.
 // TODO: components folder structure
 // TODO: make sure if two cars on lane, same speed or handle collision
+// TODO: Replace Zustand with Redux (for practice.)
+// TODO: make out of bound tiles pretty
+// TODO: Replace generateCarData and generateTruckData with generateVehicleData.
+//  Things that differ: num trucks, color representation, speeds?
+// TODO: Need to make camera move to "forward" direction. If player
+// gets caught up, game over. Delete unrendered tiles as you go (in player.ts).
+// TODO: get rid of hardcoded values, make local constants.
+// TODO: Road - Grass make into single tile.
+// TODO: Car - Truck -> Vehicle.
+// TODO: Sounds?
 export default function Game() {
   return (
     <div className="game">

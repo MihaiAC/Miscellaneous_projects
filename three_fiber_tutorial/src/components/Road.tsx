@@ -5,8 +5,6 @@ type Props = {
   children?: React.ReactNode;
 };
 
-// TODO: Very similar to grass - imo too similar, should be the same component
-// with a color prop (?) - Tile?
 export function Road({ rowIndex, children }: Props) {
   return (
     <group position-y={rowIndex * tileSize}>
