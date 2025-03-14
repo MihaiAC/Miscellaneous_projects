@@ -16,9 +16,9 @@ import "./Game.css";
 // TODO: Need to make camera move to "forward" direction. If player
 // gets caught up, game over. Delete unrendered tiles as you go (in player.ts).
 // TODO: get rid of hardcoded values, make local constants.
-// TODO: Road - Grass make into single tile.
 // TODO: Car - Truck -> Vehicle.
 // TODO: Sounds?
+// TODO: Change window title.
 export default function Game() {
   return (
     <div className="game">

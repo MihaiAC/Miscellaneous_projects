@@ -1,5 +1,4 @@
-import { Grass } from "./Grass";
-import { Road } from "./Road";
+import { ColoredTile, TileType } from "./map/ColoredTile";
 import Row from "./Row";
 import useStore from "../stores/map";
 
@@ -8,21 +7,16 @@ export function Map() {
 
   return (
     <>
-      <Grass rowIndex={-10} />
-      <Grass rowIndex={-9} />
-      <Grass rowIndex={-8} />
-      <Grass rowIndex={-7} />
-      <Grass rowIndex={-6} />
-      <Grass rowIndex={-5} />
-      <Grass rowIndex={-4} />
-      <Grass rowIndex={-3} />
-      <Grass rowIndex={-2} />
-      <Grass rowIndex={-1} />
-      <Grass rowIndex={0} />
+      {Array.from({ length: 11 }).map((_, idx) => (
+        <ColoredTile
+          key={idx - 10}
+          rowIndex={idx - 10}
+          tileType={TileType.Grass}
+        />
+      ))}
       {rows.map((rowData, index) => (
         <Row key={index} rowIndex={index + 1} rowData={rowData} />
       ))}
-      <Road rowIndex={1} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { Row } from "../types";
-import { Road } from "./Road";
+import { ColoredTile, TileType } from "./map/ColoredTile";
 import Car from "./Car";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 export default function CarLane({ rowIndex, rowData }: Props) {
   return (
-    <Road rowIndex={rowIndex}>
+    <ColoredTile tileType={TileType.Road} rowIndex={rowIndex}>
       {rowData.vehicles.map((vehicle, index) => (
         <Car
           key={index}
@@ -20,6 +20,6 @@ export default function CarLane({ rowIndex, rowData }: Props) {
           color={vehicle.color}
         />
       ))}
-    </Road>
+    </ColoredTile>
   );
 }

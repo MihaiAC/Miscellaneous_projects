@@ -1,5 +1,5 @@
 import { Row } from "../types";
-import { Grass } from "./Grass";
+import { ColoredTile, TileType } from "./map/ColoredTile";
 import Tree from "./Tree";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 export default function Forest({ rowIndex, rowData }: Props) {
   return (
     <>
-      <Grass rowIndex={rowIndex}>
+      <ColoredTile tileType={TileType.Grass} rowIndex={rowIndex}>
         {rowData.trees.map((tree, index) => (
           <Tree
             key={index}
@@ -18,7 +18,7 @@ export default function Forest({ rowIndex, rowData }: Props) {
             canopyHeight={tree.height}
           />
         ))}
-      </Grass>
+      </ColoredTile>
     </>
   );
 }
