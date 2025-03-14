@@ -1,4 +1,5 @@
-import { ColoredTile, TileType } from "./map/ColoredTile";
+import { ColoredTile } from "./map/ColoredTile";
+import { TileType } from "./map/tileType";
 import Row from "./Row";
 import useStore from "../stores/map";
 

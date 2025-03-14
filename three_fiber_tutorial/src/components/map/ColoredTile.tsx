@@ -1,9 +1,5 @@
 import { tilesPerRow, tileSize } from "../../constants";
-
-export enum TileType {
-  Grass = "grass",
-  Road = "road",
-}
+import { TileType } from "./tileType";
 
 type Props = {
   rowIndex: number;

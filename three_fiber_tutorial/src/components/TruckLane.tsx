@@ -1,5 +1,6 @@
 import { Row } from "../types";
-import { ColoredTile, TileType } from "./map/ColoredTile";
+import { ColoredTile } from "./map/ColoredTile";
+import { TileType } from "./map/tileType";
 import { Truck } from "./Truck";
 
 type Props = {
