@@ -10,9 +10,6 @@ import "./Game.css";
 import { Paused } from "./components/game-logic/Paused";
 import Camera from "./components/Camera";
 
-// TODO: Delete unrendered tiles as you go (in player.ts).
-// TODO: Fix overlapping cars (bug introduced when we changed tile length).
-// TODO: Catch-up camera active => extra points.
 export default function Game() {
   return (
     <Provider store={store}>

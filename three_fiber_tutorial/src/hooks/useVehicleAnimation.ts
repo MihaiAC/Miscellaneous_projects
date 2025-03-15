@@ -12,7 +12,7 @@ export default function useVehicleAnimation(
 ) {
   const gameState = useSelector((state: RootState) => state.game.status);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     // If ref is null, return.
     // When is ref null? I assume when the car/truck lane is no longer
     // rendered by React.

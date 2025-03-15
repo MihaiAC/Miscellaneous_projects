@@ -69,7 +69,11 @@ function generateCarLaneMetadata(): Row {
     let centerTileIndex;
     do {
       centerTileIndex = MathUtils.randInt(minTileIndex, maxTileIndex);
-    } while (occupiedTiles.has(centerTileIndex));
+    } while (
+      occupiedTiles.has(centerTileIndex) ||
+      occupiedTiles.has(centerTileIndex - 1) ||
+      occupiedTiles.has(centerTileIndex + 1)
+    );
 
     // Leave more space to the cars than in the tutorial.
     // Handling car collisions is overkill.
@@ -103,7 +107,13 @@ function generateTruckLaneMetadata(): Row {
     let centerTileIndex;
     do {
       centerTileIndex = MathUtils.randInt(minTileIndex, maxTileIndex);
-    } while (occupiedTiles.has(centerTileIndex));
+    } while (
+      occupiedTiles.has(centerTileIndex) ||
+      occupiedTiles.has(centerTileIndex - 1) ||
+      occupiedTiles.has(centerTileIndex - 2) ||
+      occupiedTiles.has(centerTileIndex + 2) ||
+      occupiedTiles.has(centerTileIndex + 1)
+    );
 
     for (let dx = 0; dx < truckTileLength; dx++) {
       occupiedTiles.add(centerTileIndex + dx);
