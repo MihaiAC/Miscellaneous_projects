@@ -11,7 +11,7 @@ export function Controls() {
 
   useEventListeners();
 
-  if (gameStatus === GameStatusEnum.Over) {
+  if (gameStatus !== GameStatusEnum.Running) {
     return <></>;
   }
 

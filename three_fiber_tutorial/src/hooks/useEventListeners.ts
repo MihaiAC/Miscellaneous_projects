@@ -17,7 +17,7 @@ export default function useEventListeners() {
   const gameStatus = useSelector((state: RootState) => state.game.status);
 
   useEffect(() => {
-    if (gameStatus === GameStatusEnum.Over) {
+    if (gameStatus !== GameStatusEnum.Running) {
       return;
     }
 

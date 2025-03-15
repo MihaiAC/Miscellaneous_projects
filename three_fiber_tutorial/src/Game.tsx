@@ -8,11 +8,9 @@ import { Provider } from "react-redux";
 import { store } from "./stores/store-redux";
 import "./Game.css";
 
-// TODO: Replace generateCarData and generateTruckData with generateVehicleData.
-//  Things that differ: num trucks, color representation, speeds?
+// TODO: Add ability to pause game => stop all car movement once the game is over.
 // TODO: Need to make camera move to "forward" direction. If player
 // gets caught up, game over. Delete unrendered tiles as you go (in player.ts).
-// TODO: Add ability to pause game => stop all car movement once the game is over.
 export default function Game() {
   return (
     <Provider store={store}>
