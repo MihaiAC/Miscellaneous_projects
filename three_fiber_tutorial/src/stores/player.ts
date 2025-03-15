@@ -1,7 +1,5 @@
 import type { MoveDirection } from "../types";
 import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
-// import useMapStore from "./map";
-// import useGameStore from "./game";
 import { Object3D } from "three";
 
 export const state: {
@@ -20,7 +18,7 @@ export function setRef(ref: Object3D) {
   state.ref = ref;
 }
 
-// Queue player input.
+// Queue player input if the game is not over.
 export function queueMove(direction: MoveDirection) {
   // Check if move is valid.
   const isValidMove = endsUpInValidPosition(

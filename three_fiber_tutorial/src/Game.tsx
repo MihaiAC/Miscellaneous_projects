@@ -20,7 +20,8 @@ import "./Game.css";
 // TODO: Car - Truck -> Vehicle.
 // TODO: Sounds?
 // TODO: Change window title.
-// TODO: Add ability to pause game.
+// TODO: Add ability to pause game => stop all car movement once the game is over.
+// TODO: Prevent movement once the game has ended.
 export default function Game() {
   return (
     <Provider store={store}>

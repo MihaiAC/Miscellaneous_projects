@@ -46,7 +46,7 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
     if (progress >= 1) {
       stepCompleted();
 
-      // TODO: this is probably not correct + its place is probably not here.
+      // TODO: This works, but should it be here?
       // Add new rows if player is running out of them.
       if (state.currentRow === numRows - 10) {
         dispatch(addRows());

@@ -21,9 +21,7 @@ export function endsUpInValidPosition(
 
   // Tree collision check.
   // TODO: Fix tree's type here.
-  // TODO: Check Redux change here.
   const finalRow = store.getState().map.rows[finalPosition.rowIndex - 1];
-  // const finalRow = useMapStore.getState().rows[finalPosition.rowIndex - 1];
   if (
     finalRow &&
     finalRow.type === "forest" &&

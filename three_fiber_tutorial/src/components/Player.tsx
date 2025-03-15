@@ -22,12 +22,12 @@ export function Player() {
     player.current.add(camera);
     lightRef.current.target = player.current;
 
-    // Set player reference in the store
+    // Set player reference in the player store
     // (for collision detection with vehicles).
     setRef(player.current);
   });
 
-  // Second mesh is the player cap.
+  // Second mesh is the player "hat".
   return (
     <Bounds fit clip observe margin={10}>
       <group ref={player}>
