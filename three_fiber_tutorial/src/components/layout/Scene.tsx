@@ -1,4 +1,9 @@
 import { Canvas } from "@react-three/fiber";
+import {
+  initialCameraX,
+  initialCameraY,
+  initialCameraZ,
+} from "../../constants";
 
 export const Scene = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,7 +12,7 @@ export const Scene = ({ children }: { children: React.ReactNode }) => {
       shadows={true}
       camera={{
         up: [0, 0, 1],
-        position: [300, -300, 300],
+        position: [initialCameraX, initialCameraY, initialCameraZ],
       }}
     >
       <ambientLight />

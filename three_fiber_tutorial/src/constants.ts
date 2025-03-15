@@ -11,3 +11,8 @@ export const tileSize = 42;
 
 // Number of empty grass tiles at the beginning.
 export const nGrassTilesInit = 10;
+
+// Initial camera coordinates.
+export const initialCameraX = 300;
+export const initialCameraY = -300;
+export const initialCameraZ = 300;

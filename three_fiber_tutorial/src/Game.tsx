@@ -8,10 +8,11 @@ import { Provider } from "react-redux";
 import { store } from "./stores/store-redux";
 import "./Game.css";
 import { Paused } from "./components/game-logic/Paused";
+import Camera from "./components/Camera";
 
-// TODO: Need to make camera move to "forward" direction. If player
+// TODO: Delete unrendered tiles as you go (in player.ts).
 // TODO: Fix overlapping cars (bug introduced when we changed tile length).
-// gets caught up, game over. Delete unrendered tiles as you go (in player.ts).
+// TODO: Catch-up camera active => extra points.
 export default function Game() {
   return (
     <Provider store={store}>
@@ -19,6 +20,7 @@ export default function Game() {
         <Scene>
           <Player />
           <Map />
+          <Camera />
         </Scene>
         <Score />
         <Controls />

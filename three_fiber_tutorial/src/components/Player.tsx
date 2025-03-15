@@ -2,14 +2,12 @@ import { Bounds } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import usePlayerAnimation from "../hooks/usePlayerAnimation";
 import { Group } from "three";
-import { useThree } from "@react-three/fiber";
 import DirectionalLight from "./DirectionalLight";
 import { DirectionalLight as ThreeDirectionalLight } from "three";
 import { setRef } from "../stores/player";
 
 export function Player() {
   const player = useRef<Group>(null);
-  const camera = useThree((state) => state.camera);
   const lightRef = useRef<ThreeDirectionalLight>(null);
 
   usePlayerAnimation(player);
@@ -19,7 +17,6 @@ export function Player() {
       return;
     }
 
-    player.current.add(camera);
     lightRef.current.target = player.current;
 
     // Set player reference in the player store
