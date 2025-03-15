@@ -3,6 +3,9 @@ export const minTileIndex = -8;
 export const maxTileIndex = 8;
 export const tilesPerRow = maxTileIndex - minTileIndex + 1;
 
+// Extra tiles (to cover empty areas).
+export const extraTiles = 10;
+
 // Size of each tile - in what (px?)
 export const tileSize = 42;
 
