@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { queueMove } from "../stores/player";
 import { MoveDirection } from "../types";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../stores/store-redux";
 import { GameStatusEnum } from "../stores/game-redux";
+import { togglePauseGame } from "../stores/game-redux";
 
 const keyToMove: Record<string, MoveDirection> = {
   ArrowUp: "forward",
@@ -12,12 +13,15 @@ const keyToMove: Record<string, MoveDirection> = {
   ArrowRight: "right",
 };
 
+const escapeKey = "Escape";
+
 // Runs on mount, cleans after itself on unmount.
 export default function useEventListeners() {
   const gameStatus = useSelector((state: RootState) => state.game.status);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (gameStatus !== GameStatusEnum.Running) {
+    if (gameStatus === GameStatusEnum.Over) {
       return;
     }
 
@@ -25,6 +29,9 @@ export default function useEventListeners() {
       if (event.key in keyToMove) {
         event.preventDefault();
         queueMove(keyToMove[event.key]);
+      } else if (event.key === escapeKey) {
+        // Pause the game.
+        dispatch(togglePauseGame());
       }
     };
 
@@ -33,5 +40,5 @@ export default function useEventListeners() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [gameStatus]);
+  }, [gameStatus, dispatch]);
 }

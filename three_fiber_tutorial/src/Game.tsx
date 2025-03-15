@@ -8,8 +8,8 @@ import { Provider } from "react-redux";
 import { store } from "./stores/store-redux";
 import "./Game.css";
 
-// TODO: Add ability to pause game => stop all car movement once the game is over.
 // TODO: Need to make camera move to "forward" direction. If player
+// TODO: Fix overlapping cars (bug introduced when we changed tile length).
 // gets caught up, game over. Delete unrendered tiles as you go (in player.ts).
 export default function Game() {
   return (

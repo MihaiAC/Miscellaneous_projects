@@ -5,13 +5,16 @@ import { Group, Clock, MathUtils } from "three";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../stores/store-redux";
 import { addRows } from "../stores/map-redux";
-import { updateScore } from "../stores/game-redux";
+import { GameStatusEnum, updateScore } from "../stores/game-redux";
 
 export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
   const moveClock = new Clock(false);
   const dispatch = useDispatch();
 
   const numRows = useSelector((state: RootState) => state.map.rows.length);
+  const gameState = useSelector((state: RootState) => state.game.status);
+
+  let pausedTime = 0;
 
   useFrame(() => {
     if (!ref.current) {
@@ -20,6 +23,15 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
 
     // No moves queued up.
     if (!state.movesQueue.length) {
+      return;
+    }
+
+    // If game is paused, pause the clock.
+    if (gameState === GameStatusEnum.Paused) {
+      if (moveClock.running) {
+        pausedTime = moveClock.getElapsedTime();
+        moveClock.stop();
+      }
       return;
     }
 
@@ -35,7 +47,10 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
     const stepTime = 0.2;
 
     // Value between 0 and 1.
-    const progress = Math.min(1, moveClock.getElapsedTime() / stepTime);
+    const progress = Math.min(
+      1,
+      pausedTime + moveClock.getElapsedTime() / stepTime
+    );
 
     setPosition(player, progress);
     setRotation(player, progress);
@@ -52,6 +67,7 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
       // Update score.
       dispatch(updateScore(state.currentRow));
       moveClock.stop();
+      pausedTime = 0;
     }
   });
 }

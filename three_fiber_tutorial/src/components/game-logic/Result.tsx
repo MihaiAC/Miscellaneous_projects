@@ -9,7 +9,7 @@ export function Result() {
   const score = useSelector((state: RootState) => state.game.score);
   const status = useSelector((state: RootState) => state.game.status);
 
-  if (status === GameStatusEnum.Running) return null;
+  if (status !== GameStatusEnum.Over) return null;
 
   return (
     <div id="result-container">
