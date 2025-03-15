@@ -7,6 +7,7 @@ import { Result } from "./components/game-logic/Result";
 import { Provider } from "react-redux";
 import { store } from "./stores/store-redux";
 import "./Game.css";
+import { Paused } from "./components/game-logic/Paused";
 
 // TODO: Need to make camera move to "forward" direction. If player
 // TODO: Fix overlapping cars (bug introduced when we changed tile length).
@@ -22,6 +23,7 @@ export default function Game() {
         <Score />
         <Controls />
         <Result />
+        <Paused />
       </div>
     </Provider>
   );
