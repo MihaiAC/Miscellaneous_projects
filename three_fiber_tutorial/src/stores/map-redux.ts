@@ -18,6 +18,7 @@ const mapSlice = createSlice({
       state.rows = [...state.rows, ...generateRows(20)];
     },
     reset: (state) => {
+      console.log("Reset called");
       state.rows = generateRows(20);
     },
   },

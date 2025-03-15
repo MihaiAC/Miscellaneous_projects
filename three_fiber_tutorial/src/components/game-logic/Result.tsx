@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../stores/store-redux";
 import { resetGame } from "../../stores/game-redux";
+import { store } from "../../stores/store-redux";
 import "./Result.css";
 
 export function Result() {
@@ -16,7 +17,7 @@ export function Result() {
       <div id="result">
         <h1>Game Over</h1>
         <p>Your score: {score}</p>
-        <button onClick={resetGame}>Retry</button>
+        <button onClick={() => store.dispatch(resetGame())}>Retry</button>
       </div>
     </div>
   );
