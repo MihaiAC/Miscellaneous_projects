@@ -1,13 +1,15 @@
 import { useFrame } from "@react-three/fiber";
 import { state as playerState } from "../stores/player";
-import useGameStore from "../stores/game";
 import { Box3, Group } from "three";
+import { useDispatch } from "react-redux";
+import { endGame } from "../stores/game-redux";
 
 export default function useHitDetection(
   vehicle: React.RefObject<Group | null>,
   rowIndex: number
 ) {
-  const endGame = useGameStore((state) => state.endGame);
+  // TODO: check this works.
+  const dispatch = useDispatch();
 
   useFrame(() => {
     if (!vehicle.current) {
@@ -30,7 +32,7 @@ export default function useHitDetection(
       playerBoundingBox.setFromObject(playerState.ref);
 
       if (playerBoundingBox.intersectsBox(vehicleBoundingBox)) {
-        endGame();
+        dispatch(endGame());
       }
     }
   });

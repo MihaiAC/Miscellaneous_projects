@@ -1,10 +1,12 @@
 import { ColoredTile } from "./ColoredTile";
 import { TileType } from "./tileType";
 import Row from "./Row";
-import useStore from "../../stores/map";
+import { useSelector } from "react-redux";
+import { RootState } from "../../stores/store-redux";
 
 export function Map() {
-  const rows = useStore((state) => state.rows);
+  // TODO: check Redux change
+  const rows = useSelector((state: RootState) => state.map.rows);
 
   return (
     <>

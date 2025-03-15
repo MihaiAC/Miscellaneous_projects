@@ -1,7 +1,7 @@
 import type { MoveDirection } from "../types";
 import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
-import useMapStore from "./map";
-import useGameStore from "./game";
+// import useMapStore from "./map";
+// import useGameStore from "./game";
 import { Object3D } from "three";
 
 export const state: {
@@ -54,14 +54,6 @@ export function stepCompleted() {
   if (direction === "backward") {
     state.currentRow -= 1;
   }
-
-  // Add new rows if player is running out of them.
-  if (state.currentRow === useMapStore.getState().rows.length - 10) {
-    useMapStore.getState().addRows();
-  }
-
-  // Update score.
-  useGameStore.getState().updateScore(state.currentRow);
 }
 
 // Called on game over.

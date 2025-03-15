@@ -2,12 +2,19 @@ import { useFrame } from "@react-three/fiber";
 import { stepCompleted, state } from "../stores/player";
 import { tileSize } from "../constants";
 import { Group, Clock, MathUtils } from "three";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../stores/store-redux";
+import { addRows } from "../stores/map-redux";
+import { updateScore } from "../stores/game-redux";
 
 export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
   const moveClock = new Clock(false);
+  const dispatch = useDispatch();
+
+  const numRows = useSelector((state: RootState) => state.map.rows.length);
 
   useFrame(() => {
-    // When is this undefined?
+    // TODO: When is this undefined?
     // When player is dead?
     if (!ref.current) {
       return;
@@ -38,6 +45,15 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
     // Player move ended.
     if (progress >= 1) {
       stepCompleted();
+
+      // TODO: this is probably not correct + its place is probably not here.
+      // Add new rows if player is running out of them.
+      if (state.currentRow === numRows - 10) {
+        dispatch(addRows());
+      }
+
+      // Update score.
+      dispatch(updateScore(state.currentRow));
       moveClock.stop();
     }
   });

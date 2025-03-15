@@ -1,7 +1,7 @@
 import { MoveDirection } from "../types";
 import { calculateFinalPosition } from "./calculateFinalPosition";
 import { minTileIndex, maxTileIndex } from "../constants";
-import useMapStore from "../stores/map";
+import { store } from "../stores/store-redux";
 
 export function endsUpInValidPosition(
   currentPosition: { rowIndex: number; tileIndex: number },
@@ -20,7 +20,10 @@ export function endsUpInValidPosition(
   }
 
   // Tree collision check.
-  const finalRow = useMapStore.getState().rows[finalPosition.rowIndex - 1];
+  // TODO: Fix tree's type here.
+  // TODO: Check Redux change here.
+  const finalRow = store.getState().map.rows[finalPosition.rowIndex - 1];
+  // const finalRow = useMapStore.getState().rows[finalPosition.rowIndex - 1];
   if (
     finalRow &&
     finalRow.type === "forest" &&

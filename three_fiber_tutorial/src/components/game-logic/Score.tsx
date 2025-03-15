@@ -1,8 +1,9 @@
-import useStore from "../../stores/game";
+import { useSelector } from "react-redux";
+import { RootState } from "../../stores/store-redux";
 import "./Score.css";
 
 export function Score() {
-  const score = useStore((state) => state.score);
-
+  // TODO: check Redux changes.
+  const score = useSelector((state: RootState) => state.game.score);
   return <div id="score">{score}</div>;
 }

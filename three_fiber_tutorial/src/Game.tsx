@@ -4,6 +4,8 @@ import { Map } from "./components/layout/Map";
 import { Controls } from "./components/game-logic/Controls";
 import { Score } from "./components/game-logic/Score";
 import { Result } from "./components/game-logic/Result";
+import { Provider } from "react-redux";
+import { store } from "./stores/store-redux";
 import "./Game.css";
 
 // TODO: chaining input commands makes things laggy.
@@ -18,16 +20,19 @@ import "./Game.css";
 // TODO: Car - Truck -> Vehicle.
 // TODO: Sounds?
 // TODO: Change window title.
+// TODO: Add ability to pause game.
 export default function Game() {
   return (
-    <div className="game">
-      <Scene>
-        <Player />
-        <Map />
-      </Scene>
-      <Score />
-      <Controls />
-      <Result />
-    </div>
+    <Provider store={store}>
+      <div className="game">
+        <Scene>
+          <Player />
+          <Map />
+        </Scene>
+        <Score />
+        <Controls />
+        <Result />
+      </div>
+    </Provider>
   );
 }
