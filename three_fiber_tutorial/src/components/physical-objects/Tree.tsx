@@ -1,6 +1,6 @@
 import { tileSize } from "../../constants";
 
-type Props = {
+export type Props = {
   tileIndex: number;
   canopyHeight: number;
 };

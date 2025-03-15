@@ -2,15 +2,14 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../stores/store-redux";
 import { resetGame } from "../../stores/game-redux";
 import { store } from "../../stores/store-redux";
+import { GameStatusEnum } from "../../stores/game-redux";
 import "./Result.css";
 
 export function Result() {
-  // TODO: check Redux changes.
-  // Should be fine here, since we are inside a component.
   const score = useSelector((state: RootState) => state.game.score);
   const status = useSelector((state: RootState) => state.game.status);
 
-  if (status === "running") return null;
+  if (status === GameStatusEnum.Running) return null;
 
   return (
     <div id="result-container">

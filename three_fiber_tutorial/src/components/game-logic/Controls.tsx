@@ -3,6 +3,7 @@ import { queueMove } from "../../stores/player";
 import { useSelector } from "react-redux";
 import "./Controls.css";
 import { RootState } from "../../stores/store-redux";
+import { GameStatusEnum } from "../../stores/game-redux";
 
 export function Controls() {
   // Prevent movement if the game is over.
@@ -10,8 +11,7 @@ export function Controls() {
 
   useEventListeners();
 
-  // TODO: Hardcoded value to be removed.
-  if (gameStatus === "over") {
+  if (gameStatus === GameStatusEnum.Over) {
     return <></>;
   }
 

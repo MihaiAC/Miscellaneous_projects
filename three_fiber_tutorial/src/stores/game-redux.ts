@@ -3,13 +3,18 @@ import { AppDispatch } from "./store-redux";
 import { reset as resetMapStore } from "./map-redux";
 import { reset as resetPlayerStore } from "./player";
 
+export enum GameStatusEnum {
+  Running = "running",
+  Over = "over",
+}
+
 interface GameState {
-  status: "running" | "over";
+  status: GameStatusEnum;
   score: number;
 }
 
 const initialState: GameState = {
-  status: "running",
+  status: GameStatusEnum.Running,
   score: 0,
 };
 
@@ -21,10 +26,10 @@ const gameSlice = createSlice({
       state.score = Math.max(action.payload, state.score);
     },
     endGame: (state) => {
-      state.status = "over";
+      state.status = GameStatusEnum.Over;
     },
     resetState: (state) => {
-      state.status = "running";
+      state.status = GameStatusEnum.Running;
       state.score = 0;
     },
   },

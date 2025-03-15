@@ -14,8 +14,6 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
   const numRows = useSelector((state: RootState) => state.map.rows.length);
 
   useFrame(() => {
-    // TODO: When is this undefined?
-    // When player is dead?
     if (!ref.current) {
       return;
     }
@@ -46,7 +44,6 @@ export default function usePlayerAnimation(ref: React.RefObject<Group | null>) {
     if (progress >= 1) {
       stepCompleted();
 
-      // TODO: This works, but should it be here?
       // Add new rows if player is running out of them.
       if (state.currentRow === numRows - 10) {
         dispatch(addRows());

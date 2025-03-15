@@ -5,3 +5,6 @@ export const tilesPerRow = maxTileIndex - minTileIndex + 1;
 
 // Size of each tile - in what (px?)
 export const tileSize = 42;
+
+// Number of empty grass tiles at the beginning.
+export const nGrassTilesInit = 10;

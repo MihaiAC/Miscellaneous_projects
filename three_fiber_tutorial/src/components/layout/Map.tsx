@@ -3,17 +3,17 @@ import { TileType } from "./tileType";
 import Row from "./Row";
 import { useSelector } from "react-redux";
 import { RootState } from "../../stores/store-redux";
+import { nGrassTilesInit } from "../../constants";
 
 export function Map() {
-  // TODO: check Redux change
   const rows = useSelector((state: RootState) => state.map.rows);
 
   return (
     <>
-      {Array.from({ length: 11 }).map((_, idx) => (
+      {Array.from({ length: nGrassTilesInit + 1 }).map((_, idx) => (
         <ColoredTile
-          key={idx - 10}
-          rowIndex={idx - 10}
+          key={idx - nGrassTilesInit}
+          rowIndex={idx - nGrassTilesInit}
           tileType={TileType.Grass}
         />
       ))}

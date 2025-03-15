@@ -10,7 +10,6 @@ import "./Game.css";
 
 // TODO: chaining input commands makes things laggy.
 // TODO: make sure if two cars on lane, same speed or handle collision
-// TODO: Replace Zustand with Redux (for practice.)
 // TODO: make out of bound tiles pretty
 // TODO: Replace generateCarData and generateTruckData with generateVehicleData.
 //  Things that differ: num trucks, color representation, speeds?
@@ -19,9 +18,7 @@ import "./Game.css";
 // TODO: get rid of hardcoded values, make local constants.
 // TODO: Car - Truck -> Vehicle.
 // TODO: Sounds?
-// TODO: Change window title.
 // TODO: Add ability to pause game => stop all car movement once the game is over.
-// TODO: Prevent movement once the game has ended.
 export default function Game() {
   return (
     <Provider store={store}>

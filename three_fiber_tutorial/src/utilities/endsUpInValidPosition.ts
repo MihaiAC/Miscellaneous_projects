@@ -20,12 +20,11 @@ export function endsUpInValidPosition(
   }
 
   // Tree collision check.
-  // TODO: Fix tree's type here.
   const finalRow = store.getState().map.rows[finalPosition.rowIndex - 1];
   if (
     finalRow &&
     finalRow.type === "forest" &&
-    finalRow.trees.some((tree) => tree.tileIndex === finalPosition.tileIndex)
+    finalRow.trees?.some((tree) => tree.tileIndex === finalPosition.tileIndex)
   ) {
     return false;
   }

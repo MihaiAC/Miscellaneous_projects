@@ -3,6 +3,7 @@ import { queueMove } from "../stores/player";
 import { MoveDirection } from "../types";
 import { useSelector } from "react-redux";
 import { RootState } from "../stores/store-redux";
+import { GameStatusEnum } from "../stores/game-redux";
 
 const keyToMove: Record<string, MoveDirection> = {
   ArrowUp: "forward",
@@ -15,9 +16,8 @@ const keyToMove: Record<string, MoveDirection> = {
 export default function useEventListeners() {
   const gameStatus = useSelector((state: RootState) => state.game.status);
 
-  // TODO: hardcoded value.
   useEffect(() => {
-    if (gameStatus === "over") {
+    if (gameStatus === GameStatusEnum.Over) {
       return;
     }
 

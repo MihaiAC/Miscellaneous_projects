@@ -8,7 +8,6 @@ export default function useHitDetection(
   vehicle: React.RefObject<Group | null>,
   rowIndex: number
 ) {
-  // TODO: Redux change here.
   const dispatch = useDispatch();
 
   useFrame(() => {
