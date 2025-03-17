@@ -21,6 +21,8 @@ Additional packages:
 - Complex global state: Redux / Zustand.
 - When to create a custom hook
 - Router: loaders, actions, submitting forms, Suspense.
+- "classnames" = cleaner way to conditionally apply class names to elements.
+- Motion: React animations.
 
 ### Props ###
 == passing data to components.

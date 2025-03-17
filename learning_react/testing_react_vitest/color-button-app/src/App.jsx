@@ -2,16 +2,46 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [toggled, setToggled] = useState(false);
+  const [btnToggled, setBtnToggled] = useState(false);
+  const [checkboxToggled, setCheckBoxToggled] = useState(false);
 
-  let btnElement;
-  if (!toggled) {
-    btnElement = <button className={"btn bg-red-400"}>Change to blue</button>;
+  let btnClassName = "btn ";
+  let btnText = "Change to ";
+  if (!btnToggled) {
+    btnClassName += "bg-red-400";
+    btnText += "blue";
   } else {
-    btnElement = <button className={"btn bg-blue-400"}>Change to red</button>;
+    btnClassName += "bg-blue-400";
+    btnText += "red";
   }
 
-  return <div onClick={() => setToggled((state) => !state)}>{btnElement}</div>;
+  function handleButtonClick() {
+    if (!checkboxToggled) {
+      setBtnToggled((state) => !state);
+    }
+  }
+
+  return (
+    <div className="flex flex-col space-y-4">
+      <button
+        className={btnClassName}
+        onClick={handleButtonClick}
+        disabled={checkboxToggled}
+      >
+        {btnText}
+      </button>
+      ;
+      <div className="flex flex-col-reverse">
+        <input
+          type="checkbox"
+          id="disable-button-checkbox"
+          defaultChecked={false}
+          onChange={() => setCheckBoxToggled((state) => !state)}
+        />
+        <label htmlFor="disable-button-checkbox">Disable button</label>
+      </div>
+    </div>
+  );
 }
 
 export default App;
