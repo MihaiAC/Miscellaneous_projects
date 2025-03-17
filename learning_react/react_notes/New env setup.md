@@ -4,7 +4,10 @@ Create new project with Vite.
 `npm create vite@latest my-app --template react`
 
 Install Vitest & testing libraries.
-`npm install --save-dev vitest @testing-library/react @testing-library/jest-dom
+`npm install --save-dev vitest jsdom @testing-library/react @testing-library/jest-dom
+
+Run tests with:
+`npx vitest`
 
 Install ESLint + Prettier.
 `npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react-hooks`
@@ -29,8 +32,12 @@ Add to vite.config.js:
 test: {
 	globals: true,
 	environment: "jsdom",
+	setupFiles: "./src/setupTests.js",
 },
 ```
+
+Add setupTests.js.
+`import "@testing-library/jest-dom";`
 
 Install tailwind.
 `npm install -D tailwindcss@3 postcss autoprefixer`
