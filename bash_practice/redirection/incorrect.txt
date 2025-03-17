@@ -1,0 +1,3 @@
+dummy_folder/:
+total 4
+-rw-rw-r-- 1 mihaiac mihaiac 15 Mar 17 22:57 dummy_text.txt
