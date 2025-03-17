@@ -4,7 +4,9 @@ Create new project with Vite.
 `npm create vite@latest my-app --template react`
 
 Install Vitest & testing libraries.
-`npm install --save-dev vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event @types/jest eslint-plugin-jest-dom eslint-plugin-testing-library @vitest/ui eslint-plugin-vitest
+`npm install --save-dev vitest jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event @vitest/ui`
+
+(Vitest has a UI server at http://localhost:51204/__vitest__/, have to start it with vitest --ui)
 
 Run tests with:
 `npx vitest`
@@ -13,11 +15,27 @@ Install ESLint + Prettier.
 `npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-react-hooks`
 `npx eslint --init`
 
+Second object seems to be optional.
+```
+pluginReact.configs.flat["jsx-runtime"],
+{
+	plugins: {
+		"react-hooks": reactHooks,
+	},
+	rules: {
+		...reactHooks.configs.recommended.rules,
+	},
+},
+```
+
+Install testing ESLint plugins:
+`npm install --save-dev eslint-plugin-jest-dom eslint-plugin-testing-library @vitest/eslint-plugin
+
 Add to eslint config.
 ```js
 import jestDom from "eslint-plugin-jest-dom";
 import testingLibrary from "eslint-plugin-testing-library";
-import vitest from "eslint-plugin-vitest";
+import vitest from "@vitest/eslint-plugin";
 ```
 
 Add to plugins:
@@ -37,21 +55,10 @@ Add to rules:
 Add to globals.
 ` globals: { ...globals.browser, ...vitest.environments.env.globals },`
 
-Second object seems to be optional.
-```
-pluginReact.configs.flat["jsx-runtime"],
-{
-	plugins: {
-		"react-hooks": reactHooks,
-	},
-	rules: {
-		...reactHooks.configs.recommended.rules,
-	},
-},
-```
-
 Add to vite.config.js:
+Reference types thing at the top of the file.
 ```js
+/// <reference types="vitest/config" />
 test: {
 	globals: true,
 	environment: "jsdom",
@@ -85,7 +92,7 @@ Add tailwind to index.css.
 @tailwind utilities;
 ```
 
-If using Typescript, add to tsconfig.json.
+If using Typescript, add to tsconfig.app.json.
 ```json
 {
   "compilerOptions": {
@@ -93,3 +100,7 @@ If using Typescript, add to tsconfig.json.
   }
 }
 ```
+
+Delete auto-generated Readme.md (?)
+Delete icons.
+Delete App.tsx extra stuff.
