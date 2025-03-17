@@ -21,9 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
-    /* Vitest types */
-    "types": ["vitest"],
   },
   "include": ["src"]
 }

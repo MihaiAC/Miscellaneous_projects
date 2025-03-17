@@ -4,7 +4,7 @@ Create new project with Vite.
 `npm create vite@latest my-app --template react`
 
 Install Vitest & testing libraries.
-`npm install --save-dev vitest jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event @vitest/ui`
+`npm install --save-dev vitest jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event @vitest/ui @types/testing-library__react @types/jest`
 
 (Vitest has a UI server at http://localhost:51204/__vitest__/, have to start it with vitest --ui)
 
@@ -92,12 +92,19 @@ Add tailwind to index.css.
 @tailwind utilities;
 ```
 
-If using Typescript, add to tsconfig.app.json.
+If using Typescript, add to tsconfig.json
+```json
+{ "path" : "./tsconfig.test.json"},
+```
+
+Create tsconfig.test.json:
 ```json
 {
-  "compilerOptions": {
-    "types": ["vitest"]
-  }
+	"extends": "./tsconfig.app.json",
+	"compilerOptions": {
+	"types": ["vitest", "@testing-library/jest-dom", "@testing-library/react", "@testing-library/user-event"]
+	},
+	"include": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.spec.ts", "src/**/*.spec.tsx"]
 }
 ```
 
