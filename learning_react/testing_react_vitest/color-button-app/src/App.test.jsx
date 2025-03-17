@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import App from "./App";
 
-test("button starts with correct color", () => {
+test("button click flow", async () => {
   render(<App />);
   const btnElement = screen.getByRole("button", { name: /blue/i });
   expect(btnElement).toHaveClass("bg-red-400", "btn");
+  await userEvent.click(btnElement);
+  expect(btnElement).toHaveClass("bg-blue-400");
+  expect(btnElement).toHaveTextContent("Change to red");
 });
-test("button starts with correct text", () => {});
-test("button has correct color after click", () => {});
-test("button has correct text after click", () => {});

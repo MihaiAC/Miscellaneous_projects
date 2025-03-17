@@ -856,9 +856,9 @@ Types of tests + how they relate to React:
 Jest + React Testing Library (for rendering components)
 
 Test functions:
-- Get = throw an error when element is not found;
-- Query = don't throw an error...
-- Find = async, returns Promise
+- Get = throw an error when element is not found; use when you expect the element to be there immediately;
+- Query = when you expect the element might not exist and want to check its absence;
+- Find = when the element appears after an async operation;
 
 Testing Suite:
 Declared with describe('category', () => {all tests})
@@ -868,6 +868,14 @@ Does not seem you can directly mock `useEffect` or hooks in general.
 So, test it indirectly by testing the modified state of the component.
 
 Testing data fetching (receive/send) -> either use mocks for the fetch methods OR a dummy db (like Django creating and destroying DB after each test).
+
+### Testing (second pass)
+Know the difference between get*, query*, find*.
+Always prefer `*ByRole` if possible, for accessibility.
+Other queries: `*ByLabelText, *ByPlaceholderText, *ByText, *ByAltText, *ByDisplayValue`
+Use `*ByTestId` only as a last resort.
+
+**logRoles**=logs all ARIA roles in a container, useful for debugging.
 
 
 ### TS + React
