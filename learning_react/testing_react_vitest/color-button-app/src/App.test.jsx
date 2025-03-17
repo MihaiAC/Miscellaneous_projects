@@ -32,7 +32,13 @@ test("checkbox flow", async () => {
   expect(checkboxElement).toBeChecked();
   expect(btnElement).toBeDisabled();
 
+  // When disabled, button should be gray.
+  expect(btnElement).toHaveClass("bg-gray-400");
+
   // Buton should be re-enabled after second checkbox click.
   await userEvent.click(checkboxElement);
   expect(btnElement).not.toBeDisabled();
+
+  // Check that the button's color is back to red.
+  expect(btnElement).toHaveClass("bg-red-400");
 });

@@ -4,15 +4,15 @@ import "./App.css";
 function App() {
   const [btnToggled, setBtnToggled] = useState(false);
   const [checkboxToggled, setCheckBoxToggled] = useState(false);
+  const btnText = btnToggled ? "Change to red" : "Change to blue";
 
   let btnClassName = "btn ";
-  let btnText = "Change to ";
-  if (!btnToggled) {
+  if (checkboxToggled) {
+    btnClassName += "bg-gray-400";
+  } else if (!btnToggled) {
     btnClassName += "bg-red-400";
-    btnText += "blue";
   } else {
     btnClassName += "bg-blue-400";
-    btnText += "red";
   }
 
   function handleButtonClick() {
@@ -30,7 +30,7 @@ function App() {
       >
         {btnText}
       </button>
-      ;
+
       <div className="flex flex-col-reverse">
         <input
           type="checkbox"
