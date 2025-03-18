@@ -69,6 +69,23 @@ test: {
 Add setupTests.js.
 `import "@testing-library/jest-dom";`
 
+If using Typescript, add to tsconfig.json
+```json
+{ "path" : "./tsconfig.test.json"},
+```
+
+Create tsconfig.test.json:
+```json
+{
+	"extends": "./tsconfig.app.json",
+	"compilerOptions": {
+	"types": ["vitest", "@testing-library/jest-dom", "@testing-library/react", "@testing-library/user-event"]
+	},
+	"include": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.spec.ts", "src/**/*.spec.tsx"]
+}
+```
+
+
 Install tailwind.
 `npm install -D tailwindcss@3 postcss autoprefixer`
 `npx tailwindcss init -p`
@@ -85,6 +102,14 @@ export default {
 };
 ```
 
+Don't do the next two things yet. I think they are meant for tailwindcss@4?
+`npm install --save-dev @tailwindcss/vite`
+
+Add to vite.config.ts
+```ts
+  plugins: [tailwindcss(),],
+```
+
 Add tailwind to index.css.
 ```css
 @tailwind base;
@@ -92,21 +117,6 @@ Add tailwind to index.css.
 @tailwind utilities;
 ```
 
-If using Typescript, add to tsconfig.json
-```json
-{ "path" : "./tsconfig.test.json"},
-```
-
-Create tsconfig.test.json:
-```json
-{
-	"extends": "./tsconfig.app.json",
-	"compilerOptions": {
-	"types": ["vitest", "@testing-library/jest-dom", "@testing-library/react", "@testing-library/user-event"]
-	},
-	"include": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.spec.ts", "src/**/*.spec.tsx"]
-}
-```
 
 Delete auto-generated Readme.md (?)
 Delete icons.
