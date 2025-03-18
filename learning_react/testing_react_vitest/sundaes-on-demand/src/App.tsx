@@ -4,7 +4,7 @@ import SummaryForm from "./components/SummaryForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Options optionType="scoops" /> },
+  { path: "/", element: <Options optionType="toppings" /> },
   { path: "/summary", Component: SummaryForm },
 ]);
 
