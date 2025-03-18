@@ -1,10 +1,10 @@
 import "./App.css";
-import Options from "./components/Options";
+import OrderEntry from "./components/OrderEntry";
 import SummaryForm from "./components/SummaryForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Options optionType="toppings" /> },
+  { path: "/", element: <OrderEntry /> },
   { path: "/summary", Component: SummaryForm },
 ]);
 

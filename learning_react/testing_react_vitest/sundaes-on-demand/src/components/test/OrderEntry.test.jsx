@@ -1,11 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import OrderEntry from "../OrderEntry";
 import { http, HttpResponse } from "msw";
 import { server } from "../../mocks/server";
 import { ORDER_ENTRY_ALERT_MESSAGE } from "../../constants";
 
-// TODO: Should have a constants.ts file to avoid hardcoding
-// strings.
 test("handles error for scoops and toppings routes", async () => {
   // Override handlers to return error response.
   server.resetHandlers(
@@ -19,9 +17,10 @@ test("handles error for scoops and toppings routes", async () => {
 
   render(<OrderEntry />);
 
-  const alerts = await screen.findAllByRole("alert", {
-    name: ORDER_ENTRY_ALERT_MESSAGE,
-  });
+  const alerts = await screen.findAllByRole("alert");
+  for (let alert of alerts) {
+    expect(alert).toHaveTextContent(ORDER_ENTRY_ALERT_MESSAGE);
+  }
 
   expect(alerts).toHaveLength(2);
 });
