@@ -103,7 +103,7 @@ export default {
 ```
 
 Don't do the next two things yet. I think they are meant for tailwindcss@4?
-`npm install --save-dev @tailwindcss/vite`
+`npm install --save-dev @tailwindcss/vite` Also, in v4 no longer need to use postcss.
 
 Add to vite.config.ts
 ```ts
