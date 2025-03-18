@@ -1,13 +1,14 @@
 import "./App.css";
 import SummaryForm from "./components/SummaryForm";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { path: "/", element: <p>Welcome</p> },
+  { path: "/summary", Component: SummaryForm },
+]);
 
 function App() {
-  return (
-    <>
-      <p>Welcome</p>
-      <SummaryForm />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
