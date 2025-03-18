@@ -1,9 +1,10 @@
 import "./App.css";
+import Options from "./components/Options";
 import SummaryForm from "./components/SummaryForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
-  { path: "/", element: <p>Welcome</p> },
+  { path: "/", element: <Options optionType="scoops" /> },
   { path: "/summary", Component: SummaryForm },
 ]);
 
