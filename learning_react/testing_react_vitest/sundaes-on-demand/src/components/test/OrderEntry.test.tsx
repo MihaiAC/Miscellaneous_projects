@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import OrderEntry from "../OrderEntry";
 import { http, HttpResponse } from "msw";
 import { server } from "../../mocks/server";
@@ -18,7 +18,7 @@ test("handles error for scoops and toppings routes", async () => {
   render(<OrderEntry />);
 
   const alerts = await screen.findAllByRole("alert");
-  for (let alert of alerts) {
+  for (const alert of alerts) {
     expect(alert).toHaveTextContent(ORDER_ENTRY_ALERT_MESSAGE);
   }
 
