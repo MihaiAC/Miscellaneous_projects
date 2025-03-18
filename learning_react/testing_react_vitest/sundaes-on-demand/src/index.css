@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.flex-vert {
+  @apply flex flex-col space-y-4;
+}
