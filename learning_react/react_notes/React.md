@@ -23,6 +23,7 @@ Additional packages:
 - Router: loaders, actions, submitting forms, Suspense.
 - "classnames" = cleaner way to conditionally apply class names to elements.
 - Motion: React animations.
+- MSW = creating Mocks for testing APIs
 
 ### Props ###
 == passing data to components.
@@ -878,6 +879,11 @@ Other queries: `*ByLabelText, *ByPlaceholderText, *ByText, *ByAltText, *ByDispla
 Use `*ByTestId` only as a last resort.
 
 **logRoles**=logs all ARIA roles in a container, useful for debugging.
+
+Testing APIs with Mocks => MSW.
+Create Mocks for every API endpoint.
+Setup needed:
+https://mswjs.io/docs/integrations/node
 
 
 ### TS + React

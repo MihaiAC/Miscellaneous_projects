@@ -4,7 +4,10 @@ Create new project with Vite.
 `npm create vite@latest my-app --template react`
 
 Install Vitest & testing libraries.
-`npm install --save-dev vitest jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event @vitest/ui @types/testing-library__react @types/jest`
+`npm install --save-dev vitest jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event @vitest/ui @types/testing-library__react @types/jest msw@latest`
+
+If you need mocks:
+Need to setup MSW: https://mswjs.io/docs/integrations/node
 
 (Vitest has a UI server at http://localhost:51204/__vitest__/, have to start it with vitest --ui)
 
