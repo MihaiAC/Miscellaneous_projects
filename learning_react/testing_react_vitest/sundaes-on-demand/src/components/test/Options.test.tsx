@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { SAMPLE_SCOOPS, SAMPLE_TOPPINGS } from "./testingConstants";
 import Options from "../Options";
 
 test("displays image for each scoop option from server", async () => {
@@ -12,7 +13,8 @@ test("displays image for each scoop option from server", async () => {
 
   // Confirm alt text of images.
   const altText = scoopImages.map((element) => element.alt);
-  expect(altText).toEqual(["Chocolate scoop", "Vanilla scoop"]);
+  const scoopNames = SAMPLE_SCOOPS.map(({ name }) => `${name} scoop`);
+  expect(altText).toEqual(scoopNames);
 });
 
 // Don't really like hardcoded values, in practice should import
@@ -28,9 +30,6 @@ test("displays image for each topping option from server", async () => {
 
   // Confirm alt text of images.
   const altText = toppingImages.map((element) => element.alt);
-  expect(altText).toEqual([
-    "Cherries topping",
-    "M&Ms topping",
-    "Hot fudge topping",
-  ]);
+  const toppingNames = SAMPLE_TOPPINGS.map(({ name }) => `${name} topping`);
+  expect(altText).toEqual(toppingNames);
 });

@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Options from "../Options";
+import { SAMPLE_SCOOPS, SCOOP_PRICE } from "./testingConstants";
 
 test("update scoop subtotal when scoops change", async () => {
   const user = userEvent.setup();
@@ -10,21 +11,19 @@ test("update scoop subtotal when scoops change", async () => {
   const scoopsSubtotal = screen.getByText("Scoops total: $", { exact: false });
   expect(scoopsSubtotal).toHaveTextContent("0.00");
 
-  // Update vanilla scoops to 1, and check subtotal.
-  const vanillaInput = await screen.findByRole("spinbutton", {
-    name: "vanilla",
-  });
+  let runningTotal = 0;
+  for (const [idx, { name }] of SAMPLE_SCOOPS.entries()) {
+    const quantity = idx + 1;
 
-  // Should have a testing constants file, and match "vanilla" to cost 2.
-  await user.clear(vanillaInput);
-  await user.type(vanillaInput, "1");
-  expect(scoopsSubtotal).toHaveTextContent("2.00");
+    const input = await screen.findByRole("spinbutton", {
+      name: new RegExp(`^${name}$`, "i"),
+    });
 
-  // Update chocolate scoops to 2, and check subtotal.
-  const chocolateInput = await screen.findByRole("spinbutton", {
-    name: "chocolate",
-  });
-  await user.clear(chocolateInput);
-  await user.type(chocolateInput, "1");
-  expect(scoopsSubtotal).toHaveTextContent("6.00");
+    await user.clear(input);
+    await user.type(input, quantity.toString());
+
+    runningTotal += SCOOP_PRICE * quantity;
+
+    expect(scoopsSubtotal).toHaveTextContent(runningTotal.toFixed(2));
+  }
 });
