@@ -50,6 +50,9 @@ export default function Options({ optionType }: OptionProps) {
         <p className="text-white font-thin text-2xl">
           {formatCurrency(pricePerItem[optionType])} each
         </p>
+        <p>
+          {optionType} total: {formatCurrency(totals[optionType])}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
