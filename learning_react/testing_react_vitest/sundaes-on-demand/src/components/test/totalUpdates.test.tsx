@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Options from "../Options";
+import Options from "../pages/order/Options";
 import { SAMPLE_SCOOPS } from "./testingConstants";
 import { pricePerItem } from "../../constants";
 import { OptionType } from "../types/types";

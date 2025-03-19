@@ -1,5 +1,5 @@
 import Options from "./Options";
-import { OptionType } from "./types/types";
+import { OptionType } from "../../types/types";
 
 export default function OrderEntry() {
   return (

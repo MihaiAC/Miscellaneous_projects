@@ -1,10 +1,21 @@
 import "./App.css";
-import OrderEntry from "./components/OrderEntry";
-import SummaryForm from "./components/SummaryForm";
+import { OrderDetailsProvider } from "./components/contexts/OrderDetailsContext";
+import OrderEntry from "./components/pages/order/OrderEntry";
+import SummaryForm from "./components/pages/SummaryForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Header from "./components/ui/Header";
 
+// TODO: test routes after finishing the course.
 const router = createBrowserRouter([
-  { path: "/", element: <OrderEntry /> },
+  { path: "/", element: <Header>Welcome to Sundaes on demand!</Header> },
+  {
+    path: "/options",
+    element: (
+      <OrderDetailsProvider>
+        <OrderEntry />
+      </OrderDetailsProvider>
+    ),
+  },
   { path: "/summary", Component: SummaryForm },
 ]);
 

@@ -1,4 +1,4 @@
-import { Topping } from "./types/types";
+import { Topping } from "../../types/types";
 
 export default function ToppingOption({ name, imagePath }: Topping) {
   return (

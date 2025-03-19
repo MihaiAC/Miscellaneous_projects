@@ -1,4 +1,4 @@
-import { Scoop } from "./types/types";
+import { Scoop } from "../../types/types";
 
 export default function ScoopOption({ name, imagePath }: Scoop) {
   return (

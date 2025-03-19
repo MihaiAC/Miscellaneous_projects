@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import Popover from "./ui/Popover";
+import Popover from "../ui/Popover";
 
 export default function SummaryForm() {
   const [isChecked, setIsChecked] = useState(false);

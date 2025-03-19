@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import OrderEntry from "../OrderEntry";
+import OrderEntry from "../pages/order/OrderEntry";
 import { http, HttpResponse } from "msw";
 import { server } from "../../mocks/server";
 import { ORDER_ENTRY_ALERT_MESSAGE } from "../../constants";
