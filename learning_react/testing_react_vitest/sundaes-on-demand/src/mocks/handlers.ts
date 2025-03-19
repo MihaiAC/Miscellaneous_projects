@@ -1,8 +1,5 @@
 import { http, HttpResponse } from "msw";
-import {
-  SAMPLE_SCOOPS,
-  SAMPLE_TOPPINGS,
-} from "../components/test/testingConstants";
+import { SAMPLE_SCOOPS, SAMPLE_TOPPINGS } from "../test-utils/testingConstants";
 
 export const handlers = [
   http.get("http://localhost:3030/scoops", () => {

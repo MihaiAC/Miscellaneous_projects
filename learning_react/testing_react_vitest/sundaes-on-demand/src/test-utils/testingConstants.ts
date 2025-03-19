@@ -1,4 +1,4 @@
-import { Scoop, Topping } from "../types/types";
+import { Scoop, Topping } from "../components/types/types";
 
 export const SAMPLE_SCOOPS: Scoop[] = [
   { name: "Chocolate", imagePath: "/images/chocolate.png" },

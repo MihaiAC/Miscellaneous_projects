@@ -1,13 +1,16 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../test-utils/testing-library-utils";
 import userEvent from "@testing-library/user-event";
 import Options from "../pages/order/Options";
-import { SAMPLE_SCOOPS } from "./testingConstants";
+import { SAMPLE_SCOOPS } from "../../test-utils/testingConstants";
 import { pricePerItem } from "../../constants";
 import { OptionType } from "../types/types";
+import { OrderDetailsProvider } from "../contexts/OrderDetailsContext";
 
 test("update scoop subtotal when scoops change", async () => {
   const user = userEvent.setup();
-  render(<Options optionType={OptionType.Scoops} />);
+  render(<Options optionType={OptionType.Scoops} />, {
+    wrapper: OrderDetailsProvider,
+  });
 
   // Make sure total starts out at $0.00.
   const scoopsSubtotal = screen.getByText("Scoops total: $", { exact: false });

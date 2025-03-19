@@ -1,5 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { SAMPLE_SCOOPS, SAMPLE_TOPPINGS } from "./testingConstants";
+import { render, screen } from "../../test-utils/testing-library-utils";
+import {
+  SAMPLE_SCOOPS,
+  SAMPLE_TOPPINGS,
+} from "../../test-utils/testingConstants";
 import Options from "../pages/order/Options";
 import { OptionType } from "../types/types";
 
