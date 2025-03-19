@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ScoopOption from "./ScoopOption";
-import { Scoop } from "./types/types";
+import { Scoop, OptionType } from "./types/types";
 import ToppingOption from "./ToppingOption";
 import ErrorAlert from "./ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE } from "../constants";
 
 interface OptionProps {
-  optionType: string;
+  optionType: OptionType;
 }
 
 export default function Options({ optionType }: OptionProps) {

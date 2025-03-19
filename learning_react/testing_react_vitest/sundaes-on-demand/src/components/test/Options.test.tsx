@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { SAMPLE_SCOOPS, SAMPLE_TOPPINGS } from "./testingConstants";
 import Options from "../Options";
+import { OptionType } from "../types/types";
 
 test("displays image for each scoop option from server", async () => {
-  render(<Options optionType="scoops" />);
+  render(<Options optionType={OptionType.Scoops} />);
 
   // Get images.
   const scoopImages: HTMLImageElement[] = await screen.findAllByRole("img", {
@@ -17,10 +18,8 @@ test("displays image for each scoop option from server", async () => {
   expect(altText).toEqual(scoopNames);
 });
 
-// Don't really like hardcoded values, in practice should import
-// from a test config file.
 test("displays image for each topping option from server", async () => {
-  render(<Options optionType="toppings" />);
+  render(<Options optionType={OptionType.Toppings} />);
 
   // Get images.
   const toppingImages: HTMLImageElement[] = await screen.findAllByRole("img", {

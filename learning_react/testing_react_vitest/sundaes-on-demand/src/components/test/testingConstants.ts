@@ -10,6 +10,3 @@ export const SAMPLE_TOPPINGS: Topping[] = [
   { name: "M&Ms", imagePath: "/images/m-and-ms.png" },
   { name: "Hot fudge", imagePath: "/images/hot-fudge.png" },
 ];
-
-export const SCOOP_PRICE = 2;
-export const TOPPING_PRICE = 3;
