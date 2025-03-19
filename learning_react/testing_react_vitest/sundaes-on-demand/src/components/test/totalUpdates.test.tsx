@@ -8,6 +8,17 @@ import {
 import { pricePerItem } from "../../constants";
 import { OptionType } from "../types/types";
 import { formatCurrency } from "../../utils";
+import OrderEntry from "../pages/order/OrderEntry";
+
+// TODO: add test + functionality for negative number of scoops.
+// TODO: add test + functionality for ensuring the user has input an integer.
+test("check that our samples have the expected number of elements", () => {
+  // Assert that SAMPLE_TOPPINGS has length at least 2.
+  expect(SAMPLE_TOPPINGS.length).toBeGreaterThanOrEqual(2);
+
+  // Assert that SAMPLE_SCOOPS has length at least 2.
+  expect(SAMPLE_TOPPINGS.length).toBeGreaterThanOrEqual(2);
+});
 
 test("update scoop subtotal when scoops change", async () => {
   const user = userEvent.setup();
@@ -42,9 +53,6 @@ test("update toppings subtotal when toppings change", async () => {
   const toppingsTotal = screen.getByText("Toppings total: $", { exact: false });
   expect(toppingsTotal).toHaveTextContent("0.00");
 
-  // Assert that SAMPLE_TOPPINGS has length at least 2.
-  expect(SAMPLE_TOPPINGS.length).toBeGreaterThanOrEqual(2);
-
   // Extract two topping names.
   const firstToppingName = SAMPLE_TOPPINGS[0].name;
   const secondToppingName = SAMPLE_TOPPINGS[1].name;
@@ -72,4 +80,84 @@ test("update toppings subtotal when toppings change", async () => {
   // For potential rounding errors.
   await user.click(secondToppingCheckbox);
   expect(toppingsTotal).toHaveTextContent("0.00");
+});
+
+describe("grand total", () => {
+  let grandTotal: HTMLElement;
+  let scoopInput: HTMLInputElement;
+  let toppingCheckbox: HTMLInputElement;
+  const scoopName = SAMPLE_SCOOPS[0].name;
+  const toppingName = SAMPLE_TOPPINGS[0].name;
+
+  beforeEach(async () => {
+    // eslint-disable-next-line testing-library/no-render-in-lifecycle
+    render(<OrderEntry />);
+    grandTotal = screen.getByRole("heading", { name: /^Grand total:/ });
+    scoopInput = await screen.findByRole("spinbutton", {
+      name: scoopName,
+    });
+    toppingCheckbox = await screen.findByRole("checkbox", {
+      name: toppingName,
+    });
+  });
+
+  test("grand total starts at $0.00", () => {
+    expect(grandTotal).toHaveTextContent("0.00");
+  });
+
+  test("grand total updates properly if scoop is added first", async () => {
+    let currentTotal = 0;
+
+    // Add two scoops, check total.
+    await userEvent.clear(scoopInput);
+    await userEvent.type(scoopInput, "2");
+    currentTotal += 2 * pricePerItem[OptionType.Scoops];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+
+    // Add a topping, check total.
+    await userEvent.click(toppingCheckbox);
+    currentTotal += pricePerItem[OptionType.Toppings];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+  });
+
+  test("grand total updates properly if topping is added first", async () => {
+    let currentTotal = 0;
+
+    // Add a topping, check total.
+    await userEvent.click(toppingCheckbox);
+    currentTotal += pricePerItem[OptionType.Toppings];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+
+    // Add two scoops, check total.
+    await userEvent.clear(scoopInput);
+    await userEvent.type(scoopInput, "2");
+    currentTotal += 2 * pricePerItem[OptionType.Scoops];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+  });
+
+  test("grand total updates properly if item is removed", async () => {
+    let currentTotal = 0;
+
+    // Add two scoops, check total.
+    await userEvent.clear(scoopInput);
+    await userEvent.type(scoopInput, "2");
+    currentTotal += 2 * pricePerItem[OptionType.Scoops];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+
+    // Add a topping, check total.
+    await userEvent.click(toppingCheckbox);
+    currentTotal += pricePerItem[OptionType.Toppings];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+
+    // Remove a scoop, check total.
+    await userEvent.clear(scoopInput);
+    await userEvent.type(scoopInput, "1");
+    currentTotal -= pricePerItem[OptionType.Scoops];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+
+    // Remove topping, check total.
+    await userEvent.click(toppingCheckbox);
+    currentTotal -= pricePerItem[OptionType.Toppings];
+    expect(grandTotal).toHaveTextContent(formatCurrency(currentTotal));
+  });
 });
