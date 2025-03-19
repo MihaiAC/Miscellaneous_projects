@@ -1,10 +1,10 @@
-import { render, screen } from "../../test-utils/testing-library-utils";
+import { render, screen } from "../../../../test-utils/testing-library-utils";
 import {
   SAMPLE_SCOOPS,
   SAMPLE_TOPPINGS,
-} from "../../test-utils/testingConstants";
-import Options from "../pages/order/Options";
-import { OptionType } from "../types/types";
+} from "../../../../test-utils/testingConstants";
+import Options from "../Options";
+import { OptionType } from "../../../types/types";
 
 test("displays image for each scoop option from server", async () => {
   // TODO: change this when testing routes.

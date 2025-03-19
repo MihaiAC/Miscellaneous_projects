@@ -1,14 +1,14 @@
-import { render, screen } from "../../test-utils/testing-library-utils";
+import { render, screen } from "../../../../test-utils/testing-library-utils";
 import userEvent from "@testing-library/user-event";
-import Options from "../pages/order/Options";
+import Options from "../Options";
 import {
   SAMPLE_SCOOPS,
   SAMPLE_TOPPINGS,
-} from "../../test-utils/testingConstants";
-import { pricePerItem } from "../../constants";
-import { OptionType } from "../types/types";
-import { formatCurrency } from "../../utils";
-import OrderEntry from "../pages/order/OrderEntry";
+} from "../../../../test-utils/testingConstants";
+import { pricePerItem } from "../../../../constants";
+import { OptionType } from "../../../types/types";
+import { formatCurrency } from "../../../../utils";
+import OrderEntry from "../OrderEntry";
 
 // TODO: add test + functionality for negative number of scoops.
 // TODO: add test + functionality for ensuring the user has input an integer.

@@ -1,4 +1,4 @@
-import SummaryForm from "../pages/summary/SummaryForm";
+import SummaryForm from "../SummaryForm";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
