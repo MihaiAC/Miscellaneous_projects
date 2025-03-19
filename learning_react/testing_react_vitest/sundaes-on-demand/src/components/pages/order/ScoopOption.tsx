@@ -9,7 +9,6 @@ export default function ScoopOption({ name, imagePath }: Scoop) {
   }
 
   // TODO: Add styled Form component.
-  // TODO: ScoopOption and ToppingOption are not sufficiently different.
   return (
     <div className="flex justify-center items-center">
       <img src={`http://localhost:3030/${imagePath}`} alt={`${name} scoop`} />

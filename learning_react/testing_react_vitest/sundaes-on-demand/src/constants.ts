@@ -5,5 +5,5 @@ export const ORDER_ENTRY_ALERT_MESSAGE =
 
 export const pricePerItem = {
   [OptionType.Scoops]: 2,
-  [OptionType.Toppings]: 3,
+  [OptionType.Toppings]: 1.5,
 };
