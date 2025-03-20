@@ -885,6 +885,16 @@ Create Mocks for every API endpoint.
 Setup needed:
 https://mswjs.io/docs/integrations/node
 
+##### Testing routes
+Should probably belong to integration tests, with more appropriate tools (e.g: Playwright), but I wanted to test something really basic - redirecting to another page after the user clicks a button.
+
+Only solution that worked:
+https://stackoverflow.com/questions/74399490/how-to-test-routing-logic-with-react-router-v6-and-testing-library
+aka, put your router config in another file and use it for both the real route and for the route you create with MemoryRouter;
+
+Using loader data to load data from an API before page load:
+https://stackoverflow.com/questions/75296685/unit-testing-useloaderdata-react-router-v6-loader-functions
+
 
 ### TS + React
 Useful snippets, will become useless once I use it more.

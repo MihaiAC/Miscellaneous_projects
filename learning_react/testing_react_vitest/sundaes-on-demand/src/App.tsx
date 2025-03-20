@@ -1,17 +1,11 @@
 import "./App.css";
 import { OrderDetailsProvider } from "./components/contexts/OrderDetailsContext";
-import OrderEntry from "./components/pages/order/OrderEntry";
-import SummaryForm from "./components/pages/summary/SummaryForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Confirmation from "./components/pages/confirmation/Confirmation";
+import { appRoutes } from "./router/routerConfig";
 
 // TODO: Add routes and test them.
 // TODO: Add styling.
-const router = createBrowserRouter([
-  { path: "/", Component: OrderEntry },
-  { path: "/summary", Component: SummaryForm },
-  { path: "/confirmation", Component: Confirmation },
-]);
+const router = createBrowserRouter(appRoutes);
 
 function App() {
   return (
