@@ -1,15 +1,23 @@
 import { render, RenderOptions } from "@testing-library/react";
 import { OrderDetailsProvider } from "../components/contexts/OrderDetailsContext";
-import { ReactElement } from "react";
+import { MemoryRouterOpts, RouteObject } from "react-router-dom";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
 
-function renderWithOrderDetailsContext(
-  ui: ReactElement,
+function renderWithContextAndRouter(
+  routes: RouteObject[],
+  routeOpts: MemoryRouterOpts,
   options?: RenderOptions
 ) {
-  render(ui, { wrapper: OrderDetailsProvider, ...options });
+  const router = createMemoryRouter(routes, routeOpts);
+  console.log(routeOpts);
+
+  render(<RouterProvider router={router} />, {
+    wrapper: OrderDetailsProvider,
+    ...options,
+  });
 }
 
 export * from "@testing-library/react";
 
 // Override render method.
-export { renderWithOrderDetailsContext as render };
+export { renderWithContextAndRouter as render };

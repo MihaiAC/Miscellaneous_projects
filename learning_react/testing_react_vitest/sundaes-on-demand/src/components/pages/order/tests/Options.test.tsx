@@ -7,8 +7,15 @@ import Options from "../Options";
 import { OptionType } from "../../../types/types";
 
 test("displays image for each scoop option from server", async () => {
-  // TODO: change if you switch to using a loader.
-  render(<Options optionType={OptionType.Scoops} />);
+  const routes = [
+    { path: "/", element: <Options optionType={OptionType.Scoops} /> },
+  ];
+
+  const routerOpts = {
+    initialEntries: ["/"],
+  };
+
+  render(routes, routerOpts);
 
   // Get images.
   const scoopImages: HTMLImageElement[] = await screen.findAllByRole("img", {
@@ -23,7 +30,15 @@ test("displays image for each scoop option from server", async () => {
 });
 
 test("displays image for each topping option from server", async () => {
-  render(<Options optionType={OptionType.Toppings} />);
+  const routes = [
+    { path: "/", element: <Options optionType={OptionType.Toppings} /> },
+  ];
+
+  const routerOpts = {
+    initialEntries: ["/"],
+  };
+
+  render(routes, routerOpts);
 
   // Get images.
   const toppingImages: HTMLImageElement[] = await screen.findAllByRole("img", {

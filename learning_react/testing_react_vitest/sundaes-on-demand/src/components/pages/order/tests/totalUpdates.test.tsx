@@ -22,7 +22,15 @@ test("check that our samples have the expected number of elements", () => {
 
 test("update scoop subtotal when scoops change", async () => {
   const user = userEvent.setup();
-  render(<Options optionType={OptionType.Scoops} />);
+  const routes = [
+    { path: "/", element: <Options optionType={OptionType.Scoops} /> },
+  ];
+
+  const routerOpts = {
+    initialEntries: ["/"],
+  };
+
+  render(routes, routerOpts);
 
   // Make sure total starts out at $0.00.
   const scoopsSubtotal = screen.getByText("Scoops total: $", { exact: false });
@@ -47,7 +55,15 @@ test("update scoop subtotal when scoops change", async () => {
 
 test("update toppings subtotal when toppings change", async () => {
   const user = userEvent.setup();
-  render(<Options optionType={OptionType.Toppings} />);
+  const routes = [
+    { path: "/", element: <Options optionType={OptionType.Toppings} /> },
+  ];
+
+  const routerOpts = {
+    initialEntries: ["/"],
+  };
+
+  render(routes, routerOpts);
 
   // Assert total starts at 0.
   const toppingsTotal = screen.getByText("Toppings total: $", { exact: false });
@@ -90,8 +106,15 @@ describe("grand total", () => {
   const toppingName = SAMPLE_TOPPINGS[0].name;
 
   beforeEach(async () => {
+    const routes = [{ path: "/", Component: OrderEntry }];
+
+    const routerOpts = {
+      initialEntries: ["/"],
+    };
+
     // eslint-disable-next-line testing-library/no-render-in-lifecycle
-    render(<OrderEntry />);
+    render(routes, routerOpts);
+
     grandTotal = screen.getByRole("heading", { name: /^Grand total:/ });
     scoopInput = await screen.findByRole("spinbutton", {
       name: scoopName,

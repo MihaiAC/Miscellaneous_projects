@@ -1,7 +1,5 @@
 import userEvent from "@testing-library/user-event";
-import { appRoutes } from "../router/routerConfig";
 import { render, screen } from "../test-utils/testing-library-utils";
-import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import {
   SAMPLE_SCOOPS,
   SAMPLE_TOPPINGS,
@@ -10,18 +8,18 @@ import {
 import { pricePerItem } from "../constants";
 import { OptionType } from "../components/types/types";
 import { formatCurrencyNoSign } from "../utils";
+import { appRoutes } from "../router/routerConfig";
 
 test("order phases for primary user flow", async () => {
-  // Create user.
-  const user = userEvent.setup();
-
-  // Create router.
-  const router = createMemoryRouter(appRoutes, {
+  const routerOpts = {
     initialEntries: ["/"],
-  });
+  };
 
   // Render app.
-  render(<RouterProvider router={router} />);
+  render(appRoutes, routerOpts);
+
+  // Init user.
+  const user = userEvent.setup();
 
   // Add scoops and toppings.
   const scoopName = SAMPLE_SCOOPS[0].name;
