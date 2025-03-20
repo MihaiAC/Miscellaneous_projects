@@ -5,6 +5,8 @@ import { appRoutes } from "./router/routerConfig";
 
 // TODO: Add routes and test them.
 // TODO: Add styling.
+// TODO: Confirmation and OrderSummary unit tests(?).
+// TODO: Centralise all string constants?
 const router = createBrowserRouter(appRoutes);
 
 function App() {

@@ -5,3 +5,7 @@ export function formatCurrency(currency: number) {
     minimumFractionDigits: 2,
   }).format(currency);
 }
+
+export function formatCurrencyNoSign(currency: number) {
+  return currency.toFixed(2);
+}

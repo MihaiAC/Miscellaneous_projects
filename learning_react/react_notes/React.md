@@ -890,14 +890,21 @@ Should probably belong to integration tests, with more appropriate tools (e.g: P
 
 Only solution that worked:
 https://stackoverflow.com/questions/74399490/how-to-test-routing-logic-with-react-router-v6-and-testing-library
-aka, put your router config in another file and use it for both the real route and for the route you create with MemoryRouter;
+Aka, put your router config in another file and use it for both the real route and for the route you create with MemoryRouter;
 
 Using loader data to load data from an API before page load:
 https://stackoverflow.com/questions/75296685/unit-testing-useloaderdata-react-router-v6-loader-functions
+(Mock the data returned by the loader with MSW)
 
+Alternative, can mock the route locally if not performing an integration test, like here:
+https://github.com/remix-run/react-router/discussions/12576
 
 ### TS + React
 Useful snippets, will become useless once I use it more.
 `useRef<HTMLInputElement>(null)`
 `FC` = functional component (no children) -> can avoid using it by explicitly declaring an input type/interface for the component arguments.
 `createContext<{all the fields/functions and their types OR a custom type}>`
+
+### Misc
+Could have string constants files for every page -> would be better for testing.
+Could go further with a special context for all string constants in the application.

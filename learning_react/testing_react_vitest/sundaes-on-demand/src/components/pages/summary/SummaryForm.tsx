@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Popover from "../../ui/Popover";
+import { Link } from "react-router-dom";
 
 export default function SummaryForm() {
   const [isChecked, setIsChecked] = useState(false);
@@ -26,12 +27,14 @@ export default function SummaryForm() {
       </Popover>
 
       <div>
-        <button
-          disabled={!isChecked}
-          className="bg-red-400 disabled:bg-gray-400 p-2 rounded-md hover:opacity-90"
-        >
-          Confirm order
-        </button>
+        <Link to="/confirmation">
+          <button
+            disabled={!isChecked}
+            className="bg-red-400 disabled:bg-gray-400 p-2 rounded-md hover:opacity-90"
+          >
+            Confirm order
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import Options from "./Options";
 import { OptionType } from "../../types/types";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { formatCurrency } from "../../../utils";
+import { Link } from "react-router-dom";
 
 export default function OrderEntry() {
   const { totals } = useOrderDetails();
@@ -15,6 +16,9 @@ export default function OrderEntry() {
       <Options optionType={OptionType.Scoops} />
       <Options optionType={OptionType.Toppings} />
       <h1>Grand total: {formatCurrency(grandTotal)}</h1>
+      <Link to="/summary">
+        <button>Checkout</button>
+      </Link>
     </div>
   );
 }

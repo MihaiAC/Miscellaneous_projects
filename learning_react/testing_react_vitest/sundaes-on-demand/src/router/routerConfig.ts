@@ -1,9 +1,9 @@
 import OrderEntry from "../components/pages/order/OrderEntry";
-import SummaryForm from "../components/pages/summary/SummaryForm";
-import Confirmation from "../components/pages/confirmation/Confirmation";
+import OrderSummary from "../components/pages/summary/OrderSummary";
+import OrderConfirmation from "../components/pages/confirmation/OrderConfirmation";
 
 export const appRoutes = [
   { path: "/", Component: OrderEntry },
-  { path: "/summary", Component: SummaryForm },
-  { path: "/confirmation", Component: Confirmation },
+  { path: "/summary", Component: OrderSummary },
+  { path: "/confirmation", Component: OrderConfirmation },
 ];

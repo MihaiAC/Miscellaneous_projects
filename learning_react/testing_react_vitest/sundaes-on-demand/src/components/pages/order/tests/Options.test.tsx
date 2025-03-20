@@ -7,7 +7,7 @@ import Options from "../Options";
 import { OptionType } from "../../../types/types";
 
 test("displays image for each scoop option from server", async () => {
-  // TODO: change this when testing routes.
+  // TODO: change if you switch to using a loader.
   render(<Options optionType={OptionType.Scoops} />);
 
   // Get images.
