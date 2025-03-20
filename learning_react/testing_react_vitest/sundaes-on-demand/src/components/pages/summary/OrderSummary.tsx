@@ -1,4 +1,3 @@
-import Header from "../../ui/Header";
 import SummaryForm from "./SummaryForm";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { formatCurrency } from "../../../utils";
@@ -18,7 +17,7 @@ export default function OrderSummary() {
 
   return (
     <div>
-      <Header>Order summary</Header>
+      <h1>Order summary</h1>
       <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
       <ul>{scoopList}</ul>
       <h2>Toppings: {formatCurrency(totals.toppings)}</h2>

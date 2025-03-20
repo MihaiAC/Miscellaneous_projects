@@ -7,7 +7,6 @@ import ErrorAlert from "../../ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE, pricePerItem } from "../../../constants";
 import { formatCurrency } from "../../../utils";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
-import Header from "../../ui/Header";
 
 interface OptionProps {
   optionType: OptionType;
@@ -46,7 +45,7 @@ export default function Options({ optionType }: OptionProps) {
     <>
       <div>
         {" "}
-        <Header>Available {optionType}</Header>
+        <h1>Available {optionType}</h1>
         <p className="text-white font-thin text-2xl">
           {formatCurrency(pricePerItem[optionType])} each
         </p>
