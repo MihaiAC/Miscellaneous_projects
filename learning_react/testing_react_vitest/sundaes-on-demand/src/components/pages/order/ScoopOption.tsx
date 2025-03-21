@@ -7,6 +7,8 @@ export default function ScoopOption({ name, imagePath }: Scoop) {
   const [isValid, setIsValid] = useState(true);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault();
+
     const currentValue = parseFloat(event.target.value);
     const valueIsValid =
       0 <= currentValue &&
@@ -21,6 +23,8 @@ export default function ScoopOption({ name, imagePath }: Scoop) {
         parseInt(event.target.value, 10),
         OptionType.Scoops
       );
+    } else {
+      updateItemCount(name, 0, OptionType.Scoops);
     }
   }
 
@@ -28,7 +32,7 @@ export default function ScoopOption({ name, imagePath }: Scoop) {
   return (
     <div className="flex justify-center items-center">
       <img src={`http://localhost:3030/${imagePath}`} alt={`${name} scoop`} />
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <label htmlFor={`${name}-count`}>{name}</label>
         <input
           id={`${name}-count`}
