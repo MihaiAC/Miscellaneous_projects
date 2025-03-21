@@ -2,10 +2,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { useNavigate } from "react-router-dom";
+import ErrorAlert from "../../ui/ErrorAlert";
+import { ORDER_ENTRY_ALERT_MESSAGE } from "../../../constants";
 
 export default function OrderConfirmation() {
   const { resetOrder } = useOrderDetails();
   const [orderNumber, setOrderNumber] = useState(null);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,13 +20,17 @@ export default function OrderConfirmation() {
         setOrderNumber(response.data.orderNumber);
       })
       .catch(() => {
-        // TODO: handle this.
+        setError(true);
       });
   }, []);
 
   function handleClick() {
     resetOrder();
     navigate("/");
+  }
+
+  if (error) {
+    return <ErrorAlert errorMessage={ORDER_ENTRY_ALERT_MESSAGE} />;
   }
 
   if (orderNumber) {
