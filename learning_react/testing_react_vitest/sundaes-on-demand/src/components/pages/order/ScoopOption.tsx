@@ -1,11 +1,27 @@
 import { OptionType, Scoop } from "../../types/types";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
+import { useState } from "react";
 
 export default function ScoopOption({ name, imagePath }: Scoop) {
   const { updateItemCount } = useOrderDetails();
+  const [isValid, setIsValid] = useState(true);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    updateItemCount(name, parseInt(event.target.value, 10), OptionType.Scoops);
+    const currentValue = parseFloat(event.target.value);
+    const valueIsValid =
+      0 <= currentValue &&
+      currentValue <= 10 &&
+      Math.floor(currentValue) === currentValue;
+
+    setIsValid(valueIsValid);
+
+    if (valueIsValid) {
+      updateItemCount(
+        name,
+        parseInt(event.target.value, 10),
+        OptionType.Scoops
+      );
+    }
   }
 
   // TODO: Add styled Form component.
@@ -19,6 +35,7 @@ export default function ScoopOption({ name, imagePath }: Scoop) {
           type="number"
           defaultValue={0}
           onChange={handleChange}
+          className={isValid ? "input" : "input input-error"}
         />
       </form>
     </div>

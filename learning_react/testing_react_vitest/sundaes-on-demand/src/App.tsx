@@ -3,7 +3,7 @@ import { OrderDetailsProvider } from "./components/contexts/OrderDetailsContext"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { appRoutes } from "./router/routerConfig";
 
-// TODO: Add routes and test them.
+// TODO: Use React query + axios to retrieve + cache objects.
 // TODO: Add styling.
 // TODO: Confirmation and OrderSummary unit tests(?).
 // TODO: Centralise all string constants?
