@@ -11,13 +11,15 @@ export default function OrderEntry() {
     0
   );
 
+  const noScoopsSelected = totals.scoops === 0;
+
   return (
     <div className="flex flex-col space-y-32">
       <Options optionType={OptionType.Scoops} />
       <Options optionType={OptionType.Toppings} />
       <h1>Grand total: {formatCurrency(grandTotal)}</h1>
       <Link to="/summary">
-        <button>Checkout</button>
+        <button disabled={noScoopsSelected}>Checkout</button>
       </Link>
     </div>
   );
