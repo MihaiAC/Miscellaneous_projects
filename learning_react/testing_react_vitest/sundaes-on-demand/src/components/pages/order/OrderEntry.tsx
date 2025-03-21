@@ -1,5 +1,5 @@
 import Options from "./Options";
-import { OptionType } from "../../types/types";
+import { OptionType } from "../../../types";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { formatCurrency } from "../../../utils";
 import { Link } from "react-router-dom";

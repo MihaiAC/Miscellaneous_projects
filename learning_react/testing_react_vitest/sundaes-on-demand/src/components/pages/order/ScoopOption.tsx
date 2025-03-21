@@ -1,8 +1,8 @@
-import { OptionType, Scoop } from "../../types/types";
+import { OptionType, OptionData } from "../../../types";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { useState } from "react";
 
-export default function ScoopOption({ name, imagePath }: Scoop) {
+export default function ScoopOption({ name, imagePath }: OptionData) {
   const { updateItemCount } = useOrderDetails();
   const [isValid, setIsValid] = useState(true);
 

@@ -1,5 +1,5 @@
 import ScoopOption from "./ScoopOption";
-import { Option, OptionType } from "../../types/types";
+import { Option, OptionType } from "../../../types";
 import ToppingOption from "./ToppingOption";
 import ErrorAlert from "../../ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE, pricePerItem } from "../../../constants";

@@ -4,7 +4,7 @@ import {
   SAMPLE_TOPPINGS,
 } from "../../../../test-utils/testingConstants";
 import Options from "../Options";
-import { OptionType } from "../../../types/types";
+import { OptionType } from "../../../../types";
 import userEvent from "@testing-library/user-event";
 import { formatCurrencyNoSign } from "../../../../utils";
 import { pricePerItem } from "../../../../constants";

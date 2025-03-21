@@ -6,7 +6,7 @@ import {
   CONFIRMATION_RESPONSE,
 } from "../test-utils/testingConstants";
 import { pricePerItem } from "../constants";
-import { OptionType } from "../components/types/types";
+import { OptionType } from "../types";
 import { formatCurrencyNoSign } from "../utils";
 import { appRoutes } from "../router/routerConfig";
 

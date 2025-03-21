@@ -1,7 +1,7 @@
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
-import { OptionType, Topping } from "../../types/types";
+import { OptionType, OptionData } from "../../../types";
 
-export default function ToppingOption({ name, imagePath }: Topping) {
+export default function ToppingOption({ name, imagePath }: OptionData) {
   const { updateItemCount } = useOrderDetails();
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {

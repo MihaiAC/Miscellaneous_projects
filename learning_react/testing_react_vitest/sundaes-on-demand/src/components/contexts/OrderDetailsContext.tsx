@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { OptionCounts, OptionType } from "../types/types";
+import { OptionCounts, OptionType } from "../../types";
 import { pricePerItem } from "../../constants";
 
 interface OrderDetailsContextType {

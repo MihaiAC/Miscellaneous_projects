@@ -2,7 +2,7 @@ import userEvent from "@testing-library/user-event";
 import { render, screen } from "../test-utils/testing-library-utils";
 import { SAMPLE_SCOOPS, SAMPLE_TOPPINGS } from "../test-utils/testingConstants";
 import { pricePerItem } from "../constants";
-import { OptionType } from "../components/types/types";
+import { OptionType } from "../types";
 import { formatCurrencyNoSign } from "../utils";
 import { appRoutes } from "../router/routerConfig";
 

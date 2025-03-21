@@ -2,7 +2,7 @@ import { render, screen } from "../../../../test-utils/testing-library-utils";
 import { http, HttpResponse } from "msw";
 import { server } from "../../../../mocks/server";
 import { ORDER_ENTRY_ALERT_MESSAGE } from "../../../../constants";
-import { OptionType } from "../../../types/types";
+import { OptionType } from "../../../../types";
 import { appRoutes } from "../../../../router/routerConfig";
 import userEvent from "@testing-library/user-event";
 import { SAMPLE_SCOOPS } from "../../../../test-utils/testingConstants";

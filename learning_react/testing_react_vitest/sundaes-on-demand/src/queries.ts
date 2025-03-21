@@ -1,4 +1,4 @@
-import { OptionType, Option } from "./components/types/types";
+import { OptionType, Option } from "./types";
 import axios from "axios";
 
 export async function fetchOptions(optionType: OptionType): Promise<Option[]> {

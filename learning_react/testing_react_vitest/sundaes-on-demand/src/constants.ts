@@ -1,4 +1,4 @@
-import { OptionType } from "./components/types/types";
+import { OptionType } from "./types";
 
 export const ORDER_ENTRY_ALERT_MESSAGE =
   "An unexpected error has occurred. Please try again later.";

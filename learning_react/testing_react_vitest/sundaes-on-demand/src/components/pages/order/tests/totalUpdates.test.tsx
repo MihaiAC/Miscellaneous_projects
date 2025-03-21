@@ -6,7 +6,7 @@ import {
   SAMPLE_TOPPINGS,
 } from "../../../../test-utils/testingConstants";
 import { pricePerItem } from "../../../../constants";
-import { OptionType } from "../../../types/types";
+import { OptionType } from "../../../../types";
 import { formatCurrency } from "../../../../utils";
 import OrderEntry from "../OrderEntry";
 
