@@ -6,6 +6,7 @@ import { OptionType } from "../../../types/types";
 import { appRoutes } from "../../../../router/routerConfig";
 import userEvent from "@testing-library/user-event";
 import { SAMPLE_SCOOPS } from "../../../../test-utils/testingConstants";
+import { waitFor } from "@testing-library/react";
 
 const routerOpts = {
   initialEntries: ["/"],
@@ -48,10 +49,11 @@ test("handles error for OptionType routes", async () => {
 
   render(appRoutes, routerOpts);
 
-  const alerts = await screen.findAllByRole("alert");
-  for (const alert of alerts) {
-    expect(alert).toHaveTextContent(ORDER_ENTRY_ALERT_MESSAGE);
-  }
-
-  expect(alerts).toHaveLength(2);
+  await waitFor(async () => {
+    const alerts = await screen.findAllByRole("alert");
+    expect(alerts).toHaveLength(2);
+    alerts.forEach((alert) =>
+      expect(alert).toHaveTextContent(ORDER_ENTRY_ALERT_MESSAGE)
+    );
+  });
 });

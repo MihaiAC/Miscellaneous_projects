@@ -58,7 +58,7 @@ test("total is not updated if scoops input is invalid", async () => {
 
   // Retrieve scoops total, ensure it's 0.
   // TODO: Same regexp used in two different test files.
-  const scoopsHeading = screen.getByText(
+  const scoopsHeading = await screen.findByText(
     new RegExp(`scoops.*${formatCurrencyNoSign(0)}`, "i")
   );
   expect(scoopsHeading).toBeInTheDocument();

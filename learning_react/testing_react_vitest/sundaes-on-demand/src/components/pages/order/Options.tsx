@@ -1,44 +1,51 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import ScoopOption from "./ScoopOption";
-import { Scoop, OptionType } from "../../types/types";
+import { Option, OptionType } from "../../types/types";
 import ToppingOption from "./ToppingOption";
 import ErrorAlert from "../../ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE, pricePerItem } from "../../../constants";
 import { formatCurrency } from "../../../utils";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
+import { useQuery } from "@tanstack/react-query";
+import { fetchOptions } from "../../../queries";
 
 interface OptionProps {
   optionType: OptionType;
 }
 
 export default function Options({ optionType }: OptionProps) {
-  const [items, setItems] = useState<Scoop[]>([]);
-  const [error, setError] = useState<boolean>(false);
+  const {
+    data: items,
+    isLoading,
+    isError,
+  } = useQuery<Option[]>({
+    queryKey: ["options", optionType],
+    queryFn: () => fetchOptions(optionType),
+  });
+
   const { totals } = useOrderDetails();
 
-  // TODO: Make a router loader do this instead of useEffect + test it.
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3030/${optionType}`)
-      .then((response) => setItems(response.data))
-      .catch(() => setError(true));
-  }, [optionType]);
-
-  if (error) {
+  if (isError) {
     return <ErrorAlert errorMessage={ORDER_ENTRY_ALERT_MESSAGE} />;
+  }
+
+  // TODO: Add loading visual element.
+  if (isLoading) {
+    return <p>Loading...</p>;
   }
 
   const ItemComponent =
     optionType === OptionType.Scoops ? ScoopOption : ToppingOption;
 
-  const optionItems = items.map((item) => (
-    <ItemComponent
-      key={item.name}
-      name={item.name}
-      imagePath={item.imagePath}
-    />
-  ));
+  let optionItems = undefined;
+  if (items) {
+    optionItems = items.map((item) => (
+      <ItemComponent
+        key={item.name}
+        name={item.name}
+        imagePath={item.imagePath}
+      />
+    ));
+  }
 
   return (
     <>

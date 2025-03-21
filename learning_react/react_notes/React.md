@@ -899,6 +899,10 @@ https://stackoverflow.com/questions/75296685/unit-testing-useloaderdata-react-ro
 Alternative, can mock the route locally if not performing an integration test, like here:
 https://github.com/remix-run/react-router/discussions/12576
 
+Most important lesson to remember: wrap render in your context, in router's context and in Tanstack's context and configure it (no cache, no retries, no refetchOnWindowFocus?, no refetchOnReconnect?).
+
+**When you expect multiple async elements to load in a test, use waitFor.**
+
 ### TS + React
 Useful snippets, will become useless once I use it more.
 `useRef<HTMLInputElement>(null)`

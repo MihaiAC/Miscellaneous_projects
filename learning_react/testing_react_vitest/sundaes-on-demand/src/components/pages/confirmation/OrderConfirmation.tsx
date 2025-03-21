@@ -1,36 +1,34 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { useNavigate } from "react-router-dom";
 import ErrorAlert from "../../ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE } from "../../../constants";
+import { useQuery } from "@tanstack/react-query";
+import { fetchOrderNumber } from "../../../queries";
 
 export default function OrderConfirmation() {
+  const {
+    data: orderNumber,
+    isLoading,
+    isError,
+  } = useQuery<number>({
+    queryFn: () => fetchOrderNumber(),
+    queryKey: ["confirmation"],
+  });
   const { resetOrder } = useOrderDetails();
-  const [orderNumber, setOrderNumber] = useState(null);
-  const [error, setError] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // TODO: Custom confirmation response type. Change tests too.
-    // TODO: Should replace with React-query.
-    axios
-      .post("http://localhost:3030/order")
-      .then((response) => {
-        setOrderNumber(response.data.orderNumber);
-      })
-      .catch(() => {
-        setError(true);
-      });
-  }, []);
 
   function handleClick() {
     resetOrder();
     navigate("/");
   }
 
-  if (error) {
+  if (isError) {
     return <ErrorAlert errorMessage={ORDER_ENTRY_ALERT_MESSAGE} />;
+  }
+
+  if (isLoading) {
+    // TODO: Loading element.
+    return <p>Loading...</p>;
   }
 
   if (orderNumber) {
@@ -42,8 +40,5 @@ export default function OrderConfirmation() {
         <button onClick={handleClick}>Create new order</button>
       </div>
     );
-  } else {
-    // TODO: Loading element.
-    return <p>Loading...</p>;
   }
 }

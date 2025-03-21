@@ -10,8 +10,6 @@ import { OptionType } from "../../../types/types";
 import { formatCurrency } from "../../../../utils";
 import OrderEntry from "../OrderEntry";
 
-// TODO: add test + functionality for negative number of scoops.
-// TODO: add test + functionality for ensuring the user has input an integer.
 test("check that our samples have the expected number of elements", () => {
   // Assert that SAMPLE_TOPPINGS has length at least 2.
   expect(SAMPLE_TOPPINGS.length).toBeGreaterThanOrEqual(2);
@@ -33,7 +31,9 @@ test("update scoop subtotal when scoops change", async () => {
   render(routes, routerOpts);
 
   // Make sure total starts out at $0.00.
-  const scoopsSubtotal = screen.getByText("Scoops total: $", { exact: false });
+  const scoopsSubtotal = await screen.findByText("Scoops total: $", {
+    exact: false,
+  });
   expect(scoopsSubtotal).toHaveTextContent("0.00");
 
   let runningTotal = 0;
@@ -66,7 +66,9 @@ test("update toppings subtotal when toppings change", async () => {
   render(routes, routerOpts);
 
   // Assert total starts at 0.
-  const toppingsTotal = screen.getByText("Toppings total: $", { exact: false });
+  const toppingsTotal = await screen.findByText("Toppings total: $", {
+    exact: false,
+  });
   expect(toppingsTotal).toHaveTextContent("0.00");
 
   // Extract two topping names.
