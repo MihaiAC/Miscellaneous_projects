@@ -17,8 +17,7 @@ export default function Options({ optionType }: OptionProps) {
   const [error, setError] = useState<boolean>(false);
   const { totals } = useOrderDetails();
 
-  // TODO: Make a router loader do this instead of useEffect.
-  // TODO: +test it.
+  // TODO: Make a router loader do this instead of useEffect + test it.
   useEffect(() => {
     axios
       .get(`http://localhost:3030/${optionType}`)

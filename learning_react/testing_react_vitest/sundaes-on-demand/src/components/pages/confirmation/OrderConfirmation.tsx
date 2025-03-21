@@ -10,7 +10,7 @@ export default function OrderConfirmation() {
 
   useEffect(() => {
     // TODO: Custom confirmation response type. Change tests too.
-    // TODO: Should replace with a loader?
+    // TODO: Should replace with React-query.
     axios
       .post("http://localhost:3030/order")
       .then((response) => {
