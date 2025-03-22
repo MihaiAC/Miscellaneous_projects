@@ -108,3 +108,5 @@ Add tailwind to index.css.
 Delete auto-generated Readme.md (?)
 Delete icons.
 Delete App.tsx extra stuff.
+
+Either clsx or classnames for easier application of class names.

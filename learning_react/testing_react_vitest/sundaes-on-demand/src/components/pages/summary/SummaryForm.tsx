@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
-import Popover from "../../ui/Popover";
 import { Link } from "react-router-dom";
+import Button from "../../ui/Button";
+import Popover from "../../ui/Popover";
 
 export default function SummaryForm() {
   const [isChecked, setIsChecked] = useState(false);
@@ -12,28 +13,24 @@ export default function SummaryForm() {
 
   return (
     <div className="flex-vert">
-      <form className="flex-vert" ref={formRef}>
+      <form className="summary-checkbox-form" ref={formRef}>
         {" "}
         <label htmlFor="confirm-order-checkbox">Terms and conditions</label>
         <input
           type="checkbox"
+          className="checkbox checkbox-primary"
           id="confirm-order-checkbox"
           onChange={handleCheckboxChange}
         />
       </form>
 
       <Popover targetRef={formRef}>
-        <p>Nothing will be actually delivered!</p>
+        <p>Nothing will actually be delivered!</p>
       </Popover>
 
       <div>
         <Link to="/confirmation">
-          <button
-            disabled={!isChecked}
-            className="bg-red-400 disabled:bg-gray-400 p-2 rounded-md hover:opacity-90"
-          >
-            Confirm order
-          </button>
+          <Button disabled={!isChecked}>Confirm order</Button>
         </Link>
       </div>
     </div>

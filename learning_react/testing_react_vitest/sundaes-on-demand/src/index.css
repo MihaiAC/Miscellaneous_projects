@@ -5,6 +5,46 @@
     luxury --prefersdark;
 }
 
-.flex-vert {
-  @apply flex flex-col space-y-4;
+@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply container mx-auto p-8 m-16;
+  }
+
+  .options-header {
+    @apply flex flex-col items-center space-y-2 mb-16;
+  }
+
+  .options-content {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .price {
+    @apply text-white font-thin text-2xl;
+  }
+
+  .item-component-container {
+    @apply flex flex-col items-center space-y-4 mb-16;
+  }
+
+  .item-component-form {
+    @apply text-center flex flex-col space-y-4 items-center;
+  }
+
+  .flex-vert {
+    @apply flex flex-col items-center space-y-4;
+  }
+
+  .summary-checkbox-form {
+    @apply flex space-x-4;
+  }
 }

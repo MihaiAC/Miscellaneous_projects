@@ -9,14 +9,15 @@ export default function ToppingOption({ name, imagePath }: OptionData) {
   }
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="item-component-container">
       <img src={`http://localhost:3030/${imagePath}`} alt={`${name} topping`} />
-      <div>
+      <div className="item-component-form">
         <label htmlFor={`${name}-topping-checkbox`}>{name}</label>
         <input
           id={`${name}-topping-checkbox`}
           type="checkbox"
           onChange={handleChange}
+          className="checkbox checkbox-primary"
         />
       </div>
     </div>

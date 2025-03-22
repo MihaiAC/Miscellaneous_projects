@@ -12,13 +12,14 @@ export default function OrderSummary() {
   ));
 
   const hasToppings = totals.toppings > 0;
+  console.log(totals.toppings);
 
   const toppingList = Object.keys(optionCounts.toppings).map((key) => (
     <li key={key}>{key}</li>
   ));
 
   return (
-    <div>
+    <div className="page-container flex-vert space-y-8">
       <h1>Order summary</h1>
       <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
       <ul>{scoopList}</ul>

@@ -1,7 +1,9 @@
-import { OptionType, Option } from "./types";
+import { OptionType, OptionData } from "./types";
 import axios from "axios";
 
-export async function fetchOptions(optionType: OptionType): Promise<Option[]> {
+export async function fetchOptions(
+  optionType: OptionType
+): Promise<OptionData[]> {
   const response = await axios.get(`http://localhost:3030/${optionType}`);
   return response.data;
 }

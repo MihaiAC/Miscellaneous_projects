@@ -5,7 +5,7 @@ import { MemoryRouterOpts } from "react-router-dom";
 
 const CHECKBOX_LABEL = /terms and conditions/i;
 const BUTTON_TEXT = /confirm order/i;
-const POPOVER_TEXT = /nothing will be actually delivered/i;
+const POPOVER_TEXT = /nothing will actually be delivered/i;
 
 const routes = [
   { path: "/", Component: SummaryForm },

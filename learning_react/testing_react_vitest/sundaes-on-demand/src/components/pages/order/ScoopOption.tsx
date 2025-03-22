@@ -1,6 +1,7 @@
 import { OptionType, OptionData } from "../../../types";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { useState } from "react";
+import clsx from "clsx";
 
 export default function ScoopOption({ name, imagePath }: OptionData) {
   const { updateItemCount } = useOrderDetails();
@@ -28,18 +29,20 @@ export default function ScoopOption({ name, imagePath }: OptionData) {
     }
   }
 
-  // TODO: Add styled Form component.
   return (
-    <div className="flex justify-center items-center">
+    <div className="item-component-container">
       <img src={`http://localhost:3030/${imagePath}`} alt={`${name} scoop`} />
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form
+        onSubmit={(event) => event.preventDefault()}
+        className="item-component-form"
+      >
         <label htmlFor={`${name}-count`}>{name}</label>
         <input
           id={`${name}-count`}
           type="number"
           defaultValue={0}
           onChange={handleChange}
-          className={isValid ? "input" : "input input-error"}
+          className={clsx("input max-w-20", { "input-error": !isValid })}
         />
       </form>
     </div>

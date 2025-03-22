@@ -30,7 +30,7 @@ export default function Popover({ children, targetRef }: PopoverProps) {
   return (
     <div className="relative">
       {open && (
-        <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 w-48 bg-white border shadow-lg rounded-md p-3">
+        <div className="absolute left-1/2 top-full mt-2 translate-x-1/2 -translate-y-1/2 w-48 bg-white border shadow-lg rounded-md p-3">
           {children}
         </div>
       )}

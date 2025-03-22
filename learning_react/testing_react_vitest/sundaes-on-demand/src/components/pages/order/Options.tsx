@@ -1,5 +1,5 @@
 import ScoopOption from "./ScoopOption";
-import { Option, OptionType } from "../../../types";
+import { OptionData, OptionType } from "../../../types";
 import ToppingOption from "./ToppingOption";
 import ErrorAlert from "../../ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE, pricePerItem } from "../../../constants";
@@ -7,6 +7,7 @@ import { formatCurrency } from "../../../utils";
 import { useOrderDetails } from "../../contexts/OrderDetailsContext";
 import { useQuery } from "@tanstack/react-query";
 import { fetchOptions } from "../../../queries";
+import Loading from "../../ui/Loading";
 
 interface OptionProps {
   optionType: OptionType;
@@ -17,7 +18,7 @@ export default function Options({ optionType }: OptionProps) {
     data: items,
     isLoading,
     isError,
-  } = useQuery<Option[]>({
+  } = useQuery<OptionData[]>({
     queryKey: ["options", optionType],
     queryFn: () => fetchOptions(optionType),
   });
@@ -28,9 +29,8 @@ export default function Options({ optionType }: OptionProps) {
     return <ErrorAlert errorMessage={ORDER_ENTRY_ALERT_MESSAGE} />;
   }
 
-  // TODO: Add loading visual element.
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   const ItemComponent =
@@ -49,20 +49,16 @@ export default function Options({ optionType }: OptionProps) {
 
   return (
     <>
-      <div>
+      <div className="options-header">
         {" "}
         <h1>Available {optionType}</h1>
-        <p className="text-white font-thin text-2xl">
-          {formatCurrency(pricePerItem[optionType])} each
-        </p>
+        <p className="price">{formatCurrency(pricePerItem[optionType])} each</p>
         <p>
           {optionType} total: {formatCurrency(totals[optionType])}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {optionItems}
-      </div>
+      <div className="options-content">{optionItems}</div>
     </>
   );
 }

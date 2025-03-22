@@ -51,7 +51,12 @@ export function OrderDetailsProvider({ children }: OrderDetailsProviderProps) {
     const newOptionCounts = { ...optionCounts };
 
     // Modify itemName with newItemCount.
-    newOptionCounts[optionType][itemName] = newItemCount;
+    // If it's 0, remove it.
+    if (newItemCount === 0 && newOptionCounts[optionType]?.[itemName]) {
+      delete newOptionCounts[optionType][itemName];
+    } else if (newItemCount > 0) {
+      newOptionCounts[optionType][itemName] = newItemCount;
+    }
 
     setOptionCounts(newOptionCounts);
   }

@@ -4,6 +4,8 @@ import ErrorAlert from "../../ui/ErrorAlert";
 import { ORDER_ENTRY_ALERT_MESSAGE } from "../../../constants";
 import { useQuery } from "@tanstack/react-query";
 import { fetchOrderNumber } from "../../../queries";
+import Loading from "../../ui/Loading";
+import Button from "../../ui/Button";
 
 export default function OrderConfirmation() {
   const {
@@ -27,17 +29,18 @@ export default function OrderConfirmation() {
   }
 
   if (isLoading) {
-    // TODO: Loading element.
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   if (orderNumber) {
     return (
-      <div>
+      <div className="page-container flex-vert">
         <h1>Thank you!</h1>
         <p>Confirmation number: {orderNumber}</p>
         <p>Nothing will happen now!</p>
-        <button onClick={handleClick}>Create new order</button>
+        <Button onClick={handleClick} disabled={false}>
+          Create new order
+        </Button>
       </div>
     );
   }
