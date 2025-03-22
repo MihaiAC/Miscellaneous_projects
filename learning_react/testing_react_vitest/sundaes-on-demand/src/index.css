@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    bumblebee --default,
+    luxury --prefersdark;
+}
 
 .flex-vert {
   @apply flex flex-col space-y-4;

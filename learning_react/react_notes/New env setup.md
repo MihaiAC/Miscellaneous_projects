@@ -89,35 +89,19 @@ Create tsconfig.test.json:
 ```
 
 
-Install tailwind.
-`npm install -D tailwindcss@3 postcss autoprefixer`
-`npx tailwindcss init -p`
-
-Update tailwind.config.js to include all files.
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-```
-
-Don't do the next two things yet. I think they are meant for tailwindcss@4?
-`npm install --save-dev @tailwindcss/vite` Also, in v4 no longer need to use postcss.
+Install tailwind + DaisyUI (much more easier with tailwind4).
+`npm install -D tailwindcss @tailwindcss/vite daisyui@latest
 
 Add to vite.config.ts
 ```ts
+import tailwindcss from '@tailwindcss/vite'
   plugins: [tailwindcss(),],
 ```
 
 Add tailwind to index.css.
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
 ```
 
 
