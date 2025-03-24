@@ -1,0 +1,6 @@
+query GetUser($userId: Int) {
+  getUser(userId: $userId) {
+    name
+    age
+  }
+}
