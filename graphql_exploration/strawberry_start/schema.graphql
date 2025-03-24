@@ -1,0 +1,16 @@
+type Mutation {
+  addUser(name: String!, age: Int!): User!
+  updateUser(userId: Int!, name: String = null, age: String = null): User!
+  deleteUser(userId: Int!): Boolean!
+}
+
+type Query {
+  getUser(userId: Int!): User
+  getUsers(minAge: Int!): [User!]!
+}
+
+type User {
+  userId: ID!
+  name: String!
+  age: Int!
+}
