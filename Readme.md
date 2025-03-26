@@ -1,4 +1,4 @@
-# Learning Projects
+# Miscellaneous Projects
 
 A repo with code from various tutorials, completed courses, experiments with various tools/frameworks, and some small hobby projects.
 
