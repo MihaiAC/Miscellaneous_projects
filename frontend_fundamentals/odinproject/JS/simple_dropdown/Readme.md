@@ -1,6 +1,6 @@
 # dropdown_project
 
-Simple dropdown menu.
+Simple dropdown menu made with vanilla JS.
 
 ## Building and running on localhost
 

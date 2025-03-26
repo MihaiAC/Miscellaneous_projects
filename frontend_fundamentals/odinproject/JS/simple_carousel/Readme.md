@@ -1,6 +1,6 @@
 # simple_carousel
 
-Empty project.
+Simple carousel made with vanilla JS.
 
 ## Building and running on localhost
 
