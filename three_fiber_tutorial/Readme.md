@@ -1,7 +1,5 @@
 Followed this extremely well-made tutorial: [Crossy Road with React Three Fiber](https://javascriptgametutorials.com/tutorials/react-three-fiber/crossy-road).
 
-## Tweaks & Improvements
-
 Tinkered a bit with the original code, mostly to get some extra React practice:
 
 - Swapped Zustand for Redux.
