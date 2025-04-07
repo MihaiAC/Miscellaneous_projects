@@ -149,3 +149,5 @@ learning_react/react_complete_guide/11-react-behind-the-scenes/.million/store.js
 learning_react/react_complete_guide/22-tanstack-query/backend/data/events.json
 learning_react/next_js_tutorial/part-one-foodies-app/public/.DS_Store
 learning_react/next_js_tutorial/part-one-foodies-app/meals.db
+graphql_exploration/strawberry_fast_api/app/admin_header.txt
+graphql_exploration/strawberry_fast_api/app/user_header.txt
